@@ -170,18 +170,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Versi data master apotek (Update otomatis jika ada master catalog baru)
+const APOTEK_CATALOG_VERSION = 'v2_real_1098_items';
+
 // Load state dari LocalStorage dengan fallback data awal
 function loadDataFromStorage() {
+  const currentCatalogVer = localStorage.getItem('apotek_catalog_version');
   const storedMeds = localStorage.getItem('apotek_medicines');
-  if (storedMeds) {
-    try {
-      medicines = JSON.parse(storedMeds);
-    } catch (e) {
-      medicines = [...INITIAL_MEDICINES];
-    }
-  } else {
+
+  // Jika versi belum diperbarui atau data lama masih dummy (< 100 items), muat 1.098 data master
+  if (!storedMeds || currentCatalogVer !== APOTEK_CATALOG_VERSION) {
     medicines = [...INITIAL_MEDICINES];
     saveMedicinesToStorage();
+    localStorage.setItem('apotek_catalog_version', APOTEK_CATALOG_VERSION);
+    console.log("Master catalog updated to 1,098 medicines.");
+  } else {
+    try {
+      medicines = JSON.parse(storedMeds);
+      if (!Array.isArray(medicines) || medicines.length < 100) {
+        medicines = [...INITIAL_MEDICINES];
+        saveMedicinesToStorage();
+      }
+    } catch (e) {
+      medicines = [...INITIAL_MEDICINES];
+      saveMedicinesToStorage();
+    }
   }
 
   const storedTrx = localStorage.getItem('apotek_transactions');
@@ -1215,7 +1228,10 @@ function renderInventoryTable() {
     return;
   }
 
-  tbody.innerHTML = filtered.map(item => {
+  const displayLimit = window.inventoryDisplayLimit || 100;
+  const itemsToRender = filtered.slice(0, displayLimit);
+
+  let rowsHtml = itemsToRender.map(item => {
     const margin = item.hargaBeli > 0 ? (((item.hargaJual - item.hargaBeli) / item.hargaBeli) * 100).toFixed(0) : 0;
     const isLowStock = item.stok <= (item.stokMinimal || 10);
     const isExpiring = checkIsExpiringSoon(item.tglKadaluarsa);
@@ -1262,6 +1278,46 @@ function renderInventoryTable() {
       </tr>
     `;
   }).join('');
+
+  if (filtered.length > displayLimit) {
+    rowsHtml += `
+      <tr>
+        <td colspan="10" class="p-4 text-center bg-slate-50 border-t border-slate-200">
+          <div class="text-xs text-slate-600 mb-2 font-medium">Menampilkan ${displayLimit} dari ${filtered.length} obat</div>
+          <button type="button" onclick="loadMoreInventory(100)" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer shadow-sm">
+            Tampilkan 100 Obat Berikutnya ▾
+          </button>
+          <button type="button" onclick="loadMoreInventory(${filtered.length})" class="ml-2 px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-semibold transition-colors cursor-pointer">
+            Tampilkan Semua (${filtered.length})
+          </button>
+        </td>
+      </tr>
+    `;
+  }
+
+  tbody.innerHTML = rowsHtml;
+}
+
+function loadMoreInventory(addCount) {
+  window.inventoryDisplayLimit = (window.inventoryDisplayLimit || 100) + addCount;
+  renderInventoryTable();
+}
+
+// Reset dan Muat Ulang Master Data Lengkap (1.098 Obat)
+function reloadMasterExcelData() {
+  if (confirm("Muat ulang seluruh 1.098 master data obat apotek dari data Excel? Stok & harga akan diperbarui sesuai master.")) {
+    medicines = [...INITIAL_MEDICINES];
+    saveMedicinesToStorage();
+    localStorage.setItem('apotek_catalog_version', APOTEK_CATALOG_VERSION);
+    renderInventoryTable();
+    updateInventoryStats();
+    showToast("✅ Berhasil memuat ulang 1.098 obat apotek!", "success");
+    if (typeof uploadAllLocalDataToFirebase === 'function' && isFirebaseConnected) {
+      if (confirm("Ingin menyinkronkan 1.098 obat ini ke Cloud Firebase juga?")) {
+        uploadAllLocalDataToFirebase();
+      }
+    }
+  }
 }
 
 function updateInventoryStats() {
