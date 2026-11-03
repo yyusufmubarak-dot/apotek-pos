@@ -63,6 +63,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-ping"></span>
                 Sistem Siap
               </span>
+              <div id="role-status-container"></div>
               <span id="badge-cloud-status" onclick="switchTab('pengaturan')" class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30 cursor-pointer">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mr-1.5"></span>
                 Mode Lokal (Offline)
@@ -86,7 +87,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
-            Barang Masuk (Faktur PBF)
+            Barang Masuk (Faktur PBF) <span id="tab-pembelian-lock" class="text-amber-400 text-[10px] ml-1" title="Khusus Super Admin">🔒</span>
           </button>
           
           <button onclick="switchTab('stok')" id="tab-btn-stok" class="nav-tab px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-2 transition-all">
@@ -109,7 +110,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
-            Pengaturan
+            Pengaturan <span id="tab-pengaturan-lock" class="text-amber-400 text-[10px] ml-1" title="Khusus Super Admin">🔒</span>
           </button>
         </nav>
 
@@ -669,17 +670,17 @@
             Export Excel (.xlsx)
           </button>
 
-          <label title="Impor File Excel / CSV Apapun Format Kolomnya (Sistem Cerdas Auto-Detect)" class="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
+          <label class="admin-only" title="Impor File Excel / CSV Apapun Format Kolomnya (Sistem Cerdas Auto-Detect)" class="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
             Impor Excel / CSV
             <input type="file" accept=".xlsx,.xls,.csv" onchange="handleSmartExcelImport(event)" class="hidden">
           </label>
 
-          <button onclick="reloadMasterExcelData()" title="Muat Ulang 1.098 Master Data dari Excel" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer">
+          <button onclick="reloadMasterExcelData()" class="admin-only  title="Muat Ulang 1.098 Master Data dari Excel" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer">
             <span>📦</span> Master Excel (1.098)
           </button>
 
-          <button onclick="openAddProductModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors cursor-pointer">
+          <button onclick="openAddProductModal()" class="admin-only  class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             Tambah Obat
           </button>
@@ -1309,6 +1310,21 @@
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Rak / Etalase:</label>
             <input type="text" id="edit-prod-rak" placeholder="Rak A-1" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
+          </div>
+        </div>
+
+        <!-- KIE & Indikasi Medis (Pencegah Medication Error) -->
+        <div class="p-3 bg-teal-50/70 border border-teal-200/80 rounded-xl space-y-2.5">
+          <div class="font-bold text-teal-900 text-xs flex items-center gap-1.5">
+            <span>🩺</span> Informasi KIE & Indikasi Obat (Pencegah Medication Error)
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Indikasi Medis (Kegunaan / Khasiat):</label>
+            <input type="text" id="edit-prod-indikasi" placeholder="Contoh: Pereda Nyeri Kepala, Sakit Gigi & Penurun Demam" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Aturan Pakai & Dosis Farmasi:</label>
+            <input type="text" id="edit-prod-aturan" placeholder="Contoh: 3x sehari 1 tablet sesudah makan" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white">
           </div>
         </div>
 

@@ -90,10 +90,10 @@ function verifyEnteredPIN() {
 
   if (entered === correctPin) {
     failedPinAttempts = 0;
+    const cb = pendingSecureCallback;
+    pendingSecureCallback = null;
     closePinModal();
-    if (typeof pendingSecureCallback === 'function') {
-      const cb = pendingSecureCallback;
-      pendingSecureCallback = null;
+    if (typeof cb === 'function') {
       cb();
     }
   } else {
@@ -174,3 +174,92 @@ function validateMedicineData(item) {
 
   return true;
 }
+
+
+// -------------------------------------------------------------------------
+// 5. ROLE-BASED ACCESS CONTROL (SUPER ADMIN vs KASIR BIASA)
+// -------------------------------------------------------------------------
+let currentRole = localStorage.getItem('apotek_user_role') || 'kasir';
+
+function getCurrentRole() {
+  return currentRole;
+}
+
+function isSuperAdmin() {
+  return currentRole === 'superadmin';
+}
+
+function requestSuperAdminLogin(onSuccess) {
+  requireOwnerPIN('Akses Super Admin (Owner)', () => {
+    currentRole = 'superadmin';
+    localStorage.setItem('apotek_user_role', 'superadmin');
+    updateRoleUI();
+    if (typeof renderInventoryTable === 'function') renderInventoryTable();
+    showToast('⭐ Mode Super Admin Aktif! Semua akses terbuka.', 'success');
+    if (typeof onSuccess === 'function') onSuccess();
+  });
+}
+
+function logoutToKasirRole() {
+  currentRole = 'kasir';
+  localStorage.setItem('apotek_user_role', 'kasir');
+  updateRoleUI();
+  if (typeof switchTab === 'function') switchTab('kasir');
+  if (typeof renderInventoryTable === 'function') renderInventoryTable();
+  showToast('👤 Berhasil beralih ke Mode Kasir Biasa.', 'info');
+}
+
+function updateRoleUI() {
+  const container = document.getElementById('role-status-container');
+  if (container) {
+    if (isSuperAdmin()) {
+      container.innerHTML = `
+        <div class="flex items-center gap-1.5">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">
+            ⭐ Super Admin
+          </span>
+          <button onclick="logoutToKasirRole()" title="Keluar ke Mode Kasir agar staf tidak bisa ubah data" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 transition-all cursor-pointer">
+            🚪 Kunci ke Kasir
+          </button>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="flex items-center gap-1.5">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-700/60 text-slate-300 border border-slate-600">
+            👤 Kasir Biasa
+          </span>
+          <button onclick="requestSuperAdminLogin()" title="Masuk Super Admin untuk ubah harga / stok / laporan" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm flex items-center gap-1 transition-all cursor-pointer">
+            🔑 Super Admin
+          </button>
+        </div>
+      `;
+    }
+  }
+
+  // Update indikator gembok pada tab yang terkunci
+  const tabPembelianLock = document.getElementById('tab-pembelian-lock');
+  if (tabPembelianLock) {
+    tabPembelianLock.classList.toggle('hidden', isSuperAdmin());
+  }
+  const tabPengaturanLock = document.getElementById('tab-pengaturan-lock');
+  if (tabPengaturanLock) {
+    tabPengaturanLock.classList.toggle('hidden', isSuperAdmin());
+  }
+
+  // Sembunyikan elemen kelas admin-only untuk kasir
+  document.querySelectorAll('.admin-only').forEach(el => {
+    if (isSuperAdmin()) {
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  });
+}
+
+// Inisialisasi UI Role saat script dimuat
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    if (typeof updateRoleUI === 'function') updateRoleUI();
+  }, 200);
+});

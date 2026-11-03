@@ -29,7 +29,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Kental & Batuk Berlendir Saluran Napas",
+    "aturanPakai": "3x sehari 1 kapsul sesudah makan"
   },
   {
     "id": "med-3",
@@ -44,7 +46,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-4",
@@ -59,7 +63,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-5",
@@ -74,7 +80,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-6",
@@ -89,7 +97,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-7",
@@ -104,7 +114,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-8",
@@ -119,7 +131,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-06",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-9",
@@ -134,7 +148,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-10",
@@ -149,7 +165,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-11",
@@ -164,7 +182,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-12",
@@ -179,7 +199,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-13",
@@ -194,7 +216,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-14",
@@ -209,7 +233,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-15",
@@ -224,7 +250,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-16",
@@ -239,7 +267,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-17",
@@ -254,7 +284,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-18",
@@ -269,7 +301,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-19",
@@ -284,7 +318,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-20",
@@ -299,7 +335,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-21",
@@ -314,7 +352,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-22",
@@ -329,7 +369,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-23",
@@ -344,7 +386,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-24",
@@ -359,7 +403,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-25",
@@ -374,7 +420,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-26",
@@ -389,7 +437,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-27",
@@ -404,7 +454,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-28",
@@ -419,7 +471,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-29",
@@ -434,7 +488,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-30",
@@ -449,7 +505,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-31",
@@ -464,7 +522,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-32",
@@ -479,7 +539,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-33",
@@ -494,7 +556,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-34",
@@ -509,7 +573,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-35",
@@ -524,7 +590,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Batuk Produktif",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-36",
@@ -539,7 +607,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Batuk Produktif",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-37",
@@ -554,7 +624,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-38",
@@ -569,7 +641,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-39",
@@ -584,7 +658,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-40",
@@ -599,7 +675,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-41",
@@ -614,7 +692,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-42",
@@ -629,7 +709,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-43",
@@ -644,7 +726,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-44",
@@ -659,7 +743,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-45",
@@ -674,7 +760,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-46",
@@ -689,7 +777,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-47",
@@ -704,7 +794,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-48",
@@ -719,7 +811,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-49",
@@ -734,7 +828,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-50",
@@ -749,7 +845,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-51",
@@ -764,7 +862,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-52",
@@ -779,7 +879,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-53",
@@ -794,7 +896,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-54",
@@ -809,7 +913,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-55",
@@ -824,7 +930,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-56",
@@ -839,7 +947,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-57",
@@ -854,7 +964,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-58",
@@ -869,7 +981,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-59",
@@ -884,7 +998,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-60",
@@ -899,7 +1015,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-61",
@@ -914,7 +1032,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-62",
@@ -929,7 +1049,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-63",
@@ -944,7 +1066,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-64",
@@ -959,7 +1083,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-65",
@@ -974,7 +1100,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-13",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-66",
@@ -989,7 +1117,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-21",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-67",
@@ -1004,7 +1134,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-68",
@@ -1019,7 +1151,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-69",
@@ -1034,7 +1168,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-70",
@@ -1049,7 +1185,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-71",
@@ -1064,7 +1202,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-72",
@@ -1079,7 +1219,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-73",
@@ -1094,7 +1236,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-74",
@@ -1109,7 +1253,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-75",
@@ -1124,7 +1270,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-76",
@@ -1139,7 +1287,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-27",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-77",
@@ -1154,7 +1304,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-10",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-78",
@@ -1169,7 +1321,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-79",
@@ -1184,7 +1338,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-80",
@@ -1199,7 +1355,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-81",
@@ -1214,7 +1372,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-82",
@@ -1229,7 +1389,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-83",
@@ -1244,7 +1406,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-84",
@@ -1259,7 +1423,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-85",
@@ -1274,7 +1440,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-17",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-86",
@@ -1289,7 +1457,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-87",
@@ -1304,7 +1474,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-88",
@@ -1319,7 +1491,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-89",
@@ -1334,7 +1508,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-90",
@@ -1349,7 +1525,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-91",
@@ -1364,7 +1542,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-92",
@@ -1379,7 +1559,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-93",
@@ -1394,7 +1576,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-94",
@@ -1409,7 +1593,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-95",
@@ -1424,7 +1610,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-96",
@@ -1439,7 +1627,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-97",
@@ -1454,7 +1644,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-98",
@@ -1469,7 +1661,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-99",
@@ -1484,7 +1678,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-100",
@@ -1499,7 +1695,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-101",
@@ -1514,7 +1712,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-102",
@@ -1529,7 +1729,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-103",
@@ -1544,7 +1746,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-104",
@@ -1559,7 +1763,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-105",
@@ -1574,7 +1780,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-106",
@@ -1589,7 +1797,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-107",
@@ -1604,7 +1814,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-108",
@@ -1619,7 +1831,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-109",
@@ -1634,7 +1848,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-05",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-110",
@@ -1649,7 +1865,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-111",
@@ -1664,7 +1882,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-112",
@@ -1679,7 +1899,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-113",
@@ -1694,7 +1916,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-114",
@@ -1709,7 +1933,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-06",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-115",
@@ -1724,7 +1950,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-116",
@@ -1739,7 +1967,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-117",
@@ -1754,7 +1984,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-118",
@@ -1769,7 +2001,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-119",
@@ -1784,7 +2018,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-120",
@@ -1799,7 +2035,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-121",
@@ -1814,7 +2052,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-122",
@@ -1829,7 +2069,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-123",
@@ -1844,7 +2086,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-124",
@@ -1859,7 +2103,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-125",
@@ -1874,7 +2120,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-126",
@@ -1889,7 +2137,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-127",
@@ -1904,7 +2154,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-128",
@@ -1919,7 +2171,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-129",
@@ -1934,7 +2188,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-130",
@@ -1949,7 +2205,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-131",
@@ -1964,7 +2222,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-132",
@@ -1979,7 +2239,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-133",
@@ -1994,7 +2256,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-30",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-134",
@@ -2009,7 +2273,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-135",
@@ -2024,7 +2290,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-136",
@@ -2039,7 +2307,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-137",
@@ -2054,7 +2324,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-138",
@@ -2069,7 +2341,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-139",
@@ -2084,7 +2358,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-140",
@@ -2099,7 +2375,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-141",
@@ -2114,7 +2392,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-142",
@@ -2129,7 +2409,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-143",
@@ -2144,7 +2426,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-144",
@@ -2159,7 +2443,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-145",
@@ -2174,7 +2460,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-146",
@@ -2189,7 +2477,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-147",
@@ -2204,7 +2494,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-148",
@@ -2219,7 +2511,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-149",
@@ -2234,7 +2528,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-150",
@@ -2249,7 +2545,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-151",
@@ -2264,7 +2562,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-13",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-152",
@@ -2279,7 +2579,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-153",
@@ -2294,7 +2596,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-154",
@@ -2309,7 +2613,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-155",
@@ -2324,7 +2630,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-156",
@@ -2339,7 +2647,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-157",
@@ -2354,7 +2664,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-158",
@@ -2369,7 +2681,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-159",
@@ -2384,7 +2698,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-160",
@@ -2399,7 +2715,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-161",
@@ -2414,7 +2732,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-162",
@@ -2429,7 +2749,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-163",
@@ -2444,7 +2766,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-164",
@@ -2459,7 +2783,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-06",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-165",
@@ -2474,7 +2800,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-166",
@@ -2489,7 +2817,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-167",
@@ -2504,7 +2834,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-168",
@@ -2519,7 +2851,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-169",
@@ -2534,7 +2868,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-170",
@@ -2549,7 +2885,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-171",
@@ -2564,7 +2902,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-172",
@@ -2579,7 +2919,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-173",
@@ -2594,7 +2936,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-174",
@@ -2609,7 +2953,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-175",
@@ -2624,7 +2970,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-176",
@@ -2639,7 +2987,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-177",
@@ -2654,7 +3004,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-178",
@@ -2669,7 +3021,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-179",
@@ -2684,7 +3038,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-180",
@@ -2699,7 +3055,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-181",
@@ -2714,7 +3072,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-182",
@@ -2729,7 +3089,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-183",
@@ -2744,7 +3106,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-184",
@@ -2759,7 +3123,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-185",
@@ -2774,7 +3140,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-186",
@@ -2789,7 +3157,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-187",
@@ -2804,7 +3174,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-188",
@@ -2819,7 +3191,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-189",
@@ -2834,7 +3208,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-190",
@@ -2849,7 +3225,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-191",
@@ -2864,7 +3242,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-192",
@@ -2879,7 +3259,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-193",
@@ -2894,7 +3276,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-194",
@@ -2909,7 +3293,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-195",
@@ -2924,7 +3310,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-196",
@@ -2939,7 +3327,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-197",
@@ -2954,7 +3344,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-198",
@@ -2969,7 +3361,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-inflamasi, Nyeri Sendi, Rematik & Nyeri Gigi",
+    "aturanPakai": "2-3x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-199",
@@ -2984,7 +3378,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-inflamasi, Nyeri Sendi, Rematik & Nyeri Gigi",
+    "aturanPakai": "2-3x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-200",
@@ -2999,7 +3395,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-inflamasi, Nyeri Sendi, Rematik & Nyeri Gigi",
+    "aturanPakai": "2-3x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-201",
@@ -3014,7 +3412,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-202",
@@ -3029,7 +3429,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-203",
@@ -3044,7 +3446,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-204",
@@ -3059,7 +3463,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-205",
@@ -3074,7 +3480,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-206",
@@ -3089,7 +3497,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-207",
@@ -3104,7 +3514,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-208",
@@ -3119,7 +3531,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-209",
@@ -3134,7 +3548,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-210",
@@ -3149,7 +3565,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-211",
@@ -3164,7 +3582,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-212",
@@ -3179,7 +3599,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-213",
@@ -3194,7 +3616,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-214",
@@ -3209,7 +3633,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-215",
@@ -3224,7 +3650,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-216",
@@ -3239,7 +3667,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-217",
@@ -3254,7 +3684,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-218",
@@ -3269,7 +3701,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-219",
@@ -3284,7 +3718,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-220",
@@ -3299,7 +3735,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-221",
@@ -3314,7 +3752,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-222",
@@ -3329,7 +3769,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-223",
@@ -3344,7 +3786,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-224",
@@ -3359,7 +3803,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-225",
@@ -3374,7 +3820,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-226",
@@ -3389,7 +3837,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2030-02-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-227",
@@ -3404,7 +3854,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-228",
@@ -3419,7 +3871,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-229",
@@ -3434,7 +3888,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-230",
@@ -3449,7 +3905,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-23",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-231",
@@ -3464,7 +3922,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kadar Asam Urat & Pencegah Nyeri Sendi Gout",
+    "aturanPakai": "1x sehari sesudah makan siang/malam"
   },
   {
     "id": "med-232",
@@ -3479,7 +3939,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-233",
@@ -3494,7 +3956,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-234",
@@ -3509,7 +3973,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-235",
@@ -3524,7 +3990,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-236",
@@ -3539,7 +4007,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-237",
@@ -3554,7 +4024,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-238",
@@ -3569,7 +4041,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-239",
@@ -3584,7 +4058,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-240",
@@ -3599,7 +4075,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-241",
@@ -3614,7 +4092,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-242",
@@ -3629,7 +4109,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-243",
@@ -3644,7 +4126,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-244",
@@ -3659,7 +4143,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-245",
@@ -3674,7 +4160,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-246",
@@ -3689,7 +4177,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-247",
@@ -3704,7 +4194,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-248",
@@ -3719,7 +4211,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-249",
@@ -3734,7 +4228,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-250",
@@ -3749,7 +4245,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-251",
@@ -3764,7 +4262,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-252",
@@ -3779,7 +4279,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-253",
@@ -3794,7 +4296,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-254",
@@ -3809,7 +4313,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-24",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-255",
@@ -3824,7 +4330,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-256",
@@ -3839,7 +4347,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-257",
@@ -3854,7 +4364,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-258",
@@ -3869,7 +4381,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-259",
@@ -3884,7 +4398,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-05",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-260",
@@ -3899,7 +4415,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-261",
@@ -3914,7 +4432,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-262",
@@ -3929,7 +4449,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-263",
@@ -3944,7 +4466,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-264",
@@ -3959,7 +4483,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-265",
@@ -3974,7 +4500,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-30",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-266",
@@ -3989,7 +4517,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-30",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-267",
@@ -4004,7 +4534,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-268",
@@ -4019,7 +4551,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-269",
@@ -4034,7 +4568,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-270",
@@ -4049,7 +4585,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-271",
@@ -4064,7 +4602,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-272",
@@ -4079,7 +4619,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-273",
@@ -4094,7 +4636,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-274",
@@ -4109,7 +4653,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-275",
@@ -4124,7 +4670,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-276",
@@ -4139,7 +4687,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-277",
@@ -4154,7 +4704,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-27",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-278",
@@ -4169,7 +4721,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-279",
@@ -4184,7 +4738,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-280",
@@ -4199,7 +4755,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-281",
@@ -4214,7 +4772,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-282",
@@ -4229,7 +4789,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-283",
@@ -4244,7 +4806,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-284",
@@ -4259,7 +4823,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-285",
@@ -4274,7 +4840,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-286",
@@ -4289,7 +4857,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2030-02-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-287",
@@ -4304,7 +4874,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-288",
@@ -4319,7 +4891,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-10",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-289",
@@ -4334,7 +4908,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-290",
@@ -4349,7 +4925,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-291",
@@ -4364,7 +4942,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-292",
@@ -4379,7 +4959,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-inflamasi, Nyeri Sendi, Rematik & Nyeri Gigi",
+    "aturanPakai": "2-3x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-293",
@@ -4394,7 +4976,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-294",
@@ -4409,7 +4993,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-295",
@@ -4424,7 +5010,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-296",
@@ -4439,7 +5027,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-mual, Muntah & Gangguan Pengosongan Lambung",
+    "aturanPakai": "3x sehari 15-30 menit sebelum makan"
   },
   {
     "id": "med-297",
@@ -4454,7 +5044,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-mual, Muntah & Gangguan Pengosongan Lambung",
+    "aturanPakai": "3x sehari 15-30 menit sebelum makan"
   },
   {
     "id": "med-298",
@@ -4469,7 +5061,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-mual, Muntah & Gangguan Pengosongan Lambung",
+    "aturanPakai": "3x sehari 15-30 menit sebelum makan"
   },
   {
     "id": "med-299",
@@ -4484,7 +5078,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-mual, Muntah & Gangguan Pengosongan Lambung",
+    "aturanPakai": "3x sehari 15-30 menit sebelum makan"
   },
   {
     "id": "med-300",
@@ -4499,7 +5095,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-03",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-301",
@@ -4514,7 +5112,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-302",
@@ -4529,7 +5129,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-303",
@@ -4544,7 +5146,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-304",
@@ -4559,7 +5163,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-04",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-305",
@@ -4574,7 +5180,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-306",
@@ -4589,7 +5197,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-307",
@@ -4604,7 +5214,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-308",
@@ -4619,7 +5231,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-309",
@@ -4634,7 +5248,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-310",
@@ -4649,7 +5265,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-311",
@@ -4664,7 +5282,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-312",
@@ -4679,7 +5299,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-21",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-313",
@@ -4694,7 +5316,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-314",
@@ -4709,7 +5333,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-315",
@@ -4724,7 +5350,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-316",
@@ -4739,7 +5367,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-317",
@@ -4754,7 +5384,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-318",
@@ -4769,7 +5401,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-319",
@@ -4784,7 +5418,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-320",
@@ -4799,7 +5435,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-321",
@@ -4814,7 +5452,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-322",
@@ -4829,7 +5469,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-323",
@@ -4844,7 +5486,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-324",
@@ -4859,7 +5503,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-10",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-325",
@@ -4874,7 +5520,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-326",
@@ -4889,7 +5537,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-327",
@@ -4904,7 +5554,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-328",
@@ -4919,7 +5571,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-329",
@@ -4934,7 +5588,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-330",
@@ -4949,7 +5605,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-331",
@@ -4964,7 +5622,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-21",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-332",
@@ -4979,7 +5639,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-333",
@@ -4994,7 +5656,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-334",
@@ -5009,7 +5673,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-335",
@@ -5024,7 +5690,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-336",
@@ -5039,7 +5707,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-337",
@@ -5054,7 +5724,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-338",
@@ -5069,7 +5741,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-339",
@@ -5084,7 +5758,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-340",
@@ -5099,7 +5775,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-21",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-341",
@@ -5114,7 +5792,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-342",
@@ -5129,7 +5809,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-343",
@@ -5144,7 +5826,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-344",
@@ -5159,7 +5843,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-345",
@@ -5174,7 +5860,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-346",
@@ -5189,7 +5877,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-04",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-347",
@@ -5204,7 +5894,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-348",
@@ -5219,7 +5911,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-349",
@@ -5234,7 +5928,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-350",
@@ -5249,7 +5945,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-351",
@@ -5264,7 +5962,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-352",
@@ -5279,7 +5979,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-353",
@@ -5294,7 +5996,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-354",
@@ -5309,7 +6013,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-355",
@@ -5324,7 +6030,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-356",
@@ -5339,7 +6047,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-357",
@@ -5354,7 +6064,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-358",
@@ -5369,7 +6081,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-359",
@@ -5384,7 +6098,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-360",
@@ -5399,7 +6115,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-361",
@@ -5414,7 +6132,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-362",
@@ -5429,7 +6149,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-363",
@@ -5444,7 +6166,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-364",
@@ -5459,7 +6183,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-365",
@@ -5474,7 +6200,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-366",
@@ -5489,7 +6217,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-367",
@@ -5504,7 +6234,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-368",
@@ -5519,7 +6251,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-369",
@@ -5534,7 +6268,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-370",
@@ -5549,7 +6285,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-371",
@@ -5564,7 +6302,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-372",
@@ -5579,7 +6319,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-373",
@@ -5594,7 +6336,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-374",
@@ -5609,7 +6353,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-375",
@@ -5624,7 +6370,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-14",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-376",
@@ -5639,7 +6387,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-377",
@@ -5654,7 +6404,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-04",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-378",
@@ -5669,7 +6421,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-379",
@@ -5684,7 +6438,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antidiabetes / Penurun Kadar Gula Darah",
+    "aturanPakai": "Diminum bersamaan atau segera setelah makan"
   },
   {
     "id": "med-380",
@@ -5699,7 +6455,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antidiabetes / Penurun Kadar Gula Darah",
+    "aturanPakai": "Diminum bersamaan atau segera setelah makan"
   },
   {
     "id": "med-381",
@@ -5714,7 +6472,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antidiabetes / Penurun Kadar Gula Darah",
+    "aturanPakai": "Diminum bersamaan atau segera setelah makan"
   },
   {
     "id": "med-382",
@@ -5729,7 +6489,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-383",
@@ -5744,7 +6506,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-384",
@@ -5759,7 +6523,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-385",
@@ -5774,7 +6540,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-386",
@@ -5789,7 +6557,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-387",
@@ -5804,7 +6574,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-388",
@@ -5819,7 +6591,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-389",
@@ -5834,7 +6608,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-390",
@@ -5849,7 +6625,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-391",
@@ -5864,7 +6642,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-392",
@@ -5879,7 +6659,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-393",
@@ -5894,7 +6676,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-394",
@@ -5909,7 +6693,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-395",
@@ -5924,7 +6710,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-396",
@@ -5939,7 +6727,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-397",
@@ -5954,7 +6744,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-398",
@@ -5969,7 +6761,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-399",
@@ -5984,7 +6778,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-400",
@@ -5999,7 +6795,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-401",
@@ -6014,7 +6812,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-402",
@@ -6029,7 +6829,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-403",
@@ -6044,7 +6846,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-404",
@@ -6059,7 +6863,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-405",
@@ -6074,7 +6880,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-406",
@@ -6089,7 +6897,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-407",
@@ -6104,7 +6914,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-408",
@@ -6119,7 +6931,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-409",
@@ -6134,7 +6948,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-410",
@@ -6149,7 +6965,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-411",
@@ -6164,7 +6982,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-412",
@@ -6179,7 +6999,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-413",
@@ -6194,7 +7016,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-414",
@@ -6209,7 +7033,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-415",
@@ -6224,7 +7050,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-416",
@@ -6239,7 +7067,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-417",
@@ -6254,7 +7084,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-418",
@@ -6269,7 +7101,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-419",
@@ -6284,7 +7118,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-21",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-420",
@@ -6299,7 +7135,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-421",
@@ -6314,7 +7152,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-422",
@@ -6329,7 +7169,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-423",
@@ -6344,7 +7186,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-424",
@@ -6359,7 +7203,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-425",
@@ -6374,7 +7220,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-426",
@@ -6389,7 +7237,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-427",
@@ -6404,7 +7254,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-428",
@@ -6419,7 +7271,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-429",
@@ -6434,7 +7288,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-430",
@@ -6449,7 +7305,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-431",
@@ -6464,7 +7322,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-432",
@@ -6479,7 +7339,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-433",
@@ -6494,7 +7356,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-434",
@@ -6509,7 +7373,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-435",
@@ -6524,7 +7390,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-436",
@@ -6539,7 +7407,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-437",
@@ -6554,7 +7424,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-438",
@@ -6569,7 +7441,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-439",
@@ -6584,7 +7458,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-440",
@@ -6599,7 +7475,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-441",
@@ -6614,7 +7492,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-442",
@@ -6629,7 +7509,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-443",
@@ -6644,7 +7526,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-444",
@@ -6659,7 +7543,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-445",
@@ -6674,7 +7560,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-446",
@@ -6689,7 +7577,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-447",
@@ -6704,7 +7594,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-448",
@@ -6719,7 +7611,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-449",
@@ -6734,7 +7628,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-450",
@@ -6749,7 +7645,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-451",
@@ -6764,7 +7662,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-452",
@@ -6779,7 +7679,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-453",
@@ -6794,7 +7696,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-454",
@@ -6809,7 +7713,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-455",
@@ -6824,7 +7730,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-456",
@@ -6839,7 +7747,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-457",
@@ -6854,7 +7764,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-458",
@@ -6869,7 +7781,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-459",
@@ -6884,7 +7798,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-460",
@@ -6899,7 +7815,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-461",
@@ -6914,7 +7832,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-462",
@@ -6929,7 +7849,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-463",
@@ -6944,7 +7866,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-464",
@@ -6959,7 +7883,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-465",
@@ -6974,7 +7900,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-466",
@@ -6989,7 +7917,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-30",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-467",
@@ -7004,7 +7934,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-468",
@@ -7019,7 +7951,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-469",
@@ -7034,7 +7968,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-470",
@@ -7049,7 +7985,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-471",
@@ -7064,7 +8002,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-472",
@@ -7079,7 +8019,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-473",
@@ -7094,7 +8036,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-474",
@@ -7109,7 +8053,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-475",
@@ -7124,7 +8070,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-05",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-476",
@@ -7139,7 +8087,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-477",
@@ -7154,7 +8104,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-478",
@@ -7169,7 +8121,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-479",
@@ -7184,7 +8138,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-480",
@@ -7199,7 +8155,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-481",
@@ -7214,7 +8172,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-482",
@@ -7229,7 +8189,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-483",
@@ -7244,7 +8206,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-05",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-484",
@@ -7259,7 +8223,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-485",
@@ -7274,7 +8240,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-08",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-486",
@@ -7289,7 +8257,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-30",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-487",
@@ -7304,7 +8274,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-488",
@@ -7319,7 +8291,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-489",
@@ -7334,7 +8308,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-490",
@@ -7349,7 +8325,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-491",
@@ -7364,7 +8342,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-08",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-492",
@@ -7379,7 +8359,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-493",
@@ -7394,7 +8376,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-494",
@@ -7409,7 +8393,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-495",
@@ -7424,7 +8410,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-496",
@@ -7439,7 +8427,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-497",
@@ -7454,7 +8444,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-498",
@@ -7469,7 +8461,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-499",
@@ -7484,7 +8478,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-500",
@@ -7499,7 +8495,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-501",
@@ -7514,7 +8512,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-502",
@@ -7529,7 +8529,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-503",
@@ -7544,7 +8546,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-504",
@@ -7559,7 +8563,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-505",
@@ -7574,7 +8580,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-506",
@@ -7589,7 +8597,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-inflamasi, Nyeri Sendi, Rematik & Nyeri Gigi",
+    "aturanPakai": "2-3x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-507",
@@ -7604,7 +8614,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-508",
@@ -7619,7 +8631,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-509",
@@ -7634,7 +8648,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-510",
@@ -7649,7 +8665,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-511",
@@ -7664,7 +8682,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-512",
@@ -7679,7 +8699,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-513",
@@ -7694,7 +8716,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-514",
@@ -7709,7 +8733,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-515",
@@ -7724,7 +8750,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-516",
@@ -7739,7 +8767,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-517",
@@ -7754,7 +8784,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-518",
@@ -7769,7 +8801,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-519",
@@ -7784,7 +8818,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-520",
@@ -7799,7 +8835,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-521",
@@ -7814,7 +8852,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-522",
@@ -7829,7 +8869,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-523",
@@ -7844,7 +8886,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-524",
@@ -7859,7 +8903,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-10",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-525",
@@ -7874,7 +8920,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-526",
@@ -7889,7 +8937,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-527",
@@ -7904,7 +8954,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-528",
@@ -7919,7 +8971,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-529",
@@ -7934,7 +8988,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-30",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-530",
@@ -7949,7 +9005,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-531",
@@ -7964,7 +9022,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-532",
@@ -7979,7 +9039,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-533",
@@ -7994,7 +9056,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-534",
@@ -8009,7 +9073,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-535",
@@ -8024,7 +9090,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-536",
@@ -8039,7 +9107,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-537",
@@ -8054,7 +9124,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-538",
@@ -8069,7 +9141,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-539",
@@ -8084,7 +9158,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-540",
@@ -8099,7 +9175,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-541",
@@ -8114,7 +9192,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-542",
@@ -8129,7 +9209,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-543",
@@ -8144,7 +9226,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-544",
@@ -8159,7 +9243,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-545",
@@ -8174,7 +9260,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-546",
@@ -8189,7 +9277,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-547",
@@ -8204,7 +9294,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-21",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-548",
@@ -8219,7 +9311,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-549",
@@ -8234,7 +9328,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-550",
@@ -8249,7 +9345,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-551",
@@ -8264,7 +9362,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-552",
@@ -8279,7 +9379,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-553",
@@ -8294,7 +9396,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-554",
@@ -8309,7 +9413,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-555",
@@ -8324,7 +9430,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-556",
@@ -8339,7 +9447,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-557",
@@ -8354,7 +9464,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-558",
@@ -8369,7 +9481,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-559",
@@ -8384,7 +9498,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-560",
@@ -8399,7 +9515,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-561",
@@ -8414,7 +9532,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-562",
@@ -8429,7 +9549,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-563",
@@ -8444,7 +9566,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-09",
     "produsen": "Kimia Farma",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-564",
@@ -8459,7 +9583,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-565",
@@ -8474,7 +9600,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-566",
@@ -8489,7 +9617,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-567",
@@ -8504,7 +9634,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-31",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-568",
@@ -8519,7 +9651,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-569",
@@ -8534,7 +9668,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-570",
@@ -8549,7 +9685,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penekan Asam Lambung Berlebih, GERD & Tukak Lambung",
+    "aturanPakai": "1-2x sehari, 30 menit sebelum sarapan/makan"
   },
   {
     "id": "med-571",
@@ -8564,7 +9702,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-03",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-572",
@@ -8579,7 +9719,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-03",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-573",
@@ -8594,7 +9736,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-03",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-574",
@@ -8609,7 +9753,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-03",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-575",
@@ -8624,7 +9770,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-576",
@@ -8639,7 +9787,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-577",
@@ -8654,7 +9804,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-578",
@@ -8669,7 +9821,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-579",
@@ -8684,7 +9838,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-03",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-580",
@@ -8699,7 +9855,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-581",
@@ -8714,7 +9872,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-582",
@@ -8729,7 +9889,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-583",
@@ -8744,7 +9906,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-584",
@@ -8759,7 +9923,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-585",
@@ -8774,7 +9940,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-586",
@@ -8789,7 +9957,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-587",
@@ -8804,7 +9974,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-588",
@@ -8819,7 +9991,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-589",
@@ -8834,7 +10008,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-590",
@@ -8849,7 +10025,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-591",
@@ -8864,7 +10042,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-592",
@@ -8879,7 +10059,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-593",
@@ -8894,7 +10076,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-594",
@@ -8909,7 +10093,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-595",
@@ -8924,7 +10110,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-596",
@@ -8939,7 +10127,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-597",
@@ -8954,7 +10144,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-598",
@@ -8969,7 +10161,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-599",
@@ -8984,7 +10178,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-600",
@@ -8999,7 +10195,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-601",
@@ -9014,7 +10212,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-01-31",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-602",
@@ -9029,7 +10229,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-603",
@@ -9044,7 +10246,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-604",
@@ -9059,7 +10263,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-605",
@@ -9074,7 +10280,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-606",
@@ -9089,7 +10297,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-607",
@@ -9104,7 +10314,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-608",
@@ -9119,7 +10331,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-609",
@@ -9134,7 +10348,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-10",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-610",
@@ -9149,7 +10365,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-03",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-611",
@@ -9164,7 +10382,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-612",
@@ -9179,7 +10399,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-613",
@@ -9194,7 +10416,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-614",
@@ -9209,7 +10433,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-615",
@@ -9224,7 +10450,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-616",
@@ -9239,7 +10467,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-617",
@@ -9254,7 +10484,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-618",
@@ -9269,7 +10501,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-619",
@@ -9284,7 +10518,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-620",
@@ -9299,7 +10535,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-621",
@@ -9314,7 +10552,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-622",
@@ -9329,7 +10569,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-623",
@@ -9344,7 +10586,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-624",
@@ -9359,7 +10603,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-625",
@@ -9374,7 +10620,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-626",
@@ -9389,7 +10637,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-627",
@@ -9404,7 +10654,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-628",
@@ -9419,7 +10671,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-14",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-629",
@@ -9434,7 +10688,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-630",
@@ -9449,7 +10705,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-01",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-631",
@@ -9464,7 +10722,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "Kimia Farma",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-632",
@@ -9479,7 +10739,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "Kimia Farma",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-633",
@@ -9494,7 +10756,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Penta Valent",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-634",
@@ -9509,7 +10773,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Penta Valent",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-635",
@@ -9524,7 +10790,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-636",
@@ -9539,7 +10807,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-637",
@@ -9554,7 +10824,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-638",
@@ -9569,7 +10841,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-639",
@@ -9584,7 +10858,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-640",
@@ -9599,7 +10875,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-641",
@@ -9614,7 +10892,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-642",
@@ -9629,7 +10909,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-643",
@@ -9644,7 +10926,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-644",
@@ -9659,7 +10943,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-645",
@@ -9674,7 +10960,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-646",
@@ -9689,7 +10977,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Berat, Sakit Gigi & Nyeri Haid",
+    "aturanPakai": "3x sehari 1 tablet, wajib sesudah makan (cegah maag)"
   },
   {
     "id": "med-647",
@@ -9704,7 +10994,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Berat, Sakit Gigi & Nyeri Haid",
+    "aturanPakai": "3x sehari 1 tablet, wajib sesudah makan (cegah maag)"
   },
   {
     "id": "med-648",
@@ -9719,7 +11011,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-649",
@@ -9734,7 +11028,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-650",
@@ -9749,7 +11045,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-651",
@@ -9764,7 +11062,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-652",
@@ -9779,7 +11079,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-653",
@@ -9794,7 +11096,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antidiabetes / Penurun Kadar Gula Darah",
+    "aturanPakai": "Diminum bersamaan atau segera setelah makan"
   },
   {
     "id": "med-654",
@@ -9809,7 +11113,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-655",
@@ -9824,7 +11130,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-656",
@@ -9839,7 +11147,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-657",
@@ -9854,7 +11164,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-658",
@@ -9869,7 +11181,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-659",
@@ -9884,7 +11198,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-17",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-660",
@@ -9899,7 +11215,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-661",
@@ -9914,7 +11232,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-662",
@@ -9929,7 +11249,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-663",
@@ -9944,7 +11266,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-664",
@@ -9959,7 +11283,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-665",
@@ -9974,7 +11300,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-666",
@@ -9989,7 +11317,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-667",
@@ -10004,7 +11334,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-668",
@@ -10019,7 +11351,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-669",
@@ -10034,7 +11368,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-670",
@@ -10049,7 +11385,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-671",
@@ -10064,7 +11402,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-672",
@@ -10079,7 +11419,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-673",
@@ -10094,7 +11436,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-674",
@@ -10109,7 +11453,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-675",
@@ -10124,7 +11470,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-676",
@@ -10139,7 +11487,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-677",
@@ -10154,7 +11504,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-678",
@@ -10169,7 +11521,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-679",
@@ -10184,7 +11538,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-680",
@@ -10199,7 +11555,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-681",
@@ -10214,7 +11572,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-682",
@@ -10229,7 +11589,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-683",
@@ -10244,7 +11606,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-02",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-684",
@@ -10259,7 +11623,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-685",
@@ -10274,7 +11640,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-10",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-686",
@@ -10289,7 +11657,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-687",
@@ -10304,7 +11674,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-688",
@@ -10319,7 +11691,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-27",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-689",
@@ -10334,7 +11708,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-690",
@@ -10349,7 +11725,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-691",
@@ -10364,7 +11742,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-692",
@@ -10379,7 +11759,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-693",
@@ -10394,7 +11776,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-694",
@@ -10409,7 +11793,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-695",
@@ -10424,7 +11810,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-696",
@@ -10439,7 +11827,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-697",
@@ -10454,7 +11844,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-698",
@@ -10469,7 +11861,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Batuk Produktif",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-699",
@@ -10484,7 +11878,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Batuk Produktif",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-700",
@@ -10499,7 +11895,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Batuk Produktif",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-701",
@@ -10514,7 +11912,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pengencer Dahak Batuk Produktif",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-702",
@@ -10529,7 +11929,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-703",
@@ -10544,7 +11946,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-704",
@@ -10559,7 +11963,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-705",
@@ -10574,7 +11980,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-706",
@@ -10589,7 +11997,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-707",
@@ -10604,7 +12014,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-708",
@@ -10619,7 +12031,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-709",
@@ -10634,7 +12048,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-05",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-710",
@@ -10649,7 +12065,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-711",
@@ -10664,7 +12082,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-10",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-712",
@@ -10679,7 +12099,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-713",
@@ -10694,7 +12116,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-05",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-714",
@@ -10709,7 +12133,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-715",
@@ -10724,7 +12150,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-716",
@@ -10739,7 +12167,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-717",
@@ -10754,7 +12184,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-718",
@@ -10769,7 +12201,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-719",
@@ -10784,7 +12218,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-720",
@@ -10799,7 +12235,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-721",
@@ -10814,7 +12252,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-722",
@@ -10829,7 +12269,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-723",
@@ -10844,7 +12286,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Tri Sapta Jaya",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-724",
@@ -10859,7 +12303,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-21",
     "produsen": "Distributor 004",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-725",
@@ -10874,7 +12320,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-726",
@@ -10889,7 +12337,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-727",
@@ -10904,7 +12354,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-728",
@@ -10919,7 +12371,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-729",
@@ -10934,7 +12388,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-730",
@@ -10949,7 +12405,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-28",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-731",
@@ -10964,7 +12422,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-732",
@@ -10979,7 +12439,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-733",
@@ -10994,7 +12456,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-734",
@@ -11009,7 +12473,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-735",
@@ -11024,7 +12490,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-736",
@@ -11039,7 +12507,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-737",
@@ -11054,7 +12524,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-738",
@@ -11069,7 +12541,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-739",
@@ -11084,7 +12558,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-740",
@@ -11099,7 +12575,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-741",
@@ -11114,7 +12592,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-742",
@@ -11129,7 +12609,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-743",
@@ -11144,7 +12626,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-744",
@@ -11159,7 +12643,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-745",
@@ -11174,7 +12660,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-06",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-746",
@@ -11189,7 +12677,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-747",
@@ -11204,7 +12694,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-748",
@@ -11219,7 +12711,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-749",
@@ -11234,7 +12728,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-750",
@@ -11249,7 +12745,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-751",
@@ -11264,7 +12762,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-752",
@@ -11279,7 +12779,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Tri Sapta Jaya",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-diare / Menghentikan Buang Air Besar Berlebih",
+    "aturanPakai": "2 tablet setelah diare pertama, 1 tablet tiap BAB berikutnya"
   },
   {
     "id": "med-753",
@@ -11294,7 +12796,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-754",
@@ -11309,7 +12813,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-755",
@@ -11324,7 +12830,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihipertensi / Penurun Tekanan Darah Tinggi",
+    "aturanPakai": "1x sehari pagi/malam di jam yang sama sesudah makan"
   },
   {
     "id": "med-756",
@@ -11339,7 +12847,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-757",
@@ -11354,7 +12864,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-758",
@@ -11369,7 +12881,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-759",
@@ -11384,7 +12898,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-760",
@@ -11399,7 +12915,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-761",
@@ -11414,7 +12932,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-762",
@@ -11429,7 +12949,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-763",
@@ -11444,7 +12966,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-764",
@@ -11459,7 +12983,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-765",
@@ -11474,7 +13000,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-766",
@@ -11489,7 +13017,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-767",
@@ -11504,7 +13034,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-768",
@@ -11519,7 +13051,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-769",
@@ -11534,7 +13068,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-770",
@@ -11549,7 +13085,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-771",
@@ -11564,7 +13102,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-772",
@@ -11579,7 +13119,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-773",
@@ -11594,7 +13136,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-774",
@@ -11609,7 +13153,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-775",
@@ -11624,7 +13170,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-776",
@@ -11639,7 +13187,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-777",
@@ -11654,7 +13204,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-778",
@@ -11669,7 +13221,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-779",
@@ -11684,7 +13238,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penekan Asam Lambung Berlebih, GERD & Tukak Lambung",
+    "aturanPakai": "1-2x sehari, 30 menit sebelum sarapan/makan"
   },
   {
     "id": "med-780",
@@ -11699,7 +13255,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-781",
@@ -11714,7 +13272,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-782",
@@ -11729,7 +13289,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-783",
@@ -11744,7 +13306,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-784",
@@ -11759,7 +13323,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-785",
@@ -11774,7 +13340,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-786",
@@ -11789,7 +13357,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-787",
@@ -11804,7 +13374,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-788",
@@ -11819,7 +13391,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-789",
@@ -11834,7 +13408,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-790",
@@ -11849,7 +13425,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-791",
@@ -11864,7 +13442,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-792",
@@ -11879,7 +13459,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-793",
@@ -11894,7 +13476,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-04",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-794",
@@ -11909,7 +13493,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-795",
@@ -11924,7 +13510,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-796",
@@ -11939,7 +13527,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-797",
@@ -11954,7 +13544,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-798",
@@ -11969,7 +13561,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-799",
@@ -11984,7 +13578,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-800",
@@ -11999,7 +13595,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-801",
@@ -12014,7 +13612,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-802",
@@ -12029,7 +13629,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-803",
@@ -12044,7 +13646,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-804",
@@ -12059,7 +13663,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-805",
@@ -12074,7 +13680,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-806",
@@ -12089,7 +13697,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-807",
@@ -12104,7 +13714,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-808",
@@ -12119,7 +13731,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Antar Mitra Sembada",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-809",
@@ -12134,7 +13748,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-810",
@@ -12149,7 +13765,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-811",
@@ -12164,7 +13782,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-812",
@@ -12179,7 +13799,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "Distributor 004",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-813",
@@ -12194,7 +13816,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-814",
@@ -12209,7 +13833,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-815",
@@ -12224,7 +13850,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-816",
@@ -12239,7 +13867,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-817",
@@ -12254,7 +13884,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-818",
@@ -12269,7 +13901,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "Kimia Farma",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-819",
@@ -12284,7 +13918,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-27",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-820",
@@ -12299,7 +13935,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-821",
@@ -12314,7 +13952,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-822",
@@ -12329,7 +13969,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-823",
@@ -12344,7 +13986,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-824",
@@ -12359,7 +14003,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-04",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-825",
@@ -12374,7 +14020,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-826",
@@ -12389,7 +14037,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-827",
@@ -12404,7 +14054,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-828",
@@ -12419,7 +14071,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-829",
@@ -12434,7 +14088,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-830",
@@ -12449,7 +14105,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-831",
@@ -12464,7 +14122,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-832",
@@ -12479,7 +14139,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-833",
@@ -12494,7 +14156,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-21",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-834",
@@ -12509,7 +14173,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-835",
@@ -12524,7 +14190,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-836",
@@ -12539,7 +14207,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-837",
@@ -12554,7 +14224,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-838",
@@ -12569,7 +14241,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-839",
@@ -12584,7 +14258,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-13",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-840",
@@ -12599,7 +14275,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-841",
@@ -12614,7 +14292,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-842",
@@ -12629,7 +14309,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-843",
@@ -12644,7 +14326,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-844",
@@ -12659,7 +14343,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antihistamin / Alergi, Gatal Kulit, Bersin & Biduran",
+    "aturanPakai": "1x sehari malam sebelum tidur (bisa bikin kantuk)"
   },
   {
     "id": "med-845",
@@ -12674,7 +14360,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-846",
@@ -12689,7 +14377,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-847",
@@ -12704,7 +14394,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-848",
@@ -12719,7 +14411,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-849",
@@ -12734,7 +14428,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-850",
@@ -12749,7 +14445,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-851",
@@ -12764,7 +14462,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-852",
@@ -12779,7 +14479,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Berat, Sakit Gigi & Nyeri Haid",
+    "aturanPakai": "3x sehari 1 tablet, wajib sesudah makan (cegah maag)"
   },
   {
     "id": "med-853",
@@ -12794,7 +14496,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-854",
@@ -12809,7 +14513,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-13",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-855",
@@ -12824,7 +14530,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-856",
@@ -12839,7 +14547,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-857",
@@ -12854,7 +14564,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-858",
@@ -12869,7 +14581,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-859",
@@ -12884,7 +14598,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-860",
@@ -12899,7 +14615,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-861",
@@ -12914,7 +14632,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-862",
@@ -12929,7 +14649,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-863",
@@ -12944,7 +14666,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-864",
@@ -12959,7 +14683,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-865",
@@ -12974,7 +14700,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-866",
@@ -12989,7 +14717,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-867",
@@ -13004,7 +14734,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-868",
@@ -13019,7 +14751,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-869",
@@ -13034,7 +14768,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-870",
@@ -13049,7 +14785,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-871",
@@ -13064,7 +14802,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-872",
@@ -13079,7 +14819,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-873",
@@ -13094,7 +14836,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Sakit Maag, Asam Lambung Naik & Perut Kembung",
+    "aturanPakai": "3-4x sehari, 1 jam sebelum makan (dikunyah)"
   },
   {
     "id": "med-874",
@@ -13109,7 +14853,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-875",
@@ -13124,7 +14870,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-876",
@@ -13139,7 +14887,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-877",
@@ -13154,7 +14904,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-878",
@@ -13169,7 +14921,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-879",
@@ -13184,7 +14938,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-880",
@@ -13199,7 +14955,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-881",
@@ -13214,7 +14972,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-882",
@@ -13229,7 +14989,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Anti-radang & Sakit Kepala/Gigi",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-883",
@@ -13244,7 +15006,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-884",
@@ -13259,7 +15023,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-885",
@@ -13274,7 +15040,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-886",
@@ -13289,7 +15057,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-04",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-887",
@@ -13304,7 +15074,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-888",
@@ -13319,7 +15091,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-889",
@@ -13334,7 +15108,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-890",
@@ -13349,7 +15125,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-891",
@@ -13364,7 +15142,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penekan Asam Lambung Berlebih, GERD & Tukak Lambung",
+    "aturanPakai": "1-2x sehari, 30 menit sebelum sarapan/makan"
   },
   {
     "id": "med-892",
@@ -13379,7 +15159,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penekan Asam Lambung Berlebih, GERD & Tukak Lambung",
+    "aturanPakai": "1-2x sehari, 30 menit sebelum sarapan/makan"
   },
   {
     "id": "med-893",
@@ -13394,7 +15176,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-12",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-894",
@@ -13409,7 +15193,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-895",
@@ -13424,7 +15210,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-896",
@@ -13439,7 +15227,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-13",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Anti-inflamasi, Nyeri Sendi, Rematik & Nyeri Gigi",
+    "aturanPakai": "2-3x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-897",
@@ -13454,7 +15244,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-898",
@@ -13469,7 +15261,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2029-06-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-899",
@@ -13484,7 +15278,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-900",
@@ -13499,7 +15295,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-901",
@@ -13514,7 +15312,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-902",
@@ -13529,7 +15329,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-903",
@@ -13544,7 +15346,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Tri Sapta Jaya",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-904",
@@ -13559,7 +15363,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-905",
@@ -13574,7 +15380,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antiseptik Pembersih Luka & Pencegah Infeksi",
+    "aturanPakai": "Gunakan kapas steril pada area luka"
   },
   {
     "id": "med-906",
@@ -13589,7 +15397,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-907",
@@ -13604,7 +15414,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-908",
@@ -13619,7 +15431,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-909",
@@ -13634,7 +15448,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-910",
@@ -13649,7 +15465,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Tetes Mata: Redakan Mata Merah, Kering & Iritasi",
+    "aturanPakai": "Teteskan 1-2 tetes pada mata yang sakit 3-4x sehari"
   },
   {
     "id": "med-911",
@@ -13664,7 +15482,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-912",
@@ -13679,7 +15499,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Pegal Linu, Nyeri Otot, Masuk Angin & Keseleo",
+    "aturanPakai": "Oleskan dan pijat lembut pada bagian yang pegal/sakit"
   },
   {
     "id": "med-913",
@@ -13694,7 +15516,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-914",
@@ -13709,7 +15533,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-915",
@@ -13724,7 +15550,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-916",
@@ -13739,7 +15567,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-917",
@@ -13754,7 +15584,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-918",
@@ -13769,7 +15601,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-919",
@@ -13784,7 +15618,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-920",
@@ -13799,7 +15635,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-921",
@@ -13814,7 +15652,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-922",
@@ -13829,7 +15669,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-923",
@@ -13844,7 +15686,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-924",
@@ -13859,7 +15703,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-925",
@@ -13874,7 +15720,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-01",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-926",
@@ -13889,7 +15737,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-927",
@@ -13904,7 +15754,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-928",
@@ -13919,7 +15771,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-929",
@@ -13934,7 +15788,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-930",
@@ -13949,7 +15805,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Dos Ni Roha",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-931",
@@ -13964,7 +15822,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-932",
@@ -13979,7 +15839,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-933",
@@ -13994,7 +15856,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-934",
@@ -14009,7 +15873,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-935",
@@ -14024,7 +15890,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-936",
@@ -14039,7 +15907,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-937",
@@ -14054,7 +15924,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-938",
@@ -14069,7 +15941,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-939",
@@ -14084,7 +15958,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-940",
@@ -14099,7 +15975,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-941",
@@ -14114,7 +15992,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-28",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-942",
@@ -14129,7 +16009,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-943",
@@ -14144,7 +16026,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-21",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-944",
@@ -14159,7 +16043,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-945",
@@ -14174,7 +16060,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-946",
@@ -14189,7 +16077,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-26",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-947",
@@ -14204,7 +16094,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-04",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-948",
@@ -14219,7 +16111,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-949",
@@ -14234,7 +16128,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-20",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-950",
@@ -14249,7 +16145,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-951",
@@ -14264,7 +16162,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-16",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-952",
@@ -14279,7 +16179,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-953",
@@ -14294,7 +16196,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-954",
@@ -14309,7 +16213,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-955",
@@ -14324,7 +16230,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-956",
@@ -14339,7 +16247,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-957",
@@ -14354,7 +16264,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-18",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-958",
@@ -14369,7 +16281,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-959",
@@ -14384,7 +16298,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-960",
@@ -14399,7 +16315,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-961",
@@ -14414,7 +16332,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-31",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-962",
@@ -14429,7 +16349,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-963",
@@ -14444,7 +16366,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-30",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-964",
@@ -14459,7 +16383,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-965",
@@ -14474,7 +16400,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-27",
     "produsen": "PBF Rajawali Nusindo",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-966",
@@ -14489,7 +16417,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-967",
@@ -14504,7 +16434,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-968",
@@ -14519,7 +16451,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Penurun Kolesterol Jahat (LDL) & Trigliserida",
+    "aturanPakai": "1x sehari malam hari sebelum tidur"
   },
   {
     "id": "med-969",
@@ -14534,7 +16468,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-970",
@@ -14549,7 +16485,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-971",
@@ -14564,7 +16502,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-972",
@@ -14579,7 +16519,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-973",
@@ -14594,7 +16536,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-974",
@@ -14609,7 +16553,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-975",
@@ -14624,7 +16570,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-976",
@@ -14639,7 +16587,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-977",
@@ -14654,7 +16604,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pelapis Dinding Lambung & Radang Tukak Lambung",
+    "aturanPakai": "3-4x sehari saat perut kosong (sebelum makan)"
   },
   {
     "id": "med-978",
@@ -14669,7 +16621,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pelapis Dinding Lambung & Radang Tukak Lambung",
+    "aturanPakai": "3-4x sehari saat perut kosong (sebelum makan)"
   },
   {
     "id": "med-979",
@@ -14684,7 +16638,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-980",
@@ -14699,7 +16655,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-981",
@@ -14714,7 +16672,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "Kimia Farma",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-982",
@@ -14729,7 +16689,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-09",
     "produsen": "Kimia Farma",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-983",
@@ -14744,7 +16706,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-31",
     "produsen": "PBF Kimia Farma",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-984",
@@ -14759,7 +16723,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-20",
     "produsen": "SUPLEMEN",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-985",
@@ -14774,7 +16740,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-986",
@@ -14789,7 +16757,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-28",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-987",
@@ -14804,7 +16774,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-988",
@@ -14819,7 +16791,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-28",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-989",
@@ -14834,7 +16808,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-27",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-990",
@@ -14849,7 +16825,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-991",
@@ -14864,7 +16842,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-992",
@@ -14879,7 +16859,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-993",
@@ -14894,7 +16876,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-994",
@@ -14909,7 +16893,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-995",
@@ -14924,7 +16910,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-30",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Nutrisi & Alat Kesehatan Medis",
+    "aturanPakai": "Gunakan sesuai petunjuk kemasan"
   },
   {
     "id": "med-996",
@@ -14939,7 +16927,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-997",
@@ -14954,7 +16944,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-998",
@@ -14969,7 +16961,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-999",
@@ -14984,7 +16978,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1000",
@@ -14999,7 +16995,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1001",
@@ -15014,7 +17012,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1002",
@@ -15029,7 +17029,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1003",
@@ -15044,7 +17046,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1004",
@@ -15059,7 +17063,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-03",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1005",
@@ -15074,7 +17080,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1006",
@@ -15089,7 +17097,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1007",
@@ -15104,7 +17114,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-07",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Demam, Sakit Kepala & Penurun Panas",
+    "aturanPakai": "1 tablet/sendok takar, 3-4x sehari sesudah makan"
   },
   {
     "id": "med-1008",
@@ -15119,7 +17131,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-15",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1009",
@@ -15134,7 +17148,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-19",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1010",
@@ -15149,7 +17165,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1011",
@@ -15164,7 +17182,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-21",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1012",
@@ -15179,7 +17199,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1013",
@@ -15194,7 +17216,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-16",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1014",
@@ -15209,7 +17233,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1015",
@@ -15224,7 +17250,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-1016",
@@ -15239,7 +17267,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-07",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1017",
@@ -15254,7 +17284,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-30",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1018",
@@ -15269,7 +17301,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-1019",
@@ -15284,7 +17318,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-1020",
@@ -15299,7 +17335,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-1021",
@@ -15314,7 +17352,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-1022",
@@ -15329,7 +17369,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-1023",
@@ -15344,7 +17386,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-1024",
@@ -15359,7 +17403,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Herbal Masuk Angin, Mual, Kembung & Capek-capek",
+    "aturanPakai": "1-2 sachet saat badan meriang atau sesudah makan"
   },
   {
     "id": "med-1025",
@@ -15374,7 +17420,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1026",
@@ -15389,7 +17437,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1027",
@@ -15404,7 +17454,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1028",
@@ -15419,7 +17471,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2027-12-31",
     "produsen": "Kimia Farma",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1029",
@@ -15434,7 +17488,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-20",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1030",
@@ -15449,7 +17505,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1031",
@@ -15464,7 +17522,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1032",
@@ -15479,7 +17539,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1033",
@@ -15494,7 +17556,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1034",
@@ -15509,7 +17573,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-16",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1035",
@@ -15524,7 +17590,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-01",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1036",
@@ -15539,7 +17607,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1037",
@@ -15554,7 +17624,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1038",
@@ -15569,7 +17641,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1039",
@@ -15584,7 +17658,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-19",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1040",
@@ -15599,7 +17675,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1041",
@@ -15614,7 +17692,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Bina San Prima",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1042",
@@ -15629,7 +17709,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1043",
@@ -15644,7 +17726,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-1044",
@@ -15659,7 +17743,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-10",
     "produsen": "PBF Enseval",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-1045",
@@ -15674,7 +17760,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pencahar / Mengatasi Sembelit & Susah Buang Air Besar",
+    "aturanPakai": "Malam hari sebelum tidur atau sesuai kebutuhan"
   },
   {
     "id": "med-1046",
@@ -15689,7 +17777,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1047",
@@ -15704,7 +17794,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-11-02",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1048",
@@ -15719,7 +17811,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-21",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1049",
@@ -15734,7 +17828,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-23",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1050",
@@ -15749,7 +17845,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1051",
@@ -15764,7 +17862,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1052",
@@ -15779,7 +17879,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1053",
@@ -15794,7 +17896,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1054",
@@ -15809,7 +17913,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-20",
     "produsen": "PBF Enseval",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1055",
@@ -15824,7 +17930,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1056",
@@ -15839,7 +17947,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1057",
@@ -15854,7 +17964,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1058",
@@ -15869,7 +17981,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1059",
@@ -15884,7 +17998,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-10",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1060",
@@ -15899,7 +18015,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1061",
@@ -15914,7 +18032,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1062",
@@ -15929,7 +18049,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1063",
@@ -15944,7 +18066,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-03",
     "produsen": "PBF Millenium",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1064",
@@ -15959,7 +18083,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-26",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1065",
@@ -15974,7 +18100,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1066",
@@ -15989,7 +18117,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1067",
@@ -16004,7 +18134,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1068",
@@ -16019,7 +18151,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1069",
@@ -16034,7 +18168,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-09",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1070",
@@ -16049,7 +18185,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-02",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1071",
@@ -16064,7 +18202,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1072",
@@ -16079,7 +18219,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-11",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1073",
@@ -16094,7 +18236,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-19",
     "produsen": "PBF Enseval",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1074",
@@ -16109,7 +18253,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1075",
@@ -16124,7 +18270,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-29",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1076",
@@ -16139,7 +18287,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-29",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1077",
@@ -16154,7 +18304,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-31",
     "produsen": "PBF Mensa Binasukses",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1078",
@@ -16169,7 +18321,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-28",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1079",
@@ -16184,7 +18338,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1080",
@@ -16199,7 +18355,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-1081",
@@ -16214,7 +18372,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-1082",
@@ -16229,7 +18389,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-1083",
@@ -16244,7 +18406,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-1084",
@@ -16259,7 +18423,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-1085",
@@ -16274,7 +18440,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-11",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Suplemen Penambah Stamina & Daya Tahan Tubuh",
+    "aturanPakai": "1x sehari pagi hari sesudah makan"
   },
   {
     "id": "med-1086",
@@ -16289,7 +18457,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-13",
     "produsen": "PBF Enseval",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Pereda Nyeri Sendi Kronis, Asam Urat Akut & Rematik",
+    "aturanPakai": "1x sehari 1 tablet sesudah makan"
   },
   {
     "id": "med-1087",
@@ -16304,7 +18474,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1088",
@@ -16319,7 +18491,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-22",
     "produsen": "PBF Enseval",
     "rak": "Rak A-08",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1089",
@@ -16334,7 +18508,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-09",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Batuk, Pilek, Hidung Tersumbat & Bersin-bersin",
+    "aturanPakai": "3x sehari sesudah makan"
   },
   {
     "id": "med-1090",
@@ -16349,7 +18525,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-15",
     "produsen": "PBF Millenium",
     "rak": "Rak A-10",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Luar Kulit: Infeksi Jamur, Bakteri, Luka Bakar & Gatal",
+    "aturanPakai": "Oleskan tipis 2-3x sehari pada area kulit yang bersih"
   },
   {
     "id": "med-1091",
@@ -16364,7 +18542,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-08-18",
     "produsen": "PBF Millenium",
     "rak": "Rak A-11",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1092",
@@ -16379,7 +18559,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-05",
     "produsen": "PBF Millenium",
     "rak": "Rak A-12",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1093",
@@ -16394,7 +18576,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-22",
     "produsen": "PBF Millenium",
     "rak": "Rak A-01",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1094",
@@ -16409,7 +18593,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-05-25",
     "produsen": "PBF Millenium",
     "rak": "Rak A-02",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Antibiotik Pembunuh Bakteri (Wajib Dihabiskan)",
+    "aturanPakai": "Per 8 atau 12 jam tepat waktu, wajib habis agar tak kebal"
   },
   {
     "id": "med-1095",
@@ -16424,7 +18610,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-10-08",
     "produsen": "PBF Millenium",
     "rak": "Rak A-03",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1096",
@@ -16439,7 +18627,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-04-24",
     "produsen": "PBF Enseval",
     "rak": "Rak A-04",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1097",
@@ -16454,7 +18644,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-09-10",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-05",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1098",
@@ -16469,7 +18661,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-06-25",
     "produsen": "PBF Parit Padang Global",
     "rak": "Rak A-06",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   },
   {
     "id": "med-1099",
@@ -16484,7 +18678,9 @@ const INITIAL_MEDICINES = [
     "tglKadaluarsa": "2028-07-21",
     "produsen": "PBF Anugrah Argon Medica",
     "rak": "Rak A-07",
-    "createdAt": "2026-01-01T00:00:00Z"
+    "createdAt": "2026-01-01T00:00:00Z",
+    "indikasi": "Obat Farmasi / Keluhan Medis Terkait",
+    "aturanPakai": "Gunakan sesuai anjuran pakai / petunjuk dokter"
   }
 ];
 

@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Versi data master apotek (Update otomatis jika ada master catalog baru)
-const APOTEK_CATALOG_VERSION = 'v2_real_1098_items';
+const APOTEK_CATALOG_VERSION = 'v3_indications_rbac';
 
 // Load state dari LocalStorage dengan fallback data awal
 function loadDataFromStorage() {
@@ -289,6 +289,14 @@ function formatDateIndo(dateStr) {
 // NAVIGASI TAB
 // =========================================================================
 function switchTab(tabId) {
+  // Proteksi Hak Akses: Tab Barang Masuk & Pengaturan khusus Super Admin
+  if ((tabId === 'pembelian' || tabId === 'pengaturan') && typeof currentRole !== 'undefined' && currentRole !== 'superadmin') {
+    requestSuperAdminLogin(() => {
+      switchTab(tabId);
+    });
+    return;
+  }
+
   activeTab = tabId;
 
   // Update button active state
@@ -740,7 +748,9 @@ function addProductToCart(product) {
       qty: 1,
       subtotal: product.hargaJual,
       stok: product.stok,
-      tglKadaluarsa: product.tglKadaluarsa
+      tglKadaluarsa: product.tglKadaluarsa,
+      indikasi: product.indikasi || '',
+      aturanPakai: product.aturanPakai || ''
     });
   }
 
@@ -824,6 +834,18 @@ function renderCart() {
               <span>•</span>
               <span class="${isStockWarning ? 'text-rose-600 font-bold' : 'text-slate-500'}">Sisa Stok: ${item.stok}</span>
             </div>
+            ${item.indikasi ? `
+            <div class="mt-1.5 flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                🩺 <b>Indikasi:</b> ${escapeHtml(item.indikasi)}
+              </span>
+              ${item.aturanPakai ? `
+              <span class="inline-flex items-center gap-1 text-[10px] font-medium text-sky-900 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-200">
+                📋 <b>Aturan:</b> ${escapeHtml(item.aturanPakai)}
+              </span>
+              ` : ''}
+            </div>
+            ` : ''}
           </div>
 
           <!-- Qty Stepper Controls -->
@@ -1141,7 +1163,8 @@ function handleSearchKasir(query) {
   const matched = medicines.filter(m => 
     m.nama.toLowerCase().includes(q) || 
     m.barcode.includes(q) ||
-    (m.produsen && m.produsen.toLowerCase().includes(q))
+    (m.produsen && m.produsen.toLowerCase().includes(q)) ||
+    (m.indikasi && m.indikasi.toLowerCase().includes(q))
   ).slice(0, 6);
 
   if (matched.length === 0) {
@@ -1155,14 +1178,15 @@ function handleSearchKasir(query) {
   }
 
   resultsBox.innerHTML = matched.map(m => `
-    <div class="p-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors" onclick="selectKasirSearchResult('${m.id}')">
-      <div>
-        <div class="font-bold text-slate-800 text-xs">${m.nama}</div>
+    <div class="p-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors border-b border-slate-100 last:border-b-0" onclick="selectKasirSearchResult('${m.id}')">
+      <div class="flex-1 min-w-0 pr-2">
+        <div class="font-bold text-slate-800 text-xs">${escapeHtml(m.nama)}</div>
         <div class="text-[10px] text-slate-500 font-mono">${m.barcode} • Sisa: ${m.stok} ${m.satuan}</div>
+        ${m.indikasi ? `<div class="text-[10px] text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200 mt-1 inline-block font-sans">🩺 <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
       </div>
-      <div class="text-right">
+      <div class="text-right flex-shrink-0">
         <div class="font-bold text-emerald-700 text-xs">${formatRupiah(m.hargaJual)}</div>
-        <span class="text-[9px] px-1 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">+ Tambah</span>
+        <span class="text-[9px] px-1.5 py-0.5 bg-emerald-100 text-emerald-800 rounded font-semibold">+ Tambah</span>
       </div>
     </div>
   `).join('');
@@ -1204,7 +1228,8 @@ function renderInventoryTable() {
       m.nama.toLowerCase().includes(q) || 
       m.barcode.toLowerCase().includes(q) || 
       (m.produsen && m.produsen.toLowerCase().includes(q)) || 
-      (m.rak && m.rak.toLowerCase().includes(q));
+      (m.rak && m.rak.toLowerCase().includes(q)) ||
+      (m.indikasi && m.indikasi.toLowerCase().includes(q));
 
     // Kategori
     const matchCat = selectedCat === 'ALL' || m.kategori === selectedCat;
@@ -1248,6 +1273,7 @@ function renderInventoryTable() {
         <td class="p-3">
           <div class="font-bold text-slate-900">${item.nama}</div>
           <div class="text-[10px] text-slate-400">${item.produsen || 'Generic'}</div>
+          ${item.indikasi ? `<div class="text-[10px] text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200 mt-1 inline-block font-sans">🩺 ${escapeHtml(item.indikasi)}</div>` : ''}
         </td>
         <td class="p-3">
           <div class="flex flex-col gap-1 items-start">
@@ -1274,11 +1300,18 @@ function renderInventoryTable() {
         </td>
         <td class="p-3 text-[11px] text-slate-500">${item.rak || '-'}</td>
         <td class="p-3 text-center">
+          ${(typeof currentRole !== 'undefined' && currentRole === 'superadmin') ? `
           <div class="flex items-center justify-center gap-1.5">
             <button onclick="quickAddStock('${item.id}', 10)" title="Tambah 10 stok" class="p-1 text-emerald-600 hover:bg-emerald-50 rounded text-xs font-bold">+10</button>
             <button onclick="openEditProductModal('${item.id}')" title="Edit" class="p-1 text-blue-600 hover:bg-blue-50 rounded text-xs font-bold">Edit</button>
             <button onclick="deleteProduct('${item.id}')" title="Hapus" class="p-1 text-rose-600 hover:bg-rose-50 rounded text-xs font-bold">Hapus</button>
           </div>
+          ` : `
+          <span class="text-[11px] text-slate-400 italic flex items-center justify-center gap-1 font-sans" title="Akses edit/hapus dikunci untuk Kasir">
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            Terkunci
+          </span>
+          `}
         </td>
       </tr>
     `;
@@ -1408,6 +1441,10 @@ function handleUpdatePinSubmit(e) {
 
 // Modal Form Tambah / Edit Obat Umum
 function openAddProductModal() {
+  if (typeof currentRole !== 'undefined' && currentRole !== 'superadmin') {
+    requestSuperAdminLogin(() => openAddProductModal());
+    return;
+  }
   document.getElementById('form-manage-product').reset();
   document.getElementById('edit-prod-id').value = '';
   document.getElementById('product-form-title').textContent = 'Tambah Obat Baru Manual';
@@ -1422,6 +1459,10 @@ function openAddProductModal() {
 }
 
 function openEditProductModal(id) {
+  if (typeof currentRole !== 'undefined' && currentRole !== 'superadmin') {
+    requestSuperAdminLogin(() => openEditProductModal(id));
+    return;
+  }
   const med = medicines.find(m => m.id === id);
   if (!med) return;
 
@@ -1437,6 +1478,10 @@ function openEditProductModal(id) {
   document.getElementById('edit-prod-ed').value = med.tglKadaluarsa || '';
   document.getElementById('edit-prod-produsen').value = med.produsen || '';
   document.getElementById('edit-prod-rak').value = med.rak || '';
+  const inputIndikasi = document.getElementById('edit-prod-indikasi');
+  if (inputIndikasi) inputIndikasi.value = med.indikasi || '';
+  const inputAturan = document.getElementById('edit-prod-aturan');
+  if (inputAturan) inputAturan.value = med.aturanPakai || '';
 
   document.getElementById('modal-product-form').classList.remove('hidden');
 }
@@ -1459,6 +1504,10 @@ function handleSaveProductForm(e) {
   const tglKadaluarsa = document.getElementById('edit-prod-ed').value;
   const produsen = document.getElementById('edit-prod-produsen').value.trim();
   const rak = document.getElementById('edit-prod-rak').value.trim();
+  const inputIndikasi = document.getElementById('edit-prod-indikasi');
+  const indikasi = inputIndikasi ? inputIndikasi.value.trim() : '';
+  const inputAturan = document.getElementById('edit-prod-aturan');
+  const aturanPakai = inputAturan ? inputAturan.value.trim() : '';
 
   if (!barcode || !nama || hargaJual <= 0) {
     showToast("Barcode, nama obat dan harga jual wajib diisi!", "danger");
@@ -1479,6 +1528,8 @@ function handleSaveProductForm(e) {
       med.tglKadaluarsa = tglKadaluarsa;
       med.produsen = produsen;
       med.rak = rak;
+      med.indikasi = indikasi;
+      med.aturanPakai = aturanPakai;
       showToast(`Data '${nama}' berhasil diperbarui!`, "success");
     }
   } else {
@@ -1496,6 +1547,8 @@ function handleSaveProductForm(e) {
       tglKadaluarsa,
       produsen,
       rak,
+      indikasi,
+      aturanPakai,
       createdAt: new Date().toISOString()
     };
     medicines.push(newMed);
