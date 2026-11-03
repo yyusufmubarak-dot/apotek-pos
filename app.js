@@ -819,28 +819,28 @@ function renderCart() {
       const isStockWarning = item.qty > item.stok;
 
       return `
-        <div class="py-3 flex items-center justify-between gap-3 text-xs">
-          <!-- Info Obat -->
+        <div class="p-3 mb-2 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 shadow-xs flex items-center justify-between gap-3 text-xs transition-all">
+          <!-- Info Obat & KIE Indikasi -->
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="font-bold text-slate-900 truncate">${item.nama}</span>
+              <span class="font-bold text-slate-900 text-xs sm:text-sm tracking-tight truncate">${item.nama}</span>
               ${categoryBadge}
-              ${isExpiringSoon ? '<span class="text-[10px] text-rose-600 font-bold bg-rose-50 px-1 py-0.2 rounded border border-rose-200">Dekat ED</span>' : ''}
+              ${isExpiringSoon ? '<span class="text-[10px] text-rose-700 font-bold bg-rose-50 px-2 py-0.5 rounded-md border border-rose-200">Dekat ED</span>' : ''}
             </div>
-            <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-2">
-              <span class="font-mono text-slate-400">${item.barcode}</span>
+            <div class="text-[11px] text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+              <span class="font-mono text-slate-400 tabular-nums">${item.barcode}</span>
               <span>•</span>
-              <span class="text-emerald-700 font-semibold">${formatRupiah(item.hargaJual)} / ${item.satuan}</span>
+              <span class="text-emerald-700 font-semibold font-mono tabular-nums">${formatRupiah(item.hargaJual)} / ${item.satuan}</span>
               <span>•</span>
-              <span class="${isStockWarning ? 'text-rose-600 font-bold' : 'text-slate-500'}">Sisa Stok: ${item.stok}</span>
+              <span class="${isStockWarning ? 'text-rose-600 font-bold' : 'text-slate-500'} tabular-nums">Sisa Stok: ${item.stok}</span>
             </div>
             ${item.indikasi ? `
-            <div class="mt-1.5 flex flex-wrap items-center gap-1.5">
-              <span class="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+            <div class="mt-2 flex flex-wrap items-center gap-1.5">
+              <span class="pill-indikasi">
                 🩺 <b>Indikasi:</b> ${escapeHtml(item.indikasi)}
               </span>
               ${item.aturanPakai ? `
-              <span class="inline-flex items-center gap-1 text-[10px] font-medium text-sky-900 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-200">
+              <span class="pill-aturan">
                 📋 <b>Aturan:</b> ${escapeHtml(item.aturanPakai)}
               </span>
               ` : ''}
@@ -848,17 +848,19 @@ function renderCart() {
             ` : ''}
           </div>
 
-          <!-- Qty Stepper Controls -->
-          <div class="flex items-center gap-1">
-            <button onclick="updateCartQty(${idx}, ${item.qty - 1})" class="w-6 h-6 rounded bg-slate-200 hover:bg-slate-300 font-bold text-slate-700 flex items-center justify-center">-</button>
-            <input type="number" min="1" value="${item.qty}" onchange="updateCartQty(${idx}, this.value)" class="w-12 py-0.5 text-center font-bold border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-emerald-500">
-            <button onclick="updateCartQty(${idx}, ${item.qty + 1})" class="w-6 h-6 rounded bg-slate-200 hover:bg-slate-300 font-bold text-slate-700 flex items-center justify-center">+</button>
+          <!-- Qty Stepper Controls (Tactile Anti-Slop Buttons) -->
+          <div class="flex items-center gap-1.5 flex-shrink-0">
+            <button type="button" onclick="updateCartQty(${idx}, ${item.qty - 1})" class="btn-stepper" title="Kurangi qty">-</button>
+            <input type="number" min="1" value="${item.qty}" onchange="updateCartQty(${idx}, this.value)" class="w-12 py-1 text-center font-bold text-slate-800 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono tabular-nums">
+            <button type="button" onclick="updateCartQty(${idx}, ${item.qty + 1})" class="btn-stepper" title="Tambah qty">+</button>
           </div>
 
           <!-- Subtotal & Hapus -->
-          <div class="text-right min-w-[90px]">
-            <div class="font-bold text-slate-900 text-sm">${formatRupiah(item.subtotal)}</div>
-            <button onclick="removeFromCart(${idx})" class="text-[10px] text-rose-500 hover:text-rose-700 font-medium">Hapus</button>
+          <div class="text-right min-w-[95px] flex-shrink-0">
+            <div class="font-black text-slate-900 text-sm font-mono tabular-nums tracking-tight">${formatRupiah(item.subtotal)}</div>
+            <button onclick="removeFromCart(${idx})" class="text-[11px] text-rose-500 hover:text-rose-700 font-semibold mt-0.5 transition-colors cursor-pointer">
+              ✕ Hapus
+            </button>
           </div>
         </div>
       `;
@@ -1178,15 +1180,24 @@ function handleSearchKasir(query) {
   }
 
   resultsBox.innerHTML = matched.map(m => `
-    <div class="p-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors border-b border-slate-100 last:border-b-0" onclick="selectKasirSearchResult('${m.id}')">
-      <div class="flex-1 min-w-0 pr-2">
-        <div class="font-bold text-slate-800 text-xs">${escapeHtml(m.nama)}</div>
-        <div class="text-[10px] text-slate-500 font-mono">${m.barcode} • Sisa: ${m.stok} ${m.satuan}</div>
-        ${m.indikasi ? `<div class="text-[10px] text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200 mt-1 inline-block font-sans">🩺 <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
+    <div class="p-3 hover:bg-emerald-50/70 cursor-pointer flex items-center justify-between transition-all border-b border-slate-100 last:border-b-0 group" onclick="selectKasirSearchResult('${m.id}')">
+      <div class="flex-1 min-w-0 pr-3">
+        <div class="font-bold text-slate-900 text-xs group-hover:text-emerald-700 transition-colors">${escapeHtml(m.nama)}</div>
+        <div class="text-[10px] text-slate-500 font-mono mt-0.5 flex items-center gap-2">
+          <span class="tabular-nums">${m.barcode}</span>
+          <span>•</span>
+          <span class="px-1.5 py-0.2 rounded font-sans font-semibold ${m.stok <= 5 ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-700'}">
+            Sisa: ${m.stok} ${m.satuan}
+          </span>
+          ${m.produsen ? `<span class="text-slate-400 font-sans">• ${escapeHtml(m.produsen)}</span>` : ''}
+        </div>
+        ${m.indikasi ? `<div class="pill-indikasi mt-1.5">🩺 <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
       </div>
       <div class="text-right flex-shrink-0">
-        <div class="font-bold text-emerald-700 text-xs">${formatRupiah(m.hargaJual)}</div>
-        <span class="text-[9px] px-1.5 py-0.5 bg-emerald-100 text-emerald-800 rounded font-semibold">+ Tambah</span>
+        <div class="font-black text-emerald-700 text-xs font-mono tabular-nums tracking-tight">${formatRupiah(m.hargaJual)}</div>
+        <span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 mt-1 bg-emerald-600 text-white rounded-md font-bold shadow-xs group-hover:bg-emerald-700 transition-all">
+          + Tambah
+        </span>
       </div>
     </div>
   `).join('');
@@ -1268,12 +1279,12 @@ function renderInventoryTable() {
     const categoryBadge = getCategoryBadgeHTML(item.kategori);
 
     return `
-      <tr class="hover:bg-slate-50 transition-colors">
-        <td class="p-3 font-mono font-bold text-slate-800 text-[11px]">${item.barcode}</td>
+      <tr class="table-row-hover border-b border-slate-100 transition-colors">
+        <td class="p-3 font-mono font-bold text-slate-700 text-xs tabular-nums">${item.barcode}</td>
         <td class="p-3">
           <div class="font-bold text-slate-900">${item.nama}</div>
-          <div class="text-[10px] text-slate-400">${item.produsen || 'Generic'}</div>
-          ${item.indikasi ? `<div class="text-[10px] text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200 mt-1 inline-block font-sans">🩺 ${escapeHtml(item.indikasi)}</div>` : ''}
+          <div class="text-[10px] text-slate-400 font-medium">${item.produsen || 'Generic'}</div>
+          ${item.indikasi ? `<div class="pill-indikasi mt-1 font-sans">🩺 ${escapeHtml(item.indikasi)}</div>` : ''}
         </td>
         <td class="p-3">
           <div class="flex flex-col gap-1 items-start">
@@ -1281,30 +1292,32 @@ function renderInventoryTable() {
             <span class="text-[11px] text-slate-500 font-medium">${item.satuan}</span>
           </div>
         </td>
-        <td class="p-3 text-right text-slate-600 font-medium">${formatRupiah(item.hargaBeli)}</td>
-        <td class="p-3 text-right font-bold text-emerald-700">${formatRupiah(item.hargaJual)}</td>
+        <td class="p-3 text-right text-slate-600 font-mono tabular-nums font-medium">${formatRupiah(item.hargaBeli)}</td>
+        <td class="p-3 text-right font-bold text-emerald-700 font-mono tabular-nums">${formatRupiah(item.hargaJual)}</td>
         <td class="p-3 text-center">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold ${margin >= 20 ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-700'}">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold tabular-nums border ${margin >= 20 ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-slate-50 text-slate-700 border-slate-200'}">
             +${margin}%
           </span>
         </td>
         <td class="p-3 text-center">
-          <span class="px-2 py-0.5 rounded-full text-xs font-bold ${isLowStock ? 'bg-rose-100 text-rose-700 animate-pulse' : 'bg-slate-100 text-slate-800'}">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold tabular-nums border ${isLowStock ? 'bg-rose-100 text-rose-700 border-rose-200 animate-pulse' : 'bg-slate-100 text-slate-800 border-slate-200'}">
             ${item.stok}
           </span>
         </td>
         <td class="p-3">
-          <div class="text-xs ${isExpiring ? 'text-rose-600 font-bold flex items-center gap-1' : 'text-slate-600'}">
+          <div class="text-xs tabular-nums ${isExpiring ? 'text-rose-600 font-bold flex items-center gap-1' : 'text-slate-600'}">
             ${isExpiring ? '⚠️ ' : ''}${formatDateIndo(item.tglKadaluarsa)}
           </div>
         </td>
-        <td class="p-3 text-[11px] text-slate-500">${item.rak || '-'}</td>
+        <td class="p-3">
+          <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-50 border border-slate-200 text-slate-600">${item.rak || '-'}</span>
+        </td>
         <td class="p-3 text-center">
           ${(typeof currentRole !== 'undefined' && currentRole === 'superadmin') ? `
-          <div class="flex items-center justify-center gap-1.5">
-            <button onclick="quickAddStock('${item.id}', 10)" title="Tambah 10 stok" class="p-1 text-emerald-600 hover:bg-emerald-50 rounded text-xs font-bold">+10</button>
-            <button onclick="openEditProductModal('${item.id}')" title="Edit" class="p-1 text-blue-600 hover:bg-blue-50 rounded text-xs font-bold">Edit</button>
-            <button onclick="deleteProduct('${item.id}')" title="Hapus" class="p-1 text-rose-600 hover:bg-rose-50 rounded text-xs font-bold">Hapus</button>
+          <div class="flex items-center justify-center gap-1">
+            <button onclick="quickAddStock('${item.id}', 10)" title="Tambah 10 stok" class="px-2 py-0.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-md text-xs font-bold border border-emerald-200 transition-colors cursor-pointer">+10</button>
+            <button onclick="openEditProductModal('${item.id}')" title="Edit" class="px-2 py-0.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md text-xs font-bold border border-blue-200 transition-colors cursor-pointer">Edit</button>
+            <button onclick="deleteProduct('${item.id}')" title="Hapus" class="px-2 py-0.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-md text-xs font-bold border border-rose-200 transition-colors cursor-pointer">Hapus</button>
           </div>
           ` : `
           <span class="text-[11px] text-slate-400 italic flex items-center justify-center gap-1 font-sans" title="Akses edit/hapus dikunci untuk Kasir">
@@ -1951,3 +1964,22 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 300);
   }, 3200);
 }
+
+
+// Keyboard Shortcut Ctrl+K / '/' untuk langsung fokus pencarian kasir
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    if (activeTab !== 'kasir') switchTab('kasir');
+    const searchInput = document.getElementById('input-search-kasir');
+    if (searchInput) {
+      searchInput.focus();
+      searchInput.select();
+    }
+  } else if (e.key === 'Escape') {
+    const resultsBox = document.getElementById('search-kasir-results');
+    if (resultsBox) resultsBox.classList.add('hidden');
+    closePinModal();
+    closeProductFormModal();
+  }
+});

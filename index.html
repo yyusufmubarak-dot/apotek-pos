@@ -253,11 +253,11 @@
               <!-- Quick Search Obat Manual (Pencarian nama obat jika barcode hilang) -->
               <div class="relative pt-1">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="text-xs font-semibold text-slate-600">Atau Cari Nama Obat:</span>
-                  <span class="text-[11px] text-slate-400">Bila barcode rusak</span>
+                  <div class="flex items-center gap-1.5"><span class="text-xs font-bold text-slate-700">Cari Cepat Obat:</span><kbd class="kbd-chip">Ctrl + K</kbd></div>
+                  <span class="text-[11px] text-slate-400">Cari nama, keluhan / barcode</span>
                 </div>
                 <div class="relative">
-                  <input type="text" id="input-search-kasir" oninput="handleSearchKasir(this.value)" placeholder="Ketik nama: Panadol, Promag, Amoxicillin..." class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <input type="text" id="input-search-kasir" oninput="handleSearchKasir(this.value)" placeholder="Cari nama obat atau keluhan pasien (contoh: Panadol, Demam, Batuk, Maag)..." class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
                   <div id="search-kasir-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-56 overflow-y-auto z-20 divide-y divide-slate-100">
                     <!-- Dynamic search items -->
                   </div>
@@ -600,35 +600,42 @@
     </div>
     <div id="tab-content-stok" class="tab-pane hidden space-y-4">
       
-      <!-- Top Stats Bar -->
+      <!-- Top Stats Bar (Tremor / Financial-Grade KPI Metrics) -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div class="kpi-card kpi-card-blue flex items-center justify-between">
           <div>
-            <div class="text-xs text-slate-500 font-medium">Total Jenis Obat</div>
-            <div id="stat-total-items" class="text-xl font-bold text-slate-800">0</div>
+            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Total Jenis Obat</div>
+            <div id="stat-total-items" class="text-2xl font-black text-slate-900 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-blue-600 font-medium mt-0.5">Katalog Master Farmasi</div>
           </div>
-          <span class="p-2.5 rounded-xl bg-blue-50 text-blue-600">💊</span>
+          <span class="p-3 rounded-2xl bg-blue-50 text-blue-600 text-lg shadow-xs">💊</span>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+
+        <div class="kpi-card kpi-card-emerald flex items-center justify-between">
           <div>
-            <div class="text-xs text-slate-500 font-medium">Total Stok Unit</div>
-            <div id="stat-total-stock" class="text-xl font-bold text-slate-800">0</div>
+            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Total Stok Unit</div>
+            <div id="stat-total-stock" class="text-2xl font-black text-slate-900 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-emerald-600 font-medium mt-0.5">Tersedia di Apotek</div>
           </div>
-          <span class="p-2.5 rounded-xl bg-emerald-50 text-emerald-600">📦</span>
+          <span class="p-3 rounded-2xl bg-emerald-50 text-emerald-600 text-lg shadow-xs">📦</span>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-amber-400 transition-colors" onclick="filterInventoryByStatus('low')">
+
+        <div class="kpi-card kpi-card-amber flex items-center justify-between cursor-pointer" onclick="filterInventoryByStatus('low')" title="Klik untuk memfilter stok menipis">
           <div>
-            <div class="text-xs text-amber-600 font-semibold">Stok Menipis (≤ 10)</div>
-            <div id="stat-low-stock" class="text-xl font-bold text-amber-600">0</div>
+            <div class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Stok Menipis (≤ 10)</div>
+            <div id="stat-low-stock" class="text-2xl font-black text-amber-600 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-amber-600 font-medium mt-0.5">Segera order ke PBF</div>
           </div>
-          <span class="p-2.5 rounded-xl bg-amber-50 text-amber-600">⚠️</span>
+          <span class="p-3 rounded-2xl bg-amber-50 text-amber-600 text-lg shadow-xs">⚠️</span>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-rose-400 transition-colors" onclick="filterInventoryByStatus('expiring')">
+
+        <div class="kpi-card kpi-card-rose flex items-center justify-between cursor-pointer" onclick="filterInventoryByStatus('expiring')" title="Klik untuk memfilter mendekati kadaluarsa">
           <div>
-            <div class="text-xs text-rose-600 font-semibold">Mendekati Kadaluarsa</div>
-            <div id="stat-expiring-soon" class="text-xl font-bold text-rose-600">0</div>
+            <div class="text-[11px] font-bold text-rose-700 uppercase tracking-wider">Mendekati ED (< 90 Hari)</div>
+            <div id="stat-expiring-soon" class="text-2xl font-black text-rose-600 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-rose-600 font-medium mt-0.5">Prioritas retur / KIE</div>
           </div>
-          <span class="p-2.5 rounded-xl bg-rose-50 text-rose-600">⏳</span>
+          <span class="p-3 rounded-2xl bg-rose-50 text-rose-600 text-lg shadow-xs">⏳</span>
         </div>
       </div>
 
@@ -676,11 +683,11 @@
             <input type="file" accept=".xlsx,.xls,.csv" onchange="handleSmartExcelImport(event)" class="hidden">
           </label>
 
-          <button onclick="reloadMasterExcelData()" class="admin-only  title="Muat Ulang 1.098 Master Data dari Excel" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer">
+          <button onclick="reloadMasterExcelData()" class="admin-only px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer" title="Muat Ulang 1.098 Master Data dari Excel">
             <span>📦</span> Master Excel (1.098)
           </button>
 
-          <button onclick="openAddProductModal()" class="admin-only  class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors cursor-pointer">
+          <button onclick="openAddProductModal()" class="admin-only px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             Tambah Obat
           </button>
@@ -693,7 +700,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
+              <tr class="sticky-table-header">
                 <th class="p-3">Barcode</th>
                 <th class="p-3">Nama Obat / Produk</th>
                 <th class="p-3">Golongan & Satuan</th>
@@ -728,46 +735,46 @@
          ======================================================== -->
     <div id="tab-content-riwayat" class="tab-pane hidden space-y-4">
       
-      <!-- Ringkasan Finansial Arus Kas (Pemasukan, Pengeluaran Distributor & Laba Bersih) -->
+      <!-- Ringkasan Finansial Arus Kas (Tremor-Style KPI Cards) -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <!-- 1. Omzet Penjualan -->
-        <div class="card-elevation p-4 rounded-2xl border border-slate-200 bg-white">
+        <div class="kpi-card kpi-card-emerald">
           <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
             <span>Omzet Penjualan</span>
-            <span class="p-1 rounded bg-emerald-50 text-emerald-600 text-xs">📈</span>
+            <span class="p-1.5 rounded-xl bg-emerald-50 text-emerald-600 text-xs shadow-xs">📈</span>
           </div>
-          <div id="report-total-omzet" class="text-xl sm:text-2xl font-black text-emerald-600 mt-1 font-mono-numbers">Rp 0</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">Total kasir masuk</div>
+          <div id="report-total-omzet" class="text-xl sm:text-2xl font-black text-emerald-600 mt-1.5 font-mono tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-emerald-700/80 font-medium mt-1">Total kasir diterima</div>
         </div>
         
         <!-- 2. Pengeluaran Kulakan PBF -->
-        <div class="card-elevation p-4 rounded-2xl border border-slate-200 bg-white">
+        <div class="kpi-card kpi-card-rose">
           <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
-            <span>Pengeluaran Beli Obat</span>
-            <span class="p-1 rounded bg-rose-50 text-rose-600 text-xs">📦</span>
+            <span>Pengeluaran Kulakan</span>
+            <span class="p-1.5 rounded-xl bg-rose-50 text-rose-600 text-xs shadow-xs">📦</span>
           </div>
-          <div id="report-total-expense" class="text-xl sm:text-2xl font-black text-rose-600 mt-1 font-mono-numbers">Rp 0</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">Total faktur distributor</div>
+          <div id="report-total-expense" class="text-xl sm:text-2xl font-black text-rose-600 mt-1.5 font-mono tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-rose-700/80 font-medium mt-1">Total faktur distributor</div>
         </div>
 
         <!-- 3. Arus Kas Bersih -->
-        <div class="card-elevation p-4 rounded-2xl border border-slate-200 bg-white">
+        <div class="kpi-card kpi-card-blue">
           <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
             <span>Arus Kas Bersih</span>
-            <span class="p-1 rounded bg-teal-50 text-teal-600 text-xs">💵</span>
+            <span class="p-1.5 rounded-xl bg-blue-50 text-blue-600 text-xs shadow-xs">💵</span>
           </div>
-          <div id="report-net-cashflow" class="text-xl sm:text-2xl font-black text-teal-700 mt-1 font-mono-numbers">Rp 0</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">Omzet - Biaya beli obat</div>
+          <div id="report-net-cashflow" class="text-xl sm:text-2xl font-black text-blue-700 mt-1.5 font-mono tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-blue-700/80 font-medium mt-1">Omzet - Biaya beli obat</div>
         </div>
 
         <!-- 4. Estimasi Laba Margin -->
-        <div class="card-elevation p-4 rounded-2xl border border-slate-200 bg-white">
+        <div class="kpi-card kpi-card-amber">
           <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
             <span>Margin Keuntungan</span>
-            <span class="p-1 rounded bg-blue-50 text-blue-600 text-xs">💰</span>
+            <span class="p-1.5 rounded-xl bg-amber-50 text-amber-600 text-xs shadow-xs">💰</span>
           </div>
-          <div id="report-total-profit" class="text-xl sm:text-2xl font-black text-blue-700 mt-1 font-mono-numbers">Rp 0</div>
-          <div class="text-[10px] text-slate-400 mt-0.5">Laba kotor penjualan</div>
+          <div id="report-total-profit" class="text-xl sm:text-2xl font-black text-amber-700 mt-1.5 font-mono tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-amber-700/80 font-medium mt-1">Estimasi laba kotor</div>
         </div>
       </div>
 
@@ -835,7 +842,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
+              <tr class="sticky-table-header">
                 <th class="p-3">No. Invoice</th>
                 <th class="p-3">Waktu</th>
                 <th class="p-3">Rincian Obat Terjual</th>
