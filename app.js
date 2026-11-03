@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initClock();
   generateNewInvoiceNumber();
   renderCart();
+  renderPosQuickGrid();
   renderInventoryTable();
   renderTransactionHistory();
   updateInventoryStats();
@@ -421,6 +422,8 @@ async function startCameraScanner() {
     );
 
     isCameraRunning = true;
+    const drawerEl = document.getElementById('camera-scanner-drawer');
+    if (drawerEl) drawerEl.classList.remove('hidden');
     placeholderEl.classList.add('hidden');
     overlayEl.classList.remove('hidden');
     btnText.textContent = 'Matikan';
@@ -1152,6 +1155,9 @@ function startNewTransaction() {
 
 // Pencarian Cepat Obat di Kasir (Jika barcode rusak)
 function handleSearchKasir(query) {
+  if (typeof renderPosQuickGrid === 'function') {
+    renderPosQuickGrid(currentPosGridCategory, query);
+  }
   const resultsBox = document.getElementById('search-kasir-results');
   if (!resultsBox) return;
 
@@ -1983,3 +1989,114 @@ document.addEventListener('keydown', (e) => {
     closeProductFormModal();
   }
 });
+
+
+// =========================================================================
+// QUICK DRUG TILES GRID (SQUARE POS STYLE)
+// =========================================================================
+let currentPosGridCategory = 'ALL';
+
+function renderPosQuickGrid(category = 'ALL', searchQuery = '') {
+  const grid = document.getElementById('pos-quick-grid');
+  const countLabel = document.getElementById('pos-grid-count');
+  if (!grid) return;
+
+  currentPosGridCategory = category;
+
+  // Update button active state
+  document.querySelectorAll('.pos-cat-pill').forEach(btn => {
+    btn.classList.remove('bg-slate-900', 'text-white', 'shadow-xs', 'active');
+    btn.classList.add('bg-slate-100', 'text-slate-700');
+  });
+
+  const activeBtn = Array.from(document.querySelectorAll('.pos-cat-pill')).find(b => {
+    if (category === 'ALL') return b.textContent.includes('Semua');
+    return b.textContent.includes(category);
+  });
+  if (activeBtn) {
+    activeBtn.classList.add('bg-slate-900', 'text-white', 'shadow-xs', 'active');
+    activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+  }
+
+  let filtered = medicines;
+  if (category !== 'ALL') {
+    filtered = filtered.filter(m => m.kategori === category);
+  }
+
+  if (searchQuery && searchQuery.trim().length > 0) {
+    const q = searchQuery.toLowerCase().trim();
+    filtered = filtered.filter(m => 
+      m.nama.toLowerCase().includes(q) || 
+      m.barcode.includes(q) || 
+      (m.indikasi && m.indikasi.toLowerCase().includes(q))
+    );
+  } else {
+    // If no search query, prioritize popular top medicines
+    const popularNames = ['panadol', 'promag', 'amoxicillin', 'tolak angin', 'acetylcysteine', 'bodrex', 'sanmol', 'betadine', 'diapet', 'insto', 'mylanta', 'dumin', 'antimo', 'komix'];
+    const popularMatches = filtered.filter(m => popularNames.some(p => m.nama.toLowerCase().includes(p)));
+    const others = filtered.filter(m => !popularNames.some(p => m.nama.toLowerCase().includes(p)));
+    filtered = [...popularMatches, ...others];
+  }
+
+  const items = filtered.slice(0, 15);
+
+  if (countLabel) {
+    countLabel.textContent = searchQuery ? `${filtered.length} Ditemukan` : `${items.length} Obat Cepat`;
+  }
+
+  if (items.length === 0) {
+    grid.innerHTML = `
+      <div class="col-span-full py-8 text-center text-slate-400 text-xs">
+        Tidak ada obat yang cocok.
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = items.map(item => {
+    const isLowStock = item.stok <= (item.stokMinimal || 10);
+    const badgeBg = item.kategori === 'Obat Keras' ? 'bg-rose-100 text-rose-700 border border-rose-200' : 'bg-emerald-100 text-emerald-800 border border-emerald-200';
+
+    return `
+      <div onclick="selectKasirSearchResult('${item.id}')" class="p-2.5 rounded-xl border border-slate-200/90 hover:border-emerald-500 hover:shadow-md bg-white hover:bg-emerald-50/20 cursor-pointer transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between gap-1 mb-1">
+            <span class="text-[9px] font-bold px-1.5 py-0.2 rounded-md ${badgeBg}">
+              ${item.kategori}
+            </span>
+            <span class="text-[10px] font-mono ${isLowStock ? 'text-rose-600 font-bold' : 'text-slate-400'}">
+              ${item.stok} ${item.satuan}
+            </span>
+          </div>
+          <div class="font-bold text-slate-900 text-xs line-clamp-2 group-hover:text-emerald-700 transition-colors">
+            ${item.nama}
+          </div>
+          ${item.indikasi ? `
+          <div class="text-[9px] text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200/60 mt-1 line-clamp-1">
+            🩺 ${escapeHtml(item.indikasi)}
+          </div>` : ''}
+        </div>
+        <div class="mt-2 pt-1.5 border-t border-slate-100 flex items-center justify-between">
+          <span class="font-black text-slate-900 text-xs font-mono tabular-nums">
+            ${formatRupiah(item.hargaJual)}
+          </span>
+          <span class="w-5 h-5 rounded-md bg-emerald-600 group-hover:bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shadow-xs transition-colors">
+            +
+          </span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function filterPosGrid(category) {
+  renderPosQuickGrid(category);
+}
+
+function clearKasirSearch() {
+  const input = document.getElementById('input-search-kasir');
+  if (input) input.value = '';
+  const resultsBox = document.getElementById('search-kasir-results');
+  if (resultsBox) resultsBox.classList.add('hidden');
+  renderPosQuickGrid(currentPosGridCategory);
+}
