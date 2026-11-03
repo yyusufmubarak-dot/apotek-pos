@@ -4,7 +4,7 @@
  */
 
 const DEFAULT_SETTINGS = {
-  namaApotek: "Apotek Medika Sejahtera",
+  namaApotek: "Apotek El-Jannah Medika",
   slogan: "Melayani dengan Sepenuh Hati & Sahabat Kesehatan Anda",
   alamat: "Jl. Merdeka No. 88, Kota Anda",
   telepon: "0812-3456-7890",
@@ -13,9 +13,9 @@ const DEFAULT_SETTINGS = {
   catatanStruk: "Terima kasih atas kunjungan Anda. Semoga lekas sembuh!",
   pajakPersen: 0, // 0 = nonaktif
   autoOpenCashierScan: true,
-  qrisMerchant: "Apotek Medika Sejahtera",
-  qrisNmid: "ID1020304050607",
-  qrisImage: "",
+  qrisMerchant: "Apotek El-Jannah Medika",
+  qrisNmid: "ID1026516980707",
+  qrisImage: "qris-apotek.jpg",
   bankName: "BCA",
   bankRekening: "8270918231",
   bankAtasNama: "Apotek Medika Sejahtera"

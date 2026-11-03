@@ -223,6 +223,9 @@ function loadDataFromStorage() {
   if (storedSettings) {
     try {
       settings = JSON.parse(storedSettings);
+      if (!settings.qrisImage) settings.qrisImage = 'qris-apotek.jpg';
+      if (!settings.qrisNmid) settings.qrisNmid = 'ID1026516980707';
+      if (!settings.qrisMerchant) settings.qrisMerchant = 'Apotek El-Jannah Medika';
     } catch (e) {
       settings = { ...DEFAULT_SETTINGS };
     }
@@ -955,8 +958,8 @@ function setPaymentMethod(method) {
     if (method === 'QRIS') {
       const merchantEl = document.getElementById('docket-qris-merchant');
       const nmidEl = document.getElementById('docket-qris-nmid');
-      if (merchantEl) merchantEl.textContent = settings.qrisMerchant || settings.namaApotek || 'Apotek Medika Sejahtera';
-      if (nmidEl) nmidEl.textContent = `NMID: ${settings.qrisNmid || 'ID1020304050607'}`;
+      if (merchantEl) merchantEl.textContent = settings.qrisMerchant || settings.namaApotek || 'Apotek El-Jannah Medika';
+      if (nmidEl) nmidEl.textContent = `NMID: ${settings.qrisNmid || 'ID1026516980707'}`;
     }
   }
   if (transferSection) {
@@ -967,7 +970,7 @@ function setPaymentMethod(method) {
       const bankOwnerEl = document.getElementById('docket-bank-owner');
       if (bankNameEl) bankNameEl.textContent = settings.bankName || 'BCA';
       if (bankRekEl) bankRekEl.textContent = settings.bankRekening || '8270918231';
-      if (bankOwnerEl) bankOwnerEl.textContent = `a.n ${settings.bankAtasNama || settings.namaApotek || 'Apotek Medika Sejahtera'}`;
+      if (bankOwnerEl) bankOwnerEl.textContent = `a.n ${settings.bankAtasNama || settings.namaApotek || 'Apotek El-Jannah Medika'}`;
     }
   }
 
@@ -1072,21 +1075,16 @@ function openQrisModal(grandTotal, invoiceNo) {
   const totalEl = document.getElementById('qris-modal-total');
   const imgEl = document.getElementById('qris-modal-img');
 
-  const merchantName = settings.qrisMerchant || settings.namaApotek || 'Apotek Medika Sejahtera';
-  const nmid = settings.qrisNmid || 'ID1020304050607';
+  const merchantName = settings.qrisMerchant || settings.namaApotek || 'Apotek El-Jannah Medika';
+  const nmid = settings.qrisNmid || 'ID1026516980707';
 
   if (merchantEl) merchantEl.textContent = merchantName;
   if (nmidEl) nmidEl.textContent = `NMID: ${nmid}`;
   if (totalEl) totalEl.textContent = formatRupiah(grandTotal);
 
   if (imgEl) {
-    if (settings.qrisImage && settings.qrisImage.startsWith('data:image')) {
-      imgEl.src = settings.qrisImage;
-    } else {
-      // Generate Dynamic QRIS via fast public QR service
-      const qrPayload = encodeURIComponent(`QRIS|${merchantName}|${nmid}|${invoiceNo}|${grandTotal}`);
-      imgEl.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${qrPayload}`;
-    }
+    const qrisSrc = settings.qrisImage || 'qris-apotek.jpg';
+    imgEl.src = qrisSrc;
   }
 
   modal.classList.remove('hidden');
@@ -1118,7 +1116,7 @@ function openTransferModal(grandTotal, invoiceNo) {
 
   if (bankEl) bankEl.textContent = settings.bankName || 'BCA';
   if (rekEl) rekEl.textContent = settings.bankRekening || '8270918231';
-  if (ownerEl) ownerEl.textContent = settings.bankAtasNama || settings.namaApotek || 'Apotek Medika Sejahtera';
+  if (ownerEl) ownerEl.textContent = settings.bankAtasNama || settings.namaApotek || 'Apotek El-Jannah Medika';
   if (totalEl) totalEl.textContent = formatRupiah(grandTotal);
   if (refInput) {
     refInput.value = '';
@@ -2372,11 +2370,11 @@ function populatePaymentSettingsToUI() {
   const bankRekeningInput = document.getElementById('setting-bank-rekening');
   const bankOwnerInput = document.getElementById('setting-bank-owner');
 
-  if (qrisMerchantInput) qrisMerchantInput.value = settings.qrisMerchant || settings.namaApotek || 'Apotek Medika Sejahtera';
-  if (qrisNmidInput) qrisNmidInput.value = settings.qrisNmid || 'ID1020304050607';
+  if (qrisMerchantInput) qrisMerchantInput.value = settings.qrisMerchant || settings.namaApotek || 'Apotek El-Jannah Medika';
+  if (qrisNmidInput) qrisNmidInput.value = settings.qrisNmid || 'ID1026516980707';
   if (bankNameInput) bankNameInput.value = settings.bankName || 'BCA';
   if (bankRekeningInput) bankRekeningInput.value = settings.bankRekening || '8270918231';
-  if (bankOwnerInput) bankOwnerInput.value = settings.bankAtasNama || settings.namaApotek || 'Apotek Medika Sejahtera';
+  if (bankOwnerInput) bankOwnerInput.value = settings.bankAtasNama || settings.namaApotek || 'Apotek El-Jannah Medika';
 
   renderQrisSettingsPreview();
 }
