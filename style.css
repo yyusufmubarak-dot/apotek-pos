@@ -17,12 +17,15 @@
 
 body {
   font-family: var(--font-sans);
-  background: radial-gradient(circle at top right, #f8fafc, #f1f5f9 60%, #e2e8f0 100%);
-  color: #0f172a;
+  background: #080b11;
+  color: #f1f5f9;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(6, 182, 212, 0.04) 0px, transparent 50%);
 }
 
 .font-mono-numbers {
@@ -39,27 +42,26 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #1e293b;
   border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #334155;
 }
 
 /* ========================================================
    FROSTED GLASS & MODERN CARD ELEVATION
    ======================================================== */
 .card-elevation {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  background: #0e1424;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-elevation:hover {
-  border-color: rgba(203, 213, 225, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* ========================================================
@@ -177,34 +179,34 @@ body {
    GOLONGAN OBAT BADGES (ANTI-SLOP COLOR SYSTEM)
    ======================================================== */
 .badge-obat-bebas {
-  background: rgba(16, 185, 129, 0.12);
-  color: #065f46;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 .badge-obat-bebas-terbatas {
-  background: rgba(14, 165, 233, 0.12);
-  color: #0369a1;
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
   border: 1px solid rgba(14, 165, 233, 0.3);
 }
 .badge-obat-keras {
-  background: rgba(239, 68, 68, 0.12);
-  color: #991b1b;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
   font-weight: 700;
 }
 .badge-herbal {
-  background: rgba(20, 184, 166, 0.12);
-  color: #115e59;
+  background: rgba(20, 184, 166, 0.15);
+  color: #2dd4bf;
   border: 1px solid rgba(20, 184, 166, 0.3);
 }
 .badge-alkes {
-  background: rgba(168, 85, 247, 0.12);
-  color: #6b21a8;
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
   border: 1px solid rgba(168, 85, 247, 0.3);
 }
 .badge-suplemen {
-  background: rgba(249, 115, 22, 0.12);
-  color: #9a3412;
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
   border: 1px solid rgba(249, 115, 22, 0.3);
 }
 
@@ -367,18 +369,18 @@ body {
 /* Tremor-Style KPI Metric Card */
 .kpi-card {
   position: relative;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #0e1424;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 18px 20px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 .kpi-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-  border-color: #cbd5e1;
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 .kpi-card::before {
   content: "";
@@ -418,7 +420,7 @@ body {
   transition: background-color 0.15s ease;
 }
 .table-row-hover:hover {
-  background-color: #f8fafc !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
 /* KIE Indikasi & Aturan Pakai Pill Badges */
@@ -431,14 +433,14 @@ body {
   font-size: 10px;
   font-weight: 600;
   line-height: 1.3;
-  background: #f0fdf4;
-  color: #166534;
-  border: 1px solid #bbf7d0;
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
   transition: all 0.15s ease;
 }
 .pill-indikasi:hover {
-  background: #dcfce7;
-  border-color: #86efac;
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
 }
 
 .pill-aturan {
@@ -450,17 +452,16 @@ body {
   font-size: 10px;
   font-weight: 600;
   line-height: 1.3;
-  background: #f0f9ff;
-  color: #075985;
-  border: 1px solid #bae6fd;
+  background: rgba(6, 182, 212, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(6, 182, 212, 0.25);
   transition: all 0.15s ease;
 }
 .pill-aturan:hover {
-  background: #e0f2fe;
-  border-color: #7dd3fc;
+  background: rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.4);
 }
 
-/* Tactile Stepper Controls */
 .btn-stepper {
   width: 26px;
   height: 26px;
@@ -470,21 +471,22 @@ body {
   justify-content: center;
   font-weight: 700;
   font-size: 13px;
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #e2e8f0;
+  background: #1a233a;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 .btn-stepper:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-  border-color: #cbd5e1;
+  background: #24304f;
+  color: #38bdf8;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 .btn-stepper:active {
   transform: scale(0.9);
-  background: #cbd5e1;
 }
+
+
 
 /* Subtle Active Pulse */
 .active-pulse-emerald {
@@ -501,4 +503,49 @@ body {
   100% {
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
   }
+}
+
+/* POS Category Pills (Obsidian Style) */
+.pos-cat-pill {
+  background: #12192c !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pos-cat-pill:hover {
+  background: #18223c !important;
+  color: #f1f5f9 !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+.pos-cat-pill.active {
+  background: rgba(16, 185, 129, 0.18) !important;
+  color: #34d399 !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Compact Sleek Toast Styling (Linear / Raycast grade) */
+#toast-container {
+  position: fixed !important;
+  top: 72px !important;
+  right: 18px !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  max-width: 320px !important;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  padding: 8px 14px !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+  animation: slideInToast 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }

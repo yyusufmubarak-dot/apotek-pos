@@ -42,7 +42,7 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
+<body class="bg-[#080b11] text-slate-100 antialiased min-h-screen flex flex-col">
 
   <!-- TOP HEADER / NAVBAR (MINIMALIST LUXURY MEDICAL COMMAND BAR) -->
   <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-30 shadow-md text-white">
@@ -143,12 +143,12 @@
         <div class="lg:col-span-7 space-y-4">
           
           <!-- SEARCH & QUICK BARCODE COMMAND BAR -->
-          <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-xs space-y-3">
+          <div class="bg-[#0e1424] rounded-2xl p-4 border border-white/[0.08] shadow-[0_8px_30px_rgb(0,0,0,0.15)] space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="p-1 rounded-lg bg-emerald-50 text-emerald-600 font-bold text-sm">⚡</span>
                 <div>
-                  <h2 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Pencarian & Barcode</h2>
+                  <h2 class="text-xs font-bold text-slate-100 uppercase tracking-wider">Pencarian & Barcode</h2>
                   <p class="text-[11px] text-slate-400">Scan barcode USB atau cari obat / keluhan pasien</p>
                 </div>
               </div>
@@ -187,18 +187,18 @@
             <!-- Input Barcode USB & Pencarian Kasir -->
             <div class="relative">
               <div class="relative">
-                <input type="text" id="input-search-kasir" oninput="handleSearchKasir(this.value)" placeholder="🔍 Scan barcode atau ketik obat / keluhan (contoh: Panadol, Batuk, Maag)... [Ctrl + K]" class="w-full pl-4 pr-10 py-2.5 text-xs font-medium border-2 border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-all bg-slate-50/50 focus:bg-white text-slate-800 placeholder-slate-400">
+                <input type="text" id="input-search-kasir" oninput="handleSearchKasir(this.value)" placeholder="🔍 Scan barcode atau ketik obat / keluhan (contoh: Panadol, Batuk, Maag)... [Ctrl + K]" class="w-full pl-4 pr-10 py-2.5 text-xs font-medium border border-white/[0.1] rounded-xl focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all bg-[#131b2e] focus:bg-[#162038] text-white placeholder-slate-500">
                 <button type="button" onclick="clearKasirSearch()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 text-xs">
                   ✕
                 </button>
               </div>
 
               <!-- Dropdown Search Results -->
-              <div id="search-kasir-results" class="hidden absolute top-full left-0 right-0 mt-1.5 bg-white border border-slate-200 rounded-xl shadow-2xl max-h-72 overflow-y-auto z-30 divide-y divide-slate-100"></div>
+              <div id="search-kasir-results" class="hidden absolute top-full left-0 right-0 mt-1.5 bg-[#0e1424] border border-white/[0.12] rounded-xl shadow-2xl max-h-72 overflow-y-auto z-30 divide-y divide-white/[0.06]"></div>
             </div>
 
             <!-- Feed Status Terakhir -->
-            <div id="last-scanned-card" class="px-3 py-2 bg-emerald-50/70 border border-emerald-100 rounded-xl flex items-center justify-between text-[11px] text-emerald-900">
+            <div id="last-scanned-card" class="px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-between text-[11px] text-emerald-300">
               <div class="flex items-center gap-2 truncate">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span id="last-scanned-text" class="font-medium truncate">Scanner siap melayani transaksi.</span>
@@ -208,10 +208,10 @@
           </div>
 
           <!-- QUICK MEDICINE GRID (SQUARE POS STYLE) -->
-          <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-xs space-y-3">
+          <div class="bg-[#0e1424] rounded-2xl p-4 border border-white/[0.08] shadow-[0_8px_30px_rgb(0,0,0,0.15)] space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Katalog Cepat (1-Klik Tambah)</span>
+                <span class="text-xs font-bold text-slate-100 uppercase tracking-wider">Katalog Cepat (1-Klik Tambah)</span>
                 <span class="text-[10px] text-slate-400 hidden sm:inline">• Klik obat untuk langsung masuk kasir</span>
               </div>
               <span class="text-[11px] text-emerald-700 font-bold" id="pos-grid-count">Obat Favorit</span>
@@ -219,12 +219,12 @@
 
             <!-- Category Filter Pills -->
             <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar" id="pos-category-pills">
-              <button type="button" onclick="filterPosGrid('ALL')" class="pos-cat-pill active px-3 py-1.5 rounded-xl font-bold bg-slate-900 text-white shadow-xs">Semua</button>
-              <button type="button" onclick="filterPosGrid('Obat Bebas')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700">Obat Bebas</button>
-              <button type="button" onclick="filterPosGrid('Obat Bebas Terbatas')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700">Bebas Terbatas</button>
-              <button type="button" onclick="filterPosGrid('Obat Keras')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700">Obat Keras</button>
-              <button type="button" onclick="filterPosGrid('Obat Herbal')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700">Herbal & Jamu</button>
-              <button type="button" onclick="filterPosGrid('Alkes')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700">Alkes</button>
+              <button type="button" onclick="filterPosGrid('ALL')" class="pos-cat-pill active px-3 py-1.5 rounded-xl font-bold bg-emerald-500 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.3)]">Semua</button>
+              <button type="button" onclick="filterPosGrid('Obat Bebas')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Obat Bebas</button>
+              <button type="button" onclick="filterPosGrid('Obat Bebas Terbatas')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Bebas Terbatas</button>
+              <button type="button" onclick="filterPosGrid('Obat Keras')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Obat Keras</button>
+              <button type="button" onclick="filterPosGrid('Obat Herbal')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Herbal & Jamu</button>
+              <button type="button" onclick="filterPosGrid('Alkes')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Alkes</button>
             </div>
 
             <!-- The Grid of Drug Tiles -->
@@ -237,10 +237,10 @@
 
         <!-- SISI KANAN: KERANJANG TRANSAKSI & CHECKOUT (5 Kolom) -->
         <div class="lg:col-span-5 space-y-4">
-          <div class="bg-white rounded-2xl shadow-xs border border-slate-200/90 flex flex-col h-full overflow-hidden">
+          <div class="bg-[#0e1424] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.15)] border border-white/[0.08] flex flex-col h-full overflow-hidden">
             
             <!-- Keranjang Header -->
-            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+            <div class="p-4 border-b border-white/[0.08] flex items-center justify-between bg-[#12192c]">
               <div class="flex items-center gap-2">
                 <span class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -248,13 +248,13 @@
                   </svg>
                 </span>
                 <div>
-                  <h2 class="text-sm font-bold text-slate-900">Keranjang Kasir</h2>
+                  <h2 class="text-sm font-bold text-slate-100">Keranjang Kasir</h2>
                   <p class="text-[11px] text-slate-500">Invoice: <span id="current-invoice-number" class="font-mono font-semibold text-emerald-700">TRX-...</span></p>
                 </div>
               </div>
 
               <div class="flex items-center gap-2">
-                <span id="cart-item-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700">0 Item</span>
+                <span id="cart-item-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/[0.06] border border-white/10 text-slate-300">0 Item</span>
                 <button onclick="clearCart()" class="text-xs text-rose-600 hover:text-rose-700 font-semibold px-2 py-1 rounded hover:bg-rose-50 transition-colors">
                   Kosongkan
                 </button>
@@ -270,25 +270,25 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                   </svg>
                 </div>
-                <p class="text-sm font-bold text-slate-700">Keranjang Masih Kosong</p>
+                <p class="text-sm font-bold text-slate-200">Keranjang Masih Kosong</p>
                 <p class="text-xs text-slate-400 mt-1">Klik obat di sebelah kiri atau scan barcode</p>
               </div>
             </div>
 
             <!-- Ringkasan Perhitungan & Pembayaran -->
-            <div class="p-4 bg-slate-50 border-t border-slate-200/90 space-y-3">
+            <div class="p-4 bg-[#111728] border-t border-white/[0.08] space-y-3">
               
               <!-- Subtotal & Diskon -->
-              <div class="space-y-1.5 text-xs text-slate-600 border-b border-slate-200/80 pb-2.5">
+              <div class="space-y-1.5 text-xs text-slate-400 border-b border-white/[0.08] pb-2.5">
                 <div class="flex justify-between">
                   <span>Subtotal Belanja</span>
-                  <span id="label-subtotal" class="font-bold text-slate-800 font-mono tabular-nums">Rp 0</span>
+                  <span id="label-subtotal" class="font-bold text-white font-mono tabular-nums">Rp 0</span>
                 </div>
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-1.5">
                     <span>Diskon</span>
-                    <input type="number" id="input-discount-val" value="0" min="0" oninput="calculateCheckoutTotal()" class="w-16 px-1.5 py-0.5 text-xs border border-slate-300 rounded text-right focus:outline-none focus:ring-1 focus:ring-emerald-500">
-                    <select id="select-discount-type" onchange="calculateCheckoutTotal()" class="text-xs border border-slate-300 rounded px-1 py-0.5 bg-white">
+                    <input type="number" id="input-discount-val" value="0" min="0" oninput="calculateCheckoutTotal()" class="w-16 px-1.5 py-0.5 text-xs border border-white/10 bg-[#162038] text-white rounded text-right focus:outline-none focus:border-emerald-400">
+                    <select id="select-discount-type" onchange="calculateCheckoutTotal()" class="text-xs border border-white/10 rounded px-1 py-0.5 bg-[#162038] text-white">
                       <option value="nominal">Rp</option>
                       <option value="percent">%</option>
                     </select>
@@ -314,15 +314,15 @@
 
               <!-- Metode Pembayaran -->
               <div class="pt-1">
-                <div class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Metode Bayar:</div>
+                <div class="text-[11px] font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Metode Bayar:</div>
                 <div class="grid grid-cols-3 gap-2">
-                  <button type="button" onclick="setPaymentMethod('Tunai')" id="btn-pay-cash" class="pay-method-btn active py-2 rounded-xl text-xs font-bold border border-emerald-500 bg-emerald-50 text-emerald-700 flex items-center justify-center gap-1 transition-all">
+                  <button type="button" onclick="setPaymentMethod('Tunai')" id="btn-pay-cash" class="pay-method-btn active py-2 rounded-xl text-xs font-bold border border-emerald-400 bg-emerald-500/20 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.2)] flex items-center justify-center gap-1 transition-all">
                     💵 Tunai
                   </button>
-                  <button type="button" onclick="setPaymentMethod('QRIS')" id="btn-pay-qris" class="pay-method-btn py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1 transition-all">
+                  <button type="button" onclick="setPaymentMethod('QRIS')" id="btn-pay-qris" class="pay-method-btn py-2 rounded-xl text-xs font-semibold border border-white/[0.08] bg-[#131b2e] text-slate-300 hover:text-white hover:bg-[#18233c] flex items-center justify-center gap-1 transition-all">
                     📱 QRIS
                   </button>
-                  <button type="button" onclick="setPaymentMethod('Transfer')" id="btn-pay-transfer" class="pay-method-btn py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1 transition-all">
+                  <button type="button" onclick="setPaymentMethod('Transfer')" id="btn-pay-transfer" class="pay-method-btn py-2 rounded-xl text-xs font-semibold border border-white/[0.08] bg-[#131b2e] text-slate-300 hover:text-white hover:bg-[#18233c] flex items-center justify-center gap-1 transition-all">
                     💳 Transfer
                   </button>
                 </div>
@@ -333,28 +333,28 @@
                 <div class="flex items-center justify-between">
                   <label class="text-[11px] font-semibold text-slate-700">Nominal Diterima:</label>
                   <div class="flex gap-1 flex-wrap">
-                    <button type="button" onclick="setCashExact()" class="text-[10px] px-2 py-0.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold">Uang Pas</button>
-                    <button type="button" onclick="addCashAmount(10000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+10k</button>
-                    <button type="button" onclick="addCashAmount(20000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+20k</button>
-                    <button type="button" onclick="addCashAmount(50000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+50k</button>
-                    <button type="button" onclick="addCashAmount(100000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+100k</button>
+                    <button type="button" onclick="setCashExact()" class="text-[10px] px-2 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-bold">Uang Pas</button>
+                    <button type="button" onclick="addCashAmount(10000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+10k</button>
+                    <button type="button" onclick="addCashAmount(20000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+20k</button>
+                    <button type="button" onclick="addCashAmount(50000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+50k</button>
+                    <button type="button" onclick="addCashAmount(100000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+100k</button>
                   </div>
                 </div>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-xs">
                     Rp
                   </div>
-                  <input type="number" id="input-cash-received" oninput="calculateCashChange()" placeholder="0" class="w-full pl-9 pr-3 py-2 text-sm font-bold text-slate-900 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono tabular-nums">
+                  <input type="number" id="input-cash-received" oninput="calculateCashChange()" placeholder="0" class="w-full pl-9 pr-3 py-2 text-sm font-bold text-white border border-white/10 bg-[#131b2e] rounded-xl focus:outline-none focus:border-emerald-400 font-mono tabular-nums">
                 </div>
                 <div class="flex justify-between items-center text-xs pt-0.5">
                   <span class="font-semibold text-slate-600">Kembalian:</span>
-                  <span id="label-cash-change" class="text-sm font-bold text-slate-900 font-mono tabular-nums">Rp 0</span>
+                  <span id="label-cash-change" class="text-sm font-bold text-emerald-400 font-mono tabular-nums">Rp 0</span>
                 </div>
               </div>
 
               <!-- Tombol Eksekusi Bayar & Cetak Struk -->
               <div class="pt-1">
-                <button id="btn-process-checkout" onclick="handleProcessCheckout()" disabled class="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-slate-400 cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-md text-sm cursor-pointer">
+                <button id="btn-process-checkout" onclick="handleProcessCheckout()" disabled class="w-full py-3.5 px-4 rounded-xl font-black text-white bg-slate-700/60 border border-white/5 cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-md text-sm cursor-pointer">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
                   </svg>
@@ -379,7 +379,7 @@
       <!-- FORM HEADER FAKTUR DISTRIBUTOR -->
       <form id="form-pembelian-barang" onsubmit="handleSavePurchaseInvoice(event)" class="space-y-4">
         
-        <div class="card-elevation p-5 rounded-2xl border border-slate-200 bg-white">
+        <div class="card-elevation p-5 rounded-2xl border border-white/[0.08] bg-[#0e1424]">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
             
             <!-- Metadata Faktur (8 Kolom) -->
@@ -387,7 +387,7 @@
               <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Input Faktur Barang Masuk (PBF)</h2>
+                  <h2 class="text-sm font-bold text-slate-100 uppercase tracking-wider">Input Faktur Barang Masuk (PBF)</h2>
                 </div>
                 <span id="purchase-total-items-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 font-mono-numbers">
                   0 Produk (0 Qty)
@@ -396,39 +396,39 @@
 
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                 <div>
-                  <label class="block font-semibold text-slate-700 mb-1">No. Faktur Distributor: <span class="text-rose-500">*</span></label>
-                  <input type="text" id="input-faktur-distributor" required placeholder="Contoh: ENS/2026/1109" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono font-bold focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <label class="block font-semibold text-slate-300 mb-1">No. Faktur Distributor: <span class="text-rose-500">*</span></label>
+                  <input type="text" id="input-faktur-distributor" required placeholder="Contoh: ENS/2026/1109" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white font-mono font-bold focus:outline-none focus:border-emerald-400">
                 </div>
 
                 <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Distributor / PBF: <span class="text-rose-500">*</span></label>
-                  <input type="text" id="input-faktur-supplier" list="supplier-list-options" required placeholder="Pilih / ketik nama PBF..." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <label class="block font-semibold text-slate-300 mb-1">Distributor / PBF: <span class="text-rose-500">*</span></label>
+                  <input type="text" id="input-faktur-supplier" list="supplier-list-options" required placeholder="Pilih / ketik nama PBF..." class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
                   <datalist id="supplier-list-options"></datalist>
                 </div>
 
                 <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Tanggal Faktur:</label>
-                  <input type="date" id="input-faktur-tanggal" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <label class="block font-semibold text-slate-300 mb-1">Tanggal Faktur:</label>
+                  <input type="date" id="input-faktur-tanggal" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
                 </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                 <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Status Pembayaran:</label>
-                  <select id="select-faktur-status-bayar" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <label class="block font-semibold text-slate-300 mb-1">Status Pembayaran:</label>
+                  <select id="select-faktur-status-bayar" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-slate-200 focus:outline-none focus:border-emerald-400">
                     <option value="Lunas">💵 Lunas (Tunai/Transfer)</option>
                     <option value="Tempo (Hutang)">⏳ Tempo (Hutang PBF)</option>
                   </select>
                 </div>
 
                 <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Jatuh Tempo (Jika Tempo):</label>
-                  <input type="date" id="input-faktur-jatuh-tempo" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <label class="block font-semibold text-slate-300 mb-1">Jatuh Tempo (Jika Tempo):</label>
+                  <input type="date" id="input-faktur-jatuh-tempo" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
                 </div>
 
                 <div>
-                  <label class="block font-semibold text-slate-700 mb-1">No. Internal Apotek:</label>
-                  <input type="text" id="input-faktur-internal" readonly class="w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-50 font-mono text-slate-500">
+                  <label class="block font-semibold text-slate-300 mb-1">No. Internal Apotek:</label>
+                  <input type="text" id="input-faktur-internal" readonly class="w-full px-3 py-2 border border-white/[0.08] rounded-xl bg-[#090d16] font-mono text-slate-400">
                 </div>
               </div>
             </div>
@@ -459,15 +459,15 @@
         </div>
 
         <!-- SEARCH / SCAN OBAT UNTUK DITAMBAHKAN KE FAKTUR -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+        <div class="bg-[#0e1424] p-4 rounded-2xl border border-white/[0.08] shadow-sm space-y-2">
           <div class="flex flex-col sm:flex-row items-center gap-3">
             <div class="relative flex-1 w-full">
-              <input type="text" id="input-search-purchase-item" oninput="handlePurchaseDrugSearch(this.value)" placeholder="🔍 Scan barcode atau ketik nama obat yang baru datang..." class="w-full pl-10 pr-4 py-2.5 text-xs border-2 border-slate-200 rounded-xl focus:border-emerald-500 focus:outline-none font-medium">
+              <input type="text" id="input-search-purchase-item" oninput="handlePurchaseDrugSearch(this.value)" placeholder="🔍 Scan barcode atau ketik nama obat yang baru datang..." class="w-full pl-10 pr-4 py-2.5 text-xs border border-white/10 rounded-xl bg-[#131b2e] text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none font-medium">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </div>
               <!-- Dropdown Search Results -->
-              <div id="purchase-search-results" class="absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-2xl z-20 hidden max-h-60 overflow-y-auto"></div>
+              <div id="purchase-search-results" class="absolute left-0 right-0 top-full mt-1 bg-[#0e1424] border border-white/[0.12] rounded-xl shadow-2xl z-20 hidden max-h-60 overflow-y-auto divide-y divide-white/[0.06]"></div>
             </div>
 
             <div class="text-[11px] text-slate-500 font-medium hidden sm:block">
@@ -477,11 +477,11 @@
         </div>
 
         <!-- TABEL ITEM OBAT DALAM FAKTUR (PERSIS SEPERTI MONITOR DI VIDEO) -->
-        <div class="card-elevation rounded-2xl border border-slate-200 overflow-hidden bg-white">
+        <div class="card-elevation rounded-2xl border border-white/[0.08] overflow-hidden bg-[#0e1424]">
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs border-collapse">
               <thead>
-                <tr class="bg-slate-100/80 border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
+                <tr class="bg-[#12192c] border-b border-white/[0.08] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
                   <th class="p-3">Kode / Barcode</th>
                   <th class="p-3">Nama Obat</th>
                   <th class="p-3 text-center">Satuan</th>
@@ -502,10 +502,10 @@
       </form>
 
       <!-- TABEL RIWAYAT FAKTUR BARANG MASUK & PENGELUARAN APOTEK -->
-      <div class="card-elevation rounded-2xl border border-slate-200 overflow-hidden bg-white space-y-3 p-5">
+      <div class="card-elevation rounded-2xl border border-white/[0.08] overflow-hidden bg-[#0e1424] space-y-3 p-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
           <div>
-            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+            <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
               <span>📋</span> Riwayat Faktur Pembelian dari Distributor (Pengeluaran Apotek)
             </h3>
             <p class="text-[11px] text-slate-400">Arsip pembelian obat dan rekapitulasi kulakan apotek</p>
@@ -516,14 +516,14 @@
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               Export Faktur Excel (.xlsx)
             </button>
-            <span id="purchase-history-count" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">0 Faktur</span>
+            <span id="purchase-history-count" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white/[0.06] text-slate-300 border border-white/[0.08]">0 Faktur</span>
           </div>
         </div>
 
-        <div class="overflow-x-auto border border-slate-100 rounded-xl">
+        <div class="overflow-x-auto border border-white/[0.08] rounded-xl">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold">
+              <tr class="bg-[#12192c] border-b border-white/[0.08] text-slate-300 font-semibold text-[11px] uppercase tracking-wider">
                 <th class="p-3">No. Faktur PBF</th>
                 <th class="p-3">Distributor</th>
                 <th class="p-3">Tanggal</th>
@@ -581,19 +581,19 @@
       </div>
 
       <!-- Action & Filter Bar -->
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
+      <div class="bg-[#0e1424] p-4 rounded-2xl border border-white/[0.08] shadow-lg flex flex-col md:flex-row items-center justify-between gap-3">
         
         <div class="flex flex-1 flex-col sm:flex-row items-center gap-2 w-full">
           <!-- Search box -->
           <div class="relative w-full sm:w-72">
-            <input type="text" id="inventory-search-input" oninput="renderInventoryTable()" placeholder="Cari barcode, nama obat, rak..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <input type="text" id="inventory-search-input" oninput="renderInventoryTable()" placeholder="Cari barcode, nama obat, rak..." class="w-full pl-9 pr-3 py-2 text-xs border border-white/10 bg-[#131b2e] text-white rounded-xl focus:outline-none focus:border-emerald-400">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
           </div>
 
           <!-- Kategori filter -->
-          <select id="inventory-category-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <select id="inventory-category-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-white/10 rounded-xl px-3 py-2 bg-[#131b2e] text-slate-200 focus:outline-none focus:border-emerald-400">
             <option value="ALL">Semua Golongan</option>
             <option value="Obat Bebas">Obat Bebas (Hijau)</option>
             <option value="Obat Bebas Terbatas">Obat Bebas Terbatas (Biru)</option>
@@ -604,7 +604,7 @@
           </select>
 
           <!-- Status filter -->
-          <select id="inventory-status-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <select id="inventory-status-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-white/10 rounded-xl px-3 py-2 bg-[#131b2e] text-slate-200 focus:outline-none focus:border-emerald-400">
             <option value="ALL">Semua Status</option>
             <option value="low">Stok Menipis Saja</option>
             <option value="expiring">Mendekati ED (< 90 hari)</option>
@@ -637,7 +637,7 @@
       </div>
 
       <!-- Inventory Table Card -->
-      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="bg-[#0e1424] rounded-2xl border border-white/[0.08] shadow-xl overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
@@ -654,14 +654,14 @@
                 <th class="p-3 text-center">Aksi</th>
               </tr>
             </thead>
-            <tbody id="inventory-table-body" class="divide-y divide-slate-100 text-slate-700">
+            <tbody id="inventory-table-body" class="divide-y divide-white/[0.04] text-slate-200">
               <!-- Rendered via JavaScript -->
             </tbody>
           </table>
         </div>
         
         <!-- Table footer count -->
-        <div class="p-3 border-t border-slate-200 bg-slate-50 text-xs text-slate-500 flex justify-between items-center">
+        <div class="p-3.5 border-t border-white/[0.08] bg-[#11182c] text-xs text-slate-400 flex justify-between items-center">
           <span id="inventory-showing-count">Menampilkan 0 obat</span>
           <button onclick="resetToInitialData()" class="text-slate-500 hover:text-slate-800 underline text-[11px]">
             Reset ke Data Contoh Apotek
@@ -766,9 +766,9 @@
       </div>
 
       <!-- Tabel Riwayat Penjualan -->
-      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="p-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-50">
-          <h2 class="text-sm font-bold text-slate-800">Daftar Transaksi Kasir</h2>
+      <div class="bg-[#0e1424] rounded-2xl border border-white/[0.08] shadow-xl overflow-hidden">
+        <div class="p-4 border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#12192c]">
+          <h2 class="text-sm font-bold text-slate-100">Daftar Transaksi Kasir</h2>
           <div class="flex items-center gap-2">
             <button onclick="exportTransactionsToExcel()" title="Export Laporan Penjualan ke Excel (.xlsx)" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -807,46 +807,46 @@
          ======================================================== -->
     <div id="tab-content-pengaturan" class="tab-pane hidden max-w-2xl mx-auto space-y-6">
       
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+      <div class="bg-[#0e1424] p-6 rounded-2xl border border-white/[0.08] shadow-xl space-y-4">
         <h2 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
           <span>⚙️</span> Profil & Pengaturan Struk Apotek
         </h2>
         
         <form id="form-settings" onsubmit="saveSettings(event)" class="space-y-4 text-xs">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Nama Apotek / Toko Obat:</label>
-            <input type="text" id="setting-nama-apotek" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <label class="block font-semibold text-slate-300 mb-1">Nama Apotek / Toko Obat:</label>
+            <input type="text" id="setting-nama-apotek" required class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Slogan / Keterangan:</label>
-            <input type="text" id="setting-slogan" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <label class="block font-semibold text-slate-300 mb-1">Slogan / Keterangan:</label>
+            <input type="text" id="setting-slogan" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">No. Telp / WhatsApp:</label>
-              <input type="text" id="setting-telepon" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-300 mb-1">No. Telp / WhatsApp:</label>
+              <input type="text" id="setting-telepon" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Nomor SIPA / SIA Apotek:</label>
-              <input type="text" id="setting-sipa" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-300 mb-1">Nomor SIPA / SIA Apotek:</label>
+              <input type="text" id="setting-sipa" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
             </div>
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Nama Apoteker Penanggung Jawab:</label>
-            <input type="text" id="setting-apoteker" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <label class="block font-semibold text-slate-300 mb-1">Nama Apoteker Penanggung Jawab:</label>
+            <input type="text" id="setting-apoteker" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Alamat Lengkap Apotek:</label>
-            <textarea id="setting-alamat" rows="2" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+            <label class="block font-semibold text-slate-300 mb-1">Alamat Lengkap Apotek:</label>
+            <textarea id="setting-alamat" rows="2" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400"></textarea>
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Pesan Penutup Struk (Footer Struk):</label>
-            <input type="text" id="setting-catatan-struk" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <label class="block font-semibold text-slate-300 mb-1">Pesan Penutup Struk (Footer Struk):</label>
+            <input type="text" id="setting-catatan-struk" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
           </div>
 
           <div class="pt-3">
@@ -877,33 +877,33 @@
         <form id="form-firebase-config" onsubmit="saveFirebaseConfigForm(event)" class="space-y-3.5 text-xs">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">API Key: <span class="text-rose-500">*</span></label>
+              <label class="block font-semibold text-slate-300 mb-1">API Key: <span class="text-rose-500">*</span></label>
               <input type="text" id="fb-api-key" placeholder="AIzaSy..." required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Project ID: <span class="text-rose-500">*</span></label>
+              <label class="block font-semibold text-slate-300 mb-1">Project ID: <span class="text-rose-500">*</span></label>
               <input type="text" id="fb-project-id" placeholder="apotek-anda-123" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Auth Domain:</label>
+              <label class="block font-semibold text-slate-300 mb-1">Auth Domain:</label>
               <input type="text" id="fb-auth-domain" placeholder="project-id.firebaseapp.com" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Storage Bucket:</label>
+              <label class="block font-semibold text-slate-300 mb-1">Storage Bucket:</label>
               <input type="text" id="fb-storage-bucket" placeholder="project-id.appspot.com" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Messaging Sender ID:</label>
+              <label class="block font-semibold text-slate-300 mb-1">Messaging Sender ID:</label>
               <input type="text" id="fb-messaging-sender-id" placeholder="123456789..." class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">App ID:</label>
+              <label class="block font-semibold text-slate-300 mb-1">App ID:</label>
               <input type="text" id="fb-app-id" placeholder="1:12345:web:67890..." class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
             </div>
           </div>
@@ -974,7 +974,7 @@
         <form onsubmit="handleUpdatePinSubmit(event)" class="space-y-3 text-xs pt-1">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Ganti PIN Owner (Min. 4 Digit):</label>
+              <label class="block font-semibold text-slate-300 mb-1">Ganti PIN Owner (Min. 4 Digit):</label>
               <input type="password" id="setting-new-pin" maxlength="8" placeholder="Masukkan 4-8 angka baru" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-rose-500">
             </div>
             <div>
@@ -998,7 +998,7 @@
        Otomatis muncul saat scan barcode baru yang belum ada di database
        ======================================================== -->
   <div id="modal-unregistered-item" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] border border-slate-200/90 overflow-hidden transition-all">
+    <div class="bg-[#0e1424] rounded-3xl max-w-lg w-full shadow-2xl border border-white/[0.12] overflow-hidden transition-all text-slate-100">
       
       <!-- Modal Header: Deep Slate & Emerald Accent -->
       <div class="p-5 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 text-white flex items-center justify-between border-b border-emerald-900/40">
@@ -1053,7 +1053,7 @@
 
         <!-- Nama Barang / Obat dengan Live Auto-search -->
         <div class="relative">
-          <label class="block font-bold text-slate-700 mb-1">
+          <label class="block font-bold text-slate-300 mb-1">
             Nama Obat / Produk: <span class="text-rose-500">*</span>
           </label>
           <input type="text" id="unreg-nama" oninput="handleUnregNameInput(this.value)" placeholder="Ketik nama: misal Sanmol 500 mg, Biogesic..." required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold text-slate-900 transition-all shadow-2xs">
@@ -1067,7 +1067,7 @@
         <!-- Golongan & Satuan -->
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Golongan Obat:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Golongan Obat:</label>
             <select id="unreg-kategori" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white font-medium text-slate-800">
               <option value="Obat Bebas">Obat Bebas (Hijau)</option>
               <option value="Obat Bebas Terbatas">Obat Bebas Terbatas (Biru)</option>
@@ -1078,7 +1078,7 @@
             </select>
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Satuan Kemasan:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Satuan Kemasan:</label>
             <select id="unreg-satuan" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white font-medium text-slate-800">
               <option value="Strip">Strip</option>
               <option value="Blister">Blister</option>
@@ -1130,23 +1130,23 @@
         <!-- Jumlah Stok Masuk & Tanggal Kadaluarsa -->
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Jumlah Stok Masuk:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Jumlah Stok Masuk:</label>
             <input type="number" id="unreg-stok" value="10" min="1" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold">
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Tanggal Kadaluarsa (ED):</label>
-            <input type="date" id="unreg-ed" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <label class="block font-semibold text-slate-300 mb-1">Tanggal Kadaluarsa (ED):</label>
+            <input type="date" id="unreg-ed" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
           </div>
         </div>
 
         <!-- Produsen & Rak (Opsional) -->
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Pabrik / Produsen:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Pabrik / Produsen:</label>
             <input type="text" id="unreg-produsen" placeholder="Contoh: Kalbe, Sanbe..." class="w-full px-3 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500">
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Posisi Rak / Etalase:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Posisi Rak / Etalase:</label>
             <input type="text" id="unreg-rak" placeholder="Contoh: Rak B-02" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500">
           </div>
         </div>
@@ -1179,7 +1179,7 @@
        MODAL 2: EDIT OBAT / TAMBAH PRODUK MANUAL
        ======================================================== -->
   <div id="modal-product-form" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+    <div class="bg-[#0e1424] rounded-2xl max-w-lg w-full shadow-2xl border border-white/[0.12] overflow-hidden text-slate-100">
       
       <div class="p-5 bg-slate-800 text-white flex items-center justify-between">
         <h3 id="product-form-title" class="text-base font-bold">Tambah Obat Baru</h3>
@@ -1191,23 +1191,23 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Barcode (EAN-13 / Code): <span class="text-rose-500">*</span></label>
+            <label class="block font-semibold text-slate-300 mb-1">Barcode (EAN-13 / Code): <span class="text-rose-500">*</span></label>
             <input type="text" id="edit-prod-barcode" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Pabrik / Produsen:</label>
-            <input type="text" id="edit-prod-produsen" placeholder="Kalbe, Kimia Farma..." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <label class="block font-semibold text-slate-300 mb-1">Pabrik / Produsen:</label>
+            <input type="text" id="edit-prod-produsen" placeholder="Kalbe, Kimia Farma..." class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
           </div>
         </div>
 
         <div>
-          <label class="block font-semibold text-slate-700 mb-1">Nama Obat / Produk: <span class="text-rose-500">*</span></label>
+          <label class="block font-semibold text-slate-300 mb-1">Nama Obat / Produk: <span class="text-rose-500">*</span></label>
           <input type="text" id="edit-prod-nama" required placeholder="Contoh: Paracetamol 500 mg" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Golongan Obat:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Golongan Obat:</label>
             <select id="edit-prod-kategori" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg bg-white">
               <option value="Obat Bebas">Obat Bebas</option>
               <option value="Obat Bebas Terbatas">Obat Bebas Terbatas</option>
@@ -1218,7 +1218,7 @@
             </select>
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Satuan Kemasan:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Satuan Kemasan:</label>
             <select id="edit-prod-satuan" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg bg-white">
               <option value="Strip">Strip</option>
               <option value="Blister">Blister</option>
@@ -1237,7 +1237,7 @@
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Harga Beli (Modal):</label>
+            <label class="block font-semibold text-slate-300 mb-1">Harga Beli (Modal):</label>
             <input type="number" id="edit-prod-harga-beli" min="0" placeholder="0" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
           </div>
           <div>
@@ -1248,15 +1248,15 @@
 
         <div class="grid grid-cols-3 gap-3">
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Stok:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Stok:</label>
             <input type="number" id="edit-prod-stok" min="0" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-bold">
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Kadaluarsa (ED):</label>
+            <label class="block font-semibold text-slate-300 mb-1">Kadaluarsa (ED):</label>
             <input type="date" id="edit-prod-ed" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Rak / Etalase:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Rak / Etalase:</label>
             <input type="text" id="edit-prod-rak" placeholder="Rak A-1" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
           </div>
         </div>
@@ -1267,11 +1267,11 @@
             <span>🩺</span> Informasi KIE & Indikasi Obat (Pencegah Medication Error)
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Indikasi Medis (Kegunaan / Khasiat):</label>
+            <label class="block font-semibold text-slate-300 mb-1">Indikasi Medis (Kegunaan / Khasiat):</label>
             <input type="text" id="edit-prod-indikasi" placeholder="Contoh: Pereda Nyeri Kepala, Sakit Gigi & Penurun Demam" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white">
           </div>
           <div>
-            <label class="block font-semibold text-slate-700 mb-1">Aturan Pakai & Dosis Farmasi:</label>
+            <label class="block font-semibold text-slate-300 mb-1">Aturan Pakai & Dosis Farmasi:</label>
             <input type="text" id="edit-prod-aturan" placeholder="Contoh: 3x sehari 1 tablet sesudah makan" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white">
           </div>
         </div>
@@ -1324,7 +1324,7 @@
        MODAL 4: CONTOH BARCODE TESTER (SIMULATOR SCAN)
        ======================================================== -->
   <div id="modal-barcode-tester" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+    <div class="bg-[#0e1424] rounded-2xl max-w-lg w-full shadow-2xl border border-white/[0.12] overflow-hidden text-slate-100">
       <div class="p-4 bg-slate-800 text-white flex items-center justify-between">
         <div>
           <h3 class="text-sm font-bold">Simulator Scan Barcode (Tanpa Cetak Fisik)</h3>
@@ -1386,7 +1386,7 @@
        MODAL 6: PRATINJAU IMPOR FILE EXCEL / SPREADSHEET CERDAS
        ======================================================== -->
   <div id="modal-excel-preview" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden text-xs">
+    <div class="bg-[#0e1424] rounded-3xl max-w-2xl w-full shadow-2xl border border-white/[0.12] overflow-hidden text-xs text-slate-100">
       <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center font-bold text-base">
@@ -1409,7 +1409,7 @@
         </div>
 
         <div>
-          <div class="font-bold text-slate-700 mb-1.5">Contoh 5 Baris Data Pertama:</div>
+          <div class="font-bold text-slate-300 mb-1.5">Contoh 5 Baris Data Pertama:</div>
           <div class="border border-slate-200 rounded-xl overflow-x-auto">
             <table class="w-full text-left">
               <thead>
@@ -1452,23 +1452,23 @@
   <!-- ========================================================
        MODAL 7: VERIFIKASI PIN KEAMANAN OWNER
        ======================================================== -->
-  <div id="modal-pin-security" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden text-xs text-center p-6 space-y-4">
-      <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-600 text-xl font-black">
+  <div id="modal-pin-security" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#0e1424] rounded-3xl max-w-sm w-full shadow-2xl border border-white/[0.12] overflow-hidden text-xs text-center p-6 space-y-4">
+      <div class="w-12 h-12 mx-auto rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl font-black">
         🔒
       </div>
       <div>
-        <h3 id="pin-modal-title" class="font-bold text-sm text-slate-900">Verifikasi PIN Keamanan</h3>
-        <p class="text-[11px] text-slate-500 mt-0.5">Masukkan PIN Owner apotek untuk melanjutkan aksi ini</p>
+        <h3 id="pin-modal-title" class="font-bold text-sm text-slate-100">Verifikasi PIN Keamanan</h3>
+        <p class="text-[11px] text-slate-400 mt-0.5">Masukkan PIN Owner apotek untuk melanjutkan aksi ini</p>
       </div>
 
       <form onsubmit="event.preventDefault(); verifyEnteredPIN();" class="space-y-3">
-        <input type="password" id="input-security-pin" maxlength="8" autofocus placeholder="••••" class="w-36 mx-auto text-center text-2xl tracking-[0.5em] font-mono py-2 border-2 border-slate-300 rounded-xl focus:border-rose-500 focus:outline-none">
+        <input type="password" id="input-security-pin" maxlength="8" autofocus placeholder="••••" class="w-36 mx-auto text-center text-2xl tracking-[0.5em] font-mono py-2 bg-[#090d16] text-white border-2 border-white/[0.15] rounded-xl focus:border-rose-500 focus:outline-none">
         <div class="flex items-center gap-2 pt-2">
-          <button type="button" onclick="closePinModal()" class="flex-1 py-2 rounded-xl border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50">
+          <button type="button" onclick="closePinModal()" class="flex-1 py-2 rounded-xl border border-white/[0.1] font-semibold text-slate-300 hover:bg-white/[0.05] cursor-pointer">
             Batal
           </button>
-          <button type="submit" class="flex-1 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 font-bold text-white shadow-sm">
+          <button type="submit" class="flex-1 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 font-bold text-white shadow-lg shadow-rose-600/30 cursor-pointer">
             Verifikasi
           </button>
         </div>
@@ -1505,7 +1505,7 @@
        MODAL 8: DETAIL RINCIAN FAKTUR DISTRIBUTOR (PBF)
        ======================================================== -->
   <div id="modal-purchase-detail" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-slate-200 overflow-hidden text-xs">
+    <div class="bg-[#0e1424] rounded-3xl max-w-xl w-full shadow-2xl border border-white/[0.12] overflow-hidden text-xs text-slate-100">
       <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
         <div>
           <h3 class="font-bold text-sm">Rincian Faktur Distributor</h3>

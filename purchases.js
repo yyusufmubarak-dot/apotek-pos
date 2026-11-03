@@ -266,28 +266,28 @@ function renderCurrentPurchaseTable(fullRerender = true) {
 
   if (fullRerender) {
     tbody.innerHTML = currentPurchaseItems.map((item, idx) => `
-      <tr class="border-b border-slate-100 hover:bg-slate-50 text-xs">
-        <td class="p-3 font-mono font-bold text-slate-700">${item.barcode}</td>
+      <tr class="border-b border-white/[0.04] hover:bg-white/[0.02] text-xs transition-colors">
+        <td class="p-3 font-mono text-slate-400">${item.barcode}</td>
         <td class="p-3">
-          <div class="font-bold text-slate-900">${item.nama}</div>
+          <div class="font-semibold text-slate-100">${item.nama}</div>
         </td>
         <td class="p-3 w-28">
-          <input type="text" value="${item.satuan}" onchange="updatePurchaseItemRow(${idx}, 'satuan', this.value)" class="w-full px-2 py-1 border border-slate-300 rounded font-medium text-center focus:outline-none focus:ring-1 focus:ring-emerald-500">
+          <input type="text" value="${item.satuan}" onchange="updatePurchaseItemRow(${idx}, 'satuan', this.value)" class="w-full px-2 py-1 border border-white/[0.1] bg-[#0a0e17] text-white rounded font-medium text-center focus:outline-none focus:border-emerald-400">
         </td>
         <td class="p-3 w-24">
-          <input type="number" min="1" value="${item.qty}" oninput="updatePurchaseItemRow(${idx}, 'qty', this.value)" class="w-full px-2 py-1 border border-emerald-400 rounded font-bold text-center bg-emerald-50/40 text-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <input type="number" min="1" value="${item.qty}" oninput="updatePurchaseItemRow(${idx}, 'qty', this.value)" class="w-full px-2 py-1 border border-emerald-500/50 rounded font-bold text-center bg-emerald-500/10 text-emerald-300 focus:outline-none focus:border-emerald-400 font-mono">
         </td>
         <td class="p-3 w-36">
-          <input type="number" min="0" value="${item.hargaBeli}" oninput="updatePurchaseItemRow(${idx}, 'hargaBeli', this.value)" class="w-full px-2 py-1 border border-slate-300 rounded font-mono text-right font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500">
+          <input type="number" min="0" value="${item.hargaBeli}" oninput="updatePurchaseItemRow(${idx}, 'hargaBeli', this.value)" class="w-full px-2 py-1 border border-white/[0.1] bg-[#0a0e17] text-white rounded font-mono text-right font-semibold focus:outline-none focus:border-emerald-400">
         </td>
         <td class="p-3 w-20">
-          <input type="number" min="0" max="100" value="${item.diskonPersen}" oninput="updatePurchaseItemRow(${idx}, 'diskonPersen', this.value)" class="w-full px-2 py-1 border border-slate-300 rounded text-center focus:outline-none focus:ring-1 focus:ring-emerald-500">
+          <input type="number" min="0" max="100" value="${item.diskonPersen}" oninput="updatePurchaseItemRow(${idx}, 'diskonPersen', this.value)" class="w-full px-2 py-1 border border-white/[0.1] bg-[#0a0e17] text-white rounded text-center focus:outline-none focus:border-emerald-400 font-mono">
         </td>
-        <td class="p-3 text-right font-mono font-bold text-slate-900">
+        <td class="p-3 text-right font-mono font-bold text-emerald-400">
           ${formatRupiah(item.subtotal)}
         </td>
         <td class="p-3 text-center">
-          <button type="button" onclick="removePurchaseItemRow(${idx})" class="text-rose-500 hover:text-rose-700 font-bold p-1 cursor-pointer">
+          <button type="button" onclick="removePurchaseItemRow(${idx})" class="text-rose-400 hover:text-rose-300 font-bold p-1 cursor-pointer">
             &times;
           </button>
         </td>
@@ -406,24 +406,24 @@ function renderPurchaseHistoryTable() {
   tbody.innerHTML = purchases.map((p, idx) => {
     const isTempo = p.statusPembayaran.includes('Tempo') || p.statusPembayaran.includes('Hutang');
     return `
-      <tr class="border-b border-slate-100 hover:bg-slate-50 text-xs">
-        <td class="p-3 font-mono font-bold text-slate-900">${p.noFaktur}</td>
-        <td class="p-3 font-semibold text-slate-700">${p.supplier}</td>
-        <td class="p-3 text-slate-500">${formatDateIndo(p.tanggalFaktur)}</td>
+      <tr class="border-b border-white/[0.04] hover:bg-white/[0.02] text-xs transition-colors">
+        <td class="p-3 font-mono font-semibold text-slate-200">${p.noFaktur}</td>
+        <td class="p-3 font-medium text-slate-300">${p.supplier}</td>
+        <td class="p-3 text-slate-400">${formatDateIndo(p.tanggalFaktur)}</td>
         <td class="p-3">
-          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isTempo ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${isTempo ? 'bg-amber-500/15 text-amber-300 border-amber-500/30' : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'}">
             ${p.statusPembayaran}
           </span>
-          ${isTempo && p.jatuhTempo !== '-' ? `<div class="text-[10px] text-amber-700 mt-0.5">Jatuh Tempo: ${p.jatuhTempo}</div>` : ''}
+          ${isTempo && p.jatuhTempo !== '-' ? `<div class="text-[10px] text-amber-400 mt-0.5 font-mono">Jatuh Tempo: ${p.jatuhTempo}</div>` : ''}
         </td>
-        <td class="p-3 text-center font-bold text-slate-700">${p.totalQty} item</td>
-        <td class="p-3 text-right font-mono font-bold text-slate-900">${formatRupiah(p.totalPengeluaran)}</td>
+        <td class="p-3 text-center font-medium text-slate-300">${p.totalQty} item</td>
+        <td class="p-3 text-right font-mono font-bold text-rose-400">${formatRupiah(p.totalPengeluaran)}</td>
         <td class="p-3 text-center">
           <div class="flex items-center justify-center gap-1.5">
-            <button type="button" onclick="viewPurchaseDetailModal('${p.id}')" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded text-[11px] font-semibold cursor-pointer">
+            <button type="button" onclick="viewPurchaseDetailModal('${p.id}')" class="px-2.5 py-1 bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/[0.1] rounded text-[11px] font-semibold cursor-pointer transition-colors">
               Lihat Detail
             </button>
-            <button type="button" onclick="deletePurchaseRecord('${p.id}')" class="p-1 text-rose-500 hover:text-rose-700 font-bold text-xs cursor-pointer" title="Hapus Faktur">
+            <button type="button" onclick="deletePurchaseRecord('${p.id}')" class="p-1 text-rose-400 hover:text-rose-300 font-bold text-xs cursor-pointer" title="Hapus Faktur">
               &times;
             </button>
           </div>
