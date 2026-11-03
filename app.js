@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateInventoryStats();
   applySettingsToUI();
   initCameraScannerList();
+  if (typeof initFirebaseSync === 'function') initFirebaseSync();
 
   // URL Params Handler untuk Preview / Screenshot Mode
   const urlParams = new URLSearchParams(window.location.search);
@@ -300,6 +301,7 @@ function switchTab(tabId) {
     renderTransactionHistory();
   } else if (tabId === 'pengaturan') {
     populateSettingsForm();
+    if (typeof populateFirebaseSettingsForm === 'function') populateFirebaseSettingsForm();
   }
 }
 
@@ -676,6 +678,7 @@ function saveUnregisteredCore(alsoAddToCart = true) {
 
   medicines.push(newMedicine);
   saveMedicinesToStorage();
+  if (typeof syncMedicineToCloud === 'function') syncMedicineToCloud(newMedicine);
   renderInventoryTable();
   closeUnregisteredModal();
 
@@ -989,6 +992,11 @@ function handleProcessCheckout() {
   saveTransactionsToStorage();
   saveMedicinesToStorage();
 
+  // Sinkronisasi ke Cloud Firestore
+  if (typeof syncTransactionToCloud === 'function') {
+    syncTransactionToCloud(newTransaction, cart);
+  }
+
   // Audio efek pembayaran sukses
   sfx.playSuccessPayment();
 
@@ -1296,6 +1304,7 @@ function quickAddStock(id, amount) {
   if (med) {
     med.stok += amount;
     saveMedicinesToStorage();
+    if (typeof syncMedicineToCloud === 'function') syncMedicineToCloud(med);
     renderInventoryTable();
     showToast(`Stok ${med.nama} ditambah +${amount} (Total: ${med.stok})`, 'success');
   }
@@ -1307,6 +1316,7 @@ function deleteProduct(id) {
   if (confirm(`Yakin ingin menghapus obat "${med.nama}" (Barcode: ${med.barcode}) dari data apotek?`)) {
     medicines = medicines.filter(m => m.id !== id);
     saveMedicinesToStorage();
+    if (typeof syncDeleteMedicineFromCloud === 'function') syncDeleteMedicineFromCloud(id);
     renderInventoryTable();
     showToast(`Obat ${med.nama} telah dihapus.`, 'info');
   }
@@ -1409,6 +1419,10 @@ function handleSaveProductForm(e) {
   }
 
   saveMedicinesToStorage();
+  if (typeof syncMedicineToCloud === 'function') {
+    const savedMed = id ? medicines.find(m => m.id === id) : newMed;
+    if (savedMed) syncMedicineToCloud(savedMed);
+  }
   renderInventoryTable();
   closeProductFormModal();
 }
