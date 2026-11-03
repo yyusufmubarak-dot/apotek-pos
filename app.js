@@ -158,6 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addProductToCart(medicines[2]);
     document.getElementById('input-cash-received').value = 50000;
     calculateCashChange();
+  } else if (testMode === 'struk') {
+    setTimeout(() => {
+      reprintReceipt(transactions[0].id);
+    }, 150);
+  } else if (testMode === 'riwayat') {
+    setTimeout(() => {
+      switchTab('riwayat');
+    }, 100);
   }
 });
 
