@@ -1,3 +1,10 @@
+
+// Auto-render Lucide SVG Icons across dynamic views
+function triggerLucideIcons() {
+  if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+    requestAnimationFrame(() => lucide.createIcons());
+  }
+}
 /**
  * =========================================================================
  * APLIKASI KASIR APOTEK (PHARMACY POS) - LOGIKA UTAMA (app.js)
@@ -300,17 +307,16 @@ function switchTab(tabId) {
 
   activeTab = tabId;
 
-  // Update button active state
-  document.querySelectorAll('.nav-tab').forEach(btn => {
-    btn.classList.remove('active', 'bg-emerald-600', 'text-white', 'shadow-sm');
-    btn.classList.add('text-slate-600');
+  // Update button active state for Shadcn tabs
+  document.querySelectorAll('.shadcn-tab-trigger, .nav-tab').forEach(btn => {
+    btn.classList.remove('active');
   });
 
   const activeBtn = document.getElementById(`tab-btn-${tabId}`);
   if (activeBtn) {
-    activeBtn.classList.add('active', 'bg-emerald-600', 'text-white', 'shadow-sm');
-    activeBtn.classList.remove('text-slate-600');
+    activeBtn.classList.add('active');
   }
+  triggerLucideIcons();
 
   // Update contents
   document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.add('hidden'));
@@ -802,10 +808,8 @@ function renderCart() {
   if (cart.length === 0) {
     container.innerHTML = `
       <div id="cart-empty-state" class="py-12 text-center text-slate-500">
-        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-slate-500">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-          </svg>
+        <div class="w-12 h-12 mx-auto mb-2 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
+          <i data-lucide="shopping-cart" class="w-6 h-6"></i>
         </div>
         <p class="text-sm font-semibold text-slate-300">Keranjang Masih Kosong</p>
         <p class="text-xs text-slate-500 mt-1">Scan barcode obat atau cari nama obat di sebelah kiri</p>
@@ -840,11 +844,11 @@ function renderCart() {
             ${item.indikasi ? `
             <div class="mt-2 flex flex-wrap items-center gap-1.5">
               <span class="pill-indikasi">
-                🩺 <b>Indikasi:</b> ${escapeHtml(item.indikasi)}
+                <i data-lucide="stethoscope" class="w-3 h-3 text-cyan-400 flex-shrink-0"></i> <b>Indikasi:</b> ${escapeHtml(item.indikasi)}
               </span>
               ${item.aturanPakai ? `
               <span class="pill-aturan">
-                📋 <b>Aturan:</b> ${escapeHtml(item.aturanPakai)}
+                <i data-lucide="file-text" class="w-3 h-3 text-purple-400 flex-shrink-0"></i> <b>Aturan:</b> ${escapeHtml(item.aturanPakai)}
               </span>
               ` : ''}
             </div>
@@ -862,7 +866,7 @@ function renderCart() {
           <div class="text-right min-w-[95px] flex-shrink-0">
             <div class="font-black text-emerald-400 text-sm font-mono tabular-nums tracking-tight">${formatRupiah(item.subtotal)}</div>
             <button onclick="removeFromCart(${idx})" class="text-[11px] text-rose-400 hover:text-rose-300 font-semibold mt-0.5 transition-colors cursor-pointer">
-              ✕ Hapus
+              <i data-lucide="trash-2" class="w-3 h-3 inline mr-0.5"></i> Hapus
             </button>
           </div>
         </div>
@@ -876,6 +880,7 @@ function renderCart() {
   }
 
   calculateCheckoutTotal();
+  triggerLucideIcons();
 }
 
 function getCategoryBadgeHTML(kategori) {
@@ -1197,7 +1202,7 @@ function handleSearchKasir(query) {
           </span>
           ${m.produsen ? `<span class="text-slate-400 font-sans">• ${escapeHtml(m.produsen)}</span>` : ''}
         </div>
-        ${m.indikasi ? `<div class="pill-indikasi mt-1.5">🩺 <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
+        ${m.indikasi ? `<div class="pill-indikasi mt-1.5"><i data-lucide="stethoscope" class="w-3 h-3 text-cyan-400 flex-shrink-0"></i> <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
       </div>
       <div class="text-right flex-shrink-0">
         <div class="font-black text-emerald-700 text-xs font-mono tabular-nums tracking-tight">${formatRupiah(m.hargaJual)}</div>
@@ -1290,7 +1295,7 @@ function renderInventoryTable() {
         <td class="p-3">
           <div class="font-semibold text-slate-100">${item.nama}</div>
           <div class="text-[10px] text-slate-500 font-medium">${item.produsen || 'Generic'}</div>
-          ${item.indikasi ? `<div class="pill-indikasi mt-1 font-sans">🩺 ${escapeHtml(item.indikasi)}</div>` : ''}
+          ${item.indikasi ? `<div class="pill-indikasi mt-1 font-sans"><i data-lucide="stethoscope" class="w-2.5 h-2.5 text-cyan-400 flex-shrink-0"></i> ${escapeHtml(item.indikasi)}</div>` : ''}
         </td>
         <td class="p-3">
           <div class="flex flex-col gap-1 items-start">
@@ -1353,6 +1358,7 @@ function renderInventoryTable() {
   }
 
   tbody.innerHTML = rowsHtml;
+  triggerLucideIcons();
 }
 
 function loadMoreInventory(addCount) {
@@ -1846,6 +1852,7 @@ function renderTransactionHistory() {
 
   // Render Charts
   setTimeout(renderAnalyticsCharts, 50);
+  triggerLucideIcons();
 
   if (transactions.length === 0) {
     tbody.innerHTML = `
@@ -2051,6 +2058,7 @@ function renderPosQuickGrid(category = 'ALL', searchQuery = '') {
     return;
   }
 
+  setTimeout(triggerLucideIcons, 10);
   grid.innerHTML = items.map(item => {
     const isLowStock = item.stok <= (item.stokMinimal || 10);
     const badgeBg = item.kategori === 'Obat Keras' ? 'bg-rose-500/15 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30';
@@ -2071,7 +2079,7 @@ function renderPosQuickGrid(category = 'ALL', searchQuery = '') {
           </div>
           ${item.indikasi ? `
           <div class="text-[9px] text-cyan-300 bg-cyan-950/50 px-1.5 py-0.5 rounded border border-cyan-800/40 mt-1 line-clamp-1">
-            🩺 ${escapeHtml(item.indikasi)}
+            <i data-lucide="stethoscope" class="w-2.5 h-2.5 text-cyan-400 flex-shrink-0"></i> ${escapeHtml(item.indikasi)}
           </div>` : ''}
         </div>
         <div class="mt-2 pt-1.5 border-t border-white/[0.06] flex items-center justify-between">

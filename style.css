@@ -1,551 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 /* ========================================================
-   APOTEK POS - ANTI-SLOP MODERN DESIGN SYSTEM
-   Inspired by Nate Herk & High-End Medical Dashboard Aesthetics
-   Typography: Plus Jakarta Sans & JetBrains Mono
+   SHADCN / UI OFFICIAL DESIGN TOKENS (ZINC DARK THEME)
+   Reference: github.com/shadcn-ui/ui (75k+ Stars)
    ======================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 :root {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  
-  --emerald-glow: rgba(16, 185, 129, 0.25);
-  --cyan-glow: rgba(6, 182, 212, 0.25);
-  --danger-glow: rgba(244, 63, 94, 0.25);
+  --background: #09090b;       /* Zinc 950 */
+  --foreground: #fafafa;       /* Zinc 50 */
+  --card: #121215;             /* Elevated Zinc 900 */
+  --card-foreground: #fafafa;
+  --popover: #121215;
+  --popover-foreground: #fafafa;
+  --primary: #10b981;          /* Emerald 500 */
+  --primary-foreground: #ffffff;
+  --secondary: #18181b;        /* Zinc 900 */
+  --secondary-foreground: #fafafa;
+  --muted: #1c1c20;
+  --muted-foreground: #a1a1aa; /* Zinc 400 */
+  --accent: #27272a;           /* Zinc 800 */
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;      /* Red 500 */
+  --destructive-foreground: #fafafa;
+  --border: #27272a;           /* Zinc 800 hairline */
+  --input: #27272a;
+  --ring: #10b981;
+  --radius: 0.625rem;
 }
 
 body {
-  font-family: var(--font-sans);
-  background: #080b11;
-  color: #f1f5f9;
-  margin: 0;
-  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  background-image: 
-    radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
-    radial-gradient(at 90% 90%, rgba(6, 182, 212, 0.04) 0px, transparent 50%);
 }
 
 .font-mono-numbers {
-  font-family: var(--font-mono);
-  font-feature-settings: 'tnum' on, 'zero' on;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum' on, 'lnum' on, 'zero' on;
 }
 
 /* ========================================================
-   FROSTED GLASS & MODERN CARD ELEVATION
+   SHADCN CARD & ELEVATION
    ======================================================== */
-.card-elevation {
-  background: #0e1424;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+.shadcn-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.card-elevation:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+.shadcn-card-interactive:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
 }
 
 /* ========================================================
-   HIGH-TECH SCANNER HUD & LASER ANIMATION
+   SHADCN SEGMENTED TABS (Segmented Control)
    ======================================================== */
-.scanner-viewport-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #090d16;
-  min-height: 260px;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
-}
-
-.scanner-laser {
-  position: absolute;
-  top: 0;
-  left: 6%;
-  right: 6%;
-  height: 2.5px;
-  background: linear-gradient(90deg, transparent, #10b981 20%, #34d399 50%, #10b981 80%, transparent);
-  box-shadow: 0 0 16px 4px rgba(16, 185, 129, 0.8), 0 0 32px 8px rgba(52, 211, 153, 0.4);
-  animation: scanLaserHUD 2.4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  z-index: 10;
-  pointer-events: none;
-}
-
-@keyframes scanLaserHUD {
-  0% {
-    top: 8%;
-    opacity: 0.3;
-  }
-  50% {
-    top: 88%;
-    opacity: 1;
-  }
-  100% {
-    top: 8%;
-    opacity: 0.3;
-  }
-}
-
-/* Scanner Corner Target Reticle */
-.reticle-corner {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  pointer-events: none;
-  z-index: 9;
-  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.7));
-}
-.reticle-top-left {
-  top: 18px;
-  left: 18px;
-  border-top: 3px solid #10b981;
-  border-left: 3px solid #10b981;
-  border-top-left-radius: 8px;
-}
-.reticle-top-right {
-  top: 18px;
-  right: 18px;
-  border-top: 3px solid #10b981;
-  border-right: 3px solid #10b981;
-  border-top-right-radius: 8px;
-}
-.reticle-bottom-left {
-  bottom: 18px;
-  left: 18px;
-  border-bottom: 3px solid #10b981;
-  border-left: 3px solid #10b981;
-  border-bottom-left-radius: 8px;
-}
-.reticle-bottom-right {
-  bottom: 18px;
-  right: 18px;
-  border-bottom: 3px solid #10b981;
-  border-right: 3px solid #10b981;
-  border-bottom-right-radius: 8px;
-}
-
-/* Scanner Center Crosshair */
-.reticle-center-cross {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
-  pointer-events: none;
-  z-index: 9;
-  opacity: 0.4;
-}
-.reticle-center-cross::before,
-.reticle-center-cross::after {
-  content: '';
-  position: absolute;
-  background: #10b981;
-}
-.reticle-center-cross::before {
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  transform: translateY(-50%);
-}
-.reticle-center-cross::after {
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  transform: translateX(-50%);
-}
-
-/* ========================================================
-   GOLONGAN OBAT BADGES (ANTI-SLOP COLOR SYSTEM)
-   ======================================================== */
-.badge-obat-bebas {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-.badge-obat-bebas-terbatas {
-  background: rgba(14, 165, 233, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(14, 165, 233, 0.3);
-}
-.badge-obat-keras {
-  background: rgba(239, 68, 68, 0.18);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.35);
-  font-weight: 700;
-}
-.badge-herbal {
-  background: rgba(20, 184, 166, 0.15);
-  color: #2dd4bf;
-  border: 1px solid rgba(20, 184, 166, 0.3);
-}
-.badge-alkes {
-  background: rgba(168, 85, 247, 0.15);
-  color: #c084fc;
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-.badge-suplemen {
-  background: rgba(249, 115, 22, 0.15);
-  color: #fb923c;
-  border: 1px solid rgba(249, 115, 22, 0.3);
-}
-
-/* ========================================================
-   MICRO-INTERACTIONS & PILL BUTTONS
-   ======================================================== */
-.suggest-pill {
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-.suggest-pill:hover {
-  transform: translateY(-1.5px);
-  background: #ecfdf5;
-  color: #065f46;
-  border-color: #a7f3d0;
-  box-shadow: 0 4px 10px -2px rgba(16, 185, 129, 0.2);
-}
-.suggest-pill:active {
-  transform: translateY(0);
-}
-
-/* Action button glowing shadow */
-.btn-glow-emerald {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.35);
-  transition: all 0.2s ease;
-}
-.btn-glow-emerald:hover {
-  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.5);
-  transform: translateY(-1px);
-}
-.btn-glow-emerald:active {
-  transform: translateY(0);
-}
-
-/* ========================================================
-   TACTILE THERMAL RECEIPT WITH SERRATED PAPER EDGES
-   ======================================================== */
-#struk-thermal-preview {
-  font-family: var(--font-mono);
-  width: 310px;
-  max-width: 100%;
-  margin: 0 auto;
-  background: #ffffff;
-  padding: 24px 20px 28px;
-  color: #111827;
-  font-size: 12px;
-  line-height: 1.4;
-  position: relative;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.12), 0 4px 10px -3px rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-}
-
-/* Gerigi kertas struk kasir bagian bawah */
-#struk-thermal-preview::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -8px;
-  height: 8px;
-  background: radial-gradient(circle, transparent, transparent 50%, #ffffff 50%, #ffffff 100%);
-  background-size: 12px 12px;
-  transform: rotate(180deg);
-}
-
-.receipt-divider {
-  border-top: 1px dashed #9ca3af;
-  margin: 10px 0;
-}
-.receipt-double-divider {
-  border-top: 2px dashed #374151;
-  margin: 12px 0;
-}
-
-/* Print thermal styling */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #struk-thermal-print, #struk-thermal-print * {
-    visibility: visible;
-  }
-  #struk-thermal-print {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 58mm;
-    max-width: 80mm;
-    margin: 0;
-    padding: 2mm;
-    font-size: 11px;
-    font-family: var(--font-mono);
-    color: #000 !important;
-    background: #fff !important;
-  }
-  @page {
-    size: auto;
-    margin: 0mm;
-  }
-}
-
-/* Toast container (Top-Right Floating Linear Style) */
-#toast-container {
-  position: fixed;
-  top: 76px;
-  right: 20px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-width: 320px;
-  pointer-events: none;
-}
-.toast {
-  pointer-events: auto;
-  animation: slideInToast 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 14px 30px -6px rgba(0, 0, 0, 0.2), 0 6px 14px -3px rgba(0, 0, 0, 0.1);
-}
-@keyframes slideInToast {
-  from {
-    transform: translateY(12px) scale(0.96);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-
-/* ========================================================
-   ANTI-SLOP DESIGN ENGINEER EXPANSION (SHADCN / TREMOR / LINEAR)
-   ======================================================== */
-
-/* Tabular Numerals & Monospace Alignment */
-.tabular-nums {
-  font-variant-numeric: tabular-nums;
-  -moz-font-feature-settings: "tnum" 1;
-  -webkit-font-feature-settings: "tnum" 1;
-  font-feature-settings: "tnum" 1;
-}
-
-/* Keyboard Shortcut Chip (Linear / Raycast Style) */
-.kbd-chip {
+.shadcn-tabs-list {
   display: inline-flex;
   align-items: center;
-  padding: 1px 6px;
-  font-size: 10px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: #94a3b8;
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 5px;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
-  line-height: 1.4;
+  justify-content: center;
+  border-radius: 8px;
+  background: #18181b;
+  padding: 3px;
+  border: 1px solid #27272a;
 }
 
-/* Tremor-Style KPI Metric Card */
-.kpi-card {
-  position: relative;
-  border-radius: 18px;
-  background: #0e1424;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 18px 20px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-.kpi-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-.kpi-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-}
-.kpi-card-blue::before {
-  background: linear-gradient(90deg, #3b82f6, #60a5fa);
-}
-.kpi-card-emerald::before {
-  background: linear-gradient(90deg, #10b981, #34d399);
-}
-.kpi-card-amber::before {
-  background: linear-gradient(90deg, #f59e0b, #fbbf24);
-}
-.kpi-card-rose::before {
-  background: linear-gradient(90deg, #f43f5e, #fb7185);
+.shadcn-tab-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #a1a1aa;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
-/* Data-Dense Table (satnaing/shadcn-admin style) */
-.sticky-table-header th {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #0f172a !important;
-  color: #e2e8f0 !important;
-  border-bottom: 2px solid #334155;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-}
-.table-row-hover {
-  transition: background-color 0.15s ease;
-}
-.table-row-hover:hover {
-  background-color: rgba(255, 255, 255, 0.03) !important;
+.shadcn-tab-trigger:hover {
+  color: #fafafa;
 }
 
-/* KIE Indikasi & Aturan Pakai Pill Badges */
-.pill-indikasi {
+.shadcn-tab-trigger.active {
+  background: #27272a;
+  color: #fafafa;
+  font-weight: 600;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================================
+   SHADCN BADGES (Strict High-Craft System)
+   ======================================================== */
+.shadcn-badge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 2.5px 8px;
   border-radius: 6px;
-  font-size: 10px;
+  padding: 1.5px 8px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.3;
+  transition: all 0.15s ease;
+}
+
+.badge-obat-bebas {
   background: rgba(16, 185, 129, 0.12);
   color: #34d399;
   border: 1px solid rgba(16, 185, 129, 0.25);
-  transition: all 0.15s ease;
 }
-.pill-indikasi:hover {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: rgba(16, 185, 129, 0.4);
+
+.badge-obat-bebas-terbatas {
+  background: rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.badge-obat-keras {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-herbal {
+  background: rgba(20, 184, 166, 0.12);
+  color: #2dd4bf;
+  border: 1px solid rgba(20, 184, 166, 0.25);
+}
+
+.badge-alkes {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.badge-suplemen {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+/* KIE Indication & Instructions */
+.pill-indikasi {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2.5px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.3;
+  background: rgba(6, 182, 212, 0.1);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.25);
 }
 
 .pill-aturan {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   padding: 2.5px 8px;
   border-radius: 6px;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
-  background: rgba(6, 182, 212, 0.12);
-  color: #38bdf8;
-  border: 1px solid rgba(6, 182, 212, 0.25);
-  transition: all 0.15s ease;
-}
-.pill-aturan:hover {
-  background: rgba(6, 182, 212, 0.2);
-  border-color: rgba(6, 182, 212, 0.4);
+  background: rgba(168, 85, 247, 0.1);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.25);
 }
 
+/* ========================================================
+   SHADCN BUTTONS & STEPPERS
+   ======================================================== */
 .btn-stepper {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 13px;
-  background: #1a233a;
-  color: #f1f5f9;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 600;
+  font-size: 12px;
+  background: #18181b;
+  color: #fafafa;
+  border: 1px solid #27272a;
+  transition: all 0.12s ease;
   cursor: pointer;
 }
+
 .btn-stepper:hover {
-  background: #24304f;
-  color: #38bdf8;
-  border-color: rgba(255, 255, 255, 0.15);
+  background: #27272a;
+  border-color: #3f3f46;
 }
+
 .btn-stepper:active {
-  transform: scale(0.9);
+  transform: scale(0.92);
 }
 
-
-
-/* Subtle Active Pulse */
-.active-pulse-emerald {
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-  animation: pulseEmerald 2s infinite;
-}
-@keyframes pulseEmerald {
-  0% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-  }
-}
-
-/* POS Category Pills (Obsidian Style) */
+/* Category Quick Filter Pills */
 .pos-cat-pill {
-  background: #12192c !important;
-  color: #94a3b8 !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.pos-cat-pill:hover {
-  background: #18223c !important;
-  color: #f1f5f9 !important;
-  border-color: rgba(255, 255, 255, 0.18) !important;
-}
-.pos-cat-pill.active {
-  background: rgba(16, 185, 129, 0.18) !important;
-  color: #34d399 !important;
-  border-color: rgba(16, 185, 129, 0.5) !important;
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.25) !important;
+  background: #18181b;
+  color: #a1a1aa;
+  border: 1px solid #27272a;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  cursor: pointer;
 }
 
-/* Compact Sleek Toast Styling (Linear / Raycast grade) */
+.pos-cat-pill:hover {
+  background: #27272a;
+  color: #fafafa;
+}
+
+.pos-cat-pill.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* ========================================================
+   SHADCN DATA-DENSE TABLE (satnaing/shadcn-admin style)
+   ======================================================== */
+.shadcn-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.shadcn-table th {
+  background: #121215;
+  color: #a1a1aa;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 14px;
+  border-bottom: 1px solid #27272a;
+}
+
+.shadcn-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #1f1f23;
+  color: #fafafa;
+}
+
+.shadcn-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* ========================================================
+   TREMOR METRIC CARDS (tremorlabs/tremor style)
+   ======================================================== */
+.kpi-card {
+  background: #121215;
+  border: 1px solid #27272a;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.kpi-card:hover {
+  border-color: #3f3f46;
+}
+
+/* ========================================================
+   SLEEK TOAST NOTIFICATIONS (Linear / Raycast Style)
+   ======================================================== */
 #toast-container {
-  position: fixed !important;
-  top: 72px !important;
-  right: 18px !important;
-  z-index: 99999 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-  max-width: 320px !important;
+  position: fixed;
+  top: 68px;
+  right: 16px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
   pointer-events: none;
 }
 
 .toast-item {
   pointer-events: auto;
-  padding: 8px 14px !important;
-  border-radius: 10px !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em;
-  backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
-  animation: slideInToast 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #18181b;
+  color: #fafafa;
+  border: 1px solid #27272a;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideToastIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideToastIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Scanner Laser HUD */
+.scanner-viewport-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #09090b;
+  min-height: 240px;
+}
+
+.scanner-laser {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981 20%, #34d399 50%, #10b981 80%, transparent);
+  box-shadow: 0 0 12px 2px rgba(16, 185, 129, 0.6);
+  animation: scanHUD 2.4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes scanHUD {
+  0%, 100% { top: 10%; opacity: 0.3; }
+  50% { top: 85%; opacity: 1; }
 }

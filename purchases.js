@@ -211,7 +211,8 @@ function updatePurchaseItemRow(index, field, value) {
   }
 
   item.subtotal = calculateItemPurchaseSubtotal(item);
-  renderCurrentPurchaseTable(false); // Render tanpa reset fokus
+  renderCurrentPurchaseTable(false);
+  if (typeof lucide !== 'undefined') requestAnimationFrame(() => lucide.createIcons());
 }
 
 function removePurchaseItemRow(index) {
@@ -255,7 +256,7 @@ function renderCurrentPurchaseTable(fullRerender = true) {
     tbody.innerHTML = `
       <tr>
         <td colspan="7" class="p-8 text-center text-slate-400">
-          <div class="text-3xl mb-2">📦</div>
+          <div class="w-12 h-12 mx-auto mb-2 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500"><i data-lucide="package" class="w-6 h-6"></i></div>
           <div class="font-bold text-slate-600">Belum Ada Item Obat dalam Faktur Ini</div>
           <p class="text-[11px] text-slate-400 mt-1">Cari obat di kolom atas atau scan barcode barang yang baru datang dari distributor</p>
         </td>
@@ -389,6 +390,7 @@ function renderPurchaseHistoryTable() {
 
   const grandTotalAllPurchases = purchases.reduce((acc, p) => acc + (p.totalPengeluaran || 0), 0);
   if (totalExpenseStat) totalExpenseStat.textContent = formatRupiah(grandTotalAllPurchases);
+  if (typeof lucide !== 'undefined') requestAnimationFrame(() => lucide.createIcons());
 
   if (!tbody) return;
 

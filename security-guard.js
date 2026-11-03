@@ -215,26 +215,27 @@ function updateRoleUI() {
     if (isSuperAdmin()) {
       container.innerHTML = `
         <div class="flex items-center gap-1.5">
-          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">
-            ⭐ Super Admin
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Super Admin
           </span>
-          <button onclick="logoutToKasirRole()" title="Keluar ke Mode Kasir agar staf tidak bisa ubah data" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 transition-all cursor-pointer">
-            🚪 Kunci ke Kasir
+          <button onclick="logoutToKasirRole()" title="Kembali ke Mode Kasir" class="h-8 px-2.5 rounded-md text-xs font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 flex items-center gap-1 transition-colors cursor-pointer">
+            <i data-lucide="log-out" class="w-3 h-3 text-zinc-400"></i> Kasir
           </button>
         </div>
       `;
     } else {
       container.innerHTML = `
         <div class="flex items-center gap-1.5">
-          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-700/60 text-slate-300 border border-slate-600">
-            👤 Kasir Biasa
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium bg-zinc-900 text-zinc-300 border border-zinc-800">
+            <i data-lucide="user" class="w-3.5 h-3.5 text-zinc-400"></i> Kasir
           </span>
-          <button onclick="requestSuperAdminLogin()" title="Masuk Super Admin untuk ubah harga / stok / laporan" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm flex items-center gap-1 transition-all cursor-pointer">
-            🔑 Super Admin
+          <button onclick="requestSuperAdminLogin()" title="Masuk Super Admin" class="h-8 px-2.5 rounded-md text-xs font-medium bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs flex items-center gap-1 transition-colors cursor-pointer">
+            <i data-lucide="key" class="w-3 h-3"></i> Admin
           </button>
         </div>
       `;
     }
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 
   // Update indikator gembok pada tab yang terkunci
