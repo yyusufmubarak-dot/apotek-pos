@@ -931,31 +931,78 @@ function calculateCheckoutTotal() {
   calculateCashChange();
 }
 
-// Pemilihan Metode Pembayaran
+// Pemilihan Metode Pembayaran (Tunai, QRIS, Transfer)
 function setPaymentMethod(method) {
   currentPaymentMethod = method;
   const cashSection = document.getElementById('cash-payment-section');
+  const qrisSection = document.getElementById('qris-payment-section');
+  const transferSection = document.getElementById('transfer-payment-section');
 
-  const btnCash = document.getElementById('btn-pay-cash');
+  const btnTunai = document.getElementById('btn-pay-tunai') || document.getElementById('btn-pay-cash');
   const btnQris = document.getElementById('btn-pay-qris');
   const btnTransfer = document.getElementById('btn-pay-transfer');
 
-  [btnCash, btnQris, btnTransfer].forEach(btn => {
-    btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
-    btn.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
-  });
+  const inactiveClass = 'py-2 rounded-lg font-semibold text-xs flex items-center justify-center gap-1.5 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 hover:bg-slate-100 cursor-pointer transition-all';
+  const activeClass = 'py-2 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 bg-emerald-600 text-white shadow-xs cursor-pointer transition-all';
 
-  if (method === 'Tunai') {
-    btnCash.classList.add('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
-    cashSection.classList.remove('hidden');
-  } else if (method === 'QRIS') {
-    btnQris.classList.add('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
-    cashSection.classList.add('hidden');
-  } else {
-    btnTransfer.classList.add('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
-    cashSection.classList.add('hidden');
+  if (btnTunai) btnTunai.className = (method === 'Tunai') ? activeClass : inactiveClass;
+  if (btnQris) btnQris.className = (method === 'QRIS') ? activeClass : inactiveClass;
+  if (btnTransfer) btnTransfer.className = (method === 'Transfer') ? activeClass : inactiveClass;
+
+  if (cashSection) cashSection.classList.toggle('hidden', method !== 'Tunai');
+  if (qrisSection) {
+    qrisSection.classList.toggle('hidden', method !== 'QRIS');
+    if (method === 'QRIS') {
+      const merchantEl = document.getElementById('docket-qris-merchant');
+      const nmidEl = document.getElementById('docket-qris-nmid');
+      if (merchantEl) merchantEl.textContent = settings.qrisMerchant || settings.namaApotek || 'Apotek Medika Sejahtera';
+      if (nmidEl) nmidEl.textContent = `NMID: ${settings.qrisNmid || 'ID1020304050607'}`;
+    }
   }
+  if (transferSection) {
+    transferSection.classList.toggle('hidden', method !== 'Transfer');
+    if (method === 'Transfer') {
+      const bankNameEl = document.getElementById('docket-bank-name');
+      const bankRekEl = document.getElementById('docket-bank-rekening');
+      const bankOwnerEl = document.getElementById('docket-bank-owner');
+      if (bankNameEl) bankNameEl.textContent = settings.bankName || 'BCA';
+      if (bankRekEl) bankRekEl.textContent = settings.bankRekening || '8270918231';
+      if (bankOwnerEl) bankOwnerEl.textContent = `a.n ${settings.bankAtasNama || settings.namaApotek || 'Apotek Medika Sejahtera'}`;
+    }
+  }
+
+  // Update button label
+  const checkoutBtn = document.getElementById('btn-process-checkout');
+  if (checkoutBtn) {
+    if (method === 'Tunai') {
+      checkoutBtn.innerHTML = '<i data-lucide="check-circle" class="w-4 h-4"></i><span>Proses Bayar & Cetak Struk</span>';
+    } else if (method === 'QRIS') {
+      checkoutBtn.innerHTML = '<i data-lucide="qr-code" class="w-4 h-4"></i><span>Tampilkan QRIS & Bayar</span>';
+    } else {
+      checkoutBtn.innerHTML = '<i data-lucide="arrow-right-left" class="w-4 h-4"></i><span>Konfirmasi Transfer & Bayar</span>';
+    }
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
+
+  calculateCashChange();
 }
+
+function applyQuickCash(val) {
+  const totalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+  const grandTotal = totalEl ? parseRupiahNumber(totalEl.textContent) : 0;
+  const cashInput = document.getElementById('input-cash-received');
+  if (!cashInput) return;
+
+  if (val === 'pas') {
+    cashInput.value = grandTotal;
+  } else {
+    const current = parseFloat(cashInput.value) || 0;
+    cashInput.value = current + val;
+  }
+  calculateCashChange();
+}
+
+window.calculateChange = calculateCashChange;
 
 // Quick Cash Buttons
 function setCashExact() {
@@ -1001,22 +1048,144 @@ function parseRupiahNumber(rupiahStr) {
 }
 
 // Proses Transaksi Checkout
+// =========================================================================
+// ALUR PEMBAYARAN NON-TUNAI: QRIS & TRANSFER BANK
+// =========================================================================
+
+// Salin Nomor Rekening ke Clipboard
+function copyBankRekening() {
+  const rek = settings.bankRekening || '8270918231';
+  navigator.clipboard.writeText(rek).then(() => {
+    showToast(`No. Rekening ${rek} berhasil disalin!`, 'success');
+  }).catch(() => {
+    showToast(`No. Rekening: ${rek}`, 'info');
+  });
+}
+
+// Buka Modal QRIS
+function openQrisModal(grandTotal, invoiceNo) {
+  const modal = document.getElementById('modal-qris-payment');
+  if (!modal) return;
+
+  const merchantEl = document.getElementById('qris-modal-merchant');
+  const nmidEl = document.getElementById('qris-modal-nmid');
+  const totalEl = document.getElementById('qris-modal-total');
+  const imgEl = document.getElementById('qris-modal-img');
+
+  const merchantName = settings.qrisMerchant || settings.namaApotek || 'Apotek Medika Sejahtera';
+  const nmid = settings.qrisNmid || 'ID1020304050607';
+
+  if (merchantEl) merchantEl.textContent = merchantName;
+  if (nmidEl) nmidEl.textContent = `NMID: ${nmid}`;
+  if (totalEl) totalEl.textContent = formatRupiah(grandTotal);
+
+  if (imgEl) {
+    if (settings.qrisImage && settings.qrisImage.startsWith('data:image')) {
+      imgEl.src = settings.qrisImage;
+    } else {
+      // Generate Dynamic QRIS via fast public QR service
+      const qrPayload = encodeURIComponent(`QRIS|${merchantName}|${nmid}|${invoiceNo}|${grandTotal}`);
+      imgEl.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${qrPayload}`;
+    }
+  }
+
+  modal.classList.remove('hidden');
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function closeQrisModal() {
+  const modal = document.getElementById('modal-qris-payment');
+  if (modal) modal.classList.add('hidden');
+}
+
+function confirmQrisPayment() {
+  const totalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+  const grandTotal = totalEl ? parseRupiahNumber(totalEl.textContent) : 0;
+  closeQrisModal();
+  finalizeTransaction('QRIS', { nominalBayar: grandTotal, kembalian: 0 });
+}
+
+// Buka Modal Transfer Bank
+function openTransferModal(grandTotal, invoiceNo) {
+  const modal = document.getElementById('modal-transfer-payment');
+  if (!modal) return;
+
+  const bankEl = document.getElementById('transfer-modal-bank');
+  const rekEl = document.getElementById('transfer-modal-rekening');
+  const ownerEl = document.getElementById('transfer-modal-owner');
+  const totalEl = document.getElementById('transfer-modal-total');
+  const refInput = document.getElementById('input-transfer-ref');
+
+  if (bankEl) bankEl.textContent = settings.bankName || 'BCA';
+  if (rekEl) rekEl.textContent = settings.bankRekening || '8270918231';
+  if (ownerEl) ownerEl.textContent = settings.bankAtasNama || settings.namaApotek || 'Apotek Medika Sejahtera';
+  if (totalEl) totalEl.textContent = formatRupiah(grandTotal);
+  if (refInput) {
+    refInput.value = '';
+    setTimeout(() => refInput.focus(), 150);
+  }
+
+  modal.classList.remove('hidden');
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function closeTransferModal() {
+  const modal = document.getElementById('modal-transfer-payment');
+  if (modal) modal.classList.add('hidden');
+}
+
+function confirmTransferPayment() {
+  const totalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+  const grandTotal = totalEl ? parseRupiahNumber(totalEl.textContent) : 0;
+  const refInput = document.getElementById('input-transfer-ref');
+  const refVal = refInput ? refInput.value.trim() : '';
+
+  const bankName = settings.bankName || 'BCA';
+  const methodLabel = refVal ? `Transfer (${bankName} - ${refVal})` : `Transfer (${bankName})`;
+
+  closeTransferModal();
+  finalizeTransaction(methodLabel, { nominalBayar: grandTotal, kembalian: 0, ref: refVal });
+}
+
+// Eksekusi Checkout Utama
 function handleProcessCheckout() {
   if (cart.length === 0) {
     showToast("Keranjang belanja masih kosong!", "warning");
     return;
   }
 
-  const grandTotal = parseRupiahNumber(document.getElementById('label-grand-total').textContent);
-  const subtotal = parseRupiahNumber(document.getElementById('label-subtotal').textContent);
-  const discount = parseRupiahNumber(document.getElementById('label-discount').textContent);
-  const cashReceived = parseFloat(document.getElementById('input-cash-received').value) || 0;
+  const grandTotalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+  const grandTotal = grandTotalEl ? parseRupiahNumber(grandTotalEl.textContent) : 0;
 
-  if (currentPaymentMethod === 'Tunai' && cashReceived < grandTotal) {
-    showToast(`Uang tunai yang diterima kurang ${formatRupiah(grandTotal - cashReceived)}!`, "danger");
-    document.getElementById('input-cash-received').focus();
-    return;
+  if (currentPaymentMethod === 'Tunai') {
+    const cashInput = document.getElementById('input-cash-received');
+    const cashReceived = cashInput ? (parseFloat(cashInput.value) || 0) : 0;
+
+    if (cashReceived < grandTotal) {
+      showToast(`Uang tunai kurang ${formatRupiah(grandTotal - cashReceived)}!`, "danger");
+      if (cashInput) cashInput.focus();
+      return;
+    }
+    const kembalian = Math.max(0, cashReceived - grandTotal);
+    finalizeTransaction('Tunai', { nominalBayar: cashReceived, kembalian });
+  } else if (currentPaymentMethod === 'QRIS') {
+    openQrisModal(grandTotal, currentInvoiceNumber);
+  } else if (currentPaymentMethod === 'Transfer') {
+    openTransferModal(grandTotal, currentInvoiceNumber);
   }
+}
+
+window.processCheckout = handleProcessCheckout;
+
+// Finalisasi Transaksi & Simpan Data
+function finalizeTransaction(methodLabel, paymentDetails = {}) {
+  const subtotalEl = document.getElementById('summary-subtotal') || document.getElementById('label-subtotal');
+  const discountEl = document.getElementById('summary-discount') || document.getElementById('label-discount');
+  const grandTotalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+
+  const subtotal = subtotalEl ? parseRupiahNumber(subtotalEl.textContent) : 0;
+  const discount = discountEl ? parseRupiahNumber(discountEl.textContent) : 0;
+  const grandTotal = grandTotalEl ? parseRupiahNumber(grandTotalEl.textContent) : 0;
 
   // Kurangi stok di inventaris
   let totalProfit = 0;
@@ -1029,8 +1198,9 @@ function handleProcessCheckout() {
     }
   });
 
-  // Simpan data transaksi
-  const kembalian = currentPaymentMethod === 'Tunai' ? Math.max(0, cashReceived - grandTotal) : 0;
+  const nominalBayar = paymentDetails.nominalBayar || grandTotal;
+  const kembalian = paymentDetails.kembalian || 0;
+
   const newTransaction = {
     id: currentInvoiceNumber,
     waktu: new Date().toISOString(),
@@ -1039,18 +1209,19 @@ function handleProcessCheckout() {
     subtotal,
     diskon: discount,
     totalAkhir: grandTotal,
-    metodeBayar: currentPaymentMethod,
-    nominalBayar: currentPaymentMethod === 'Tunai' ? cashReceived : grandTotal,
+    metodeBayar: methodLabel,
+    nominalBayar,
     kembalian,
     keuntungan: totalProfit - discount,
-    kasir: "Kasir 1"
+    kasir: "Kasir 1",
+    refPembayaran: paymentDetails.ref || ''
   };
 
   transactions.unshift(newTransaction);
   saveTransactionsToStorage();
   saveMedicinesToStorage();
 
-  // Sinkronisasi ke Cloud Firestore
+  // Sinkronisasi Cloud Firestore
   if (typeof syncTransactionToCloud === 'function') {
     syncTransactionToCloud(newTransaction, cart);
   }
@@ -1061,11 +1232,24 @@ function handleProcessCheckout() {
   // Siapkan struk thermal untuk preview dan print
   renderReceiptThermal(newTransaction);
 
+  // Bersihkan keranjang kasir
+  cart = [];
+  renderCart();
+  generateNewInvoiceNumber();
+  renderPosQuickGrid();
+  renderInventoryTable();
+  renderTransactionHistory();
+  updateInventoryStats();
+
+  const cashInput = document.getElementById('input-cash-received');
+  if (cashInput) cashInput.value = '';
+  calculateCashChange();
+
   // Buka modal struk
   const receiptModal = document.getElementById('modal-receipt-dialog');
   if (receiptModal) receiptModal.classList.remove('hidden');
 
-  showToast(`Transaksi ${currentInvoiceNumber} sukses!`, 'success');
+  showToast(`Transaksi ${newTransaction.id} [${methodLabel}] berhasil!`, 'success');
 }
 
 // Render Struk Format Thermal Kertas Kasir (58mm / 80mm)
@@ -1948,6 +2132,7 @@ function applySettingsToUI() {
   const navSipa = document.getElementById('nav-sipa');
   if (navName && settings.namaApotek) navName.textContent = settings.namaApotek;
   if (navSipa && settings.sipa) navSipa.textContent = settings.sipa;
+  populatePaymentSettingsToUI();
 }
 
 // =========================================================================
@@ -2113,4 +2298,85 @@ function clearKasirSearch() {
   const resultsBox = document.getElementById('search-kasir-results');
   if (resultsBox) resultsBox.classList.add('hidden');
   renderPosQuickGrid(currentPosGridCategory);
+}
+
+// Handle Upload Foto QRIS Apotek
+function handleQrisImageUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  if (file.size > 2 * 1024 * 1024) {
+    showToast("Ukuran foto maksimal 2MB!", "warning");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    settings.qrisImage = event.target.result;
+    saveSettingsToStorage();
+    renderQrisSettingsPreview();
+    showToast("Foto QRIS apotek berhasil diunggah!", "success");
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeQrisImage() {
+  settings.qrisImage = '';
+  saveSettingsToStorage();
+  renderQrisSettingsPreview();
+  const fileInput = document.getElementById('setting-qris-file');
+  if (fileInput) fileInput.value = '';
+  showToast("Foto QRIS dihapus. Sistem akan menggunakan QR dinamis.", "info");
+}
+
+function renderQrisSettingsPreview() {
+  const previewContainer = document.getElementById('qris-img-preview-container');
+  const previewImg = document.getElementById('setting-qris-preview');
+  const btnRemove = document.getElementById('btn-remove-qris');
+
+  if (settings.qrisImage && settings.qrisImage.startsWith('data:image')) {
+    if (previewImg) previewImg.src = settings.qrisImage;
+    if (previewContainer) previewContainer.classList.remove('hidden');
+    if (btnRemove) btnRemove.classList.remove('hidden');
+  } else {
+    if (previewContainer) previewContainer.classList.add('hidden');
+    if (btnRemove) btnRemove.classList.add('hidden');
+  }
+}
+
+// Simpan Pengaturan Pembayaran Non-Tunai
+function savePaymentSettings(e) {
+  e.preventDefault();
+  const qrisMerchantInput = document.getElementById('setting-qris-merchant');
+  const qrisNmidInput = document.getElementById('setting-qris-nmid');
+  const bankNameInput = document.getElementById('setting-bank-name');
+  const bankRekeningInput = document.getElementById('setting-bank-rekening');
+  const bankOwnerInput = document.getElementById('setting-bank-owner');
+
+  if (qrisMerchantInput) settings.qrisMerchant = qrisMerchantInput.value.trim();
+  if (qrisNmidInput) settings.qrisNmid = qrisNmidInput.value.trim();
+  if (bankNameInput) settings.bankName = bankNameInput.value.trim();
+  if (bankRekeningInput) settings.bankRekening = bankRekeningInput.value.trim();
+  if (bankOwnerInput) settings.bankAtasNama = bankOwnerInput.value.trim();
+
+  saveSettingsToStorage();
+  applySettingsToUI();
+  showToast("Pengaturan QRIS & Rekening Bank berhasil disimpan!", "success");
+}
+
+// Populate Payment Settings on Page Load
+function populatePaymentSettingsToUI() {
+  const qrisMerchantInput = document.getElementById('setting-qris-merchant');
+  const qrisNmidInput = document.getElementById('setting-qris-nmid');
+  const bankNameInput = document.getElementById('setting-bank-name');
+  const bankRekeningInput = document.getElementById('setting-bank-rekening');
+  const bankOwnerInput = document.getElementById('setting-bank-owner');
+
+  if (qrisMerchantInput) qrisMerchantInput.value = settings.qrisMerchant || settings.namaApotek || 'Apotek Medika Sejahtera';
+  if (qrisNmidInput) qrisNmidInput.value = settings.qrisNmid || 'ID1020304050607';
+  if (bankNameInput) bankNameInput.value = settings.bankName || 'BCA';
+  if (bankRekeningInput) bankRekeningInput.value = settings.bankRekening || '8270918231';
+  if (bankOwnerInput) bankOwnerInput.value = settings.bankAtasNama || settings.namaApotek || 'Apotek Medika Sejahtera';
+
+  renderQrisSettingsPreview();
 }

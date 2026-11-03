@@ -12,7 +12,13 @@ const DEFAULT_SETTINGS = {
   apoteker: "apt. Siti Nurhaliza, S.Farm.",
   catatanStruk: "Terima kasih atas kunjungan Anda. Semoga lekas sembuh!",
   pajakPersen: 0, // 0 = nonaktif
-  autoOpenCashierScan: true
+  autoOpenCashierScan: true,
+  qrisMerchant: "Apotek Medika Sejahtera",
+  qrisNmid: "ID1020304050607",
+  qrisImage: "",
+  bankName: "BCA",
+  bankRekening: "8270918231",
+  bankAtasNama: "Apotek Medika Sejahtera"
 };
 
 const INITIAL_MEDICINES = [
