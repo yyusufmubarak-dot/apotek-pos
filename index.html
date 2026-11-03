@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apotek Medika - Sistem Kasir & Inventaris Barcode</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pharmacy: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- html5-qrcode library (Local offline fallback & CDN) -->
+  <script src="html5-qrcode.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- TOP HEADER / NAVBAR -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo & Apotek Identity -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 id="nav-nama-apotek" class="text-lg font-bold text-slate-900 leading-tight">Apotek Medika Sejahtera</h1>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-ping"></span>
+                Kasir Siap
+              </span>
+            </div>
+            <p id="nav-sipa" class="text-xs text-slate-500">SIPA: 446/1029/DINKES/2024</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="hidden md:flex space-x-1">
+          <button onclick="switchTab('kasir')" id="tab-btn-kasir" class="nav-tab active px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all bg-emerald-600 text-white shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Kasir (POS)
+          </button>
+          
+          <button onclick="switchTab('stok')" id="tab-btn-stok" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+            </svg>
+            Katalog Obat & Stok
+            <span id="badge-stok-warning" class="hidden ml-1 px-1.5 py-0.2 rounded-full text-xs bg-amber-100 text-amber-800 font-bold">0</span>
+          </button>
+
+          <button onclick="switchTab('riwayat')" id="tab-btn-riwayat" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+            Riwayat Penjualan
+          </button>
+
+          <button onclick="switchTab('pengaturan')" id="tab-btn-pengaturan" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            Pengaturan
+          </button>
+        </nav>
+
+        <!-- Right Quick Actions: Tester & Digital Clock -->
+        <div class="flex items-center space-x-3">
+          <button onclick="openBarcodeTesterModal()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+            </svg>
+            Contoh Barcode Tes
+          </button>
+          
+          <div class="text-right hidden sm:block">
+            <div id="digital-clock" class="text-sm font-mono font-bold text-slate-800">00:00:00</div>
+            <div id="digital-date" class="text-[11px] text-slate-500">Selasa, 03 Nov 2026</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Nav Bar (Small screens) -->
+    <div class="flex md:hidden border-t border-slate-200 bg-slate-50 px-2 py-1 justify-around text-xs">
+      <button onclick="switchTab('kasir')" class="mobile-nav-tab p-2 text-emerald-600 font-bold flex flex-col items-center">
+        <span>Kasir</span>
+      </button>
+      <button onclick="switchTab('stok')" class="mobile-nav-tab p-2 text-slate-600 flex flex-col items-center">
+        <span>Stok Obat</span>
+      </button>
+      <button onclick="switchTab('riwayat')" class="mobile-nav-tab p-2 text-slate-600 flex flex-col items-center">
+        <span>Riwayat</span>
+      </button>
+      <button onclick="switchTab('pengaturan')" class="mobile-nav-tab p-2 text-slate-600 flex flex-col items-center">
+        <span>Setelan</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ========================================================
+         TAB 1: KASIR / POINT OF SALE (POS)
+         ======================================================== -->
+    <div id="tab-content-kasir" class="tab-pane">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- SISI KIRI: SCANNER KAMERA & PENCARIAN OBAT (5 Kolom) -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- SCANNER CARD -->
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+              <div class="flex items-center gap-2">
+                <span class="p-1.5 rounded-lg bg-emerald-100 text-emerald-700">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h2 class="text-sm font-bold text-slate-800">Scanner Barcode Kamera</h2>
+                  <p class="text-xs text-slate-500">Arahkan kamera ke kemasan obat</p>
+                </div>
+              </div>
+
+              <!-- Camera Controls -->
+              <div class="flex items-center gap-2">
+                <select id="camera-select" class="text-xs bg-white border border-slate-300 rounded-lg px-2 py-1 max-w-[130px] truncate text-slate-700 focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                  <option value="">Pilih Kamera...</option>
+                </select>
+                <button id="btn-toggle-camera" onclick="toggleCameraScanner()" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-sm flex items-center gap-1">
+                  <span id="camera-btn-text">Buka Kamera</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Viewport Kamera -->
+            <div class="p-4 bg-slate-900">
+              <div class="scanner-viewport-wrapper relative rounded-xl overflow-hidden flex flex-col items-center justify-center min-h-[260px] bg-slate-950 border border-slate-800">
+                
+                <!-- Video Container html5-qrcode -->
+                <div id="barcode-reader-viewport" class="w-full h-full absolute inset-0 z-0"></div>
+
+                <!-- Laser scanning line & corners (hanya aktif jika kamera ON) -->
+                <div id="scanner-overlay" class="hidden">
+                  <div class="scanner-laser"></div>
+                  <div class="reticle-corner reticle-top-left"></div>
+                  <div class="reticle-corner reticle-top-right"></div>
+                  <div class="reticle-corner reticle-bottom-left"></div>
+                  <div class="reticle-corner reticle-bottom-right"></div>
+                  <div class="absolute bottom-3 left-0 right-0 text-center z-10 pointer-events-none">
+                    <span class="inline-block px-3 py-1 rounded-full text-[11px] font-medium bg-black/60 text-emerald-300 backdrop-blur-sm border border-emerald-500/30">
+                      Scanning EAN-13, QR & Barcode...
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Placeholder state when camera is OFF -->
+                <div id="scanner-placeholder" class="text-center p-6 z-10">
+                  <div class="w-16 h-16 mx-auto rounded-full bg-slate-800 flex items-center justify-center text-slate-400 mb-3 border border-slate-700">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <p class="text-sm font-semibold text-slate-300 mb-1">Kamera Belum Aktif</p>
+                  <p class="text-xs text-slate-400 mb-3 max-w-xs">Klik "Buka Kamera" di atas untuk scan otomatis menggunakan webcam/kamera HP.</p>
+                  <button onclick="toggleCameraScanner()" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 hover:bg-emerald-600 text-white transition-all shadow-md">
+                    Aktifkan Kamera Sekarang
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Manual Barcode Input & Quick Scan Form -->
+            <div class="p-4 border-t border-slate-100 bg-white space-y-3">
+              <label class="block text-xs font-semibold text-slate-700">
+                Input Barcode Manual / Scanner USB Fisik:
+              </label>
+              <form id="form-manual-barcode" onsubmit="handleManualBarcodeSubmit(event)" class="flex gap-2">
+                <div class="relative flex-1">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                    </svg>
+                  </div>
+                  <input type="text" id="input-barcode-manual" placeholder="Ketik barcode lalu tekan Enter..." class="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-mono" autocomplete="off">
+                </div>
+                <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm rounded-lg transition-colors flex items-center gap-1.5 shadow-sm">
+                  <span>Proses</span>
+                </button>
+              </form>
+
+              <!-- Quick Search Obat Manual (Pencarian nama obat jika barcode hilang) -->
+              <div class="relative pt-1">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-xs font-semibold text-slate-600">Atau Cari Nama Obat:</span>
+                  <span class="text-[11px] text-slate-400">Bila barcode rusak</span>
+                </div>
+                <div class="relative">
+                  <input type="text" id="input-search-kasir" oninput="handleSearchKasir(this.value)" placeholder="Ketik nama: Panadol, Promag, Amoxicillin..." class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <div id="search-kasir-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg max-h-56 overflow-y-auto z-20 divide-y divide-slate-100">
+                    <!-- Dynamic search items -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Last Scanned Feed Notification Info -->
+            <div id="last-scanned-card" class="px-4 py-3 bg-emerald-50 border-t border-emerald-100 flex items-center justify-between text-xs text-emerald-900">
+              <div class="flex items-center gap-2 truncate">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span id="last-scanned-text" class="font-medium truncate">Siap melakukan scan barcode.</span>
+              </div>
+              <span id="last-scanned-time" class="text-[10px] text-emerald-600 font-mono">--:--</span>
+            </div>
+
+          </div>
+
+          <!-- PANDUAN RINGKAS FITUR KHUSUS UNTUK KASIR/PEMILIK -->
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4 text-xs text-slate-700 space-y-2">
+            <div class="flex items-center gap-1.5 font-bold text-blue-900 text-sm">
+              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Alur Cerdas Barcode Belum Terdaftar:
+            </div>
+            <p class="leading-relaxed">
+              Jika kamera membaca barcode yang <strong>belum terdaftar</strong> di apotek, jendela penginputan otomatis terbuka. Anda cukup memilih dari referensi obat umum atau menyesuaikan <strong>nama, harga beli, dan harga jual</strong>. Setelah disimpan, produk langsung masuk ke kasir!
+            </p>
+          </div>
+
+        </div>
+
+        <!-- SISI KANAN: DAFTAR KERANJANG & CHECKOUT PEMBAYARAN (7 Kolom) -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-full">
+            
+            <!-- Keranjang Header -->
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+              <div class="flex items-center gap-2">
+                <span class="p-1.5 rounded-lg bg-emerald-100 text-emerald-700">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <h2 class="text-sm font-bold text-slate-800">Keranjang Transaksi</h2>
+                  <p class="text-xs text-slate-500">Invoice: <span id="current-invoice-number" class="font-mono font-semibold text-emerald-700">TRX-...</span></p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span id="cart-item-count-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-slate-200 text-slate-700">0 Item</span>
+                <button onclick="clearCart()" class="text-xs text-rose-600 hover:text-rose-700 font-medium px-2 py-1 rounded hover:bg-rose-50 transition-colors">
+                  Kosongkan
+                </button>
+              </div>
+            </div>
+
+            <!-- List Item Keranjang (Scrollable) -->
+            <div class="p-4 flex-1 overflow-y-auto max-h-[360px] min-h-[220px] divide-y divide-slate-100" id="cart-items-container">
+              <!-- Empty State -->
+              <div id="cart-empty-state" class="py-12 text-center text-slate-400">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <p class="text-sm font-medium text-slate-600">Keranjang Masih Kosong</p>
+                <p class="text-xs text-slate-400 mt-1">Scan barcode obat atau cari nama obat di sebelah kiri</p>
+              </div>
+            </div>
+
+            <!-- Ringkasan Perhitungan & Pembayaran -->
+            <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
+              
+              <!-- Subtotal & Diskon -->
+              <div class="space-y-1.5 text-xs text-slate-600 border-b border-slate-200 pb-3">
+                <div class="flex justify-between">
+                  <span>Subtotal Belanja</span>
+                  <span id="label-subtotal" class="font-semibold text-slate-800">Rp 0</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span>Diskon</span>
+                    <input type="number" id="input-discount-val" value="0" min="0" oninput="calculateCheckoutTotal()" class="w-20 px-2 py-0.5 text-xs border border-slate-300 rounded text-right focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                    <select id="select-discount-type" onchange="calculateCheckoutTotal()" class="text-xs border border-slate-300 rounded px-1 py-0.5 bg-white">
+                      <option value="nominal">Rp</option>
+                      <option value="percent">%</option>
+                    </select>
+                  </div>
+                  <span id="label-discount" class="text-rose-600 font-medium">- Rp 0</span>
+                </div>
+                <div id="row-pajak" class="hidden flex justify-between">
+                  <span id="label-pajak-title">PPN (0%)</span>
+                  <span id="label-pajak" class="text-slate-800 font-semibold">Rp 0</span>
+                </div>
+              </div>
+
+              <!-- Grand Total Display -->
+              <div class="flex items-baseline justify-between pt-1">
+                <div>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Pembayaran</span>
+                  <div class="text-xs text-slate-400">Termasuk seluruh item</div>
+                </div>
+                <div class="text-right">
+                  <span id="label-grand-total" class="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">Rp 0</span>
+                </div>
+              </div>
+
+              <!-- Metode Pembayaran -->
+              <div class="pt-2">
+                <div class="text-xs font-semibold text-slate-700 mb-1.5">Metode Pembayaran:</div>
+                <div class="grid grid-cols-3 gap-2">
+                  <button type="button" onclick="setPaymentMethod('Tunai')" id="btn-pay-cash" class="pay-method-btn active py-2 rounded-lg text-xs font-bold border border-emerald-500 bg-emerald-50 text-emerald-700 flex items-center justify-center gap-1.5 transition-all">
+                    💵 Tunai (Cash)
+                  </button>
+                  <button type="button" onclick="setPaymentMethod('QRIS')" id="btn-pay-qris" class="pay-method-btn py-2 rounded-lg text-xs font-semibold border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-all">
+                    📱 QRIS
+                  </button>
+                  <button type="button" onclick="setPaymentMethod('Transfer')" id="btn-pay-transfer" class="pay-method-btn py-2 rounded-lg text-xs font-semibold border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-all">
+                    💳 Transfer Bank
+                  </button>
+                </div>
+              </div>
+
+              <!-- Bagian Input Nominal Uang (Hanya untuk Tunai) -->
+              <div id="cash-payment-section" class="space-y-2 pt-1">
+                <div class="flex items-center justify-between">
+                  <label class="text-xs font-semibold text-slate-700">Nominal Diterima (Rp):</label>
+                  <div class="flex gap-1">
+                    <button type="button" onclick="setCashExact()" class="text-[11px] px-2 py-0.5 rounded bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">Uang Pas</button>
+                    <button type="button" onclick="addCashAmount(10000)" class="text-[11px] px-2 py-0.5 rounded bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+10k</button>
+                    <button type="button" onclick="addCashAmount(20000)" class="text-[11px] px-2 py-0.5 rounded bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+20k</button>
+                    <button type="button" onclick="addCashAmount(50000)" class="text-[11px] px-2 py-0.5 rounded bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+50k</button>
+                    <button type="button" onclick="addCashAmount(100000)" class="text-[11px] px-2 py-0.5 rounded bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium">+100k</button>
+                  </div>
+                </div>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
+                    Rp
+                  </div>
+                  <input type="number" id="input-cash-received" oninput="calculateCashChange()" placeholder="0" class="w-full pl-10 pr-4 py-2 text-base font-bold text-slate-800 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div class="flex justify-between items-center text-xs pt-1">
+                  <span class="font-semibold text-slate-600">Kembalian:</span>
+                  <span id="label-cash-change" class="text-sm font-bold text-slate-900">Rp 0</span>
+                </div>
+              </div>
+
+              <!-- Tombol Eksekusi Bayar & Cetak Struk -->
+              <div class="pt-2">
+                <button id="btn-process-checkout" onclick="handleProcessCheckout()" disabled class="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-slate-400 cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-md text-sm sm:text-base">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                  <span>Selesaikan Transaksi & Cetak Struk</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         TAB 2: KATALOG OBAT & MANAJEMEN STOK
+         ======================================================== -->
+    <div id="tab-content-stok" class="tab-pane hidden space-y-4">
+      
+      <!-- Top Stats Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500 font-medium">Total Jenis Obat</div>
+            <div id="stat-total-items" class="text-xl font-bold text-slate-800">0</div>
+          </div>
+          <span class="p-2.5 rounded-xl bg-blue-50 text-blue-600">💊</span>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500 font-medium">Total Stok Unit</div>
+            <div id="stat-total-stock" class="text-xl font-bold text-slate-800">0</div>
+          </div>
+          <span class="p-2.5 rounded-xl bg-emerald-50 text-emerald-600">📦</span>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-amber-400 transition-colors" onclick="filterInventoryByStatus('low')">
+          <div>
+            <div class="text-xs text-amber-600 font-semibold">Stok Menipis (≤ 10)</div>
+            <div id="stat-low-stock" class="text-xl font-bold text-amber-600">0</div>
+          </div>
+          <span class="p-2.5 rounded-xl bg-amber-50 text-amber-600">⚠️</span>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-rose-400 transition-colors" onclick="filterInventoryByStatus('expiring')">
+          <div>
+            <div class="text-xs text-rose-600 font-semibold">Mendekati Kadaluarsa</div>
+            <div id="stat-expiring-soon" class="text-xl font-bold text-rose-600">0</div>
+          </div>
+          <span class="p-2.5 rounded-xl bg-rose-50 text-rose-600">⏳</span>
+        </div>
+      </div>
+
+      <!-- Action & Filter Bar -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
+        
+        <div class="flex flex-1 flex-col sm:flex-row items-center gap-2 w-full">
+          <!-- Search box -->
+          <div class="relative w-full sm:w-72">
+            <input type="text" id="inventory-search-input" oninput="renderInventoryTable()" placeholder="Cari barcode, nama obat, rak..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+          </div>
+
+          <!-- Kategori filter -->
+          <select id="inventory-category-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <option value="ALL">Semua Golongan</option>
+            <option value="Obat Bebas">Obat Bebas (Hijau)</option>
+            <option value="Obat Bebas Terbatas">Obat Bebas Terbatas (Biru)</option>
+            <option value="Obat Keras">Obat Keras (Merah / K)</option>
+            <option value="Herbal">Herbal / Jamu</option>
+            <option value="Suplemen">Suplemen & Vitamin</option>
+            <option value="Alat Kesehatan">Alat Kesehatan</option>
+          </select>
+
+          <!-- Status filter -->
+          <select id="inventory-status-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <option value="ALL">Semua Status</option>
+            <option value="low">Stok Menipis Saja</option>
+            <option value="expiring">Mendekati ED (< 90 hari)</option>
+          </select>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+          <button onclick="openAddProductModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            Tambah Obat Baru
+          </button>
+          
+          <button onclick="exportInventoryJSON()" title="Export JSON" class="p-2 border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-100 text-xs flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Export
+          </button>
+          
+          <label class="p-2 border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-100 text-xs flex items-center gap-1 cursor-pointer" title="Import JSON">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+            Import
+            <input type="file" accept=".json" onchange="importInventoryJSON(event)" class="hidden">
+          </label>
+        </div>
+
+      </div>
+
+      <!-- Inventory Table Card -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
+                <th class="p-3">Barcode</th>
+                <th class="p-3">Nama Obat / Produk</th>
+                <th class="p-3">Golongan & Satuan</th>
+                <th class="p-3 text-right">Harga Beli</th>
+                <th class="p-3 text-right">Harga Jual</th>
+                <th class="p-3 text-center">Margin</th>
+                <th class="p-3 text-center">Stok</th>
+                <th class="p-3">Kadaluarsa (ED)</th>
+                <th class="p-3">Rak</th>
+                <th class="p-3 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-table-body" class="divide-y divide-slate-100 text-slate-700">
+              <!-- Rendered via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Table footer count -->
+        <div class="p-3 border-t border-slate-200 bg-slate-50 text-xs text-slate-500 flex justify-between items-center">
+          <span id="inventory-showing-count">Menampilkan 0 obat</span>
+          <button onclick="resetToInitialData()" class="text-slate-500 hover:text-slate-800 underline text-[11px]">
+            Reset ke Data Contoh Apotek
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         TAB 3: RIWAYAT PENJUALAN
+         ======================================================== -->
+    <div id="tab-content-riwayat" class="tab-pane hidden space-y-4">
+      
+      <!-- Ringkasan Finansial Penjualan -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Total Omzet Penjualan</div>
+          <div id="report-total-omzet" class="text-2xl font-black text-emerald-600 mt-1">Rp 0</div>
+          <div class="text-xs text-slate-400 mt-0.5">Dari seluruh transaksi tercatat</div>
+        </div>
+        
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Estimasi Laba Bersih (Profit)</div>
+          <div id="report-total-profit" class="text-2xl font-black text-teal-600 mt-1">Rp 0</div>
+          <div class="text-xs text-slate-400 mt-0.5">(Harga Jual - Harga Beli)</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Jumlah Transaksi Selesai</div>
+          <div id="report-total-trx" class="text-2xl font-black text-slate-800 mt-1">0</div>
+          <div class="text-xs text-slate-400 mt-0.5">Struk berhasil diterbitkan</div>
+        </div>
+      </div>
+
+      <!-- Tabel Riwayat Penjualan -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+          <h2 class="text-sm font-bold text-slate-800">Daftar Transaksi Kasir</h2>
+          <button onclick="clearTransactionHistory()" class="text-xs text-rose-600 hover:underline">Hapus Riwayat</button>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold uppercase tracking-wider">
+                <th class="p-3">No. Invoice</th>
+                <th class="p-3">Waktu</th>
+                <th class="p-3">Rincian Obat Terjual</th>
+                <th class="p-3">Metode Bayar</th>
+                <th class="p-3 text-right">Total Transaksi</th>
+                <th class="p-3 text-right">Laba</th>
+                <th class="p-3 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="transaction-table-body" class="divide-y divide-slate-100 text-slate-700">
+              <!-- Rendered via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         TAB 4: PENGATURAN APOTEK
+         ======================================================== -->
+    <div id="tab-content-pengaturan" class="tab-pane hidden max-w-2xl mx-auto space-y-6">
+      
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <h2 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+          <span>⚙️</span> Profil & Pengaturan Struk Apotek
+        </h2>
+        
+        <form id="form-settings" onsubmit="saveSettings(event)" class="space-y-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Nama Apotek / Toko Obat:</label>
+            <input type="text" id="setting-nama-apotek" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Slogan / Keterangan:</label>
+            <input type="text" id="setting-slogan" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">No. Telp / WhatsApp:</label>
+              <input type="text" id="setting-telepon" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Nomor SIPA / SIA Apotek:</label>
+              <input type="text" id="setting-sipa" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Nama Apoteker Penanggung Jawab:</label>
+            <input type="text" id="setting-apoteker" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Alamat Lengkap Apotek:</label>
+            <textarea id="setting-alamat" rows="2" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Pesan Penutup Struk (Footer Struk):</label>
+            <input type="text" id="setting-catatan-struk" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+
+          <div class="pt-3">
+            <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm transition-colors">
+              Simpan Pengaturan
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================
+       MODAL 1: "BARANG BELUM TERDAFTAR" (FITUR UTAMA PERMINTAAN USER)
+       Otomatis muncul saat scan barcode baru yang belum ada di database
+       ======================================================== -->
+  <div id="modal-unregistered-item" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden animate-scaleIn">
+      
+      <!-- Modal Header -->
+      <div class="p-5 bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xl">
+            🔍
+          </div>
+          <div>
+            <h3 class="text-base font-bold">Barang Belum Masuk di Data!</h3>
+            <p class="text-xs text-emerald-100">Kode barcode baru terdeteksi dari kamera</p>
+          </div>
+        </div>
+        <button onclick="closeUnregisteredModal()" class="text-white/80 hover:text-white text-xl font-bold leading-none">&times;</button>
+      </div>
+
+      <!-- Scanned Barcode Display Banner -->
+      <div class="bg-emerald-50 border-b border-emerald-100 px-5 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-emerald-800 font-semibold">KODE BARCODE:</span>
+          <span id="unreg-modal-barcode-badge" class="font-mono font-bold text-sm bg-white border border-emerald-300 px-2.5 py-0.5 rounded text-emerald-900">
+            899...
+          </span>
+        </div>
+        <span class="text-[11px] text-emerald-600">Silakan lengkapi data barang</span>
+      </div>
+
+      <!-- Auto Suggestion Pharmacy Pills -->
+      <div class="px-5 pt-3 pb-1 border-b border-slate-100 bg-slate-50">
+        <div class="text-[11px] font-semibold text-slate-500 mb-1.5 flex items-center gap-1">
+          <span>💡</span> Rekomendasi Cepat Obat Umum (Klik untuk auto-isi):
+        </div>
+        <div class="flex flex-wrap gap-1.5 pb-2">
+          <button type="button" onclick="autoFillUnregDrug('Paracetamol 500 mg')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Paracetamol</button>
+          <button type="button" onclick="autoFillUnregDrug('Panadol Biru 500 mg')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Panadol Biru</button>
+          <button type="button" onclick="autoFillUnregDrug('Promag Tablet Kunyah')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Promag</button>
+          <button type="button" onclick="autoFillUnregDrug('Amoxicillin 500 mg')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Amoxicillin</button>
+          <button type="button" onclick="autoFillUnregDrug('Tolak Angin Cair Herbal')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Tolak Angin</button>
+          <button type="button" onclick="autoFillUnregDrug('Betadine Antiseptic Solution 15 ml')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Betadine</button>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="form-unregistered-item" onsubmit="handleSaveUnregisteredItem(event)" class="p-5 space-y-3.5 text-xs">
+        
+        <!-- Scanned Barcode (hidden or readonly) -->
+        <input type="hidden" id="unreg-barcode-val">
+
+        <!-- Nama Barang / Obat dengan Live Auto-search -->
+        <div class="relative">
+          <label class="block font-semibold text-slate-700 mb-1">
+            Nama Obat / Produk: <span class="text-rose-500">*</span>
+          </label>
+          <input type="text" id="unreg-nama" oninput="handleUnregNameInput(this.value)" placeholder="Ketik nama: misal Sanmol 500 mg, Biogesic..." required class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          
+          <!-- Dropdown Autocomplete Suggestions -->
+          <div id="unreg-suggestions-box" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl max-h-48 overflow-y-auto z-30 divide-y divide-slate-100">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+        <!-- Golongan & Satuan -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Golongan Obat:</label>
+            <select id="unreg-kategori" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+              <option value="Obat Bebas">Obat Bebas (Hijau)</option>
+              <option value="Obat Bebas Terbatas">Obat Bebas Terbatas (Biru)</option>
+              <option value="Obat Keras">Obat Keras (Merah / Resep)</option>
+              <option value="Herbal">Herbal / Jamu</option>
+              <option value="Suplemen">Suplemen & Vitamin</option>
+              <option value="Alat Kesehatan">Alat Kesehatan</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Satuan Kemasan:</label>
+            <select id="unreg-satuan" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+              <option value="Strip">Strip</option>
+              <option value="Blister">Blister</option>
+              <option value="Botol">Botol</option>
+              <option value="Box">Box</option>
+              <option value="Tablet">Tablet</option>
+              <option value="Kaplet">Kaplet</option>
+              <option value="Kapsul">Kapsul</option>
+              <option value="Tube">Tube</option>
+              <option value="Sachet">Sachet</option>
+              <option value="Pcs">Pcs</option>
+              <option value="Amplop">Amplop</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Harga Beli (Modal) & Harga Jual (Disesuaikan Pemilik) -->
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <div class="text-[11px] font-bold text-slate-600 uppercase tracking-wide">
+            Penyesuaian Harga & Margin Keuntungan
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Harga Beli (Modal):</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-slate-400">Rp</span>
+                <input type="number" id="unreg-harga-beli" oninput="calculateUnregMargin()" min="0" placeholder="0" class="w-full pl-8 pr-2.5 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold">
+              </div>
+            </div>
+            <div>
+              <label class="block font-semibold text-emerald-800 mb-1">
+                Harga Jual (Bisa Disesuaikan): <span class="text-rose-500">*</span>
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-emerald-600 font-bold">Rp</span>
+                <input type="number" id="unreg-harga-jual" oninput="calculateUnregMargin()" required min="1" placeholder="0" class="w-full pl-8 pr-2.5 py-1.5 border border-emerald-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-bold text-emerald-700 bg-emerald-50/50">
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+            <span>Estimasi Laba per Satuan:</span>
+            <span id="unreg-margin-label" class="font-bold text-emerald-700">Rp 0 (0%)</span>
+          </div>
+        </div>
+
+        <!-- Jumlah Stok Masuk & Tanggal Kadaluarsa -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Jumlah Stok Masuk:</label>
+            <input type="number" id="unreg-stok" value="10" min="1" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Tanggal Kadaluarsa (ED):</label>
+            <input type="date" id="unreg-ed" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <!-- Produsen & Rak (Opsional) -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Pabrik / Produsen:</label>
+            <input type="text" id="unreg-produsen" placeholder="Contoh: Kalbe, Sanbe..." class="w-full px-3 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Posisi Rak / Etalase:</label>
+            <input type="text" id="unreg-rak" placeholder="Contoh: Rak B-02" class="w-full px-3 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <div class="pt-3 border-t border-slate-200 flex flex-col sm:flex-row gap-2">
+          <!-- Button 1: Simpan & Masukkan ke Keranjang Kasir -->
+          <button type="submit" name="action" value="save_and_cart" class="flex-1 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span>Simpan & Tambah ke Kasir</span>
+          </button>
+          
+          <!-- Button 2: Simpan ke Katalog Saja -->
+          <button type="button" onclick="saveUnregisteredOnlyCatalog()" class="py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl border border-slate-300 transition-colors">
+            Hanya Simpan
+          </button>
+
+          <!-- Button 3: Batal -->
+          <button type="button" onclick="closeUnregisteredModal()" class="py-2.5 px-3 text-slate-500 hover:text-slate-700 font-medium rounded-xl hover:bg-slate-50">
+            Batal
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 2: EDIT OBAT / TAMBAH PRODUK MANUAL
+       ======================================================== -->
+  <div id="modal-product-form" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      
+      <div class="p-5 bg-slate-800 text-white flex items-center justify-between">
+        <h3 id="product-form-title" class="text-base font-bold">Tambah Obat Baru</h3>
+        <button onclick="closeProductFormModal()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+
+      <form id="form-manage-product" onsubmit="handleSaveProductForm(event)" class="p-5 space-y-3.5 text-xs">
+        <input type="hidden" id="edit-prod-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Barcode (EAN-13 / Code): <span class="text-rose-500">*</span></label>
+            <input type="text" id="edit-prod-barcode" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Pabrik / Produsen:</label>
+            <input type="text" id="edit-prod-produsen" placeholder="Kalbe, Kimia Farma..." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Nama Obat / Produk: <span class="text-rose-500">*</span></label>
+          <input type="text" id="edit-prod-nama" required placeholder="Contoh: Paracetamol 500 mg" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Golongan Obat:</label>
+            <select id="edit-prod-kategori" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg bg-white">
+              <option value="Obat Bebas">Obat Bebas</option>
+              <option value="Obat Bebas Terbatas">Obat Bebas Terbatas</option>
+              <option value="Obat Keras">Obat Keras</option>
+              <option value="Herbal">Herbal</option>
+              <option value="Suplemen">Suplemen</option>
+              <option value="Alat Kesehatan">Alat Kesehatan</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Satuan Kemasan:</label>
+            <select id="edit-prod-satuan" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg bg-white">
+              <option value="Strip">Strip</option>
+              <option value="Blister">Blister</option>
+              <option value="Botol">Botol</option>
+              <option value="Box">Box</option>
+              <option value="Tablet">Tablet</option>
+              <option value="Kaplet">Kaplet</option>
+              <option value="Kapsul">Kapsul</option>
+              <option value="Tube">Tube</option>
+              <option value="Sachet">Sachet</option>
+              <option value="Pcs">Pcs</option>
+              <option value="Amplop">Amplop</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Harga Beli (Modal):</label>
+            <input type="number" id="edit-prod-harga-beli" min="0" placeholder="0" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block font-semibold text-emerald-800 mb-1">Harga Jual: <span class="text-rose-500">*</span></label>
+            <input type="number" id="edit-prod-harga-jual" required min="1" placeholder="0" class="w-full px-3 py-2 border border-emerald-400 font-bold text-emerald-700 rounded-lg">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Stok:</label>
+            <input type="number" id="edit-prod-stok" min="0" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-bold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Kadaluarsa (ED):</label>
+            <input type="date" id="edit-prod-ed" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Rak / Etalase:</label>
+            <input type="text" id="edit-prod-rak" placeholder="Rak A-1" class="w-full px-3 py-2 border border-slate-300 rounded-lg">
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-200 flex justify-end gap-2">
+          <button type="button" onclick="closeProductFormModal()" class="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg">Batal</button>
+          <button type="submit" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm">Simpan Produk</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 3: STRUK PEMBAYARAN THERMAL & DIALOG SUKSES
+       ======================================================== -->
+  <div id="modal-receipt-dialog" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
+      
+      <div class="p-4 bg-emerald-600 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">✅</span>
+          <span class="font-bold text-sm">Transaksi Berhasil</span>
+        </div>
+        <button onclick="closeReceiptModal()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+
+      <!-- Preview Struk Kertas Kasir (58mm/80mm Style) -->
+      <div class="p-4 bg-slate-100 flex-1 overflow-y-auto max-h-[460px]">
+        <div id="struk-thermal-preview">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Receipt Modal Footer Buttons -->
+      <div class="p-4 bg-white border-t border-slate-200 space-y-2">
+        <button onclick="window.print()" class="w-full py-2.5 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Cetak Struk (Print Thermal)
+        </button>
+        <button onclick="startNewTransaction()" class="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-xl border border-emerald-200 transition-colors">
+          Transaksi Baru
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 4: CONTOH BARCODE TESTER (SIMULATOR SCAN)
+       ======================================================== -->
+  <div id="modal-barcode-tester" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="p-4 bg-slate-800 text-white flex items-center justify-between">
+        <div>
+          <h3 class="text-sm font-bold">Simulator Scan Barcode (Tanpa Cetak Fisik)</h3>
+          <p class="text-xs text-slate-300">Klik salah satu barcode untuk mensimulasikan scan kamera</p>
+        </div>
+        <button onclick="closeBarcodeTesterModal()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+      
+      <div class="p-4 space-y-3 max-h-[420px] overflow-y-auto text-xs">
+        
+        <!-- Section Barcode Belum Terdaftar (Untuk Mengetes Permintaan User) -->
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl space-y-1.5">
+          <div class="font-bold text-amber-900 flex items-center gap-1.5">
+            <span>🔥</span> Barcode Belum Masuk di Data Apotek (Uji Fitur Baru):
+          </div>
+          <p class="text-[11px] text-amber-800">
+            Klik barcode di bawah untuk mencoba sistem membuka form penyesuaian otomatis:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            <button onclick="simulateBarcodeScan('8999908009999')" class="p-2 bg-white rounded-lg border border-amber-300 hover:border-amber-500 text-left font-mono hover:bg-amber-100/50 transition-colors">
+              <div class="font-bold text-amber-950">8999908009999</div>
+              <div class="text-[10px] text-amber-700 font-sans">Kode Baru (Belum Terdaftar)</div>
+            </button>
+            <button onclick="simulateBarcodeScan('8992345678901')" class="p-2 bg-white rounded-lg border border-amber-300 hover:border-amber-500 text-left font-mono hover:bg-amber-100/50 transition-colors">
+              <div class="font-bold text-amber-950">8992345678901</div>
+              <div class="text-[10px] text-amber-700 font-sans">Kode Baru #2 (Belum Terdaftar)</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Section Barcode Sudah Terdaftar -->
+        <div class="space-y-1.5">
+          <div class="font-bold text-slate-700">Barcode Obat yang Sudah Terdaftar di Stok:</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button onclick="simulateBarcodeScan('8992753210103')" class="p-2 bg-slate-50 hover:bg-emerald-50 rounded-lg border border-slate-200 hover:border-emerald-300 text-left transition-colors">
+              <div class="font-bold text-slate-800 font-mono text-xs">8992753210103</div>
+              <div class="text-[11px] text-slate-600">Panadol Biru 500 mg</div>
+            </button>
+            <button onclick="simulateBarcodeScan('8999908001201')" class="p-2 bg-slate-50 hover:bg-emerald-50 rounded-lg border border-slate-200 hover:border-emerald-300 text-left transition-colors">
+              <div class="font-bold text-slate-800 font-mono text-xs">8999908001201</div>
+              <div class="text-[11px] text-slate-600">Promag Tablet Kunyah</div>
+            </button>
+            <button onclick="simulateBarcodeScan('8991389221019')" class="p-2 bg-slate-50 hover:bg-emerald-50 rounded-lg border border-slate-200 hover:border-emerald-300 text-left transition-colors">
+              <div class="font-bold text-slate-800 font-mono text-xs">8991389221019</div>
+              <div class="text-[11px] text-slate-600">Tolak Angin Cair Herbal</div>
+            </button>
+            <button onclick="simulateBarcodeScan('8998866100112')" class="p-2 bg-slate-50 hover:bg-emerald-50 rounded-lg border border-slate-200 hover:border-emerald-300 text-left transition-colors">
+              <div class="font-bold text-slate-800 font-mono text-xs">8998866100112</div>
+              <div class="text-[11px] text-slate-600">Bodrex Sakit Kepala</div>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ELEMENT KHUSUS UNTUK CETAK THERMAL PRINT (Hanya muncul saat CTRL+P / Print) -->
+  <div id="struk-thermal-print" class="hidden">
+    <!-- Populated dynamically before print -->
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script src="drug-database.js"></script>
+  <script src="initial-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

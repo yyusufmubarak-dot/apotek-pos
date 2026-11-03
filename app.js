@@ -1,0 +1,1590 @@
+/**
+ * =========================================================================
+ * APLIKASI KASIR APOTEK (PHARMACY POS) - LOGIKA UTAMA (app.js)
+ * Fitur Utama:
+ * 1. Scanner Barcode Kamera (html5-qrcode) + Suara Beep Otentik
+ * 2. Deteksi Cerdas Barcode Belum Terdaftar -> Form Tambah & Penyesuaian Harga
+ * 3. Transaksi Kasir, Keranjang, Multi-pembayaran & Kembalian
+ * 4. Cetak Struk Format Thermal 58mm / 80mm
+ * 5. Manajemen Katalog Obat, Stok & Tanggal Kadaluarsa (ED)
+ * 6. Riwayat Penjualan & Laporan Laba Bersih
+ * =========================================================================
+ */
+
+// Global State
+let medicines = [];
+let cart = [];
+let transactions = [];
+let settings = {};
+let activeTab = 'kasir';
+let html5QrCode = null;
+let isCameraRunning = false;
+let currentCameraId = null;
+let currentInvoiceNumber = '';
+let currentPaymentMethod = 'Tunai';
+
+// Web Audio API Sound Synthesizer (Bekerja offline tanpa file audio eksternal)
+class SoundEffects {
+  constructor() {
+    this.ctx = null;
+  }
+
+  init() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) {
+        this.ctx = new AudioContext();
+      }
+    }
+  }
+
+  // Beep Kasir Sukses (880Hz - nada tinggi singkat khas scanner supermarket/apotek)
+  playBeep() {
+    try {
+      this.init();
+      if (!this.ctx) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, this.ctx.currentTime); // A5
+
+      gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.09);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.09);
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
+    }
+  }
+
+  // Notifikasi Barang Baru / Belum Terdaftar (Dua nada perhatian 480Hz -> 720Hz)
+  playAlertNewItem() {
+    try {
+      this.init();
+      if (!this.ctx) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(480, now);
+      osc.frequency.setValueAtTime(720, now + 0.12);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(now + 0.28);
+    } catch (e) {
+      console.warn("Audio feedback error:", e);
+    }
+  }
+
+  // Notifikasi Transaksi Sukses (Harmoni nada riang)
+  playSuccessPayment() {
+    try {
+      this.init();
+      if (!this.ctx) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      notes.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const startTime = this.ctx.currentTime + (idx * 0.08);
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, startTime);
+
+        gain.gain.setValueAtTime(0.12, startTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.18);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + 0.18);
+      });
+    } catch (e) {
+      console.warn("Audio error:", e);
+    }
+  }
+}
+
+const sfx = new SoundEffects();
+
+// =========================================================================
+// INISIALISASI APLIKASI
+// =========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  loadDataFromStorage();
+  initClock();
+  generateNewInvoiceNumber();
+  renderCart();
+  renderInventoryTable();
+  renderTransactionHistory();
+  updateInventoryStats();
+  applySettingsToUI();
+  initCameraScannerList();
+
+  // URL Params Handler untuk Preview / Screenshot Mode
+  const urlParams = new URLSearchParams(window.location.search);
+  const testMode = urlParams.get('test');
+  if (testMode === 'unreg') {
+    addProductToCart(medicines[0]);
+    addProductToCart(medicines[1]);
+    setTimeout(() => {
+      openUnregisteredItemModal('8999908009999');
+      autoFillUnregDrug('Paracetamol 500 mg');
+    }, 200);
+  } else if (testMode === 'stok') {
+    setTimeout(() => {
+      switchTab('stok');
+    }, 100);
+  } else if (testMode === 'kasir_demo') {
+    addProductToCart(medicines[0]);
+    addProductToCart(medicines[1]);
+    addProductToCart(medicines[2]);
+    document.getElementById('input-cash-received').value = 50000;
+    calculateCashChange();
+  }
+});
+
+// Load state dari LocalStorage dengan fallback data awal
+function loadDataFromStorage() {
+  const storedMeds = localStorage.getItem('apotek_medicines');
+  if (storedMeds) {
+    try {
+      medicines = JSON.parse(storedMeds);
+    } catch (e) {
+      medicines = [...INITIAL_MEDICINES];
+    }
+  } else {
+    medicines = [...INITIAL_MEDICINES];
+    saveMedicinesToStorage();
+  }
+
+  const storedTrx = localStorage.getItem('apotek_transactions');
+  if (storedTrx) {
+    try {
+      transactions = JSON.parse(storedTrx);
+    } catch (e) {
+      transactions = [...SAMPLE_TRANSACTIONS];
+    }
+  } else {
+    transactions = [...SAMPLE_TRANSACTIONS];
+    saveTransactionsToStorage();
+  }
+
+  const storedSettings = localStorage.getItem('apotek_settings');
+  if (storedSettings) {
+    try {
+      settings = JSON.parse(storedSettings);
+    } catch (e) {
+      settings = { ...DEFAULT_SETTINGS };
+    }
+  } else {
+    settings = { ...DEFAULT_SETTINGS };
+    saveSettingsToStorage();
+  }
+}
+
+function saveMedicinesToStorage() {
+  localStorage.setItem('apotek_medicines', JSON.stringify(medicines));
+  updateInventoryStats();
+}
+
+function saveTransactionsToStorage() {
+  localStorage.setItem('apotek_transactions', JSON.stringify(transactions));
+}
+
+function saveSettingsToStorage() {
+  localStorage.setItem('apotek_settings', JSON.stringify(settings));
+}
+
+// Jam Digital & Tanggal
+function initClock() {
+  function updateTime() {
+    const now = new Date();
+    const clockEl = document.getElementById('digital-clock');
+    const dateEl = document.getElementById('digital-date');
+    if (clockEl) {
+      clockEl.textContent = now.toLocaleTimeString('id-ID', { hour12: false });
+    }
+    if (dateEl) {
+      const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+      dateEl.textContent = now.toLocaleDateString('id-ID', options);
+    }
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+}
+
+// Generate Invoice Number Baru (Format TRX-YYYYMMDD-XXXX)
+function generateNewInvoiceNumber() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const randomSuffix = String(Math.floor(1000 + Math.random() * 9000));
+  currentInvoiceNumber = `TRX-${year}${month}${day}-${randomSuffix}`;
+  
+  const invEl = document.getElementById('current-invoice-number');
+  if (invEl) invEl.textContent = currentInvoiceNumber;
+}
+
+// Format Rupiah Helper
+function formatRupiah(number) {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    maximumFractionDigits: 0
+  }).format(number || 0);
+}
+
+// Format Tanggal Indonesia
+function formatDateIndo(dateStr) {
+  if (!dateStr) return '-';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+// =========================================================================
+// NAVIGASI TAB
+// =========================================================================
+function switchTab(tabId) {
+  activeTab = tabId;
+
+  // Update button active state
+  document.querySelectorAll('.nav-tab').forEach(btn => {
+    btn.classList.remove('active', 'bg-emerald-600', 'text-white', 'shadow-sm');
+    btn.classList.add('text-slate-600');
+  });
+
+  const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+  if (activeBtn) {
+    activeBtn.classList.add('active', 'bg-emerald-600', 'text-white', 'shadow-sm');
+    activeBtn.classList.remove('text-slate-600');
+  }
+
+  // Update contents
+  document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.add('hidden'));
+  const activePane = document.getElementById(`tab-content-${tabId}`);
+  if (activePane) activePane.classList.remove('hidden');
+
+  // Trigger refresh on specific tabs
+  if (tabId === 'stok') {
+    renderInventoryTable();
+    updateInventoryStats();
+  } else if (tabId === 'riwayat') {
+    renderTransactionHistory();
+  } else if (tabId === 'pengaturan') {
+    populateSettingsForm();
+  }
+}
+
+// =========================================================================
+// INTEGRASI SCANNER KAMERA BARCODE (html5-qrcode)
+// =========================================================================
+async function initCameraScannerList() {
+  const cameraSelect = document.getElementById('camera-select');
+  if (!cameraSelect) return;
+
+  if (typeof Html5Qrcode === 'undefined') {
+    console.warn("Library html5-qrcode belum termuat.");
+    return;
+  }
+
+  try {
+    const devices = await Html5Qrcode.getCameras();
+    cameraSelect.innerHTML = '';
+    if (devices && devices.length > 0) {
+      devices.forEach((device, index) => {
+        const option = document.createElement('option');
+        option.value = device.id;
+        // Prioritas kamera belakang (back/environment camera) untuk scan barcode
+        const label = device.label || `Kamera ${index + 1}`;
+        option.text = label;
+        if (label.toLowerCase().includes('back') || label.toLowerCase().includes('belakang') || label.toLowerCase().includes('environment')) {
+          option.selected = true;
+          currentCameraId = device.id;
+        }
+        cameraSelect.appendChild(option);
+      });
+      if (!currentCameraId) currentCameraId = devices[0].id;
+    } else {
+      cameraSelect.innerHTML = '<option value="">Tidak ada kamera terdeteksi</option>';
+    }
+  } catch (err) {
+    console.warn("Gagal mendeteksi kamera:", err);
+    cameraSelect.innerHTML = '<option value="">Izin kamera diperlukan</option>';
+  }
+
+  cameraSelect.addEventListener('change', (e) => {
+    currentCameraId = e.target.value;
+    if (isCameraRunning) {
+      stopCameraScanner().then(() => startCameraScanner());
+    }
+  });
+}
+
+async function toggleCameraScanner() {
+  if (isCameraRunning) {
+    await stopCameraScanner();
+  } else {
+    await startCameraScanner();
+  }
+}
+
+async function startCameraScanner() {
+  const viewportEl = document.getElementById('barcode-reader-viewport');
+  const placeholderEl = document.getElementById('scanner-placeholder');
+  const overlayEl = document.getElementById('scanner-overlay');
+  const btnText = document.getElementById('camera-btn-text');
+  const toggleBtn = document.getElementById('btn-toggle-camera');
+
+  if (!viewportEl) return;
+
+  try {
+    if (!html5QrCode) {
+      html5QrCode = new Html5Qrcode("barcode-reader-viewport");
+    }
+
+    const config = {
+      fps: 15,
+      qrbox: { width: 250, height: 160 },
+      aspectRatio: 1.333334,
+      experimentalFeatures: {
+        useBarCodeDetectorIfSupported: true
+      }
+    };
+
+    const cameraIdOrConfig = currentCameraId ? currentCameraId : { facingMode: "environment" };
+
+    await html5QrCode.start(
+      cameraIdOrConfig,
+      config,
+      (decodedText, decodedResult) => {
+        handleBarcodeScanned(decodedText.trim());
+      },
+      (errorMessage) => {
+        // Ignored frame parse error during normal scanning
+      }
+    );
+
+    isCameraRunning = true;
+    placeholderEl.classList.add('hidden');
+    overlayEl.classList.remove('hidden');
+    btnText.textContent = 'Matikan';
+    toggleBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+    toggleBtn.classList.add('bg-rose-600', 'hover:bg-rose-700');
+
+    showToast("Kamera aktif. Arahkan ke barcode kemasan obat.", "info");
+  } catch (err) {
+    console.error("Gagal menyalakan kamera:", err);
+    showToast("Gagal mengakses kamera. Pastikan izin kamera diberikan di browser.", "danger");
+  }
+}
+
+async function stopCameraScanner() {
+  if (html5QrCode && isCameraRunning) {
+    try {
+      await html5QrCode.stop();
+    } catch (e) {
+      console.warn("Stop scanner error:", e);
+    }
+  }
+
+  isCameraRunning = false;
+  const placeholderEl = document.getElementById('scanner-placeholder');
+  const overlayEl = document.getElementById('scanner-overlay');
+  const btnText = document.getElementById('camera-btn-text');
+  const toggleBtn = document.getElementById('btn-toggle-camera');
+
+  if (placeholderEl) placeholderEl.classList.remove('hidden');
+  if (overlayEl) overlayEl.classList.add('hidden');
+  if (btnText) btnText.textContent = 'Buka Kamera';
+  if (toggleBtn) {
+    toggleBtn.classList.remove('bg-rose-600', 'hover:bg-rose-700');
+    toggleBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+  }
+}
+
+// =========================================================================
+// LOGIKA INTI: PEMERIKSAAN HASIL SCAN BARCODE
+// =========================================================================
+let lastScanTimestamp = 0;
+let lastScannedCode = '';
+
+function handleBarcodeScanned(rawBarcode) {
+  if (!rawBarcode) return;
+  const barcode = rawBarcode.trim();
+
+  // Hindari scan berulang bertubi-tubi dalam jeda < 1.5 detik untuk kode yang sama
+  const now = Date.now();
+  if (barcode === lastScannedCode && (now - lastScanTimestamp) < 1500) {
+    return;
+  }
+  lastScanTimestamp = now;
+  lastScannedCode = barcode;
+
+  // Update Status Log Terakhir
+  const lastScannedText = document.getElementById('last-scanned-text');
+  const lastScannedTime = document.getElementById('last-scanned-time');
+  if (lastScannedText) lastScannedText.textContent = `Barcode: ${barcode}`;
+  if (lastScannedTime) lastScannedTime.textContent = new Date().toLocaleTimeString('id-ID');
+
+  // Cari apakah barcode sudah ada di database apotek
+  const existingProduct = medicines.find(m => m.barcode === barcode);
+
+  if (existingProduct) {
+    // ==========================================================
+    // KASUS 1: PRODUK SUDAH TERDAFTAR
+    // ==========================================================
+    sfx.playBeep();
+
+    if (activeTab === 'kasir') {
+      addProductToCart(existingProduct);
+      showToast(`✅ ${existingProduct.nama} (+1) - ${formatRupiah(existingProduct.hargaJual)}`, 'success');
+    } else {
+      // Jika kasir sedang di tab katalog, buka dialog edit barang tersebut
+      openEditProductModal(existingProduct.id);
+      showToast(`Ditemukan: ${existingProduct.nama}`, 'info');
+    }
+
+  } else {
+    // ==========================================================
+    // KASUS 2: BARANG BELUM MASUK DENGAN KODE INI (PERMINTAAN USER)
+    // Otomatis buka form tambah obat baru & penyesuaian harga oleh pemilik
+    // ==========================================================
+    sfx.playAlertNewItem();
+
+    // Hentikan/pause sementara scanner agar tidak terus memindai saat dialog terbuka
+    showToast(`⚠️ Barcode ${barcode} belum terdaftar! Silakan lengkapi data barang.`, 'warning');
+    openUnregisteredItemModal(barcode);
+  }
+}
+
+// Input Barcode Manual Form Submit
+function handleManualBarcodeSubmit(e) {
+  e.preventDefault();
+  const input = document.getElementById('input-barcode-manual');
+  if (!input) return;
+  const val = input.value.trim();
+  if (val) {
+    handleBarcodeScanned(val);
+    input.value = '';
+  }
+}
+
+// Simulator Scan Barcode (Untuk pengujian tanpa kamera)
+function simulateBarcodeScan(code) {
+  closeBarcodeTesterModal();
+  handleBarcodeScanned(code);
+}
+
+// =========================================================================
+// MODAL KHUSUS: BARANG BELUM TERDAFTAR (UNREGISTERED ITEM)
+// =========================================================================
+function openUnregisteredItemModal(scannedBarcode) {
+  const modal = document.getElementById('modal-unregistered-item');
+  const badge = document.getElementById('unreg-modal-barcode-badge');
+  const hiddenInput = document.getElementById('unreg-barcode-val');
+  const nameInput = document.getElementById('unreg-nama');
+  const buyPriceInput = document.getElementById('unreg-harga-beli');
+  const sellPriceInput = document.getElementById('unreg-harga-jual');
+  const stockInput = document.getElementById('unreg-stok');
+  const edInput = document.getElementById('unreg-ed');
+  const produsenInput = document.getElementById('unreg-produsen');
+  const rakInput = document.getElementById('unreg-rak');
+
+  if (!modal) return;
+
+  // Reset form
+  document.getElementById('form-unregistered-item').reset();
+
+  badge.textContent = scannedBarcode;
+  hiddenInput.value = scannedBarcode;
+
+  // Default Expired: 2 tahun dari sekarang (standar obat baru masuk)
+  const defaultED = new Date();
+  defaultED.setFullYear(defaultED.getFullYear() + 2);
+  edInput.value = defaultED.toISOString().split('T')[0];
+
+  stockInput.value = 10;
+  calculateUnregMargin();
+
+  modal.classList.remove('hidden');
+  setTimeout(() => nameInput.focus(), 150);
+}
+
+function closeUnregisteredModal() {
+  const modal = document.getElementById('modal-unregistered-item');
+  if (modal) modal.classList.add('hidden');
+  hideUnregSuggestions();
+}
+
+// Auto-fill dari tombol saran cepat obat
+function autoFillUnregDrug(drugName) {
+  const ref = DRUG_DATABASE_REFERENCE.find(d => d.nama === drugName);
+  if (ref) {
+    applyDrugReferenceToUnregForm(ref);
+  }
+}
+
+// Live Search Autocomplete saat mengetik nama obat
+function handleUnregNameInput(query) {
+  const box = document.getElementById('unreg-suggestions-box');
+  if (!box) return;
+
+  if (!query || query.trim().length < 2) {
+    box.classList.add('hidden');
+    box.innerHTML = '';
+    return;
+  }
+
+  const results = searchDrugReference(query);
+  if (results.length === 0) {
+    box.classList.add('hidden');
+    box.innerHTML = '';
+    return;
+  }
+
+  box.innerHTML = results.map(item => `
+    <div class="p-2.5 hover:bg-emerald-50 cursor-pointer transition-colors" onclick='selectDrugReferenceSuggestion(${JSON.stringify(item).replace(/'/g, "&#39;")})'>
+      <div class="flex justify-between items-baseline">
+        <span class="font-bold text-slate-800 text-xs">${item.nama}</span>
+        <span class="text-[10px] text-emerald-700 font-semibold">${formatRupiah(item.hargaJual)}</span>
+      </div>
+      <div class="text-[11px] text-slate-500 flex items-center gap-2 mt-0.5">
+        <span class="px-1.5 py-0.2 rounded bg-slate-100 text-[10px]">${item.kategori}</span>
+        <span>Satuan: ${item.satuan}</span>
+        <span>Est. Modal: ${formatRupiah(item.hargaBeli)}</span>
+      </div>
+    </div>
+  `).join('');
+
+  box.classList.remove('hidden');
+}
+
+function hideUnregSuggestions() {
+  const box = document.getElementById('unreg-suggestions-box');
+  if (box) box.classList.add('hidden');
+}
+
+function selectDrugReferenceSuggestion(item) {
+  applyDrugReferenceToUnregForm(item);
+  hideUnregSuggestions();
+}
+
+function applyDrugReferenceToUnregForm(ref) {
+  document.getElementById('unreg-nama').value = ref.nama;
+  document.getElementById('unreg-kategori').value = ref.kategori;
+  document.getElementById('unreg-satuan').value = ref.satuan;
+  document.getElementById('unreg-harga-beli').value = ref.hargaBeli;
+  document.getElementById('unreg-harga-jual').value = ref.hargaJual;
+  if (ref.produsen) document.getElementById('unreg-produsen').value = ref.produsen;
+
+  calculateUnregMargin();
+  showToast(`Referensi '${ref.nama}' dimuat. Sesuaikan harga bila perlu.`, 'info');
+}
+
+// Kalkulasi margin laba real-time di form
+function calculateUnregMargin() {
+  const buy = parseFloat(document.getElementById('unreg-harga-beli').value) || 0;
+  const sell = parseFloat(document.getElementById('unreg-harga-jual').value) || 0;
+  const label = document.getElementById('unreg-margin-label');
+
+  if (!label) return;
+
+  const profit = sell - buy;
+  const percent = buy > 0 ? ((profit / buy) * 100).toFixed(1) : 0;
+
+  if (profit >= 0) {
+    label.className = "font-bold text-emerald-700";
+    label.textContent = `${formatRupiah(profit)} (${percent}%)`;
+  } else {
+    label.className = "font-bold text-rose-600";
+    label.textContent = `Rugi: ${formatRupiah(profit)} (${percent}%)`;
+  }
+}
+
+// Simpan Barang Baru & Langsung Masukkan ke Keranjang Kasir
+function handleSaveUnregisteredItem(e) {
+  e.preventDefault();
+  saveUnregisteredCore(true);
+}
+
+// Simpan ke Katalog Saja Tanpa Masuk Keranjang
+function saveUnregisteredOnlyCatalog() {
+  saveUnregisteredCore(false);
+}
+
+function saveUnregisteredCore(alsoAddToCart = true) {
+  const barcode = document.getElementById('unreg-barcode-val').value.trim();
+  const nama = document.getElementById('unreg-nama').value.trim();
+  const kategori = document.getElementById('unreg-kategori').value;
+  const satuan = document.getElementById('unreg-satuan').value;
+  const hargaBeli = parseFloat(document.getElementById('unreg-harga-beli').value) || 0;
+  const hargaJual = parseFloat(document.getElementById('unreg-harga-jual').value) || 0;
+  const stok = parseInt(document.getElementById('unreg-stok').value, 10) || 10;
+  const tglKadaluarsa = document.getElementById('unreg-ed').value || '';
+  const produsen = document.getElementById('unreg-produsen').value.trim() || 'Apotek';
+  const rak = document.getElementById('unreg-rak').value.trim() || 'Etalase';
+
+  if (!barcode || !nama || hargaJual <= 0) {
+    showToast("Nama obat dan harga jual wajib diisi dengan benar!", "danger");
+    return;
+  }
+
+  // Buat objek obat baru
+  const newMedicine = {
+    id: `med-${Date.now()}`,
+    barcode,
+    nama,
+    kategori,
+    satuan,
+    hargaBeli,
+    hargaJual,
+    stok,
+    stokMinimal: 10,
+    tglKadaluarsa,
+    produsen,
+    rak,
+    createdAt: new Date().toISOString()
+  };
+
+  medicines.push(newMedicine);
+  saveMedicinesToStorage();
+  renderInventoryTable();
+  closeUnregisteredModal();
+
+  sfx.playBeep();
+
+  if (alsoAddToCart && activeTab === 'kasir') {
+    addProductToCart(newMedicine);
+    showToast(`✨ Obat baru '${nama}' berhasil didata & masuk ke keranjang kasir!`, "success");
+  } else {
+    showToast(`✨ Obat baru '${nama}' berhasil disimpan ke katalog stok!`, "success");
+  }
+}
+
+// =========================================================================
+// LOGIKA KERANJANG KASIR & CHECKOUT
+// =========================================================================
+function addProductToCart(product) {
+  // Cek apakah item sudah ada di keranjang
+  const existingCartIndex = cart.findIndex(c => c.id === product.id);
+
+  if (existingCartIndex > -1) {
+    // Cek batas stok
+    if (cart[existingCartIndex].qty + 1 > product.stok) {
+      showToast(`Peringatan: Stok ${product.nama} hanya tersisa ${product.stok} ${product.satuan}!`, "warning");
+    }
+    cart[existingCartIndex].qty += 1;
+    cart[existingCartIndex].subtotal = cart[existingCartIndex].qty * cart[existingCartIndex].hargaJual;
+  } else {
+    // Tambah item baru ke keranjang
+    if (product.stok <= 0) {
+      showToast(`Peringatan: Stok obat ini saat ini 0!`, "warning");
+    }
+    cart.push({
+      id: product.id,
+      barcode: product.barcode,
+      nama: product.nama,
+      kategori: product.kategori,
+      satuan: product.satuan,
+      hargaBeli: product.hargaBeli,
+      hargaJual: product.hargaJual,
+      qty: 1,
+      subtotal: product.hargaJual,
+      stok: product.stok,
+      tglKadaluarsa: product.tglKadaluarsa
+    });
+  }
+
+  renderCart();
+}
+
+function updateCartQty(index, newQty) {
+  const qty = parseInt(newQty, 10);
+  if (isNaN(qty) || qty <= 0) {
+    removeFromCart(index);
+    return;
+  }
+
+  const item = cart[index];
+  if (qty > item.stok) {
+    showToast(`Stok ${item.nama} hanya ${item.stok} ${item.satuan}!`, 'warning');
+  }
+
+  item.qty = qty;
+  item.subtotal = item.qty * item.hargaJual;
+  renderCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function clearCart() {
+  if (cart.length === 0) return;
+  cart = [];
+  renderCart();
+  showToast("Keranjang berhasil dikosongkan.", "info");
+}
+
+function renderCart() {
+  const container = document.getElementById('cart-items-container');
+  const countBadge = document.getElementById('cart-item-count-badge');
+  const checkoutBtn = document.getElementById('btn-process-checkout');
+
+  if (!container) return;
+
+  const totalItemsCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
+  if (countBadge) countBadge.textContent = `${totalItemsCount} Item`;
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div id="cart-empty-state" class="py-12 text-center text-slate-400">
+        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <p class="text-sm font-medium text-slate-600">Keranjang Masih Kosong</p>
+        <p class="text-xs text-slate-400 mt-1">Scan barcode obat atau cari nama obat di sebelah kiri</p>
+      </div>
+    `;
+    if (checkoutBtn) {
+      checkoutBtn.disabled = true;
+      checkoutBtn.className = "w-full py-3.5 px-4 rounded-xl font-bold text-white bg-slate-400 cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-md text-sm sm:text-base";
+    }
+  } else {
+    container.innerHTML = cart.map((item, idx) => {
+      const categoryBadge = getCategoryBadgeHTML(item.kategori);
+      const isExpiringSoon = checkIsExpiringSoon(item.tglKadaluarsa);
+      const isStockWarning = item.qty > item.stok;
+
+      return `
+        <div class="py-3 flex items-center justify-between gap-3 text-xs">
+          <!-- Info Obat -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-bold text-slate-900 truncate">${item.nama}</span>
+              ${categoryBadge}
+              ${isExpiringSoon ? '<span class="text-[10px] text-rose-600 font-bold bg-rose-50 px-1 py-0.2 rounded border border-rose-200">Dekat ED</span>' : ''}
+            </div>
+            <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-2">
+              <span class="font-mono text-slate-400">${item.barcode}</span>
+              <span>•</span>
+              <span class="text-emerald-700 font-semibold">${formatRupiah(item.hargaJual)} / ${item.satuan}</span>
+              <span>•</span>
+              <span class="${isStockWarning ? 'text-rose-600 font-bold' : 'text-slate-500'}">Sisa Stok: ${item.stok}</span>
+            </div>
+          </div>
+
+          <!-- Qty Stepper Controls -->
+          <div class="flex items-center gap-1">
+            <button onclick="updateCartQty(${idx}, ${item.qty - 1})" class="w-6 h-6 rounded bg-slate-200 hover:bg-slate-300 font-bold text-slate-700 flex items-center justify-center">-</button>
+            <input type="number" min="1" value="${item.qty}" onchange="updateCartQty(${idx}, this.value)" class="w-12 py-0.5 text-center font-bold border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-emerald-500">
+            <button onclick="updateCartQty(${idx}, ${item.qty + 1})" class="w-6 h-6 rounded bg-slate-200 hover:bg-slate-300 font-bold text-slate-700 flex items-center justify-center">+</button>
+          </div>
+
+          <!-- Subtotal & Hapus -->
+          <div class="text-right min-w-[90px]">
+            <div class="font-bold text-slate-900 text-sm">${formatRupiah(item.subtotal)}</div>
+            <button onclick="removeFromCart(${idx})" class="text-[10px] text-rose-500 hover:text-rose-700 font-medium">Hapus</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    if (checkoutBtn) {
+      checkoutBtn.disabled = false;
+      checkoutBtn.className = "w-full py-3.5 px-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 cursor-pointer flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-600/20 text-sm sm:text-base";
+    }
+  }
+
+  calculateCheckoutTotal();
+}
+
+function getCategoryBadgeHTML(kategori) {
+  let cls = 'badge-obat-bebas';
+  if (kategori === 'Obat Bebas Terbatas') cls = 'badge-obat-bebas-terbatas';
+  else if (kategori === 'Obat Keras') cls = 'badge-obat-keras';
+  else if (kategori === 'Herbal') cls = 'badge-herbal';
+  else if (kategori === 'Suplemen') cls = 'badge-suplemen';
+  else if (kategori === 'Alat Kesehatan') cls = 'badge-alkes';
+
+  return `<span class="inline-block text-[10px] px-1.5 py-0.2 rounded font-medium ${cls}">${kategori}</span>`;
+}
+
+function checkIsExpiringSoon(edString) {
+  if (!edString) return false;
+  const ed = new Date(edString);
+  const now = new Date();
+  const diffDays = Math.ceil((ed - now) / (1000 * 60 * 60 * 24));
+  return diffDays <= 90 && diffDays > 0;
+}
+
+// Kalkulasi Total Belanja, Diskon & Kembalian
+function calculateCheckoutTotal() {
+  const subtotal = cart.reduce((acc, curr) => acc + curr.subtotal, 0);
+  const discountVal = parseFloat(document.getElementById('input-discount-val').value) || 0;
+  const discountType = document.getElementById('select-discount-type').value;
+
+  let totalDiscount = 0;
+  if (discountType === 'percent') {
+    totalDiscount = (subtotal * discountVal) / 100;
+  } else {
+    totalDiscount = discountVal;
+  }
+  if (totalDiscount > subtotal) totalDiscount = subtotal;
+
+  const grandTotal = Math.max(0, subtotal - totalDiscount);
+
+  document.getElementById('label-subtotal').textContent = formatRupiah(subtotal);
+  document.getElementById('label-discount').textContent = `- ${formatRupiah(totalDiscount)}`;
+  document.getElementById('label-grand-total').textContent = formatRupiah(grandTotal);
+
+  calculateCashChange();
+}
+
+// Pemilihan Metode Pembayaran
+function setPaymentMethod(method) {
+  currentPaymentMethod = method;
+  const cashSection = document.getElementById('cash-payment-section');
+
+  const btnCash = document.getElementById('btn-pay-cash');
+  const btnQris = document.getElementById('btn-pay-qris');
+  const btnTransfer = document.getElementById('btn-pay-transfer');
+
+  [btnCash, btnQris, btnTransfer].forEach(btn => {
+    btn.classList.remove('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
+    btn.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
+  });
+
+  if (method === 'Tunai') {
+    btnCash.classList.add('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
+    cashSection.classList.remove('hidden');
+  } else if (method === 'QRIS') {
+    btnQris.classList.add('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
+    cashSection.classList.add('hidden');
+  } else {
+    btnTransfer.classList.add('active', 'border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
+    cashSection.classList.add('hidden');
+  }
+}
+
+// Quick Cash Buttons
+function setCashExact() {
+  const grandTotalText = document.getElementById('label-grand-total').textContent;
+  const grandTotal = parseRupiahNumber(grandTotalText);
+  document.getElementById('input-cash-received').value = grandTotal;
+  calculateCashChange();
+}
+
+function addCashAmount(amount) {
+  const current = parseFloat(document.getElementById('input-cash-received').value) || 0;
+  document.getElementById('input-cash-received').value = current + amount;
+  calculateCashChange();
+}
+
+function calculateCashChange() {
+  const grandTotal = parseRupiahNumber(document.getElementById('label-grand-total').textContent);
+  const cashReceived = parseFloat(document.getElementById('input-cash-received').value) || 0;
+  const changeEl = document.getElementById('label-cash-change');
+
+  if (!changeEl) return;
+
+  if (currentPaymentMethod !== 'Tunai') {
+    changeEl.textContent = 'Rp 0';
+    return;
+  }
+
+  const change = cashReceived - grandTotal;
+  if (change >= 0) {
+    changeEl.className = 'text-sm font-bold text-emerald-700';
+    changeEl.textContent = formatRupiah(change);
+  } else {
+    changeEl.className = 'text-sm font-bold text-rose-600';
+    changeEl.textContent = `Kurang ${formatRupiah(Math.abs(change))}`;
+  }
+}
+
+function parseRupiahNumber(rupiahStr) {
+  if (!rupiahStr) return 0;
+  return parseFloat(rupiahStr.replace(/[^0-9]/g, '')) || 0;
+}
+
+// Proses Transaksi Checkout
+function handleProcessCheckout() {
+  if (cart.length === 0) {
+    showToast("Keranjang belanja masih kosong!", "warning");
+    return;
+  }
+
+  const grandTotal = parseRupiahNumber(document.getElementById('label-grand-total').textContent);
+  const subtotal = parseRupiahNumber(document.getElementById('label-subtotal').textContent);
+  const discount = parseRupiahNumber(document.getElementById('label-discount').textContent);
+  const cashReceived = parseFloat(document.getElementById('input-cash-received').value) || 0;
+
+  if (currentPaymentMethod === 'Tunai' && cashReceived < grandTotal) {
+    showToast(`Uang tunai yang diterima kurang ${formatRupiah(grandTotal - cashReceived)}!`, "danger");
+    document.getElementById('input-cash-received').focus();
+    return;
+  }
+
+  // Kurangi stok di inventaris
+  let totalProfit = 0;
+  cart.forEach(cartItem => {
+    const med = medicines.find(m => m.id === cartItem.id);
+    if (med) {
+      med.stok = Math.max(0, med.stok - cartItem.qty);
+      const profitPerItem = (cartItem.hargaJual - (med.hargaBeli || 0)) * cartItem.qty;
+      totalProfit += profitPerItem;
+    }
+  });
+
+  // Simpan data transaksi
+  const kembalian = currentPaymentMethod === 'Tunai' ? Math.max(0, cashReceived - grandTotal) : 0;
+  const newTransaction = {
+    id: currentInvoiceNumber,
+    waktu: new Date().toISOString(),
+    items: [...cart],
+    totalItem: cart.reduce((acc, c) => acc + c.qty, 0),
+    subtotal,
+    diskon: discount,
+    totalAkhir: grandTotal,
+    metodeBayar: currentPaymentMethod,
+    nominalBayar: currentPaymentMethod === 'Tunai' ? cashReceived : grandTotal,
+    kembalian,
+    keuntungan: totalProfit - discount,
+    kasir: "Kasir 1"
+  };
+
+  transactions.unshift(newTransaction);
+  saveTransactionsToStorage();
+  saveMedicinesToStorage();
+
+  // Audio efek pembayaran sukses
+  sfx.playSuccessPayment();
+
+  // Siapkan struk thermal untuk preview dan print
+  renderReceiptThermal(newTransaction);
+
+  // Buka modal struk
+  const receiptModal = document.getElementById('modal-receipt-dialog');
+  if (receiptModal) receiptModal.classList.remove('hidden');
+
+  showToast(`Transaksi ${currentInvoiceNumber} sukses!`, 'success');
+}
+
+// Render Struk Format Thermal Kertas Kasir (58mm / 80mm)
+function renderReceiptThermal(trx) {
+  const previewContainer = document.getElementById('struk-thermal-preview');
+  const printContainer = document.getElementById('struk-thermal-print');
+
+  const receiptHTML = `
+    <div style="text-align: center; margin-bottom: 8px;">
+      <div style="font-size: 15px; font-weight: bold; text-transform: uppercase;">${settings.namaApotek || 'APOTEK SEJAHTERA'}</div>
+      <div style="font-size: 11px;">${settings.alamat || 'Jl. Kesehatan No. 123'}</div>
+      <div style="font-size: 11px;">Telp: ${settings.telepon || '0812-3456-7890'}</div>
+      <div style="font-size: 10px; margin-top: 2px;">${settings.sipa || 'SIPA: 446/1029/DINKES'}</div>
+    </div>
+
+    <div class="receipt-double-divider"></div>
+
+    <div style="font-size: 11px; margin-bottom: 6px;">
+      <div style="display: flex; justify-content: space-between;">
+        <span>No: ${trx.id}</span>
+        <span>${new Date(trx.waktu).toLocaleTimeString('id-ID', { hour12: false })}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span>Tgl: ${formatDateIndo(trx.waktu)}</span>
+        <span>Kasir: ${trx.kasir}</span>
+      </div>
+    </div>
+
+    <div class="receipt-divider"></div>
+
+    <div style="font-size: 11px;">
+      ${trx.items.map(item => `
+        <div style="margin-bottom: 4px;">
+          <div style="font-weight: bold;">${item.nama}</div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>${item.qty} x ${formatRupiah(item.hargaJual)}</span>
+            <span>${formatRupiah(item.subtotal)}</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="receipt-divider"></div>
+
+    <div style="font-size: 11px;">
+      <div style="display: flex; justify-content: space-between;">
+        <span>Subtotal:</span>
+        <span>${formatRupiah(trx.subtotal)}</span>
+      </div>
+      ${trx.diskon > 0 ? `
+        <div style="display: flex; justify-content: space-between;">
+          <span>Diskon:</span>
+          <span>-${formatRupiah(trx.diskon)}</span>
+        </div>
+      ` : ''}
+      <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 13px; margin-top: 4px;">
+        <span>TOTAL:</span>
+        <span>${formatRupiah(trx.totalAkhir)}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+        <span>Bayar (${trx.metodeBayar}):</span>
+        <span>${formatRupiah(trx.nominalBayar)}</span>
+      </div>
+      ${trx.metodeBayar === 'Tunai' ? `
+        <div style="display: flex; justify-content: space-between;">
+          <span>Kembalian:</span>
+          <span>${formatRupiah(trx.kembalian)}</span>
+        </div>
+      ` : ''}
+    </div>
+
+    <div class="receipt-double-divider"></div>
+
+    <div style="text-align: center; font-size: 11px; margin-top: 8px;">
+      <div>${settings.catatanStruk || 'Semoga Lekas Sembuh & Terima Kasih!'}</div>
+      <div style="font-size: 10px; color: #555; margin-top: 4px;">Barang yang sudah dibeli tidak dapat ditukar/dikembalikan</div>
+    </div>
+  `;
+
+  if (previewContainer) previewContainer.innerHTML = receiptHTML;
+  if (printContainer) printContainer.innerHTML = receiptHTML;
+}
+
+function closeReceiptModal() {
+  const modal = document.getElementById('modal-receipt-dialog');
+  if (modal) modal.classList.add('hidden');
+}
+
+function startNewTransaction() {
+  closeReceiptModal();
+  cart = [];
+  generateNewInvoiceNumber();
+  renderCart();
+  document.getElementById('input-discount-val').value = 0;
+  document.getElementById('input-cash-received').value = '';
+  document.getElementById('label-cash-change').textContent = 'Rp 0';
+  document.getElementById('input-barcode-manual').value = '';
+  document.getElementById('input-search-kasir').value = '';
+}
+
+// Pencarian Cepat Obat di Kasir (Jika barcode rusak)
+function handleSearchKasir(query) {
+  const resultsBox = document.getElementById('search-kasir-results');
+  if (!resultsBox) return;
+
+  if (!query || query.trim().length < 2) {
+    resultsBox.classList.add('hidden');
+    resultsBox.innerHTML = '';
+    return;
+  }
+
+  const q = query.toLowerCase().trim();
+  const matched = medicines.filter(m => 
+    m.nama.toLowerCase().includes(q) || 
+    m.barcode.includes(q) ||
+    (m.produsen && m.produsen.toLowerCase().includes(q))
+  ).slice(0, 6);
+
+  if (matched.length === 0) {
+    resultsBox.innerHTML = `
+      <div class="p-3 text-center text-slate-400 text-xs">
+        Obat tidak ditemukan.
+      </div>
+    `;
+    resultsBox.classList.remove('hidden');
+    return;
+  }
+
+  resultsBox.innerHTML = matched.map(m => `
+    <div class="p-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors" onclick="selectKasirSearchResult('${m.id}')">
+      <div>
+        <div class="font-bold text-slate-800 text-xs">${m.nama}</div>
+        <div class="text-[10px] text-slate-500 font-mono">${m.barcode} • Sisa: ${m.stok} ${m.satuan}</div>
+      </div>
+      <div class="text-right">
+        <div class="font-bold text-emerald-700 text-xs">${formatRupiah(m.hargaJual)}</div>
+        <span class="text-[9px] px-1 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">+ Tambah</span>
+      </div>
+    </div>
+  `).join('');
+
+  resultsBox.classList.remove('hidden');
+}
+
+function selectKasirSearchResult(id) {
+  const med = medicines.find(m => m.id === id);
+  if (med) {
+    sfx.playBeep();
+    addProductToCart(med);
+    showToast(`✅ ${med.nama} ditambahkan ke keranjang`, 'success');
+  }
+  const resultsBox = document.getElementById('search-kasir-results');
+  if (resultsBox) resultsBox.classList.add('hidden');
+  document.getElementById('input-search-kasir').value = '';
+}
+
+// =========================================================================
+// TAB 2: KATALOG OBAT & MANAJEMEN STOK (INVENTORY)
+// =========================================================================
+function renderInventoryTable() {
+  const tbody = document.getElementById('inventory-table-body');
+  const countEl = document.getElementById('inventory-showing-count');
+  const searchInput = document.getElementById('inventory-search-input');
+  const catFilter = document.getElementById('inventory-category-filter');
+  const statusFilter = document.getElementById('inventory-status-filter');
+
+  if (!tbody) return;
+
+  const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const selectedCat = catFilter ? catFilter.value : 'ALL';
+  const selectedStatus = statusFilter ? statusFilter.value : 'ALL';
+
+  const filtered = medicines.filter(m => {
+    // Search query
+    const matchSearch = !q || 
+      m.nama.toLowerCase().includes(q) || 
+      m.barcode.toLowerCase().includes(q) || 
+      (m.produsen && m.produsen.toLowerCase().includes(q)) || 
+      (m.rak && m.rak.toLowerCase().includes(q));
+
+    // Kategori
+    const matchCat = selectedCat === 'ALL' || m.kategori === selectedCat;
+
+    // Status
+    let matchStatus = true;
+    if (selectedStatus === 'low') {
+      matchStatus = m.stok <= (m.stokMinimal || 10);
+    } else if (selectedStatus === 'expiring') {
+      matchStatus = checkIsExpiringSoon(m.tglKadaluarsa);
+    }
+
+    return matchSearch && matchCat && matchStatus;
+  });
+
+  if (countEl) countEl.textContent = `Menampilkan ${filtered.length} dari total ${medicines.length} jenis obat`;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="10" class="p-8 text-center text-slate-400">
+          Tidak ada data obat yang sesuai dengan filter pencarian.
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(item => {
+    const margin = item.hargaBeli > 0 ? (((item.hargaJual - item.hargaBeli) / item.hargaBeli) * 100).toFixed(0) : 0;
+    const isLowStock = item.stok <= (item.stokMinimal || 10);
+    const isExpiring = checkIsExpiringSoon(item.tglKadaluarsa);
+    const categoryBadge = getCategoryBadgeHTML(item.kategori);
+
+    return `
+      <tr class="hover:bg-slate-50 transition-colors">
+        <td class="p-3 font-mono font-bold text-slate-800 text-[11px]">${item.barcode}</td>
+        <td class="p-3">
+          <div class="font-bold text-slate-900">${item.nama}</div>
+          <div class="text-[10px] text-slate-400">${item.produsen || 'Generic'}</div>
+        </td>
+        <td class="p-3">
+          <div class="flex flex-col gap-1 items-start">
+            ${categoryBadge}
+            <span class="text-[11px] text-slate-500 font-medium">${item.satuan}</span>
+          </div>
+        </td>
+        <td class="p-3 text-right text-slate-600 font-medium">${formatRupiah(item.hargaBeli)}</td>
+        <td class="p-3 text-right font-bold text-emerald-700">${formatRupiah(item.hargaJual)}</td>
+        <td class="p-3 text-center">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold ${margin >= 20 ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-700'}">
+            +${margin}%
+          </span>
+        </td>
+        <td class="p-3 text-center">
+          <span class="px-2 py-0.5 rounded-full text-xs font-bold ${isLowStock ? 'bg-rose-100 text-rose-700 animate-pulse' : 'bg-slate-100 text-slate-800'}">
+            ${item.stok}
+          </span>
+        </td>
+        <td class="p-3">
+          <div class="text-xs ${isExpiring ? 'text-rose-600 font-bold flex items-center gap-1' : 'text-slate-600'}">
+            ${isExpiring ? '⚠️ ' : ''}${formatDateIndo(item.tglKadaluarsa)}
+          </div>
+        </td>
+        <td class="p-3 text-[11px] text-slate-500">${item.rak || '-'}</td>
+        <td class="p-3 text-center">
+          <div class="flex items-center justify-center gap-1.5">
+            <button onclick="quickAddStock('${item.id}', 10)" title="Tambah 10 stok" class="p-1 text-emerald-600 hover:bg-emerald-50 rounded text-xs font-bold">+10</button>
+            <button onclick="openEditProductModal('${item.id}')" title="Edit" class="p-1 text-blue-600 hover:bg-blue-50 rounded text-xs font-bold">Edit</button>
+            <button onclick="deleteProduct('${item.id}')" title="Hapus" class="p-1 text-rose-600 hover:bg-rose-50 rounded text-xs font-bold">Hapus</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function updateInventoryStats() {
+  const totalItems = medicines.length;
+  const totalStock = medicines.reduce((acc, curr) => acc + (parseInt(curr.stok, 10) || 0), 0);
+  const lowStockCount = medicines.filter(m => m.stok <= (m.stokMinimal || 10)).length;
+  const expiringCount = medicines.filter(m => checkIsExpiringSoon(m.tglKadaluarsa)).length;
+
+  const statItems = document.getElementById('stat-total-items');
+  const statStock = document.getElementById('stat-total-stock');
+  const statLow = document.getElementById('stat-low-stock');
+  const statExp = document.getElementById('stat-expiring-soon');
+  const navBadge = document.getElementById('badge-stok-warning');
+
+  if (statItems) statItems.textContent = totalItems;
+  if (statStock) statStock.textContent = totalStock;
+  if (statLow) statLow.textContent = lowStockCount;
+  if (statExp) statExp.textContent = expiringCount;
+
+  if (navBadge) {
+    if (lowStockCount > 0) {
+      navBadge.textContent = lowStockCount;
+      navBadge.classList.remove('hidden');
+    } else {
+      navBadge.classList.add('hidden');
+    }
+  }
+}
+
+function filterInventoryByStatus(status) {
+  const statusFilter = document.getElementById('inventory-status-filter');
+  if (statusFilter) {
+    statusFilter.value = status;
+    renderInventoryTable();
+  }
+}
+
+function quickAddStock(id, amount) {
+  const med = medicines.find(m => m.id === id);
+  if (med) {
+    med.stok += amount;
+    saveMedicinesToStorage();
+    renderInventoryTable();
+    showToast(`Stok ${med.nama} ditambah +${amount} (Total: ${med.stok})`, 'success');
+  }
+}
+
+function deleteProduct(id) {
+  const med = medicines.find(m => m.id === id);
+  if (!med) return;
+  if (confirm(`Yakin ingin menghapus obat "${med.nama}" (Barcode: ${med.barcode}) dari data apotek?`)) {
+    medicines = medicines.filter(m => m.id !== id);
+    saveMedicinesToStorage();
+    renderInventoryTable();
+    showToast(`Obat ${med.nama} telah dihapus.`, 'info');
+  }
+}
+
+// Modal Form Tambah / Edit Obat Umum
+function openAddProductModal() {
+  document.getElementById('form-manage-product').reset();
+  document.getElementById('edit-prod-id').value = '';
+  document.getElementById('product-form-title').textContent = 'Tambah Obat Baru Manual';
+  
+  // Default ED 2 tahun
+  const defaultED = new Date();
+  defaultED.setFullYear(defaultED.getFullYear() + 2);
+  document.getElementById('edit-prod-ed').value = defaultED.toISOString().split('T')[0];
+  document.getElementById('edit-prod-stok').value = 10;
+
+  document.getElementById('modal-product-form').classList.remove('hidden');
+}
+
+function openEditProductModal(id) {
+  const med = medicines.find(m => m.id === id);
+  if (!med) return;
+
+  document.getElementById('product-form-title').textContent = `Edit Obat: ${med.nama}`;
+  document.getElementById('edit-prod-id').value = med.id;
+  document.getElementById('edit-prod-barcode').value = med.barcode;
+  document.getElementById('edit-prod-nama').value = med.nama;
+  document.getElementById('edit-prod-kategori').value = med.kategori;
+  document.getElementById('edit-prod-satuan').value = med.satuan;
+  document.getElementById('edit-prod-harga-beli').value = med.hargaBeli;
+  document.getElementById('edit-prod-harga-jual').value = med.hargaJual;
+  document.getElementById('edit-prod-stok').value = med.stok;
+  document.getElementById('edit-prod-ed').value = med.tglKadaluarsa || '';
+  document.getElementById('edit-prod-produsen').value = med.produsen || '';
+  document.getElementById('edit-prod-rak').value = med.rak || '';
+
+  document.getElementById('modal-product-form').classList.remove('hidden');
+}
+
+function closeProductFormModal() {
+  const modal = document.getElementById('modal-product-form');
+  if (modal) modal.classList.add('hidden');
+}
+
+function handleSaveProductForm(e) {
+  e.preventDefault();
+  const id = document.getElementById('edit-prod-id').value;
+  const barcode = document.getElementById('edit-prod-barcode').value.trim();
+  const nama = document.getElementById('edit-prod-nama').value.trim();
+  const kategori = document.getElementById('edit-prod-kategori').value;
+  const satuan = document.getElementById('edit-prod-satuan').value;
+  const hargaBeli = parseFloat(document.getElementById('edit-prod-harga-beli').value) || 0;
+  const hargaJual = parseFloat(document.getElementById('edit-prod-harga-jual').value) || 0;
+  const stok = parseInt(document.getElementById('edit-prod-stok').value, 10) || 0;
+  const tglKadaluarsa = document.getElementById('edit-prod-ed').value;
+  const produsen = document.getElementById('edit-prod-produsen').value.trim();
+  const rak = document.getElementById('edit-prod-rak').value.trim();
+
+  if (!barcode || !nama || hargaJual <= 0) {
+    showToast("Barcode, nama obat dan harga jual wajib diisi!", "danger");
+    return;
+  }
+
+  if (id) {
+    // Update existing
+    const med = medicines.find(m => m.id === id);
+    if (med) {
+      med.barcode = barcode;
+      med.nama = nama;
+      med.kategori = kategori;
+      med.satuan = satuan;
+      med.hargaBeli = hargaBeli;
+      med.hargaJual = hargaJual;
+      med.stok = stok;
+      med.tglKadaluarsa = tglKadaluarsa;
+      med.produsen = produsen;
+      med.rak = rak;
+      showToast(`Data '${nama}' berhasil diperbarui!`, "success");
+    }
+  } else {
+    // Create new
+    const newMed = {
+      id: `med-${Date.now()}`,
+      barcode,
+      nama,
+      kategori,
+      satuan,
+      hargaBeli,
+      hargaJual,
+      stok,
+      stokMinimal: 10,
+      tglKadaluarsa,
+      produsen,
+      rak,
+      createdAt: new Date().toISOString()
+    };
+    medicines.push(newMed);
+    showToast(`Obat '${nama}' berhasil ditambahkan!`, "success");
+  }
+
+  saveMedicinesToStorage();
+  renderInventoryTable();
+  closeProductFormModal();
+}
+
+// Backup & Restore JSON
+function exportInventoryJSON() {
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(medicines, null, 2));
+  const dlAnchorElem = document.createElement('a');
+  dlAnchorElem.setAttribute("href", dataStr);
+  dlAnchorElem.setAttribute("download", `katalog-obat-apotek-${new Date().toISOString().split('T')[0]}.json`);
+  dlAnchorElem.click();
+  showToast("File data obat berhasil di-download.", "success");
+}
+
+function importInventoryJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (Array.isArray(imported)) {
+        medicines = imported;
+        saveMedicinesToStorage();
+        renderInventoryTable();
+        showToast(`Berhasil mengimpor ${imported.length} data obat!`, "success");
+      } else {
+        showToast("Format JSON tidak valid!", "danger");
+      }
+    } catch (err) {
+      showToast("Gagal membaca file JSON.", "danger");
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetToInitialData() {
+  if (confirm("Reset seluruh katalog obat ke data awal contoh apotek?")) {
+    medicines = [...INITIAL_MEDICINES];
+    saveMedicinesToStorage();
+    renderInventoryTable();
+    showToast("Data obat di-reset ke default contoh apotek.", "info");
+  }
+}
+
+// =========================================================================
+// TAB 3: RIWAYAT PENJUALAN & LAPORAN
+// =========================================================================
+function renderTransactionHistory() {
+  const tbody = document.getElementById('transaction-table-body');
+  const omzetEl = document.getElementById('report-total-omzet');
+  const profitEl = document.getElementById('report-total-profit');
+  const totalTrxEl = document.getElementById('report-total-trx');
+
+  if (!tbody) return;
+
+  const totalOmzet = transactions.reduce((acc, curr) => acc + curr.totalAkhir, 0);
+  const totalProfit = transactions.reduce((acc, curr) => acc + (curr.keuntungan || 0), 0);
+
+  if (omzetEl) omzetEl.textContent = formatRupiah(totalOmzet);
+  if (profitEl) profitEl.textContent = formatRupiah(totalProfit);
+  if (totalTrxEl) totalTrxEl.textContent = transactions.length;
+
+  if (transactions.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="7" class="p-8 text-center text-slate-400">Belum ada riwayat transaksi penjualan.</td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = transactions.map(trx => {
+    const itemsSummary = trx.items.map(it => `${it.nama} (${it.qty})`).join(', ');
+
+    return `
+      <tr class="hover:bg-slate-50 transition-colors">
+        <td class="p-3 font-mono font-bold text-slate-900">${trx.id}</td>
+        <td class="p-3 text-slate-600">
+          <div>${formatDateIndo(trx.waktu)}</div>
+          <div class="text-[10px] text-slate-400 font-mono">${new Date(trx.waktu).toLocaleTimeString('id-ID')}</div>
+        </td>
+        <td class="p-3 max-w-xs truncate" title="${itemsSummary}">${itemsSummary}</td>
+        <td class="p-3">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold ${trx.metodeBayar === 'Tunai' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'}">
+            ${trx.metodeBayar}
+          </span>
+        </td>
+        <td class="p-3 text-right font-bold text-slate-900">${formatRupiah(trx.totalAkhir)}</td>
+        <td class="p-3 text-right font-bold text-teal-700">${formatRupiah(trx.keuntungan || 0)}</td>
+        <td class="p-3 text-center">
+          <button onclick="reprintReceipt('${trx.id}')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded text-xs font-semibold">
+            Lihat Struk
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function reprintReceipt(trxId) {
+  const trx = transactions.find(t => t.id === trxId);
+  if (!trx) return;
+  renderReceiptThermal(trx);
+  document.getElementById('modal-receipt-dialog').classList.remove('hidden');
+}
+
+function clearTransactionHistory() {
+  if (confirm("Hapus seluruh catatan riwayat transaksi kasir?")) {
+    transactions = [];
+    saveTransactionsToStorage();
+    renderTransactionHistory();
+    showToast("Riwayat transaksi telah dibersihkan.", "info");
+  }
+}
+
+// =========================================================================
+// TAB 4: PENGATURAN APOTEK
+// =========================================================================
+function populateSettingsForm() {
+  document.getElementById('setting-nama-apotek').value = settings.namaApotek || '';
+  document.getElementById('setting-slogan').value = settings.slogan || '';
+  document.getElementById('setting-telepon').value = settings.telepon || '';
+  document.getElementById('setting-sipa').value = settings.sipa || '';
+  document.getElementById('setting-apoteker').value = settings.apoteker || '';
+  document.getElementById('setting-alamat').value = settings.alamat || '';
+  document.getElementById('setting-catatan-struk').value = settings.catatanStruk || '';
+}
+
+function saveSettings(e) {
+  e.preventDefault();
+  settings.namaApotek = document.getElementById('setting-nama-apotek').value.trim();
+  settings.slogan = document.getElementById('setting-slogan').value.trim();
+  settings.telepon = document.getElementById('setting-telepon').value.trim();
+  settings.sipa = document.getElementById('setting-sipa').value.trim();
+  settings.apoteker = document.getElementById('setting-apoteker').value.trim();
+  settings.alamat = document.getElementById('setting-alamat').value.trim();
+  settings.catatanStruk = document.getElementById('setting-catatan-struk').value.trim();
+
+  saveSettingsToStorage();
+  applySettingsToUI();
+  showToast("Pengaturan profil apotek berhasil disimpan!", "success");
+}
+
+function applySettingsToUI() {
+  const navName = document.getElementById('nav-nama-apotek');
+  const navSipa = document.getElementById('nav-sipa');
+  if (navName && settings.namaApotek) navName.textContent = settings.namaApotek;
+  if (navSipa && settings.sipa) navSipa.textContent = settings.sipa;
+}
+
+// =========================================================================
+// MODAL BARCODE TESTER (SIMULATOR)
+// =========================================================================
+function openBarcodeTesterModal() {
+  document.getElementById('modal-barcode-tester').classList.remove('hidden');
+}
+
+function closeBarcodeTesterModal() {
+  document.getElementById('modal-barcode-tester').classList.add('hidden');
+}
+
+// =========================================================================
+// TOAST NOTIFIKASI
+// =========================================================================
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  let bgCls = 'bg-slate-900 text-white';
+  if (type === 'success') bgCls = 'bg-emerald-600 text-white';
+  else if (type === 'danger') bgCls = 'bg-rose-600 text-white';
+  else if (type === 'warning') bgCls = 'bg-amber-600 text-white';
+
+  toast.className = `toast px-4 py-2.5 rounded-xl text-xs font-semibold shadow-lg flex items-center gap-2 ${bgCls}`;
+  toast.innerHTML = `<span>${message}</span>`;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3200);
+}

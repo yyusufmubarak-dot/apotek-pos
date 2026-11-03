@@ -1,0 +1,252 @@
+/* ========================================================
+   GAYA & TEMA APLIKASI KASIR APOTEK (PHARMACY POS)
+   ======================================================== */
+
+:root {
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-light: #ecfdf5;
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --dark: #0f172a;
+  --gray-bg: #f8fafc;
+  --border: #e2e8f0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========================================================
+   ANIMASI LASER SCANNER KAMERA
+   ======================================================== */
+.scanner-viewport-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  min-height: 240px;
+}
+
+.scanner-laser {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981, #34d399, transparent);
+  box-shadow: 0 0 12px 3px rgba(16, 185, 129, 0.7);
+  animation: scanLaser 2s infinite ease-in-out;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes scanLaser {
+  0% {
+    top: 5%;
+    opacity: 0.2;
+  }
+  50% {
+    top: 90%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.2;
+  }
+}
+
+/* Scanner Corner Target Reticle */
+.reticle-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: #10b981;
+  pointer-events: none;
+  z-index: 9;
+}
+.reticle-top-left {
+  top: 16px;
+  left: 16px;
+  border-top: 3px solid #10b981;
+  border-left: 3px solid #10b981;
+  border-top-left-radius: 6px;
+}
+.reticle-top-right {
+  top: 16px;
+  right: 16px;
+  border-top: 3px solid #10b981;
+  border-right: 3px solid #10b981;
+  border-top-right-radius: 6px;
+}
+.reticle-bottom-left {
+  bottom: 16px;
+  left: 16px;
+  border-bottom: 3px solid #10b981;
+  border-left: 3px solid #10b981;
+  border-bottom-left-radius: 6px;
+}
+.reticle-bottom-right {
+  bottom: 16px;
+  right: 16px;
+  border-bottom: 3px solid #10b981;
+  border-right: 3px solid #10b981;
+  border-bottom-right-radius: 6px;
+}
+
+/* Badge Golongan Obat Khas Farmasi Indonesia */
+.badge-obat-bebas {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+.badge-obat-bebas-terbatas {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+.badge-obat-keras {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  font-weight: 700;
+}
+.badge-herbal {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #6ee7b7;
+}
+.badge-alkes {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+  border: 1px solid #d8b4fe;
+}
+.badge-suplemen {
+  background-color: #ffedd5;
+  color: #c2410c;
+  border: 1px solid #fdba74;
+}
+
+/* Pulsing Badge for Urgent alerts */
+.pulse-badge {
+  animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Toast Notification */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Auto-suggest Pill Tags */
+.suggest-pill {
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.suggest-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+/* ========================================================
+   FORMAT STRUK THERMAL STANDAR 58MM / 80MM (CETAK RESI)
+   ======================================================== */
+#struk-thermal-preview {
+  font-family: 'Courier New', Courier, monospace;
+  width: 320px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 16px;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #4b5563;
+  margin: 8px 0;
+}
+.receipt-double-divider {
+  border-top: 2px dashed #000;
+  margin: 10px 0;
+}
+
+@media print {
+  /* Sembunyikan SEMUA elemen web selain struk thermal */
+  body * {
+    visibility: hidden;
+  }
+  #struk-thermal-print, #struk-thermal-print * {
+    visibility: visible;
+  }
+  #struk-thermal-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm; /* atau 80mm tergantung printer thermal */
+    max-width: 80mm;
+    margin: 0;
+    padding: 2mm;
+    font-size: 11px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+}
