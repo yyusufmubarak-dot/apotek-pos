@@ -34,55 +34,55 @@
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
 
-  <!-- TOP HEADER / NAVBAR -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+  <!-- TOP HEADER / NAVBAR (MODERN DARK SLATE COMMAND CENTER) -->
+  <header class="bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/80 sticky top-0 z-30 shadow-lg text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         
         <!-- Logo & Apotek Identity -->
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 4v16m8-8H4"></path>
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 shadow-[0_0_20px_rgba(16,185,129,0.35)] font-black text-xl">
+            <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
             </svg>
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <h1 id="nav-nama-apotek" class="text-lg font-bold text-slate-900 leading-tight">Apotek Medika Sejahtera</h1>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-ping"></span>
-                Kasir Siap
+              <h1 id="nav-nama-apotek" class="text-base sm:text-lg font-bold text-white tracking-tight">Apotek Medika Sejahtera</h1>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-ping"></span>
+                Sistem Siap
               </span>
             </div>
-            <p id="nav-sipa" class="text-xs text-slate-500">SIPA: 446/1029/DINKES/2024</p>
+            <p id="nav-sipa" class="text-[11px] text-slate-400 font-mono-numbers">SIPA: 446/1029/DINKES/2024</p>
           </div>
         </div>
 
         <!-- Navigation Tabs -->
-        <nav class="hidden md:flex space-x-1">
-          <button onclick="switchTab('kasir')" id="tab-btn-kasir" class="nav-tab active px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all bg-emerald-600 text-white shadow-sm">
+        <nav class="hidden md:flex space-x-1.5 bg-slate-900/90 p-1 rounded-xl border border-slate-800">
+          <button onclick="switchTab('kasir')" id="tab-btn-kasir" class="nav-tab active px-4 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition-all bg-emerald-500 text-slate-950 shadow-md">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
             Kasir (POS)
           </button>
           
-          <button onclick="switchTab('stok')" id="tab-btn-stok" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 transition-all">
+          <button onclick="switchTab('stok')" id="tab-btn-stok" class="nav-tab px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-2 transition-all">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
             </svg>
             Katalog Obat & Stok
-            <span id="badge-stok-warning" class="hidden ml-1 px-1.5 py-0.2 rounded-full text-xs bg-amber-100 text-amber-800 font-bold">0</span>
+            <span id="badge-stok-warning" class="hidden ml-1 px-1.5 py-0.2 rounded-full text-[10px] bg-rose-500/20 text-rose-300 font-bold border border-rose-500/30">0</span>
           </button>
 
-          <button onclick="switchTab('riwayat')" id="tab-btn-riwayat" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 transition-all">
+          <button onclick="switchTab('riwayat')" id="tab-btn-riwayat" class="nav-tab px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-2 transition-all">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
             </svg>
             Riwayat Penjualan
           </button>
 
-          <button onclick="switchTab('pengaturan')" id="tab-btn-pengaturan" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 transition-all">
+          <button onclick="switchTab('pengaturan')" id="tab-btn-pengaturan" class="nav-tab px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-2 transition-all">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -93,16 +93,16 @@
 
         <!-- Right Quick Actions: Tester & Digital Clock -->
         <div class="flex items-center space-x-3">
-          <button onclick="openBarcodeTesterModal()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 flex items-center gap-1.5 transition-colors">
+          <button onclick="openBarcodeTesterModal()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800/80 hover:bg-slate-700 text-emerald-400 hover:text-emerald-300 border border-slate-700/80 flex items-center gap-1.5 transition-all shadow-sm">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
             </svg>
-            Contoh Barcode Tes
+            Simulator Barcode
           </button>
           
-          <div class="text-right hidden sm:block">
-            <div id="digital-clock" class="text-sm font-mono font-bold text-slate-800">00:00:00</div>
-            <div id="digital-date" class="text-[11px] text-slate-500">Selasa, 03 Nov 2026</div>
+          <div class="text-right hidden sm:block bg-slate-900/90 px-3 py-1 rounded-xl border border-slate-800">
+            <div id="digital-clock" class="text-xs font-mono-numbers font-bold text-emerald-400">00:00:00</div>
+            <div id="digital-date" class="text-[10px] text-slate-400">Selasa, 03 Nov 2026</div>
           </div>
         </div>
 
@@ -110,17 +110,17 @@
     </div>
 
     <!-- Mobile Nav Bar (Small screens) -->
-    <div class="flex md:hidden border-t border-slate-200 bg-slate-50 px-2 py-1 justify-around text-xs">
-      <button onclick="switchTab('kasir')" class="mobile-nav-tab p-2 text-emerald-600 font-bold flex flex-col items-center">
+    <div class="flex md:hidden border-t border-slate-800 bg-slate-950 px-2 py-1 justify-around text-xs">
+      <button onclick="switchTab('kasir')" class="mobile-nav-tab p-2 text-emerald-400 font-bold flex flex-col items-center">
         <span>Kasir</span>
       </button>
-      <button onclick="switchTab('stok')" class="mobile-nav-tab p-2 text-slate-600 flex flex-col items-center">
+      <button onclick="switchTab('stok')" class="mobile-nav-tab p-2 text-slate-400 flex flex-col items-center">
         <span>Stok Obat</span>
       </button>
-      <button onclick="switchTab('riwayat')" class="mobile-nav-tab p-2 text-slate-600 flex flex-col items-center">
+      <button onclick="switchTab('riwayat')" class="mobile-nav-tab p-2 text-slate-400 flex flex-col items-center">
         <span>Riwayat</span>
       </button>
-      <button onclick="switchTab('pengaturan')" class="mobile-nav-tab p-2 text-slate-600 flex flex-col items-center">
+      <button onclick="switchTab('pengaturan')" class="mobile-nav-tab p-2 text-slate-400 flex flex-col items-center">
         <span>Setelan</span>
       </button>
     </div>
@@ -643,46 +643,51 @@
        MODAL 1: "BARANG BELUM TERDAFTAR" (FITUR UTAMA PERMINTAAN USER)
        Otomatis muncul saat scan barcode baru yang belum ada di database
        ======================================================== -->
-  <div id="modal-unregistered-item" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden animate-scaleIn">
+  <div id="modal-unregistered-item" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] border border-slate-200/90 overflow-hidden transition-all">
       
-      <!-- Modal Header -->
-      <div class="p-5 bg-gradient-to-r from-emerald-600 to-teal-700 text-white flex items-center justify-between">
+      <!-- Modal Header: Deep Slate & Emerald Accent -->
+      <div class="p-5 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 text-white flex items-center justify-between border-b border-emerald-900/40">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xl">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xl shadow-[0_0_15px_rgba(16,185,129,0.25)]">
             🔍
           </div>
           <div>
-            <h3 class="text-base font-bold">Barang Belum Masuk di Data!</h3>
-            <p class="text-xs text-emerald-100">Kode barcode baru terdeteksi dari kamera</p>
+            <h3 class="text-base font-extrabold tracking-tight text-white flex items-center gap-2">
+              Barang Belum Masuk di Data!
+            </h3>
+            <p class="text-xs text-emerald-400/90 font-medium">Barcode baru terdeteksi dari pemindai kamera</p>
           </div>
         </div>
-        <button onclick="closeUnregisteredModal()" class="text-white/80 hover:text-white text-xl font-bold leading-none">&times;</button>
+        <button onclick="closeUnregisteredModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white flex items-center justify-center text-lg font-bold transition-all">&times;</button>
       </div>
 
       <!-- Scanned Barcode Display Banner -->
-      <div class="bg-emerald-50 border-b border-emerald-100 px-5 py-3 flex items-center justify-between">
+      <div class="bg-slate-900 text-white px-5 py-3 flex items-center justify-between border-b border-slate-800">
         <div class="flex items-center gap-2">
-          <span class="text-xs text-emerald-800 font-semibold">KODE BARCODE:</span>
-          <span id="unreg-modal-barcode-badge" class="font-mono font-bold text-sm bg-white border border-emerald-300 px-2.5 py-0.5 rounded text-emerald-900">
+          <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">KODE BARCODE:</span>
+          <span id="unreg-modal-barcode-badge" class="font-mono-numbers font-bold text-xs bg-emerald-500/15 border border-emerald-500/40 px-2.5 py-0.5 rounded-md text-emerald-400">
             899...
           </span>
         </div>
-        <span class="text-[11px] text-emerald-600">Silakan lengkapi data barang</span>
+        <span class="text-[11px] text-slate-400 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Input Cepat
+        </span>
       </div>
 
       <!-- Auto Suggestion Pharmacy Pills -->
-      <div class="px-5 pt-3 pb-1 border-b border-slate-100 bg-slate-50">
-        <div class="text-[11px] font-semibold text-slate-500 mb-1.5 flex items-center gap-1">
-          <span>💡</span> Rekomendasi Cepat Obat Umum (Klik untuk auto-isi):
+      <div class="px-5 pt-3 pb-2 border-b border-slate-100 bg-slate-50/70">
+        <div class="text-[11px] font-bold text-slate-600 mb-1.5 flex items-center gap-1.5">
+          <span>💡</span> Rekomendasi Cepat Obat Umum (Klik untuk isi otomatis):
         </div>
-        <div class="flex flex-wrap gap-1.5 pb-2">
-          <button type="button" onclick="autoFillUnregDrug('Paracetamol 500 mg')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Paracetamol</button>
-          <button type="button" onclick="autoFillUnregDrug('Panadol Biru 500 mg')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Panadol Biru</button>
-          <button type="button" onclick="autoFillUnregDrug('Promag Tablet Kunyah')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Promag</button>
-          <button type="button" onclick="autoFillUnregDrug('Amoxicillin 500 mg')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Amoxicillin</button>
-          <button type="button" onclick="autoFillUnregDrug('Tolak Angin Cair Herbal')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Tolak Angin</button>
-          <button type="button" onclick="autoFillUnregDrug('Betadine Antiseptic Solution 15 ml')" class="suggest-pill text-[11px] bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 px-2 py-0.5 rounded-full font-medium">Betadine</button>
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" onclick="autoFillUnregDrug('Paracetamol 500 mg')" class="suggest-pill text-[11px] bg-white text-slate-700 border border-slate-200/90 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">Paracetamol 500mg</button>
+          <button type="button" onclick="autoFillUnregDrug('Panadol Biru 500 mg')" class="suggest-pill text-[11px] bg-white text-slate-700 border border-slate-200/90 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">Panadol Biru</button>
+          <button type="button" onclick="autoFillUnregDrug('Promag Tablet Kunyah')" class="suggest-pill text-[11px] bg-white text-slate-700 border border-slate-200/90 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">Promag</button>
+          <button type="button" onclick="autoFillUnregDrug('Amoxicillin 500 mg')" class="suggest-pill text-[11px] bg-white text-slate-700 border border-slate-200/90 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">Amoxicillin</button>
+          <button type="button" onclick="autoFillUnregDrug('Tolak Angin Cair Herbal')" class="suggest-pill text-[11px] bg-white text-slate-700 border border-slate-200/90 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">Tolak Angin</button>
+          <button type="button" onclick="autoFillUnregDrug('Betadine Antiseptic Solution 15 ml')" class="suggest-pill text-[11px] bg-white text-slate-700 border border-slate-200/90 px-2.5 py-1 rounded-lg font-semibold shadow-2xs">Betadine</button>
         </div>
       </div>
 
@@ -694,13 +699,13 @@
 
         <!-- Nama Barang / Obat dengan Live Auto-search -->
         <div class="relative">
-          <label class="block font-semibold text-slate-700 mb-1">
+          <label class="block font-bold text-slate-700 mb-1">
             Nama Obat / Produk: <span class="text-rose-500">*</span>
           </label>
-          <input type="text" id="unreg-nama" oninput="handleUnregNameInput(this.value)" placeholder="Ketik nama: misal Sanmol 500 mg, Biogesic..." required class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <input type="text" id="unreg-nama" oninput="handleUnregNameInput(this.value)" placeholder="Ketik nama: misal Sanmol 500 mg, Biogesic..." required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold text-slate-900 transition-all shadow-2xs">
           
           <!-- Dropdown Autocomplete Suggestions -->
-          <div id="unreg-suggestions-box" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl max-h-48 overflow-y-auto z-30 divide-y divide-slate-100">
+          <div id="unreg-suggestions-box" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-2xl shadow-2xl max-h-48 overflow-y-auto z-30 divide-y divide-slate-100">
             <!-- Filled dynamically -->
           </div>
         </div>
@@ -709,7 +714,7 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Golongan Obat:</label>
-            <select id="unreg-kategori" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+            <select id="unreg-kategori" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white font-medium text-slate-800">
               <option value="Obat Bebas">Obat Bebas (Hijau)</option>
               <option value="Obat Bebas Terbatas">Obat Bebas Terbatas (Biru)</option>
               <option value="Obat Keras">Obat Keras (Merah / Resep)</option>
@@ -720,7 +725,7 @@
           </div>
           <div>
             <label class="block font-semibold text-slate-700 mb-1">Satuan Kemasan:</label>
-            <select id="unreg-satuan" class="w-full px-2.5 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+            <select id="unreg-satuan" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white font-medium text-slate-800">
               <option value="Strip">Strip</option>
               <option value="Blister">Blister</option>
               <option value="Botol">Botol</option>
@@ -737,31 +742,34 @@
         </div>
 
         <!-- Harga Beli (Modal) & Harga Jual (Disesuaikan Pemilik) -->
-        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
-          <div class="text-[11px] font-bold text-slate-600 uppercase tracking-wide">
-            Penyesuaian Harga & Margin Keuntungan
+        <div class="p-3.5 bg-gradient-to-br from-slate-50 to-emerald-50/40 border border-emerald-100 rounded-2xl space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-extrabold text-slate-700 uppercase tracking-wide">
+              💰 Penyesuaian Harga & Margin Laba
+            </span>
+            <span id="unreg-margin-label" class="font-mono-numbers font-bold text-xs text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-md">
+              Rp 0 (0%)
+            </span>
           </div>
+
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-slate-700 mb-1">Harga Beli (Modal):</label>
+              <label class="block font-semibold text-slate-600 mb-1 text-[11px]">Harga Beli (Modal):</label>
               <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-slate-400">Rp</span>
-                <input type="number" id="unreg-harga-beli" oninput="calculateUnregMargin()" min="0" placeholder="0" class="w-full pl-8 pr-2.5 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold">Rp</span>
+                <input type="number" id="unreg-harga-beli" oninput="calculateUnregMargin()" min="0" placeholder="0" class="w-full pl-9 pr-2.5 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono-numbers font-bold text-slate-800 bg-white">
               </div>
             </div>
             <div>
-              <label class="block font-semibold text-emerald-800 mb-1">
-                Harga Jual (Bisa Disesuaikan): <span class="text-rose-500">*</span>
+              <label class="block font-bold text-emerald-900 mb-1 text-[11px] flex items-center justify-between">
+                <span>Harga Jual: <span class="text-rose-500">*</span></span>
+                <span class="text-[9px] text-emerald-600 font-normal">Disesuaikan</span>
               </label>
               <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-emerald-600 font-bold">Rp</span>
-                <input type="number" id="unreg-harga-jual" oninput="calculateUnregMargin()" required min="1" placeholder="0" class="w-full pl-8 pr-2.5 py-1.5 border border-emerald-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-bold text-emerald-700 bg-emerald-50/50">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-emerald-600 font-bold">Rp</span>
+                <input type="number" id="unreg-harga-jual" oninput="calculateUnregMargin()" required min="1" placeholder="0" class="w-full pl-9 pr-2.5 py-2 border-2 border-emerald-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 font-mono-numbers font-black text-emerald-700 bg-white shadow-sm">
               </div>
             </div>
-          </div>
-          <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-            <span>Estimasi Laba per Satuan:</span>
-            <span id="unreg-margin-label" class="font-bold text-emerald-700">Rp 0 (0%)</span>
           </div>
         </div>
 
