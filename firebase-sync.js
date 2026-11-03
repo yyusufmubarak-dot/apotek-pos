@@ -11,17 +11,29 @@ let isFirebaseConnected = false;
 let unsubscribeMedicines = null;
 let unsubscribeTransactions = null;
 
-// Cek apakah ada konfigurasi Firebase tersimpan
+// Konfigurasi Default Project Apotek Medika
+const DEFAULT_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAqcLfXx1F9riXhjHf4ma1POcJX4N2GtQw",
+  authDomain: "apotek-medika-4f256.firebaseapp.com",
+  projectId: "apotek-medika-4f256",
+  storageBucket: "apotek-medika-4f256.firebasestorage.app",
+  messagingSenderId: "467229100436",
+  appId: "1:467229100436:web:0e088c187bde6f597ca781",
+  measurementId: "G-Y402WP4KHJ"
+};
+
+// Cek apakah ada konfigurasi Firebase tersimpan (fallback ke default jika kosong)
 function getSavedFirebaseConfig() {
   const saved = localStorage.getItem('apotek_firebase_config');
   if (saved) {
     try {
-      return JSON.parse(saved);
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.apiKey) return parsed;
     } catch (e) {
-      return null;
+      return DEFAULT_FIREBASE_CONFIG;
     }
   }
-  return null;
+  return DEFAULT_FIREBASE_CONFIG;
 }
 
 // Inisialisasi Firebase
@@ -97,7 +109,12 @@ function setupFirestoreListeners() {
       }
     }
   }, (err) => {
-    console.warn("Firestore medicines listener error:", err);
+    console.warn("Firestore medicines listener:", err);
+    if (err.code === 'permission-denied') {
+      showToast("Firebase: Aktifkan 'Test Mode' di Firestore Rules agar bisa sync.", "warning");
+    } else if (err.code === 'not-found') {
+      console.log("Database belum di-create di Firebase console.");
+    }
   });
 
   // 2. Real-time Listener untuk Riwayat Transaksi
@@ -116,7 +133,7 @@ function setupFirestoreListeners() {
       }
     }
   }, (err) => {
-    console.warn("Firestore transactions listener error:", err);
+    console.warn("Firestore transactions listener:", err);
   });
 }
 
