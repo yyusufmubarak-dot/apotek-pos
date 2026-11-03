@@ -807,17 +807,17 @@ function renderCart() {
 
   if (cart.length === 0) {
     container.innerHTML = `
-      <div id="cart-empty-state" class="py-12 text-center text-slate-500">
-        <div class="w-12 h-12 mx-auto mb-2 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
+      <div id="cart-empty-state" class="py-12 text-center text-slate-400 dark:text-zinc-500">
+        <div class="w-12 h-12 mx-auto mb-2 rounded-xl bg-slate-100 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-800 flex items-center justify-center text-slate-400 dark:text-zinc-500">
           <i data-lucide="shopping-cart" class="w-6 h-6"></i>
         </div>
-        <p class="text-sm font-semibold text-slate-300">Keranjang Masih Kosong</p>
-        <p class="text-xs text-slate-500 mt-1">Scan barcode obat atau cari nama obat di sebelah kiri</p>
+        <p class="text-sm font-semibold text-slate-700 dark:text-zinc-300">Keranjang Masih Kosong</p>
+        <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Scan barcode obat atau pilih obat dari katalog</p>
       </div>
     `;
     if (checkoutBtn) {
       checkoutBtn.disabled = true;
-      checkoutBtn.className = "w-full py-3.5 px-4 rounded-xl font-bold text-slate-500 bg-white/[0.06] border border-white/[0.08] cursor-not-allowed flex items-center justify-center gap-2 transition-all text-sm sm:text-base";
+      checkoutBtn.className = "w-full py-3 px-4 rounded-xl font-bold text-slate-400 dark:text-zinc-500 bg-slate-100 dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-800 cursor-not-allowed flex items-center justify-center gap-2 transition-all text-sm";
     }
   } else {
     container.innerHTML = cart.map((item, idx) => {
@@ -826,18 +826,18 @@ function renderCart() {
       const isStockWarning = item.qty > item.stok;
 
       return `
-        <div class="p-3 mb-2 rounded-xl border border-white/[0.08] bg-[#12192c] hover:border-emerald-500/40 shadow-xs flex items-center justify-between gap-3 text-xs transition-all">
+        <div class="p-3 mb-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-emerald-500/40 shadow-xs flex items-center justify-between gap-3 text-xs transition-all">
           <!-- Info Obat & KIE Indikasi -->
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="font-bold text-slate-100 text-xs sm:text-sm tracking-tight truncate">${item.nama}</span>
+              <span class="font-bold text-slate-900 dark:text-zinc-100 text-xs sm:text-sm tracking-tight truncate">${item.nama}</span>
               ${categoryBadge}
               ${isExpiringSoon ? '<span class="text-[10px] text-rose-300 font-bold bg-rose-500/15 px-2 py-0.5 rounded-md border border-rose-500/30">Dekat ED</span>' : ''}
             </div>
-            <div class="text-[11px] text-slate-400 mt-1 flex items-center gap-2 flex-wrap">
+            <div class="text-[11px] text-slate-500 dark:text-zinc-400 mt-1 flex items-center gap-2 flex-wrap">
               <span class="font-mono text-slate-500 tabular-nums">${item.barcode}</span>
               <span>•</span>
-              <span class="text-emerald-400 font-semibold font-mono tabular-nums">${formatRupiah(item.hargaJual)} / ${item.satuan}</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold font-mono tabular-nums">${formatRupiah(item.hargaJual)} / ${item.satuan}</span>
               <span>•</span>
               <span class="${isStockWarning ? 'text-rose-400 font-bold' : 'text-slate-400'} tabular-nums">Sisa Stok: ${item.stok}</span>
             </div>
@@ -905,8 +905,10 @@ function checkIsExpiringSoon(edString) {
 // Kalkulasi Total Belanja, Diskon & Kembalian
 function calculateCheckoutTotal() {
   const subtotal = cart.reduce((acc, curr) => acc + curr.subtotal, 0);
-  const discountVal = parseFloat(document.getElementById('input-discount-val').value) || 0;
-  const discountType = document.getElementById('select-discount-type').value;
+  const discountInput = document.getElementById('input-discount-val');
+  const discountTypeSelect = document.getElementById('select-discount-type');
+  const discountVal = discountInput ? (parseFloat(discountInput.value) || 0) : 0;
+  const discountType = discountTypeSelect ? discountTypeSelect.value : 'rp';
 
   let totalDiscount = 0;
   if (discountType === 'percent') {
@@ -918,9 +920,13 @@ function calculateCheckoutTotal() {
 
   const grandTotal = Math.max(0, subtotal - totalDiscount);
 
-  document.getElementById('label-subtotal').textContent = formatRupiah(subtotal);
-  document.getElementById('label-discount').textContent = `- ${formatRupiah(totalDiscount)}`;
-  document.getElementById('label-grand-total').textContent = formatRupiah(grandTotal);
+  const subtotalEl = document.getElementById('summary-subtotal') || document.getElementById('label-subtotal');
+  const discountEl = document.getElementById('summary-discount') || document.getElementById('label-discount');
+  const grandTotalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+
+  if (subtotalEl) subtotalEl.textContent = formatRupiah(subtotal);
+  if (discountEl) discountEl.textContent = `- ${formatRupiah(totalDiscount)}`;
+  if (grandTotalEl) grandTotalEl.textContent = formatRupiah(grandTotal);
 
   calculateCashChange();
 }
@@ -966,9 +972,11 @@ function addCashAmount(amount) {
 }
 
 function calculateCashChange() {
-  const grandTotal = parseRupiahNumber(document.getElementById('label-grand-total').textContent);
-  const cashReceived = parseFloat(document.getElementById('input-cash-received').value) || 0;
-  const changeEl = document.getElementById('label-cash-change');
+  const totalEl = document.getElementById('summary-total') || document.getElementById('label-grand-total');
+  const grandTotal = totalEl ? parseRupiahNumber(totalEl.textContent) : 0;
+  const cashInput = document.getElementById('input-cash-received');
+  const cashReceived = cashInput ? (parseFloat(cashInput.value) || 0) : 0;
+  const changeEl = document.getElementById('summary-cash-change') || document.getElementById('label-cash-change');
 
   if (!changeEl) return;
 
@@ -2064,29 +2072,29 @@ function renderPosQuickGrid(category = 'ALL', searchQuery = '') {
     const badgeBg = item.kategori === 'Obat Keras' ? 'bg-rose-500/15 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30';
 
     return `
-      <div onclick="selectKasirSearchResult('${item.id}')" class="p-2.5 rounded-xl border border-white/[0.08] hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-950/40 bg-[#12192c] hover:bg-[#162038] cursor-pointer transition-all flex flex-col justify-between group">
+      <div onclick="selectKasirSearchResult('${item.id}')" class="p-3 rounded-xl border border-slate-200 dark:border-zinc-800 hover:border-emerald-500 hover:shadow-md bg-white dark:bg-zinc-900 cursor-pointer transition-all flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between gap-1 mb-1">
-            <span class="text-[9px] font-bold px-1.5 py-0.2 rounded-md ${badgeBg}">
+          <div class="flex items-center justify-between gap-1 mb-1.5">
+            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-md ${badgeBg}">
               ${item.kategori}
             </span>
-            <span class="text-[10px] font-mono ${isLowStock ? 'text-rose-400 font-bold' : 'text-slate-400'}">
+            <span class="text-[10px] font-mono ${isLowStock ? 'text-rose-600 dark:text-rose-400 font-bold' : 'text-slate-500 dark:text-zinc-400'}">
               ${item.stok} ${item.satuan}
             </span>
           </div>
-          <div class="font-bold text-slate-100 text-xs line-clamp-2 group-hover:text-emerald-400 transition-colors">
+          <div class="font-bold text-slate-900 dark:text-zinc-100 text-xs line-clamp-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
             ${item.nama}
           </div>
           ${item.indikasi ? `
-          <div class="text-[9px] text-cyan-300 bg-cyan-950/50 px-1.5 py-0.5 rounded border border-cyan-800/40 mt-1 line-clamp-1">
-            <i data-lucide="stethoscope" class="w-2.5 h-2.5 text-cyan-400 flex-shrink-0"></i> ${escapeHtml(item.indikasi)}
+          <div class="text-[9px] text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/50 px-1.5 py-0.5 rounded-md border border-cyan-200 dark:border-cyan-800/40 mt-1.5 line-clamp-1 flex items-center gap-1">
+            <i data-lucide="stethoscope" class="w-2.5 h-2.5 text-cyan-600 dark:text-cyan-400 shrink-0"></i> <span>${escapeHtml(item.indikasi)}</span>
           </div>` : ''}
         </div>
-        <div class="mt-2 pt-1.5 border-t border-white/[0.06] flex items-center justify-between">
-          <span class="font-black text-emerald-400 text-xs font-mono tabular-nums">
+        <div class="mt-2.5 pt-2 border-t border-slate-100 dark:border-zinc-800 flex items-center justify-between">
+          <span class="font-bold text-emerald-600 dark:text-emerald-400 text-xs font-mono tabular-nums">
             ${formatRupiah(item.hargaJual)}
           </span>
-          <span class="w-5 h-5 rounded-md bg-emerald-600/80 group-hover:bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shadow-xs transition-colors border border-emerald-400/30">
+          <span class="w-6 h-6 rounded-lg bg-emerald-50 group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white dark:bg-emerald-500/10 dark:text-emerald-400 dark:group-hover:bg-emerald-600 dark:group-hover:text-white flex items-center justify-center font-bold text-xs transition-colors border border-emerald-200 dark:border-emerald-500/20 shadow-xs">
             +
           </span>
         </div>

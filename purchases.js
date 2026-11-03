@@ -267,24 +267,24 @@ function renderCurrentPurchaseTable(fullRerender = true) {
 
   if (fullRerender) {
     tbody.innerHTML = currentPurchaseItems.map((item, idx) => `
-      <tr class="border-b border-white/[0.04] hover:bg-white/[0.02] text-xs transition-colors">
+      <tr class="border-b border-slate-100 dark:border-zinc-800/80 hover:bg-slate-50 dark:hover:bg-zinc-800/40 text-xs transition-colors">
         <td class="p-3 font-mono text-slate-400">${item.barcode}</td>
         <td class="p-3">
-          <div class="font-semibold text-slate-100">${item.nama}</div>
+          <div class="font-semibold text-slate-900 dark:text-zinc-100">${item.nama}</div>
         </td>
         <td class="p-3 w-28">
-          <input type="text" value="${item.satuan}" onchange="updatePurchaseItemRow(${idx}, 'satuan', this.value)" class="w-full px-2 py-1 border border-white/[0.1] bg-[#0a0e17] text-white rounded font-medium text-center focus:outline-none focus:border-emerald-400">
+          <input type="text" value="${item.satuan}" onchange="updatePurchaseItemRow(${idx}, 'satuan', this.value)" class="w-full px-2 py-1 border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 rounded-lg font-medium text-center focus:outline-none focus:border-emerald-500">
         </td>
         <td class="p-3 w-24">
           <input type="number" min="1" value="${item.qty}" oninput="updatePurchaseItemRow(${idx}, 'qty', this.value)" class="w-full px-2 py-1 border border-emerald-500/50 rounded font-bold text-center bg-emerald-500/10 text-emerald-300 focus:outline-none focus:border-emerald-400 font-mono">
         </td>
         <td class="p-3 w-36">
-          <input type="number" min="0" value="${item.hargaBeli}" oninput="updatePurchaseItemRow(${idx}, 'hargaBeli', this.value)" class="w-full px-2 py-1 border border-white/[0.1] bg-[#0a0e17] text-white rounded font-mono text-right font-semibold focus:outline-none focus:border-emerald-400">
+          <input type="number" min="0" value="${item.hargaBeli}" oninput="updatePurchaseItemRow(${idx}, 'hargaBeli', this.value)" class="w-full px-2 py-1 border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 rounded-lg font-mono text-right font-semibold focus:outline-none focus:border-emerald-500">
         </td>
         <td class="p-3 w-20">
-          <input type="number" min="0" max="100" value="${item.diskonPersen}" oninput="updatePurchaseItemRow(${idx}, 'diskonPersen', this.value)" class="w-full px-2 py-1 border border-white/[0.1] bg-[#0a0e17] text-white rounded text-center focus:outline-none focus:border-emerald-400 font-mono">
+          <input type="number" min="0" max="100" value="${item.diskonPersen}" oninput="updatePurchaseItemRow(${idx}, 'diskonPersen', this.value)" class="w-full px-2 py-1 border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 rounded-lg text-center focus:outline-none focus:border-emerald-500 font-mono">
         </td>
-        <td class="p-3 text-right font-mono font-bold text-emerald-400">
+        <td class="p-3 text-right font-mono font-bold text-emerald-600 dark:text-emerald-400">
           ${formatRupiah(item.subtotal)}
         </td>
         <td class="p-3 text-center">
@@ -408,7 +408,7 @@ function renderPurchaseHistoryTable() {
   tbody.innerHTML = purchases.map((p, idx) => {
     const isTempo = p.statusPembayaran.includes('Tempo') || p.statusPembayaran.includes('Hutang');
     return `
-      <tr class="border-b border-white/[0.04] hover:bg-white/[0.02] text-xs transition-colors">
+      <tr class="border-b border-slate-100 dark:border-zinc-800/80 hover:bg-slate-50 dark:hover:bg-zinc-800/40 text-xs transition-colors">
         <td class="p-3 font-mono font-semibold text-slate-200">${p.noFaktur}</td>
         <td class="p-3 font-medium text-slate-300">${p.supplier}</td>
         <td class="p-3 text-slate-400">${formatDateIndo(p.tanggalFaktur)}</td>

@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apotek Medika - Sistem Kasir & Inventaris Barcode</title>
   
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS via CDN with Class-based Dark Mode -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -26,6 +27,9 @@
     }
   </script>
   
+  <!-- Lucide Icons (Official Icon Library) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <!-- html5-qrcode library (Local offline fallback & CDN) -->
   <script src="html5-qrcode.min.js"></script>
 
@@ -39,621 +43,388 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-  <!-- Lucide Icons (Official shadcn/ui Icon Library) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#09090b] text-zinc-100 antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 antialiased h-screen w-screen overflow-hidden flex flex-col md:flex-row">
 
-  <!-- TOP HEADER / NAVBAR (MINIMALIST LUXURY MEDICAL COMMAND BAR) -->
-  <header class="bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 sticky top-0 z-40 text-zinc-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-14 gap-3">
-        
-        <!-- Logo & Apotek Identity -->
-        <div class="flex items-center space-x-2.5 flex-shrink-0">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold shadow-xs">
-            <i data-lucide="pill" class="w-4 h-4 text-emerald-400"></i>
+  <!-- ========================================================
+       1. MODERN POS SIDEBAR RAIL (Inspired by emsifa/tailwind-pos & Square)
+       ======================================================== -->
+  <aside class="w-full md:w-64 bg-white dark:bg-zinc-900 border-r border-slate-200 dark:border-zinc-800 flex flex-col justify-between shrink-0 z-30 transition-all shadow-xs">
+    
+    <!-- Top Branding & Navigation -->
+    <div class="flex flex-col">
+      <!-- App Brand Header -->
+      <div class="h-16 px-4 flex items-center justify-between border-b border-slate-100 dark:border-zinc-800/80">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/20">
+            <i data-lucide="cross" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="flex items-center gap-1.5">
-              <h1 id="nav-nama-apotek" class="text-xs sm:text-sm font-bold text-zinc-100 tracking-tight">Apotek Medika Sejahtera</h1>
-              <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1 animate-pulse"></span> Online
-              </span>
-            </div>
-            <p id="nav-sipa" class="text-[9px] text-zinc-500 font-mono">SIPA: 446/1029/DINKES/2024</p>
+            <h1 id="nav-nama-apotek" class="text-sm font-bold text-slate-900 dark:text-zinc-100 tracking-tight leading-none">Apotek Medika</h1>
+            <p id="nav-sipa" class="text-[10px] text-slate-400 dark:text-zinc-500 font-mono mt-1">SIPA: 446/1029/DINKES</p>
           </div>
         </div>
+        
+        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1 animate-pulse"></span> Online
+        </span>
+      </div>
 
-        <!-- Navigation Tabs (Shadcn Segmented Control) -->
-        <nav class="hidden md:flex shadcn-tabs-list">
-          <button onclick="switchTab('kasir')" id="tab-btn-kasir" class="shadcn-tab-trigger active gap-1.5">
-            <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-emerald-400"></i> Kasir
-          </button>
+      <!-- Navigation Menu Links -->
+      <nav class="p-3 space-y-1.5">
+        <button onclick="switchTab('kasir')" id="tab-btn-kasir" class="sidebar-nav-btn active">
+          <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+          <span>Kasir (POS)</span>
+        </button>
 
-          <button onclick="switchTab('stok')" id="tab-btn-stok" class="shadcn-tab-trigger gap-1.5">
-            <i data-lucide="package" class="w-3.5 h-3.5 text-zinc-400"></i> Stok
-            <span id="badge-stok-warning" class="hidden ml-1 px-1.5 py-0.2 rounded-full text-[9px] bg-rose-500/15 text-rose-400 font-bold border border-rose-500/25">0</span>
-          </button>
+        <button onclick="switchTab('stok')" id="tab-btn-stok" class="sidebar-nav-btn">
+          <i data-lucide="package" class="w-4 h-4"></i>
+          <span class="flex-1 text-left">Katalog Stok</span>
+          <span id="badge-stok-warning" class="hidden px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-200 dark:bg-rose-500/15 dark:text-rose-400 dark:border-rose-500/30">0</span>
+        </button>
 
-          <button onclick="switchTab('pembelian')" id="tab-btn-pembelian" class="shadcn-tab-trigger gap-1.5">
-            <i data-lucide="truck" class="w-3.5 h-3.5 text-zinc-400"></i> Faktur PBF
-            <i id="tab-pembelian-lock" data-lucide="lock" class="w-3 h-3 text-amber-400/80"></i>
-          </button>
-          
-          <button onclick="switchTab('riwayat')" id="tab-btn-riwayat" class="shadcn-tab-trigger gap-1.5">
-            <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-zinc-400"></i> Laporan
-          </button>
+        <button onclick="switchTab('pembelian')" id="tab-btn-pembelian" class="sidebar-nav-btn">
+          <i data-lucide="truck" class="w-4 h-4"></i>
+          <span class="flex-1 text-left">Faktur PBF</span>
+          <i id="tab-pembelian-lock" data-lucide="lock" class="w-3.5 h-3.5 text-amber-500"></i>
+        </button>
 
-          <button onclick="switchTab('pengaturan')" id="tab-btn-pengaturan" class="shadcn-tab-trigger gap-1.5">
-            <i data-lucide="settings" class="w-3.5 h-3.5 text-zinc-400"></i> Setelan
-            <i id="tab-pengaturan-lock" data-lucide="lock" class="w-3 h-3 text-amber-400/80"></i>
-          </button>
-        </nav>
+        <button onclick="switchTab('riwayat')" id="tab-btn-riwayat" class="sidebar-nav-btn">
+          <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+          <span>Laporan & Arus Kas</span>
+        </button>
 
-        <!-- Right Quick Actions: Role, Lock, Clock -->
-        <div class="flex items-center space-x-2">
-          <div id="role-status-container"></div>
+        <button onclick="switchTab('pengaturan')" id="tab-btn-pengaturan" class="sidebar-nav-btn">
+          <i data-lucide="settings" class="w-4 h-4"></i>
+          <span class="flex-1 text-left">Pengaturan</span>
+          <i id="tab-pengaturan-lock" data-lucide="lock" class="w-3.5 h-3.5 text-amber-500"></i>
+        </button>
+      </nav>
+    </div>
 
-          <button onclick="lockCashierScreen()" title="Kunci Kasir" class="h-8 px-2.5 rounded-lg text-xs font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 flex items-center gap-1.5 transition-colors cursor-pointer">
-            <i data-lucide="lock" class="w-3.5 h-3.5 text-rose-400"></i>
-            <span class="hidden lg:inline text-[11px]">Kunci</span>
-          </button>
+    <!-- Bottom Controls (Role, Theme Toggle, Lock, Clock) -->
+    <div class="p-3 border-t border-slate-100 dark:border-zinc-800/80 space-y-2">
+      <!-- Role Card -->
+      <div id="role-status-container" class="bg-slate-50 dark:bg-zinc-800/50 p-2.5 rounded-xl border border-slate-200/80 dark:border-zinc-800"></div>
 
-          <button onclick="openBarcodeTesterModal()" title="Simulator Barcode" class="h-8 px-2.5 rounded-lg text-xs font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 flex items-center gap-1.5 transition-colors cursor-pointer">
-            <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
-            <span class="hidden lg:inline text-[11px]">Simulator</span>
-          </button>
-          
-          <div class="h-8 px-2.5 flex items-center rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono font-medium text-emerald-400 tabular-nums hidden sm:flex" id="digital-clock">00:00:00</div>
-        </div>
+      <!-- Quick Action Buttons -->
+      <div class="grid grid-cols-3 gap-1.5 pt-1">
+        <!-- Lock Cashier -->
+        <button onclick="lockCashierScreen()" title="Kunci Kasir" class="h-9 rounded-lg bg-slate-100 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 flex items-center justify-center transition-colors cursor-pointer">
+          <i data-lucide="lock" class="w-4 h-4"></i>
+        </button>
 
+        <!-- Simulator -->
+        <button onclick="openBarcodeTesterModal()" title="Simulator Barcode" class="h-9 rounded-lg bg-slate-100 hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 flex items-center justify-center transition-colors cursor-pointer">
+          <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+        </button>
+
+        <!-- Theme Toggle (Light / Dark) -->
+        <button onclick="toggleThemeMode()" id="btn-theme-toggle" title="Ganti Tema (Terang / Gelap)" class="h-9 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 flex items-center justify-center transition-colors cursor-pointer">
+          <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+        </button>
+      </div>
+
+      <!-- Digital Clock -->
+      <div class="px-2 py-1.5 bg-slate-100/70 dark:bg-zinc-950 rounded-lg text-center border border-slate-200/50 dark:border-zinc-800">
+        <span id="digital-clock" class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">00:00:00</span>
       </div>
     </div>
+  </aside>
 
-    <!-- Mobile Nav Bar (Small screens) -->
-    <div class="flex md:hidden border-t border-zinc-800 bg-zinc-950 px-2 py-1 justify-around text-xs">
-      <button onclick="switchTab('kasir')" class="mobile-nav-tab p-2 text-emerald-400 font-medium flex flex-col items-center">
-        <span>Kasir</span>
-      </button>
-      <button onclick="switchTab('stok')" class="mobile-nav-tab p-2 text-zinc-400 flex flex-col items-center">
-        <span>Stok</span>
-      </button>
-      <button onclick="switchTab('pembelian')" class="mobile-nav-tab p-2 text-zinc-400 flex flex-col items-center">
-        <span>Faktur</span>
-      </button>
-      <button onclick="switchTab('riwayat')" class="mobile-nav-tab p-2 text-zinc-400 flex flex-col items-center">
-        <span>Laporan</span>
-      </button>
-      <button onclick="switchTab('pengaturan')" class="mobile-nav-tab p-2 text-zinc-400 flex flex-col items-center">
-        <span>Setelan</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- MAIN APP CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+  <!-- ========================================================
+       2. MAIN WORKSPACE VIEWPORT
+       ======================================================== -->
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50/60 dark:bg-zinc-950/60">
 
     <!-- ========================================================
-         TAB 1: KASIR / POINT OF SALE (POS)
+         TAB 1: KASIR (POS RETAIL COMMAND CENTER)
          ======================================================== -->
-    <div id="tab-content-kasir" class="tab-pane">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-
-        <!-- SISI KIRI: SEARCH, SCANNER & QUICK DRUG GRID (7 Kolom) -->
-        <div class="lg:col-span-7 space-y-4">
-          
-          <!-- SEARCH & QUICK BARCODE COMMAND BAR -->
-          <div class="bg-[#0e1424] rounded-2xl p-4 border border-white/[0.08] shadow-[0_8px_30px_rgb(0,0,0,0.15)] space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="p-1 rounded-lg bg-emerald-50 text-emerald-600 font-bold text-sm">⚡</span>
-                <div>
-                  <h2 class="text-xs font-bold text-slate-100 uppercase tracking-wider">Pencarian & Barcode</h2>
-                  <p class="text-[11px] text-slate-400">Scan barcode USB atau cari obat / keluhan pasien</p>
-                </div>
+    <div id="tab-content-kasir" class="tab-pane flex-1 flex flex-col lg:flex-row h-full overflow-hidden">
+      
+      <!-- LEFT PANE: PRODUCT CATALOG & QUICK SEARCH -->
+      <div class="flex-1 flex flex-col h-full overflow-hidden p-4 lg:p-5 space-y-3.5">
+        
+        <!-- Search & Barcode Command Bar -->
+        <div class="bg-white dark:bg-zinc-900 p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-2.5">
+          <div class="flex items-center gap-2.5">
+            <!-- Search Input with Barcode Icon & Shortcut -->
+            <div class="relative flex-1">
+              <input type="text" id="input-search-kasir" oninput="handleKasirSearch(this.value)" placeholder="Scan barcode atau cari nama obat / keluhan pasien... [Ctrl + K]" class="w-full pl-10 pr-10 py-2.5 text-xs sm:text-sm border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50/80 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white dark:focus:bg-zinc-900 transition-all font-medium">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 dark:text-zinc-500">
+                <i data-lucide="search" class="w-4 h-4"></i>
               </div>
-              
-              <!-- Tombol Buka Kamera Scanner -->
-              <button type="button" onclick="toggleCameraScanner()" id="btn-toggle-camera" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white shadow-xs flex items-center gap-1.5 transition-all cursor-pointer">
-                <span>📷</span>
-                <span id="camera-btn-text">Buka Kamera Scan</span>
+              <button onclick="clearKasirSearch()" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-zinc-300">
+                <i data-lucide="x" class="w-4 h-4"></i>
               </button>
             </div>
 
-            <!-- Kamera Scanner Collapsible Drawer -->
-            <div id="camera-scanner-drawer" class="hidden bg-slate-950 rounded-xl p-3 border border-slate-800 space-y-2">
-              <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="font-medium text-emerald-400 flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  Kamera Aktif • Arahkan ke barcode kemasan
-                </span>
-                <select id="camera-select" class="text-[11px] bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-slate-300"></select>
-              </div>
-              <div class="scanner-viewport-wrapper relative rounded-lg overflow-hidden flex flex-col items-center justify-center min-h-[220px] bg-slate-950 border border-slate-800">
-                <div id="barcode-reader-viewport" class="w-full h-full absolute inset-0 z-0"></div>
-                <div id="scanner-overlay" class="hidden">
-                  <div class="scanner-laser"></div>
-                  <div class="reticle-corner reticle-top-left"></div>
-                  <div class="reticle-corner reticle-top-right"></div>
-                  <div class="reticle-corner reticle-bottom-left"></div>
-                  <div class="reticle-corner reticle-bottom-right"></div>
-                </div>
-                <div id="scanner-placeholder" class="text-center p-4 z-10">
-                  <p class="text-xs text-slate-400">Menghubungkan kamera...</p>
-                </div>
-              </div>
-            </div>
+            <!-- Toggle Scanner Button -->
+            <button onclick="toggleBarcodeScanner()" id="btn-toggle-scanner" class="px-3.5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-700 font-semibold text-xs rounded-xl flex items-center gap-2 transition-colors cursor-pointer shrink-0">
+              <i data-lucide="camera" class="w-4 h-4"></i>
+              <span class="hidden sm:inline">Kamera Scan</span>
+            </button>
+          </div>
 
-            <!-- Input Barcode USB & Pencarian Kasir -->
-            <div class="relative">
-              <div class="relative">
-                <input type="text" id="input-search-kasir" oninput="handleSearchKasir(this.value)" placeholder="🔍 Scan barcode atau ketik obat / keluhan (contoh: Panadol, Batuk, Maag)... [Ctrl + K]" class="w-full pl-4 pr-10 py-2.5 text-xs font-medium border border-white/[0.1] rounded-xl focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all bg-[#131b2e] focus:bg-[#162038] text-white placeholder-slate-500">
-                <button type="button" onclick="clearKasirSearch()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 text-xs">
-                  ✕
-                </button>
-              </div>
-
-              <!-- Dropdown Search Results -->
-              <div id="search-kasir-results" class="hidden absolute top-full left-0 right-0 mt-1.5 bg-[#0e1424] border border-white/[0.12] rounded-xl shadow-2xl max-h-72 overflow-y-auto z-30 divide-y divide-white/[0.06]"></div>
-            </div>
-
-            <!-- Feed Status Terakhir -->
-            <div id="last-scanned-card" class="px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-between text-[11px] text-emerald-300">
-              <div class="flex items-center gap-2 truncate">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span id="last-scanned-text" class="font-medium truncate">Scanner siap melayani transaksi.</span>
-              </div>
-              <span id="last-scanned-time" class="text-[10px] text-emerald-600 font-mono">--:--</span>
+          <!-- Camera Scanner Viewport (Collapsible) -->
+          <div id="scanner-drawer" class="hidden pt-2 border-t border-slate-100 dark:border-zinc-800">
+            <div class="rounded-xl overflow-hidden bg-slate-900 relative min-h-[220px]">
+              <div id="scanner-video-preview" class="w-full"></div>
             </div>
           </div>
 
-          <!-- QUICK MEDICINE GRID (SQUARE POS STYLE) -->
-          <div class="bg-[#0e1424] rounded-2xl p-4 border border-white/[0.08] shadow-[0_8px_30px_rgb(0,0,0,0.15)] space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-100 uppercase tracking-wider">Katalog Cepat (1-Klik Tambah)</span>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">• Klik obat untuk langsung masuk kasir</span>
-              </div>
-              <span class="text-[11px] text-emerald-700 font-bold" id="pos-grid-count">Obat Favorit</span>
-            </div>
-
-            <!-- Category Filter Pills -->
-            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar" id="pos-category-pills">
-              <button type="button" onclick="filterPosGrid('ALL')" class="pos-cat-pill active px-3 py-1.5 rounded-xl font-bold bg-emerald-500 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.3)]">Semua</button>
-              <button type="button" onclick="filterPosGrid('Obat Bebas')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Obat Bebas</button>
-              <button type="button" onclick="filterPosGrid('Obat Bebas Terbatas')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Bebas Terbatas</button>
-              <button type="button" onclick="filterPosGrid('Obat Keras')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Obat Keras</button>
-              <button type="button" onclick="filterPosGrid('Obat Herbal')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Herbal & Jamu</button>
-              <button type="button" onclick="filterPosGrid('Alkes')" class="pos-cat-pill px-3 py-1.5 rounded-xl font-semibold bg-[#131b2e] hover:bg-[#1a243c] text-slate-300 border border-white/[0.06]">Alkes</button>
-            </div>
-
-            <!-- The Grid of Drug Tiles -->
-            <div id="pos-quick-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
-              <!-- Rendered via renderPosQuickGrid() -->
-            </div>
+          <!-- Dropdown Search Results Box -->
+          <div class="relative">
+            <div id="search-kasir-results" class="hidden absolute top-0 left-0 right-0 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl shadow-xl max-h-72 overflow-y-auto z-40 divide-y divide-slate-100 dark:divide-zinc-800"></div>
           </div>
 
+          <!-- Status Bar Feeder -->
+          <div id="last-scanned-card" class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-lg flex items-center justify-between text-xs text-emerald-800 dark:text-emerald-300">
+            <div class="flex items-center gap-2 truncate">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span id="last-scanned-name" class="font-semibold truncate">Scanner aktif siap melayani transaksi.</span>
+            </div>
+            <span id="last-scanned-meta" class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400">Ready</span>
+          </div>
         </div>
 
-        <!-- SISI KANAN: KERANJANG TRANSAKSI & CHECKOUT (5 Kolom) -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="bg-[#0e1424] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.15)] border border-white/[0.08] flex flex-col h-full overflow-hidden">
-            
-            <!-- Keranjang Header -->
-            <div class="p-4 border-b border-white/[0.08] flex items-center justify-between bg-[#12192c]">
-              <div class="flex items-center gap-2">
-                <span class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                  </svg>
-                </span>
-                <div>
-                  <h2 class="text-sm font-bold text-slate-100">Keranjang Kasir</h2>
-                  <p class="text-[11px] text-slate-500">Invoice: <span id="current-invoice-number" class="font-mono font-semibold text-emerald-700">TRX-...</span></p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <span id="cart-item-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/[0.06] border border-white/10 text-slate-300">0 Item</span>
-                <button onclick="clearCart()" class="text-xs text-rose-600 hover:text-rose-700 font-semibold px-2 py-1 rounded hover:bg-rose-50 transition-colors">
-                  Kosongkan
-                </button>
-              </div>
+        <!-- Quick Categories & Medicine Grid Area -->
+        <div class="flex-1 flex flex-col min-h-0 bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-3">
+          
+          <!-- Category Filter Scroller -->
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar flex-1">
+              <button onclick="filterPosGridCategory('ALL')" class="pos-cat-pill active">Semua</button>
+              <button onclick="filterPosGridCategory('Obat Bebas')" class="pos-cat-pill">Obat Bebas</button>
+              <button onclick="filterPosGridCategory('Obat Bebas Terbatas')" class="pos-cat-pill">Bebas Terbatas</button>
+              <button onclick="filterPosGridCategory('Obat Keras')" class="pos-cat-pill">Obat Keras</button>
+              <button onclick="filterPosGridCategory('Herbal')" class="pos-cat-pill">Herbal & Jamu</button>
+              <button onclick="filterPosGridCategory('Alat Kesehatan')" class="pos-cat-pill">Alkes</button>
             </div>
+            <span id="pos-grid-count" class="text-xs font-semibold text-slate-400 dark:text-zinc-500 shrink-0">15 Obat Cepat</span>
+          </div>
 
-            <!-- List Item Keranjang (Scrollable) -->
-            <div class="p-4 flex-1 overflow-y-auto max-h-[360px] min-h-[220px]" id="cart-items-container">
-              <!-- Empty State -->
-              <div id="cart-empty-state" class="py-12 text-center text-slate-400">
-                <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                </div>
-                <p class="text-sm font-bold text-slate-200">Keranjang Masih Kosong</p>
-                <p class="text-xs text-slate-400 mt-1">Klik obat di sebelah kiri atau scan barcode</p>
-              </div>
-            </div>
-
-            <!-- Ringkasan Perhitungan & Pembayaran -->
-            <div class="p-4 bg-[#111728] border-t border-white/[0.08] space-y-3">
-              
-              <!-- Subtotal & Diskon -->
-              <div class="space-y-1.5 text-xs text-slate-400 border-b border-white/[0.08] pb-2.5">
-                <div class="flex justify-between">
-                  <span>Subtotal Belanja</span>
-                  <span id="label-subtotal" class="font-bold text-white font-mono tabular-nums">Rp 0</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-1.5">
-                    <span>Diskon</span>
-                    <input type="number" id="input-discount-val" value="0" min="0" oninput="calculateCheckoutTotal()" class="w-16 px-1.5 py-0.5 text-xs border border-white/10 bg-[#162038] text-white rounded text-right focus:outline-none focus:border-emerald-400">
-                    <select id="select-discount-type" onchange="calculateCheckoutTotal()" class="text-xs border border-white/10 rounded px-1 py-0.5 bg-[#162038] text-white">
-                      <option value="nominal">Rp</option>
-                      <option value="percent">%</option>
-                    </select>
-                  </div>
-                  <span id="label-discount" class="text-rose-600 font-medium font-mono tabular-nums">- Rp 0</span>
-                </div>
-                <div id="row-pajak" class="hidden flex justify-between">
-                  <span id="label-pajak-title">PPN (0%)</span>
-                  <span id="label-pajak" class="text-slate-800 font-semibold font-mono tabular-nums">Rp 0</span>
-                </div>
-              </div>
-
-              <!-- High Contrast Total Card -->
-              <div class="bg-slate-950 text-white p-3.5 rounded-xl border border-slate-800 shadow-md flex items-baseline justify-between">
-                <div>
-                  <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Pembayaran</span>
-                  <span class="text-[11px] text-slate-500">Termasuk seluruh item</span>
-                </div>
-                <div class="text-right">
-                  <span id="label-grand-total" class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono tabular-nums tracking-tight">Rp 0</span>
-                </div>
-              </div>
-
-              <!-- Metode Pembayaran -->
-              <div class="pt-1">
-                <div class="text-[11px] font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Metode Bayar:</div>
-                <div class="grid grid-cols-3 gap-2">
-                  <button type="button" onclick="setPaymentMethod('Tunai')" id="btn-pay-cash" class="pay-method-btn active py-2 rounded-xl text-xs font-bold border border-emerald-400 bg-emerald-500/20 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.2)] flex items-center justify-center gap-1 transition-all">
-                    💵 Tunai
-                  </button>
-                  <button type="button" onclick="setPaymentMethod('QRIS')" id="btn-pay-qris" class="pay-method-btn py-2 rounded-xl text-xs font-semibold border border-white/[0.08] bg-[#131b2e] text-slate-300 hover:text-white hover:bg-[#18233c] flex items-center justify-center gap-1 transition-all">
-                    📱 QRIS
-                  </button>
-                  <button type="button" onclick="setPaymentMethod('Transfer')" id="btn-pay-transfer" class="pay-method-btn py-2 rounded-xl text-xs font-semibold border border-white/[0.08] bg-[#131b2e] text-slate-300 hover:text-white hover:bg-[#18233c] flex items-center justify-center gap-1 transition-all">
-                    💳 Transfer
-                  </button>
-                </div>
-              </div>
-
-              <!-- Input Uang Diterima (Hanya Tunai) -->
-              <div id="cash-payment-section" class="space-y-2 pt-1">
-                <div class="flex items-center justify-between">
-                  <label class="text-[11px] font-semibold text-slate-700">Nominal Diterima:</label>
-                  <div class="flex gap-1 flex-wrap">
-                    <button type="button" onclick="setCashExact()" class="text-[10px] px-2 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-bold">Uang Pas</button>
-                    <button type="button" onclick="addCashAmount(10000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+10k</button>
-                    <button type="button" onclick="addCashAmount(20000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+20k</button>
-                    <button type="button" onclick="addCashAmount(50000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+50k</button>
-                    <button type="button" onclick="addCashAmount(100000)" class="text-[10px] px-1.5 py-0.5 rounded-lg bg-[#162038] hover:bg-[#1f2b48] text-slate-200 border border-white/[0.08] font-medium">+100k</button>
-                  </div>
-                </div>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-xs">
-                    Rp
-                  </div>
-                  <input type="number" id="input-cash-received" oninput="calculateCashChange()" placeholder="0" class="w-full pl-9 pr-3 py-2 text-sm font-bold text-white border border-white/10 bg-[#131b2e] rounded-xl focus:outline-none focus:border-emerald-400 font-mono tabular-nums">
-                </div>
-                <div class="flex justify-between items-center text-xs pt-0.5">
-                  <span class="font-semibold text-slate-600">Kembalian:</span>
-                  <span id="label-cash-change" class="text-sm font-bold text-emerald-400 font-mono tabular-nums">Rp 0</span>
-                </div>
-              </div>
-
-              <!-- Tombol Eksekusi Bayar & Cetak Struk -->
-              <div class="pt-1">
-                <button id="btn-process-checkout" onclick="handleProcessCheckout()" disabled class="w-full py-3.5 px-4 rounded-xl font-black text-white bg-slate-700/60 border border-white/5 cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-md text-sm cursor-pointer">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                  <span>Selesaikan Transaksi & Cetak Struk</span>
-                </button>
-              </div>
-
-            </div>
-
+          <!-- Grid Container -->
+          <div id="pos-quick-grid" class="flex-1 overflow-y-auto pr-1 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 pb-4">
+            <!-- Dynamically populated via renderPosQuickGrid() -->
           </div>
         </div>
 
       </div>
+
+      <!-- RIGHT PANE: ACTIVE ORDER DOCKET & CHECKOUT (Inspired by Square POS & Shopify) -->
+      <div class="w-full lg:w-[410px] xl:w-[440px] bg-white dark:bg-zinc-900 border-l border-slate-200 dark:border-zinc-800 flex flex-col h-full shadow-lg z-20 shrink-0">
+        
+        <!-- Cart Header -->
+        <div class="p-4 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h2 class="text-sm font-bold text-slate-900 dark:text-zinc-100">Keranjang Kasir</h2>
+              <span id="pos-invoice-number-display" class="text-[10px] text-slate-400 dark:text-zinc-500 font-mono">Invoice: TRX-AUTO</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span id="cart-item-count-badge" class="px-2 py-0.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">0 Item</span>
+            <button onclick="clearCart()" id="btn-clear-cart" class="text-xs text-rose-500 hover:text-rose-700 font-semibold cursor-pointer">Kosongkan</button>
+          </div>
+        </div>
+
+        <!-- Scrollable Cart Items Container -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-2.5">
+          <!-- Populated via renderCart() -->
+        </div>
+
+        <!-- Checkout & Payment Summary Drawer -->
+        <div class="p-4 bg-slate-50/90 dark:bg-zinc-950/80 border-t border-slate-200 dark:border-zinc-800 space-y-3">
+          
+          <!-- Subtotal & Discount -->
+          <div class="space-y-1.5 text-xs text-slate-600 dark:text-zinc-400">
+            <div class="flex justify-between font-medium">
+              <span>Subtotal Belanja</span>
+              <span id="summary-subtotal" class="font-mono font-semibold text-slate-900 dark:text-zinc-100 tabular-nums">Rp 0</span>
+            </div>
+
+            <div class="flex items-center justify-between gap-2">
+              <span class="flex items-center gap-1">Diskon</span>
+              <div class="flex items-center gap-1.5">
+                <input type="number" id="input-discount-val" oninput="calculateCheckoutTotal()" min="0" placeholder="0" class="w-16 px-2 py-1 text-right text-xs border border-slate-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 font-mono">
+                <select id="select-discount-type" onchange="calculateCheckoutTotal()" class="px-2 py-1 text-xs border border-slate-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-300">
+                  <option value="rp">Rp</option>
+                  <option value="percent">%</option>
+                </select>
+                <span id="summary-discount" class="font-mono text-rose-600 font-semibold tabular-nums ml-1">- Rp 0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Display -->
+          <div class="pt-2 border-t border-slate-200/80 dark:border-zinc-800 flex items-center justify-between">
+            <span class="text-xs font-bold uppercase text-slate-500 dark:text-zinc-400 tracking-wider">Total Akhir</span>
+            <span id="summary-total" class="text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400 tracking-tight tabular-nums">Rp 0</span>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="grid grid-cols-3 gap-1.5 pt-1">
+            <button type="button" onclick="setPaymentMethod('Tunai')" id="btn-pay-tunai" class="py-2 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 bg-emerald-600 text-white shadow-xs">
+              <i data-lucide="banknote" class="w-3.5 h-3.5"></i> Tunai
+            </button>
+            <button type="button" onclick="setPaymentMethod('QRIS')" id="btn-pay-qris" class="py-2 rounded-lg font-semibold text-xs flex items-center justify-center gap-1.5 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 hover:bg-slate-100">
+              <i data-lucide="qr-code" class="w-3.5 h-3.5"></i> QRIS
+            </button>
+            <button type="button" onclick="setPaymentMethod('Transfer')" id="btn-pay-transfer" class="py-2 rounded-lg font-semibold text-xs flex items-center justify-center gap-1.5 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 hover:bg-slate-100">
+              <i data-lucide="arrow-right-left" class="w-3.5 h-3.5"></i> Transfer
+            </button>
+          </div>
+
+          <!-- Quick Cash Chips -->
+          <div id="quick-cash-chips" class="flex items-center gap-1 flex-wrap pt-0.5">
+            <button type="button" onclick="applyQuickCash('pas')" class="px-2 py-0.5 bg-white dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded text-[11px] font-semibold">Uang Pas</button>
+            <button type="button" onclick="applyQuickCash(10000)" class="px-2 py-0.5 bg-white dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded text-[11px] font-mono">+10k</button>
+            <button type="button" onclick="applyQuickCash(20000)" class="px-2 py-0.5 bg-white dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded text-[11px] font-mono">+20k</button>
+            <button type="button" onclick="applyQuickCash(50000)" class="px-2 py-0.5 bg-white dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded text-[11px] font-mono">+50k</button>
+            <button type="button" onclick="applyQuickCash(100000)" class="px-2 py-0.5 bg-white dark:bg-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded text-[11px] font-mono">+100k</button>
+          </div>
+
+          <!-- Cash Received & Change Output -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 dark:text-zinc-400 mb-1">Nominal Diterima:</label>
+              <input type="number" id="input-cash-received" oninput="calculateChange()" placeholder="0" class="w-full px-2.5 py-1.5 border border-slate-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 font-mono font-bold text-slate-900 dark:text-zinc-100 text-xs">
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 dark:text-zinc-400 mb-1">Kembalian:</label>
+              <div id="summary-change" class="px-2.5 py-1.5 border border-slate-200 dark:border-zinc-800 rounded-lg bg-slate-100 dark:bg-zinc-950 font-mono font-bold text-slate-700 dark:text-zinc-300 text-xs truncate">Rp 0</div>
+            </div>
+          </div>
+
+          <!-- Checkout Button -->
+          <button type="button" onclick="processCheckout()" id="btn-process-checkout" class="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all cursor-pointer text-sm">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            <span>Proses Bayar & Cetak Struk</span>
+          </button>
+        </div>
+
+      </div>
+
     </div>
 
     <!-- ========================================================
-         TAB 2: BARANG MASUK & FAKTUR PEMBELIAN DARI DISTRIBUTOR (PBF)
-         Sesuai alur pada video rekaman apotek pengguna
+         TAB 2: KATALOG OBAT & MANAJEMEN STOK (INVENTORY)
          ======================================================== -->
-    <div id="tab-content-pembelian" class="tab-pane hidden space-y-5">
+    <div id="tab-content-stok" class="tab-pane hidden flex-1 overflow-y-auto p-4 lg:p-6 space-y-4">
       
-      <!-- FORM HEADER FAKTUR DISTRIBUTOR -->
-      <form id="form-pembelian-barang" onsubmit="handleSavePurchaseInvoice(event)" class="space-y-4">
-        
-        <div class="card-elevation p-5 rounded-2xl border border-white/[0.08] bg-[#0e1424]">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
-            
-            <!-- Metadata Faktur (8 Kolom) -->
-            <div class="lg:col-span-8 space-y-3">
-              <div class="flex items-center justify-between border-b border-zinc-800/80 pb-2.5">
-                <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <h2 class="text-sm font-bold text-slate-100 uppercase tracking-wider">Input Faktur Barang Masuk (PBF)</h2>
-                </div>
-                <span id="purchase-total-items-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 font-mono-numbers">
-                  0 Produk (0 Qty)
-                </span>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                <div>
-                  <label class="block font-semibold text-slate-300 mb-1">No. Faktur Distributor: <span class="text-rose-500">*</span></label>
-                  <input type="text" id="input-faktur-distributor" required placeholder="Contoh: ENS/2026/1109" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white font-mono font-bold focus:outline-none focus:border-emerald-400">
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-300 mb-1">Distributor / PBF: <span class="text-rose-500">*</span></label>
-                  <input type="text" id="input-faktur-supplier" list="supplier-list-options" required placeholder="Pilih / ketik nama PBF..." class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
-                  <datalist id="supplier-list-options"></datalist>
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-300 mb-1">Tanggal Faktur:</label>
-                  <input type="date" id="input-faktur-tanggal" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                <div>
-                  <label class="block font-semibold text-slate-300 mb-1">Status Pembayaran:</label>
-                  <select id="select-faktur-status-bayar" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-slate-200 focus:outline-none focus:border-emerald-400">
-                    <option value="Lunas">💵 Lunas (Tunai/Transfer)</option>
-                    <option value="Tempo (Hutang)">⏳ Tempo (Hutang PBF)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-300 mb-1">Jatuh Tempo (Jika Tempo):</label>
-                  <input type="date" id="input-faktur-jatuh-tempo" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-300 mb-1">No. Internal Apotek:</label>
-                  <input type="text" id="input-faktur-internal" readonly class="w-full px-3 py-2 border border-white/[0.08] rounded-xl bg-[#090d16] font-mono text-slate-400">
-                </div>
-              </div>
-            </div>
-
-            <!-- GIANT TOTAL DISPLAY (PERSIS SEPERTI DI MONITOR VIDEO PENGGUNA) -->
-            <div class="lg:col-span-4 bg-gradient-to-br from-slate-900 to-slate-950 p-5 rounded-2xl border border-slate-800 text-white shadow-xl flex flex-col justify-between h-full">
-              <div class="flex items-center justify-between text-xs text-slate-400">
-                <span class="font-bold tracking-wider uppercase">Grand Total Biaya Kulakan</span>
-                <span class="p-1 rounded bg-emerald-500/20 text-emerald-400 font-mono">PBF</span>
-              </div>
-              <div class="my-3">
-                <div id="purchase-grand-total-display" class="text-3xl sm:text-4xl font-black text-emerald-400 font-mono-numbers tracking-tight">
-                  Rp 0
-                </div>
-                <p class="text-[11px] text-slate-400 mt-0.5">Total pengeluaran uang beli obat ke distributor</p>
-              </div>
-              <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80">
-                <button type="submit" class="flex-1 py-2.5 px-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                  <i data-lucide="save" class="w-4 h-4"></i> Simpan & Tambah Stok
-                </button>
-                <button type="button" onclick="clearCurrentPurchaseForm()" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition-colors cursor-pointer">
-                  Batal
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- SEARCH / SCAN OBAT UNTUK DITAMBAHKAN KE FAKTUR -->
-        <div class="bg-[#0e1424] p-4 rounded-2xl border border-white/[0.08] shadow-sm space-y-2">
-          <div class="flex flex-col sm:flex-row items-center gap-3">
-            <div class="relative flex-1 w-full">
-              <input type="text" id="input-search-purchase-item" oninput="handlePurchaseDrugSearch(this.value)" placeholder="🔍 Scan barcode atau ketik nama obat yang baru datang..." class="w-full pl-10 pr-4 py-2.5 text-xs border border-white/10 rounded-xl bg-[#131b2e] text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none font-medium">
-              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-              </div>
-              <!-- Dropdown Search Results -->
-              <div id="purchase-search-results" class="absolute left-0 right-0 top-full mt-1 bg-[#0e1424] border border-white/[0.12] rounded-xl shadow-2xl z-20 hidden max-h-60 overflow-y-auto divide-y divide-white/[0.06]"></div>
-            </div>
-
-            <div class="text-[11px] text-slate-500 font-medium hidden sm:block">
-              *Stok obat akan otomatis bertambah setelah faktur disimpan.
-            </div>
-          </div>
-        </div>
-
-        <!-- TABEL ITEM OBAT DALAM FAKTUR (PERSIS SEPERTI MONITOR DI VIDEO) -->
-        <div class="card-elevation rounded-2xl border border-white/[0.08] overflow-hidden bg-[#0e1424]">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="bg-[#12192c] border-b border-white/[0.08] text-slate-300 font-bold uppercase tracking-wider text-[11px]">
-                  <th class="p-3">Kode / Barcode</th>
-                  <th class="p-3">Nama Obat</th>
-                  <th class="p-3 text-center">Satuan</th>
-                  <th class="p-3 text-center">Qty Masuk</th>
-                  <th class="p-3 text-right">Modal Beli (HPP)</th>
-                  <th class="p-3 text-center">Diskon %</th>
-                  <th class="p-3 text-right">Subtotal Biaya</th>
-                  <th class="p-3 text-center">Aksi</th>
-                </tr>
-              </thead>
-              <tbody id="purchase-items-tbody" class="divide-y divide-slate-100 text-slate-800">
-                <!-- Populated via JavaScript -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </form>
-
-      <!-- TABEL RIWAYAT FAKTUR BARANG MASUK & PENGELUARAN APOTEK -->
-      <div class="card-elevation rounded-2xl border border-white/[0.08] overflow-hidden bg-[#0e1424] space-y-3 p-5">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-800/80 pb-3">
-          <div>
-            <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
-              <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i> Riwayat Faktur Pembelian dari Distributor (Pengeluaran Apotek)
-            </h3>
-            <p class="text-[11px] text-slate-400">Arsip pembelian obat dan rekapitulasi kulakan apotek</p>
-          </div>
-          
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="exportPurchasesToExcel()" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Export Faktur Excel (.xlsx)
-            </button>
-            <span id="purchase-history-count" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white/[0.06] text-slate-300 border border-white/[0.08]">0 Faktur</span>
-          </div>
-        </div>
-
-        <div class="overflow-x-auto border border-white/[0.08] rounded-xl">
-          <table class="w-full text-left text-xs border-collapse">
-            <thead>
-              <tr class="bg-[#12192c] border-b border-white/[0.08] text-slate-300 font-semibold text-[11px] uppercase tracking-wider">
-                <th class="p-3">No. Faktur PBF</th>
-                <th class="p-3">Distributor</th>
-                <th class="p-3">Tanggal</th>
-                <th class="p-3">Status Bayar</th>
-                <th class="p-3 text-center">Total Item</th>
-                <th class="p-3 text-right">Total Biaya</th>
-                <th class="p-3 text-center">Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="purchase-history-tbody" class="divide-y divide-slate-100"></tbody>
-          </table>
-        </div>
-      </div>
-
-    </div>
-    <div id="tab-content-stok" class="tab-pane hidden space-y-4">
-      
-      <!-- Top Stats Bar (Shadcn / Tremor Metric Cards) -->
+      <!-- Top Stats Bar (Tremor / Modern Metric Cards) -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
-        <div class="kpi-card flex items-center justify-between">
+        <div class="pos-kpi-card flex items-center justify-between">
           <div>
-            <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">Total Jenis Obat</div>
-            <div id="stat-total-items" class="text-2xl font-bold text-zinc-100 font-mono tracking-tight mt-1 tabular-nums">0</div>
-            <div class="text-[10px] text-zinc-500 font-medium mt-0.5">Katalog Master Farmasi</div>
+            <div class="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">Total Jenis Obat</div>
+            <div id="stat-total-items" class="text-2xl font-bold font-mono text-slate-900 dark:text-zinc-100 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-blue-600 dark:text-blue-400 font-medium mt-0.5">Katalog Master Farmasi</div>
           </div>
-          <div class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow-xs flex-shrink-0">
-            <i data-lucide="pill" class="w-4 h-4"></i>
+          <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+            <i data-lucide="pill" class="w-5 h-5"></i>
           </div>
         </div>
 
-        <div class="kpi-card flex items-center justify-between">
+        <div class="pos-kpi-card flex items-center justify-between">
           <div>
-            <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">Total Stok Unit</div>
-            <div id="stat-total-stock" class="text-2xl font-bold text-zinc-100 font-mono tracking-tight mt-1 tabular-nums">0</div>
-            <div class="text-[10px] text-zinc-500 font-medium mt-0.5">Tersedia di Apotek</div>
+            <div class="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">Total Stok Unit</div>
+            <div id="stat-total-stock" class="text-2xl font-bold font-mono text-slate-900 dark:text-zinc-100 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">Tersedia di Apotek</div>
           </div>
-          <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-xs flex-shrink-0">
-            <i data-lucide="package" class="w-4 h-4"></i>
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <i data-lucide="package" class="w-5 h-5"></i>
           </div>
         </div>
 
-        <div class="kpi-card flex items-center justify-between cursor-pointer hover:border-amber-500/40 transition-colors" onclick="filterInventoryByStatus('low')" title="Klik untuk memfilter stok menipis">
+        <div class="pos-kpi-card flex items-center justify-between cursor-pointer hover:border-amber-300 dark:hover:border-amber-500/40" onclick="filterInventoryByStatus('low')">
           <div>
-            <div class="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">Stok Menipis (≤ 10)</div>
-            <div id="stat-low-stock" class="text-2xl font-bold text-amber-400 font-mono tracking-tight mt-1 tabular-nums">0</div>
-            <div class="text-[10px] text-zinc-500 font-medium mt-0.5">Segera order ke PBF</div>
+            <div class="text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Stok Menipis (≤ 10)</div>
+            <div id="stat-low-stock" class="text-2xl font-bold font-mono text-amber-600 dark:text-amber-400 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-slate-400 dark:text-zinc-500 font-medium mt-0.5">Segera order ke PBF</div>
           </div>
-          <div class="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shadow-xs flex-shrink-0">
-            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+          <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400">
+            <i data-lucide="alert-triangle" class="w-5 h-5"></i>
           </div>
         </div>
 
-        <div class="kpi-card flex items-center justify-between cursor-pointer hover:border-rose-500/40 transition-colors" onclick="filterInventoryByStatus('expiring')" title="Klik untuk memfilter mendekati kadaluarsa">
+        <div class="pos-kpi-card flex items-center justify-between cursor-pointer hover:border-rose-300 dark:hover:border-rose-500/40" onclick="filterInventoryByStatus('expiring')">
           <div>
-            <div class="text-[11px] font-semibold text-rose-400 uppercase tracking-wider">Mendekati ED (< 90 Hari)</div>
-            <div id="stat-expiring-soon" class="text-2xl font-bold text-rose-400 font-mono tracking-tight mt-1 tabular-nums">0</div>
-            <div class="text-[10px] text-zinc-500 font-medium mt-0.5">Prioritas retur / KIE</div>
+            <div class="text-[11px] font-semibold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Mendekati ED (< 90 Hari)</div>
+            <div id="stat-expiring-soon" class="text-2xl font-bold font-mono text-rose-600 dark:text-rose-400 tracking-tight mt-1 tabular-nums">0</div>
+            <div class="text-[10px] text-slate-400 dark:text-zinc-500 font-medium mt-0.5">Prioritas retur / KIE</div>
           </div>
-          <div class="w-9 h-9 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 shadow-xs flex-shrink-0">
-            <i data-lucide="clock" class="w-4 h-4"></i>
+          <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 flex items-center justify-center text-rose-600 dark:text-rose-400">
+            <i data-lucide="clock" class="w-5 h-5"></i>
           </div>
         </div>
       </div>
 
       <!-- Action & Filter Bar -->
-      <div class="bg-[#0e1424] p-4 rounded-2xl border border-white/[0.08] shadow-lg flex flex-col md:flex-row items-center justify-between gap-3">
-        
-        <div class="flex flex-1 flex-col sm:flex-row items-center gap-2 w-full">
+      <div class="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3">
+        <div class="flex flex-1 flex-col sm:flex-row items-center gap-2.5 w-full">
           <!-- Search box -->
           <div class="relative w-full sm:w-72">
-            <input type="text" id="inventory-search-input" oninput="renderInventoryTable()" placeholder="Cari barcode, nama obat, rak..." class="w-full pl-9 pr-3 py-2 text-xs border border-white/10 bg-[#131b2e] text-white rounded-xl focus:outline-none focus:border-emerald-400">
+            <input type="text" id="inventory-search-input" oninput="renderInventoryTable()" placeholder="Cari barcode, nama obat, rak..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              <i data-lucide="search" class="w-4 h-4"></i>
             </div>
           </div>
 
           <!-- Kategori filter -->
-          <select id="inventory-category-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-white/10 rounded-xl px-3 py-2 bg-[#131b2e] text-slate-200 focus:outline-none focus:border-emerald-400">
-            <option value="ALL">Semua Golongan</option>
-            <option value="Obat Bebas">Obat Bebas (Hijau)</option>
-            <option value="Obat Bebas Terbatas">Obat Bebas Terbatas (Biru)</option>
-            <option value="Obat Keras">Obat Keras (Merah / K)</option>
-            <option value="Herbal">Herbal / Jamu</option>
-            <option value="Suplemen">Suplemen & Vitamin</option>
+          <select id="inventory-category-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-slate-200 dark:border-zinc-700 rounded-xl px-3 py-2 bg-slate-50 dark:bg-zinc-950 text-slate-700 dark:text-zinc-300">
+            <option value="ALL">Semua Golongan Obat</option>
+            <option value="Obat Bebas">Obat Bebas</option>
+            <option value="Obat Bebas Terbatas">Obat Bebas Terbatas</option>
+            <option value="Obat Keras">Obat Keras</option>
+            <option value="Herbal">Herbal</option>
             <option value="Alat Kesehatan">Alat Kesehatan</option>
+            <option value="Suplemen">Suplemen</option>
           </select>
 
           <!-- Status filter -->
-          <select id="inventory-status-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-white/10 rounded-xl px-3 py-2 bg-[#131b2e] text-slate-200 focus:outline-none focus:border-emerald-400">
-            <option value="ALL">Semua Status</option>
-            <option value="low">Stok Menipis Saja</option>
-            <option value="expiring">Mendekati ED (< 90 hari)</option>
+          <select id="inventory-status-filter" onchange="renderInventoryTable()" class="w-full sm:w-auto text-xs border border-slate-200 dark:border-zinc-700 rounded-xl px-3 py-2 bg-slate-50 dark:bg-zinc-950 text-slate-700 dark:text-zinc-300">
+            <option value="ALL">Semua Status Stok</option>
+            <option value="low">Stok Menipis (≤ 10)</option>
+            <option value="expiring">Mendekati Kadaluarsa</option>
           </select>
         </div>
 
-        <!-- Action Buttons (Export/Import Excel Fleksibel & Tambah Obat) -->
-        <div class="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
-          <button onclick="exportMedicinesToExcel()" title="Export Seluruh Stok ke File Excel (.xlsx)" class="px-3 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-            Export Excel (.xlsx)
+        <!-- Buttons: Add Drug, Import Excel, Export Excel -->
+        <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+          <button onclick="openExcelImportModal()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-slate-200 dark:border-zinc-700 cursor-pointer">
+            <i data-lucide="file-up" class="w-3.5 h-3.5"></i>
+            <span>Import Excel</span>
+          </button>
+          
+          <button onclick="exportInventoryToExcel()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
+            <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i>
+            <span>Export Excel (.xlsx)</span>
           </button>
 
-          <label class="admin-only" title="Impor File Excel / CSV Apapun Format Kolomnya (Sistem Cerdas Auto-Detect)" class="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-            Impor Excel / CSV
-            <input type="file" accept=".xlsx,.xls,.csv" onchange="handleSmartExcelImport(event)" class="hidden">
-          </label>
-
-          <button onclick="reloadMasterExcelData()" class="admin-only px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer" title="Muat Ulang 1.098 Master Data dari Excel">
-            <span>📦</span> Master Excel (1.098)
-          </button>
-
-          <button onclick="openAddProductModal()" class="admin-only px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg shadow-sm flex items-center gap-1.5 transition-colors cursor-pointer">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            Tambah Obat
+          <button onclick="openAddDrugModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>+ Tambah Obat</span>
           </button>
         </div>
-
       </div>
 
-      <!-- Inventory Table Card -->
-      <div class="bg-[#0e1424] rounded-2xl border border-white/[0.08] shadow-xl overflow-hidden">
+      <!-- Master Inventory Data Table -->
+      <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs overflow-hidden">
+        <div class="px-4 py-3 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400">
+          <span id="inventory-showing-count" class="font-medium">Menampilkan data katalog obat apotek</span>
+        </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="sticky-table-header">
+              <tr class="bg-slate-50 dark:bg-zinc-950/80 border-b border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 font-bold uppercase tracking-wider text-[11px]">
                 <th class="p-3">Barcode</th>
                 <th class="p-3">Nama Obat / Produk</th>
                 <th class="p-3">Golongan & Satuan</th>
@@ -666,144 +437,263 @@
                 <th class="p-3 text-center">Aksi</th>
               </tr>
             </thead>
-            <tbody id="inventory-table-body" class="divide-y divide-white/[0.04] text-slate-200">
-              <!-- Rendered via JavaScript -->
+            <tbody id="inventory-table-body" class="divide-y divide-slate-100 dark:divide-zinc-800/80">
+              <!-- Populated via renderInventoryTable() -->
             </tbody>
           </table>
-        </div>
-        
-        <!-- Table footer count -->
-        <div class="p-3.5 border-t border-white/[0.08] bg-[#11182c] text-xs text-slate-400 flex justify-between items-center">
-          <span id="inventory-showing-count">Menampilkan 0 obat</span>
-          <button onclick="resetToInitialData()" class="text-slate-500 hover:text-slate-800 underline text-[11px]">
-            Reset ke Data Contoh Apotek
-          </button>
         </div>
       </div>
 
     </div>
 
     <!-- ========================================================
-         TAB 3: RIWAYAT PENJUALAN
+         TAB 3: FAKTUR PBF & BARANG MASUK (KULAKAN)
          ======================================================== -->
-    <div id="tab-content-riwayat" class="tab-pane hidden space-y-4">
+    <div id="tab-content-pembelian" class="tab-pane hidden flex-1 overflow-y-auto p-4 lg:p-6 space-y-4">
       
-      <!-- Ringkasan Finansial Arus Kas (Shadcn / Tremor KPI Cards) -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
-        <!-- 1. Omzet Penjualan -->
-        <div class="kpi-card">
-          <div class="text-[11px] text-zinc-400 font-semibold uppercase tracking-wider flex items-center justify-between">
-            <span>Omzet Penjualan</span>
-            <div class="w-7 h-7 rounded-md bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
-            </div>
-          </div>
-          <div id="report-total-omzet" class="text-xl sm:text-2xl font-bold text-emerald-400 mt-1.5 font-mono tabular-nums">Rp 0</div>
-          <div class="text-[10px] text-zinc-500 font-medium mt-1">Total kasir diterima</div>
-        </div>
+      <!-- Form Input Faktur Baru -->
+      <form id="form-purchase-invoice" onsubmit="savePurchaseInvoice(event)" class="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-4">
         
-        <!-- 2. Pengeluaran Kulakan PBF -->
-        <div class="kpi-card">
-          <div class="text-[11px] text-zinc-400 font-semibold uppercase tracking-wider flex items-center justify-between">
-            <span>Pengeluaran Kulakan</span>
-            <div class="w-7 h-7 rounded-md bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
-              <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-            </div>
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <h2 class="text-sm font-bold text-slate-900 dark:text-zinc-100">INPUT FAKTUR BARANG MASUK (PBF)</h2>
           </div>
-          <div id="report-total-expense" class="text-xl sm:text-2xl font-bold text-rose-400 mt-1.5 font-mono tabular-nums">Rp 0</div>
-          <div class="text-[10px] text-zinc-500 font-medium mt-1">Total faktur distributor</div>
+          <span id="purchase-total-items-badge" class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">0 Produk (0 Total Qty)</span>
         </div>
 
-        <!-- 3. Arus Kas Bersih -->
-        <div class="kpi-card">
-          <div class="text-[11px] text-zinc-400 font-semibold uppercase tracking-wider flex items-center justify-between">
-            <span>Arus Kas Bersih</span>
-            <div class="w-7 h-7 rounded-md bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-              <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Metadata Faktur -->
+          <div class="lg:col-span-8 space-y-3">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">No. Faktur Distributor: *</label>
+                <input type="text" id="input-faktur-no" required placeholder="Contoh: ENS/2026/1109" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 font-medium">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Distributor / PBF: *</label>
+                <input type="text" id="input-faktur-supplier" list="supplier-list-options" required placeholder="Pilih / ketik nama PBF..." class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 font-medium">
+                <datalist id="supplier-list-options"></datalist>
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Tanggal Faktur:</label>
+                <input type="date" id="input-faktur-tanggal" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Status Pembayaran:</label>
+                <select id="select-faktur-status-bayar" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+                  <option value="Lunas">Lunas (Tunai/Transfer)</option>
+                  <option value="Tempo (Hutang)">Tempo (Hutang PBF)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Jatuh Tempo (Jika Tempo):</label>
+                <input type="date" id="input-faktur-jatuh-tempo" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">No. Internal Apotek:</label>
+                <input type="text" id="input-faktur-internal" readonly class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-800 rounded-xl bg-slate-100 dark:bg-zinc-950 font-mono text-slate-500 dark:text-zinc-400">
+              </div>
             </div>
           </div>
-          <div id="report-net-cashflow" class="text-xl sm:text-2xl font-bold text-cyan-400 mt-1.5 font-mono tabular-nums">Rp 0</div>
-          <div class="text-[10px] text-zinc-500 font-medium mt-1">Omzet - Biaya beli obat</div>
+
+          <!-- Total Biaya Kulakan Card -->
+          <div class="lg:col-span-4 bg-slate-900 dark:bg-zinc-950 p-4 rounded-xl text-white flex flex-col justify-between">
+            <div>
+              <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Grand Total Biaya Kulakan</span>
+              <div id="purchase-grand-total-display" class="text-3xl font-black text-emerald-400 font-mono mt-1">Rp 0</div>
+              <p class="text-[10px] text-slate-400 mt-0.5">Total uang pengeluaran apotek</p>
+            </div>
+            <div class="flex items-center gap-2 pt-3 border-t border-slate-800">
+              <button type="submit" class="flex-1 py-2 px-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg flex items-center justify-center gap-1.5 cursor-pointer">
+                <i data-lucide="save" class="w-3.5 h-3.5"></i>
+                <span>Simpan Faktur</span>
+              </button>
+              <button type="button" onclick="clearCurrentPurchaseForm()" class="py-2 px-3 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg cursor-pointer">Batal</button>
+            </div>
+          </div>
         </div>
 
-        <!-- 4. Estimasi Laba Margin -->
-        <div class="kpi-card">
-          <div class="text-[11px] text-zinc-400 font-semibold uppercase tracking-wider flex items-center justify-between">
-            <span>Margin Keuntungan</span>
-            <div class="w-7 h-7 rounded-md bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <i data-lucide="percent" class="w-3.5 h-3.5"></i>
+        <!-- Search Drug to Add to Invoice -->
+        <div class="pt-2 border-t border-slate-100 dark:border-zinc-800">
+          <div class="relative">
+            <input type="text" id="input-search-purchase-item" oninput="handlePurchaseDrugSearch(this.value)" placeholder="Scan barcode atau ketik nama obat yang baru datang..." class="w-full pl-9 pr-4 py-2 text-xs border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <i data-lucide="search" class="w-4 h-4"></i>
             </div>
+            <div id="purchase-search-results" class="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl shadow-xl z-30 hidden max-h-60 overflow-y-auto"></div>
           </div>
-          <div id="report-total-profit" class="text-xl sm:text-2xl font-bold text-amber-400 mt-1.5 font-mono tabular-nums">Rp 0</div>
-          <div class="text-[10px] text-zinc-500 font-medium mt-1">Estimasi laba kotor</div>
+        </div>
+
+        <!-- Items Table in Invoice -->
+        <div class="overflow-x-auto border border-slate-200 dark:border-zinc-800 rounded-xl">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 font-bold uppercase text-[11px]">
+                <th class="p-3">Barcode</th>
+                <th class="p-3">Nama Obat</th>
+                <th class="p-3 text-center">Satuan</th>
+                <th class="p-3 text-center">Qty Masuk</th>
+                <th class="p-3 text-right">Modal Beli (HPP)</th>
+                <th class="p-3 text-center">Diskon %</th>
+                <th class="p-3 text-right">Subtotal Biaya</th>
+                <th class="p-3 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="purchase-items-tbody" class="divide-y divide-slate-100 dark:divide-zinc-800"></tbody>
+          </table>
+        </div>
+
+      </form>
+
+      <!-- Purchase Invoices History Table -->
+      <div class="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-zinc-800">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-emerald-600"></i>
+              <span>Riwayat Faktur Pembelian dari Distributor</span>
+            </h3>
+            <p class="text-[11px] text-slate-400 mt-0.5">Arsip rekapitulasi kulakan apotek</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="exportPurchasesToExcel()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Export Excel
+            </button>
+            <span id="purchase-history-count" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300">0 Faktur</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-200 dark:border-zinc-800 rounded-xl">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 font-semibold text-[11px]">
+                <th class="p-3">No. Faktur PBF</th>
+                <th class="p-3">Distributor</th>
+                <th class="p-3">Tanggal</th>
+                <th class="p-3">Status Bayar</th>
+                <th class="p-3 text-center">Total Item</th>
+                <th class="p-3 text-right">Total Biaya</th>
+                <th class="p-3 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="purchase-history-tbody" class="divide-y divide-slate-100 dark:divide-zinc-800"></tbody>
+          </table>
         </div>
       </div>
 
-      <!-- GRAFIK VISUAL OMZET & LABA PER HARI / PER BULAN (FITUR BARU) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        
-        <!-- Grafik Tren Omzet & Laba (8 Kolom) -->
-        <div class="lg:col-span-8 kpi-card p-5">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800/80">
+    </div>
+
+    <!-- ========================================================
+         TAB 4: LAPORAN PENJUALAN & ARUS KAS
+         ======================================================== -->
+    <div id="tab-content-riwayat" class="tab-pane hidden flex-1 overflow-y-auto p-4 lg:p-6 space-y-4">
+      
+      <!-- 4 Financial KPI Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+        <div class="pos-kpi-card">
+          <div class="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider flex items-center justify-between">
+            <span>Omzet Penjualan</span>
+            <div class="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div id="report-total-omzet" class="text-xl sm:text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-1 tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-slate-400 dark:text-zinc-500 mt-0.5">Total kasir diterima</div>
+        </div>
+
+        <div class="pos-kpi-card">
+          <div class="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider flex items-center justify-between">
+            <span>Pengeluaran Kulakan</span>
+            <div class="w-7 h-7 rounded-lg bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div id="report-total-expense" class="text-xl sm:text-2xl font-bold font-mono text-rose-600 dark:text-rose-400 mt-1 tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-slate-400 dark:text-zinc-500 mt-0.5">Total faktur distributor</div>
+        </div>
+
+        <div class="pos-kpi-card">
+          <div class="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider flex items-center justify-between">
+            <span>Arus Kas Bersih</span>
+            <div class="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <i data-lucide="wallet" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div id="report-net-cashflow" class="text-xl sm:text-2xl font-bold font-mono text-blue-600 dark:text-blue-400 mt-1 tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-slate-400 dark:text-zinc-500 mt-0.5">Omzet - Biaya beli obat</div>
+        </div>
+
+        <div class="pos-kpi-card">
+          <div class="text-[11px] font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider flex items-center justify-between">
+            <span>Margin Keuntungan</span>
+            <div class="w-7 h-7 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <i data-lucide="percent" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <div id="report-total-profit" class="text-xl sm:text-2xl font-bold font-mono text-amber-600 dark:text-amber-400 mt-1 tabular-nums">Rp 0</div>
+          <div class="text-[10px] text-slate-400 dark:text-zinc-500 mt-0.5">Estimasi laba kotor</div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <!-- Sales Trends (8 Cols) -->
+        <div class="lg:col-span-8 pos-kpi-card space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-zinc-800">
             <div>
-              <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                <i data-lucide="line-chart" class="w-4 h-4 text-emerald-400"></i> Grafik Tren Penjualan & Laba Bersih
+              <h3 class="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-1.5">
+                <i data-lucide="line-chart" class="w-4 h-4 text-emerald-600"></i>
+                <span>Grafik Tren Penjualan & Laba</span>
               </h3>
-              <p class="text-[11px] text-slate-400">Pantau pertumbuhan omzet apotek secara visual</p>
+              <p class="text-[11px] text-slate-400">Pertumbuhan omzet kasir</p>
             </div>
             
-            <!-- Filter Mode Harian vs Bulanan -->
-            <div class="flex items-center bg-zinc-900 border border-zinc-800 p-0.5 rounded-lg text-xs">
-              <button type="button" onclick="setChartPeriod('daily')" id="btn-chart-daily" class="px-3 py-1 rounded-lg font-bold bg-white text-emerald-700 shadow-xs transition-all">
-                Harian (7 Hari)
-              </button>
-              <button type="button" onclick="setChartPeriod('monthly')" id="btn-chart-monthly" class="px-3 py-1 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition-all">
-                Bulanan (2026)
-              </button>
+            <div class="flex items-center bg-slate-100 dark:bg-zinc-800 p-0.5 rounded-lg text-xs">
+              <button type="button" onclick="setChartPeriod('daily')" id="btn-chart-daily" class="px-3 py-1 rounded-md font-bold bg-white dark:bg-zinc-900 text-emerald-600 shadow-xs">Harian</button>
+              <button type="button" onclick="setChartPeriod('monthly')" id="btn-chart-monthly" class="px-3 py-1 rounded-md font-medium text-slate-500 dark:text-zinc-400 hover:text-slate-900">Bulanan</button>
             </div>
           </div>
 
-          <!-- Canvas Chart.js -->
-          <div class="relative w-full h-[240px]">
+          <div class="relative w-full h-[220px]">
             <canvas id="salesTrendsChart"></canvas>
           </div>
         </div>
 
-        <!-- Diagram Donut Top 5 Obat Terlaris (4 Kolom) -->
-        <div class="lg:col-span-4 kpi-card p-5 flex flex-col">
-          <div class="mb-3 pb-2 border-b border-zinc-800/80">
-            <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-              <i data-lucide="award" class="w-4 h-4 text-amber-400"></i> Top 5 Obat Terlaris
+        <!-- Top 5 Products Donut (4 Cols) -->
+        <div class="lg:col-span-4 pos-kpi-card space-y-3">
+          <div class="pb-2 border-b border-slate-100 dark:border-zinc-800">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-1.5">
+              <i data-lucide="award" class="w-4 h-4 text-amber-500"></i>
+              <span>Top 5 Obat Terlaris</span>
             </h3>
-            <p class="text-[11px] text-slate-400">Produk paling banyak dibeli pelanggan</p>
+            <p class="text-[11px] text-slate-400">Produk paling laris dibeli</p>
           </div>
-
-          <div class="relative flex-1 flex items-center justify-center min-h-[200px]">
+          <div class="relative w-full h-[220px]">
             <canvas id="topProductsChart"></canvas>
           </div>
         </div>
-
       </div>
 
-      <!-- Tabel Riwayat Penjualan -->
-      <div class="bg-[#0e1424] rounded-2xl border border-white/[0.08] shadow-xl overflow-hidden">
-        <div class="p-4 border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#12192c]">
-          <h2 class="text-sm font-bold text-slate-100">Daftar Transaksi Kasir</h2>
+      <!-- Transaction History Table -->
+      <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900 dark:text-zinc-100">Daftar Transaksi Kasir</h3>
           <div class="flex items-center gap-2">
-            <button onclick="exportTransactionsToExcel()" title="Export Laporan Penjualan ke Excel (.xlsx)" class="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Export Laporan Excel (.xlsx)
+            <button onclick="exportTransactionsToExcel()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Export Excel
             </button>
-            <button onclick="requireOwnerPIN('Hapus Riwayat', clearTransactionHistory)" class="text-xs text-rose-600 hover:underline cursor-pointer">
-              Hapus Riwayat
-            </button>
+            <button onclick="clearTransactionHistory()" class="text-xs text-rose-500 hover:text-rose-700 font-semibold cursor-pointer">Hapus Riwayat</button>
           </div>
         </div>
-        
+
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="sticky-table-header">
+              <tr class="bg-slate-50 dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 font-bold uppercase text-[11px]">
                 <th class="p-3">No. Invoice</th>
                 <th class="p-3">Waktu</th>
                 <th class="p-3">Rincian Obat Terjual</th>
@@ -813,9 +703,7 @@
                 <th class="p-3 text-center">Aksi</th>
               </tr>
             </thead>
-            <tbody id="transaction-table-body" class="divide-y divide-slate-100 text-slate-700">
-              <!-- Rendered via JavaScript -->
-            </tbody>
+            <tbody id="transaction-table-body" class="divide-y divide-slate-100 dark:divide-zinc-800"></tbody>
           </table>
         </div>
       </div>
@@ -823,189 +711,114 @@
     </div>
 
     <!-- ========================================================
-         TAB 4: PENGATURAN APOTEK
+         TAB 5: PENGATURAN APOTEK & CLOUD SYNC
          ======================================================== -->
-    <div id="tab-content-pengaturan" class="tab-pane hidden max-w-2xl mx-auto space-y-6">
+    <div id="tab-content-pengaturan" class="tab-pane hidden flex-1 overflow-y-auto p-4 lg:p-6 space-y-4">
       
-      <div class="bg-[#0e1424] p-6 rounded-2xl border border-white/[0.08] shadow-xl space-y-4">
-        <h2 class="text-base font-bold text-slate-900 border-b border-zinc-800/80 pb-3 flex items-center gap-2">
-          <span>⚙️</span> Profil & Pengaturan Struk Apotek
-        </h2>
-        
+      <!-- Settings Form Card -->
+      <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-4">
+        <div class="pb-3 border-b border-slate-100 dark:border-zinc-800">
+          <h2 class="text-sm font-bold text-slate-900 dark:text-zinc-100">PENGATURAN IDENTITAS APOTEK & CETAK STRUK</h2>
+          <p class="text-xs text-slate-400">Informasi ini akan tercetak otomatis pada struk thermal kasir</p>
+        </div>
+
         <form id="form-settings" onsubmit="saveSettings(event)" class="space-y-4 text-xs">
-          <div>
-            <label class="block font-semibold text-slate-300 mb-1">Nama Apotek / Toko Obat:</label>
-            <input type="text" id="setting-nama-apotek" required class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
-          </div>
-
-          <div>
-            <label class="block font-semibold text-slate-300 mb-1">Slogan / Keterangan:</label>
-            <input type="text" id="setting-slogan" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">No. Telp / WhatsApp:</label>
-              <input type="text" id="setting-telepon" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Nama Apotek:</label>
+              <input type="text" id="setting-nama-apotek" required class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 font-medium">
             </div>
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">Nomor SIPA / SIA Apotek:</label>
-              <input type="text" id="setting-sipa" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Slogan / Keterangan Singkat:</label>
+              <input type="text" id="setting-slogan" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
             </div>
           </div>
 
-          <div>
-            <label class="block font-semibold text-slate-300 mb-1">Nama Apoteker Penanggung Jawab:</label>
-            <input type="text" id="setting-apoteker" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">No. Telepon / WhatsApp:</label>
+              <input type="text" id="setting-telepon" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Nomor Izin SIPA Apotek:</label>
+              <input type="text" id="setting-sipa" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Apoteker Penanggung Jawab:</label>
+              <input type="text" id="setting-apoteker" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
+            </div>
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-300 mb-1">Alamat Lengkap Apotek:</label>
-            <textarea id="setting-alamat" rows="2" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400"></textarea>
+            <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Alamat Lengkap Apotek:</label>
+            <textarea id="setting-alamat" rows="2" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100"></textarea>
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-300 mb-1">Pesan Penutup Struk (Footer Struk):</label>
-            <input type="text" id="setting-catatan-struk" class="w-full px-3 py-2 border border-white/10 rounded-xl bg-[#131b2e] text-white focus:outline-none focus:border-emerald-400">
+            <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Catatan Kaki Struk (Footer):</label>
+            <input type="text" id="setting-catatan-struk" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
           </div>
 
-          <div class="pt-3">
-            <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm transition-colors cursor-pointer">
-              Simpan Pengaturan
+          <div class="pt-2 flex items-center justify-between">
+            <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm cursor-pointer">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Simpan Identitas Apotek</span>
+            </button>
+            <button type="button" onclick="openSecuritySettingsModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded-xl font-semibold flex items-center gap-1.5 cursor-pointer">
+              <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+              <span>Ganti PIN Owner</span>
             </button>
           </div>
         </form>
       </div>
 
-      <!-- KARTU KONFIGURASI FIREBASE CLOUD (SINKRONISASI REAL-TIME GRATIS) -->
-      <div class="card-elevation p-6 rounded-2xl border border-slate-200 space-y-4">
-        <div class="border-b border-zinc-800/80 pb-3 flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500 font-bold">
-              🔥
-            </div>
-            <div>
-              <h2 class="text-sm font-bold text-slate-900">Konfigurasi Cloud Firebase (Sinkronisasi Multi-Device)</h2>
-              <p class="text-[11px] text-slate-500">Hubungkan apotek ke Google Cloud Firestore (100% Gratis Spark Plan)</p>
-            </div>
+      <!-- Firebase Cloud Sync Card -->
+      <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
+              <i data-lucide="cloud" class="w-4 h-4 text-emerald-600"></i>
+              <span>GOOGLE FIREBASE CLOUD SYNC (MULTI-DEVICE)</span>
+            </h3>
+            <p class="text-xs text-slate-400">Sinkronisasi data katalog obat & kasir secara real-time antar perangkat (PC kasir, laptop owner, HP)</p>
           </div>
-          <button type="button" onclick="disconnectFirebase()" class="text-[11px] text-rose-500 hover:text-rose-700 font-semibold cursor-pointer">
-            Putuskan
-          </button>
+          <span id="firebase-status-badge" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20">Online</span>
         </div>
 
-        <form id="form-firebase-config" onsubmit="saveFirebaseConfigForm(event)" class="space-y-3.5 text-xs">
+        <form id="form-firebase-config" onsubmit="saveFirebaseConfig(event)" class="space-y-3 text-xs">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">API Key: <span class="text-rose-500">*</span></label>
-              <input type="text" id="fb-api-key" placeholder="AIzaSy..." required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">API Key:</label>
+              <input type="text" id="setting-fb-api-key" placeholder="AIzaSy..." class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 font-mono text-slate-900 dark:text-zinc-100">
             </div>
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">Project ID: <span class="text-rose-500">*</span></label>
-              <input type="text" id="fb-project-id" placeholder="apotek-anda-123" required class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Project ID:</label>
+              <input type="text" id="setting-fb-project-id" placeholder="apotek-pos-..." class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 font-mono text-slate-900 dark:text-zinc-100">
             </div>
           </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">Auth Domain:</label>
-              <input type="text" id="fb-auth-domain" placeholder="project-id.firebaseapp.com" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Auth Domain:</label>
+              <input type="text" id="setting-fb-auth-domain" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 font-mono text-slate-900 dark:text-zinc-100">
             </div>
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">Storage Bucket:</label>
-              <input type="text" id="fb-storage-bucket" placeholder="project-id.appspot.com" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block font-semibold text-slate-300 mb-1">Messaging Sender ID:</label>
-              <input type="text" id="fb-messaging-sender-id" placeholder="123456789..." class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Storage Bucket:</label>
+              <input type="text" id="setting-fb-storage-bucket" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 font-mono text-slate-900 dark:text-zinc-100">
             </div>
             <div>
-              <label class="block font-semibold text-slate-300 mb-1">App ID:</label>
-              <input type="text" id="fb-app-id" placeholder="1:12345:web:67890..." class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">App ID:</label>
+              <input type="text" id="setting-fb-app-id" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 font-mono text-slate-900 dark:text-zinc-100">
             </div>
           </div>
-
-          <!-- Action buttons -->
-          <div class="pt-2 flex flex-col sm:flex-row gap-2">
-            <button type="submit" class="flex-1 py-2.5 px-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
-              <span>🔥 Simpan & Sambungkan ke Firebase</span>
+          <div class="pt-2 flex items-center justify-between">
+            <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold flex items-center gap-1.5 shadow-sm cursor-pointer">
+              <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+              <span>Simpan & Sinkronkan Cloud</span>
             </button>
-            <button type="button" onclick="uploadAllLocalDataToFirebase()" class="py-2.5 px-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl border border-emerald-200 transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
-              <span>☁️ Unggah Semua Data Lokal ke Cloud</span>
+            <button type="button" onclick="syncAllToFirebaseCloud()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700 rounded-xl font-semibold cursor-pointer">
+              Upload Semua Data Lokal ke Cloud
             </button>
           </div>
-        </form>
-
-        <!-- Petunjuk 3 Langkah Mudah -->
-        <div class="p-3 bg-amber-50/60 border border-amber-200/80 rounded-xl text-[11px] text-amber-900 space-y-1.5">
-          <div class="font-bold flex items-center gap-1">
-            <span>ℹ️</span> Cara Mendapatkan Konfigurasi Firebase Gratis (2 Menit):
-          </div>
-          <ol class="list-decimal pl-4 space-y-0.5 text-amber-800">
-            <li>Buka <strong>console.firebase.google.com</strong> dan login dengan akun Google Anda.</li>
-            <li>Klik <strong>"Add Project"</strong> (beri nama bebas, misal: <em>Apotek-Medika</em>).</li>
-            <li>Klik ikon <strong>Web (&lt;/&gt;)</strong> untuk mendaftarkan web app, lalu salin nilai <code>firebaseConfig</code> ke kolom di atas.</li>
-            <li>Di menu samping, buka <strong>Build &gt; Firestore Database</strong>, klik <strong>Create Database</strong>, dan pilih <em>Start in test mode</em>. Selesai!</li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- KARTU KEAMANAN & ANTI-HACK SYSTEM (PROTEKSI PIN OWNER) -->
-      <div class="card-elevation p-6 rounded-2xl border border-slate-200 space-y-4">
-        <div class="border-b border-zinc-800/80 pb-3 flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-500 font-bold">
-              🛡️
-            </div>
-            <div>
-              <h2 class="text-sm font-bold text-slate-900">Keamanan Sistem & Anti-Hack (Proteksi PIN)</h2>
-              <p class="text-[11px] text-slate-500">Mencegah manipulasi data, script injection, dan akses tidak sah</p>
-            </div>
-          </div>
-          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
-            Perlindungan Aktif
-          </span>
-        </div>
-
-        <!-- Badges Status Keamanan -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-            <div class="text-slate-400 font-medium">Anti-XSS</div>
-            <div class="font-bold text-emerald-700">✅ Sanitasi Aktif</div>
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-            <div class="text-slate-400 font-medium">Clickjacking</div>
-            <div class="font-bold text-emerald-700">✅ Frame Locked</div>
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-            <div class="text-slate-400 font-medium">Rate Limiter</div>
-            <div class="font-bold text-emerald-700">✅ Anti Brute-force</div>
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-            <div class="text-slate-400 font-medium">Kamera Policy</div>
-            <div class="font-bold text-emerald-700">✅ Self Origin Only</div>
-          </div>
-        </div>
-
-        <!-- Form Ubah PIN Owner -->
-        <form onsubmit="handleUpdatePinSubmit(event)" class="space-y-3 text-xs pt-1">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
-            <div>
-              <label class="block font-semibold text-slate-300 mb-1">Ganti PIN Owner (Min. 4 Digit):</label>
-              <input type="password" id="setting-new-pin" maxlength="8" placeholder="Masukkan 4-8 angka baru" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-rose-500">
-            </div>
-            <div>
-              <button type="submit" class="w-full py-2 px-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg shadow-sm transition-colors cursor-pointer flex items-center justify-center gap-1.5">
-                <span>🔒 Simpan PIN Baru</span>
-              </button>
-            </div>
-          </div>
-          <p class="text-[11px] text-slate-500">
-            *PIN saat ini digunakan untuk verifikasi saat menghapus obat, mereset database, dan membuka kunci layar kasir (Default awal: <code>1234</code>).
-          </p>
         </form>
       </div>
 
@@ -1590,6 +1403,37 @@
     if (typeof lucide !== "undefined") {
       lucide.createIcons();
     }
+  </script>
+
+
+
+
+  <!-- Theme Mode Handler & Lucide Initialization -->
+  <script>
+    function toggleThemeMode() {
+      const htmlEl = document.documentElement;
+      if (htmlEl.classList.contains('dark')) {
+        htmlEl.classList.remove('dark');
+        localStorage.setItem('apotek_theme_mode', 'light');
+      } else {
+        htmlEl.classList.add('dark');
+        localStorage.setItem('apotek_theme_mode', 'dark');
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('apotek_theme_mode');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
   </script>
 </body>
 </html>

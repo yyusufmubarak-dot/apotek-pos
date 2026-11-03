@@ -1,36 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 /* ========================================================
-   SHADCN / UI OFFICIAL DESIGN TOKENS (ZINC DARK THEME)
-   Reference: github.com/shadcn-ui/ui (75k+ Stars)
+   APOTEK POS DESIGN SYSTEM (MODERN MEDICAL RETAIL ERGONOMICS)
+   Clean, high-contrast, professional hospital/pharmacy aesthetic
    ======================================================== */
 :root {
-  --background: #09090b;       /* Zinc 950 */
-  --foreground: #fafafa;       /* Zinc 50 */
-  --card: #121215;             /* Elevated Zinc 900 */
-  --card-foreground: #fafafa;
-  --popover: #121215;
-  --popover-foreground: #fafafa;
-  --primary: #10b981;          /* Emerald 500 */
-  --primary-foreground: #ffffff;
-  --secondary: #18181b;        /* Zinc 900 */
-  --secondary-foreground: #fafafa;
-  --muted: #1c1c20;
-  --muted-foreground: #a1a1aa; /* Zinc 400 */
-  --accent: #27272a;           /* Zinc 800 */
-  --accent-foreground: #fafafa;
-  --destructive: #ef4444;      /* Red 500 */
-  --destructive-foreground: #fafafa;
-  --border: #27272a;           /* Zinc 800 hairline */
-  --input: #27272a;
-  --ring: #10b981;
-  --radius: 0.625rem;
+  --bg-canvas: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary-emerald: #059669;
+  --primary-emerald-hover: #047857;
+  --accent-cyan: #0891b2;
+}
+
+.dark {
+  --bg-canvas: #09090b;
+  --bg-card: #18181b;
+  --border-color: #27272a;
+  --text-main: #fafafa;
+  --text-muted: #a1a1aa;
+  --primary-emerald: #10b981;
+  --primary-emerald-hover: #059669;
+  --accent-cyan: #22d3ee;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
 }
@@ -40,111 +37,160 @@ body {
   font-feature-settings: 'tnum' on, 'lnum' on, 'zero' on;
 }
 
-/* ========================================================
-   SHADCN CARD & ELEVATION
-   ======================================================== */
-.shadcn-card {
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.shadcn-card-interactive:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
-}
-
-/* ========================================================
-   SHADCN SEGMENTED TABS (Segmented Control)
-   ======================================================== */
-.shadcn-tabs-list {
-  display: inline-flex;
+/* Sidebar Navigation Link */
+.sidebar-nav-btn {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: #18181b;
-  padding: 3px;
-  border: 1px solid #27272a;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-.shadcn-tab-trigger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  border-radius: 6px;
-  padding: 5px 12px;
-  font-size: 12px;
-  font-weight: 500;
+.dark .sidebar-nav-btn {
   color: #a1a1aa;
+}
+
+.sidebar-nav-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.dark .sidebar-nav-btn:hover {
+  background-color: #27272a;
+  color: #ffffff;
+}
+
+.sidebar-nav-btn.active {
+  background-color: #ecfdf5;
+  color: #059669;
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+.dark .sidebar-nav-btn.active {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.3);
+}
+
+/* Category Quick Filter Pills */
+.pos-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
   transition: all 0.15s ease;
   cursor: pointer;
-  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
-.shadcn-tab-trigger:hover {
-  color: #fafafa;
+.dark .pos-cat-pill {
+  background-color: #18181b;
+  color: #a1a1aa;
+  border-color: #27272a;
 }
 
-.shadcn-tab-trigger.active {
-  background: #27272a;
-  color: #fafafa;
-  font-weight: 600;
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+.pos-cat-pill:hover {
+  border-color: #cbd5e1;
+  color: #0f172a;
 }
 
-/* ========================================================
-   SHADCN BADGES (Strict High-Craft System)
-   ======================================================== */
-.shadcn-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border-radius: 6px;
-  padding: 1.5px 8px;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.3;
-  transition: all 0.15s ease;
+.dark .pos-cat-pill:hover {
+  border-color: #3f3f46;
+  color: #ffffff;
 }
 
+.pos-cat-pill.active {
+  background-color: #059669;
+  color: #ffffff;
+  border-color: #059669;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+}
+
+.dark .pos-cat-pill.active {
+  background-color: #10b981;
+  color: #09090b;
+  border-color: #10b981;
+}
+
+/* Golongan Obat Badges */
 .badge-obat-bebas {
-  background: rgba(16, 185, 129, 0.12);
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+.dark .badge-obat-bebas {
+  background: rgba(16, 185, 129, 0.15);
   color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .badge-obat-bebas-terbatas {
-  background: rgba(14, 165, 233, 0.12);
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+.dark .badge-obat-bebas-terbatas {
+  background: rgba(14, 165, 233, 0.15);
   color: #38bdf8;
-  border: 1px solid rgba(14, 165, 233, 0.25);
+  border-color: rgba(14, 165, 233, 0.3);
 }
 
 .badge-obat-keras {
-  background: rgba(239, 68, 68, 0.15);
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  font-weight: 700;
+}
+.dark .badge-obat-keras {
+  background: rgba(239, 68, 68, 0.18);
   color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-color: rgba(239, 68, 68, 0.35);
 }
 
 .badge-herbal {
-  background: rgba(20, 184, 166, 0.12);
+  background: #f0fdfa;
+  color: #0f766e;
+  border: 1px solid #99f6e4;
+}
+.dark .badge-herbal {
+  background: rgba(20, 184, 166, 0.15);
   color: #2dd4bf;
-  border: 1px solid rgba(20, 184, 166, 0.25);
+  border-color: rgba(20, 184, 166, 0.3);
 }
 
 .badge-alkes {
-  background: rgba(168, 85, 247, 0.12);
+  background: #faf5ff;
+  color: #7e22ce;
+  border: 1px solid #e9d5ff;
+}
+.dark .badge-alkes {
+  background: rgba(168, 85, 247, 0.15);
   color: #c084fc;
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-color: rgba(168, 85, 247, 0.3);
 }
 
 .badge-suplemen {
-  background: rgba(249, 115, 22, 0.12);
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+.dark .badge-suplemen {
+  background: rgba(249, 115, 22, 0.15);
   color: #fb923c;
-  border: 1px solid rgba(249, 115, 22, 0.25);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 /* KIE Indication & Instructions */
@@ -152,160 +198,125 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 2.5px 8px;
+  padding: 3px 8px;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   line-height: 1.3;
-  background: rgba(6, 182, 212, 0.1);
+  background: #ecfeff;
+  color: #0e7490;
+  border: 1px solid #a5f3fc;
+}
+.dark .pill-indikasi {
+  background: rgba(6, 182, 212, 0.12);
   color: #22d3ee;
-  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-color: rgba(6, 182, 212, 0.25);
 }
 
 .pill-aturan {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 2.5px 8px;
+  padding: 3px 8px;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   line-height: 1.3;
-  background: rgba(168, 85, 247, 0.1);
+  background: #faf5ff;
+  color: #7e22ce;
+  border: 1px solid #e9d5ff;
+}
+.dark .pill-aturan {
+  background: rgba(168, 85, 247, 0.12);
   color: #d8b4fe;
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-color: rgba(168, 85, 247, 0.25);
 }
 
-/* ========================================================
-   SHADCN BUTTONS & STEPPERS
-   ======================================================== */
+/* Tactile Stepper Buttons */
 .btn-stepper {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 12px;
-  background: #18181b;
-  color: #fafafa;
-  border: 1px solid #27272a;
+  font-weight: 700;
+  font-size: 13px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
   transition: all 0.12s ease;
   cursor: pointer;
 }
-
-.btn-stepper:hover {
+.dark .btn-stepper {
   background: #27272a;
+  color: #fafafa;
   border-color: #3f3f46;
 }
-
+.btn-stepper:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+.dark .btn-stepper:hover {
+  background: #3f3f46;
+}
 .btn-stepper:active {
   transform: scale(0.92);
 }
 
-/* Category Quick Filter Pills */
-.pos-cat-pill {
-  background: #18181b;
-  color: #a1a1aa;
-  border: 1px solid #27272a;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 6px;
-  transition: all 0.15s ease;
-  cursor: pointer;
-}
-
-.pos-cat-pill:hover {
-  background: #27272a;
-  color: #fafafa;
-}
-
-.pos-cat-pill.active {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border-color: rgba(16, 185, 129, 0.4);
-}
-
-/* ========================================================
-   SHADCN DATA-DENSE TABLE (satnaing/shadcn-admin style)
-   ======================================================== */
-.shadcn-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 12px;
-}
-
-.shadcn-table th {
-  background: #121215;
-  color: #a1a1aa;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 10px 14px;
-  border-bottom: 1px solid #27272a;
-}
-
-.shadcn-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid #1f1f23;
-  color: #fafafa;
-}
-
-.shadcn-table tr:hover td {
-  background-color: rgba(255, 255, 255, 0.02);
-}
-
-/* ========================================================
-   TREMOR METRIC CARDS (tremorlabs/tremor style)
-   ======================================================== */
-.kpi-card {
-  background: #121215;
-  border: 1px solid #27272a;
-  border-radius: 10px;
+/* KPI Cards */
+.pos-kpi-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
 }
-
-.kpi-card:hover {
+.dark .pos-kpi-card {
+  background: #18181b;
+  border-color: #27272a;
+}
+.pos-kpi-card:hover {
+  border-color: #cbd5e1;
+}
+.dark .pos-kpi-card:hover {
   border-color: #3f3f46;
 }
 
-/* ========================================================
-   SLEEK TOAST NOTIFICATIONS (Linear / Raycast Style)
-   ======================================================== */
+/* Sleek Linear Toasts */
 #toast-container {
   position: fixed;
-  top: 68px;
-  right: 16px;
+  top: 20px;
+  right: 20px;
   z-index: 99999;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 320px;
+  max-width: 340px;
   pointer-events: none;
 }
 
 .toast-item {
   pointer-events: auto;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
   font-size: 12px;
-  font-weight: 500;
-  background: #18181b;
-  color: #fafafa;
-  border: 1px solid #27272a;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  gap: 8px;
-  animation: slideToastIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 10px;
+  animation: slideToastIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .toast-item {
+  background: #18181b;
+  color: #fafafa;
+  border-color: #27272a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes slideToastIn {
@@ -319,38 +330,30 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #cbd5e1;
   border-radius: 3px;
 }
-::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb {
   background: #3f3f46;
 }
 
-/* Scanner Laser HUD */
-.scanner-viewport-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #09090b;
-  min-height: 240px;
-}
-
-.scanner-laser {
-  position: absolute;
-  top: 0;
-  left: 8%;
-  right: 8%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #10b981 20%, #34d399 50%, #10b981 80%, transparent);
-  box-shadow: 0 0 12px 2px rgba(16, 185, 129, 0.6);
-  animation: scanHUD 2.4s infinite ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes scanHUD {
-  0%, 100% { top: 10%; opacity: 0.3; }
-  50% { top: 85%; opacity: 1; }
+/* Thermal Receipt Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #thermal-receipt-printable, #thermal-receipt-printable * {
+    visibility: visible;
+  }
+  #thermal-receipt-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    margin: 0;
+    padding: 10px;
+  }
 }
