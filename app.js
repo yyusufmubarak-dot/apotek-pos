@@ -129,12 +129,14 @@ const sfx = new SoundEffects();
 // =========================================================================
 document.addEventListener('DOMContentLoaded', () => {
   loadDataFromStorage();
+  if (typeof loadPurchasesFromStorage === 'function') loadPurchasesFromStorage();
   initClock();
   generateNewInvoiceNumber();
   renderCart();
   renderInventoryTable();
   renderTransactionHistory();
   updateInventoryStats();
+  if (typeof updateExpenseStats === 'function') updateExpenseStats();
   applySettingsToUI();
   initCameraScannerList();
   if (typeof initFirebaseSync === 'function') initFirebaseSync();
@@ -307,11 +309,14 @@ function switchTab(tabId) {
   if (activePane) activePane.classList.remove('hidden');
 
   // Trigger refresh on specific tabs
-  if (tabId === 'stok') {
+  if (tabId === 'pembelian') {
+    if (typeof renderPurchaseModule === 'function') renderPurchaseModule();
+  } else if (tabId === 'stok') {
     renderInventoryTable();
     updateInventoryStats();
   } else if (tabId === 'riwayat') {
     renderTransactionHistory();
+    if (typeof updateExpenseStats === 'function') updateExpenseStats();
   } else if (tabId === 'pengaturan') {
     populateSettingsForm();
     if (typeof populateFirebaseSettingsForm === 'function') populateFirebaseSettingsForm();
@@ -1763,6 +1768,9 @@ function renderTransactionHistory() {
   if (omzetEl) omzetEl.textContent = formatRupiah(totalOmzet);
   if (profitEl) profitEl.textContent = formatRupiah(totalProfit);
   if (totalTrxEl) totalTrxEl.textContent = transactions.length;
+
+  // Sinkronkan Arus Kas & Pengeluaran Distributor
+  if (typeof updateExpenseStats === 'function') updateExpenseStats();
 
   // Render Charts
   setTimeout(renderAnalyticsCharts, 50);
