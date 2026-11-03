@@ -29,6 +29,9 @@
   <!-- html5-qrcode library (Local offline fallback & CDN) -->
   <script src="html5-qrcode.min.js"></script>
 
+  <!-- Chart.js for Visual Sales Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -532,23 +535,78 @@
       
       <!-- Ringkasan Finansial Penjualan -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Total Omzet Penjualan</div>
-          <div id="report-total-omzet" class="text-2xl font-black text-emerald-600 mt-1">Rp 0</div>
-          <div class="text-xs text-slate-400 mt-0.5">Dari seluruh transaksi tercatat</div>
+        <div class="card-elevation p-5 rounded-2xl border border-slate-200">
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
+            <span>Total Omzet Penjualan</span>
+            <span class="p-1 rounded bg-emerald-50 text-emerald-600 text-xs">📈</span>
+          </div>
+          <div id="report-total-omzet" class="text-2xl sm:text-3xl font-black text-emerald-600 mt-1 font-mono-numbers">Rp 0</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Dari seluruh transaksi tercatat</div>
         </div>
         
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Estimasi Laba Bersih (Profit)</div>
-          <div id="report-total-profit" class="text-2xl font-black text-teal-600 mt-1">Rp 0</div>
-          <div class="text-xs text-slate-400 mt-0.5">(Harga Jual - Harga Beli)</div>
+        <div class="card-elevation p-5 rounded-2xl border border-slate-200">
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
+            <span>Estimasi Laba Bersih</span>
+            <span class="p-1 rounded bg-teal-50 text-teal-600 text-xs">💰</span>
+          </div>
+          <div id="report-total-profit" class="text-2xl sm:text-3xl font-black text-teal-700 mt-1 font-mono-numbers">Rp 0</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">(Harga Jual - Harga Beli)</div>
         </div>
 
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Jumlah Transaksi Selesai</div>
-          <div id="report-total-trx" class="text-2xl font-black text-slate-800 mt-1">0</div>
-          <div class="text-xs text-slate-400 mt-0.5">Struk berhasil diterbitkan</div>
+        <div class="card-elevation p-5 rounded-2xl border border-slate-200">
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider flex items-center justify-between">
+            <span>Transaksi Selesai</span>
+            <span class="p-1 rounded bg-blue-50 text-blue-600 text-xs">🧾</span>
+          </div>
+          <div id="report-total-trx" class="text-2xl sm:text-3xl font-black text-slate-800 mt-1 font-mono-numbers">0</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Struk berhasil diterbitkan</div>
         </div>
+      </div>
+
+      <!-- GRAFIK VISUAL OMZET & LABA PER HARI / PER BULAN (FITUR BARU) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+        <!-- Grafik Tren Omzet & Laba (8 Kolom) -->
+        <div class="lg:col-span-8 card-elevation p-5 rounded-2xl border border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+            <div>
+              <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                <span>📊</span> Grafik Tren Penjualan & Laba Bersih
+              </h3>
+              <p class="text-[11px] text-slate-400">Pantau pertumbuhan omzet apotek secara visual</p>
+            </div>
+            
+            <!-- Filter Mode Harian vs Bulanan -->
+            <div class="flex items-center bg-slate-100 p-1 rounded-xl text-xs">
+              <button type="button" onclick="setChartPeriod('daily')" id="btn-chart-daily" class="px-3 py-1 rounded-lg font-bold bg-white text-emerald-700 shadow-xs transition-all">
+                Harian (7 Hari)
+              </button>
+              <button type="button" onclick="setChartPeriod('monthly')" id="btn-chart-monthly" class="px-3 py-1 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition-all">
+                Bulanan (2026)
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas Chart.js -->
+          <div class="relative w-full h-[240px]">
+            <canvas id="salesTrendsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Diagram Donut Top 5 Obat Terlaris (4 Kolom) -->
+        <div class="lg:col-span-4 card-elevation p-5 rounded-2xl border border-slate-200 flex flex-col">
+          <div class="mb-3 pb-2 border-b border-slate-100">
+            <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+              <span>🏆</span> Top 5 Obat Terlaris
+            </h3>
+            <p class="text-[11px] text-slate-400">Produk paling banyak dibeli pelanggan</p>
+          </div>
+
+          <div class="relative flex-1 flex items-center justify-center min-h-[200px]">
+            <canvas id="topProductsChart"></canvas>
+          </div>
+        </div>
+
       </div>
 
       <!-- Tabel Riwayat Penjualan -->

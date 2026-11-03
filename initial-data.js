@@ -143,17 +143,117 @@ const SAMPLE_TRANSACTIONS = [
     id: "TRX-20261103-0001",
     waktu: "2026-11-03T10:15:00",
     items: [
-      { id: "med-1", barcode: "8992753210103", nama: "Panadol Biru 500 mg", hargaJual: 14500, hargaBeli: 11500, qty: 1, subtotal: 14500 },
-      { id: "med-3", barcode: "8991389221019", nama: "Tolak Angin Cair Herbal", hargaJual: 4500, hargaBeli: 3400, qty: 3, subtotal: 13500 }
+      { id: "med-1", barcode: "8992753210103", nama: "Panadol Biru 500 mg", hargaJual: 14500, hargaBeli: 11500, qty: 2, subtotal: 29000 },
+      { id: "med-3", barcode: "8991389221019", nama: "Tolak Angin Cair Herbal", hargaJual: 4500, hargaBeli: 3400, qty: 4, subtotal: 18000 }
     ],
-    totalItem: 4,
-    subtotal: 28000,
+    totalItem: 6,
+    subtotal: 47000,
     diskon: 0,
-    totalAkhir: 28000,
+    totalAkhir: 47000,
     metodeBayar: "Tunai",
     nominalBayar: 50000,
-    kembalian: 22000,
-    keuntungan: (14500 - 11500) + (13500 - (3400 * 3)), // 3000 + 3300 = 6300
+    kembalian: 3000,
+    keuntungan: ((14500 - 11500) * 2) + ((4500 - 3400) * 4), // 6000 + 4400 = 10400
+    kasir: "Kasir 1"
+  },
+  {
+    id: "TRX-20261102-0042",
+    waktu: "2026-11-02T16:20:00",
+    items: [
+      { id: "med-2", barcode: "8999908001201", nama: "Promag Tablet Kunyah", hargaJual: 11000, hargaBeli: 8500, qty: 3, subtotal: 33000 },
+      { id: "med-6", barcode: "8993005110198", nama: "Sanmol Sirup 60 ml", hargaJual: 24000, hargaBeli: 19000, qty: 1, subtotal: 24000 }
+    ],
+    totalItem: 4,
+    subtotal: 57000,
+    diskon: 2000,
+    totalAkhir: 55000,
+    metodeBayar: "QRIS",
+    nominalBayar: 55000,
+    kembalian: 0,
+    keuntungan: ((11000 - 8500) * 3) + ((24000 - 19000) * 1) - 2000, // 7500 + 5000 - 2000 = 10500
+    kasir: "Kasir 1"
+  },
+  {
+    id: "TRX-20261101-0089",
+    waktu: "2026-11-01T14:10:00",
+    items: [
+      { id: "med-5", barcode: "8992770010041", nama: "Betadine Antiseptic Solution 15 ml", hargaJual: 18500, hargaBeli: 14500, qty: 2, subtotal: 37000 },
+      { id: "med-8", barcode: "8997012345678", nama: "Hansaplast Plester Kain", hargaJual: 7500, hargaBeli: 5000, qty: 3, subtotal: 22500 }
+    ],
+    totalItem: 5,
+    subtotal: 59500,
+    diskon: 0,
+    totalAkhir: 59500,
+    metodeBayar: "Tunai",
+    nominalBayar: 100000,
+    kembalian: 40500,
+    keuntungan: ((18500 - 14500) * 2) + ((7500 - 5000) * 3), // 8000 + 7500 = 15500
+    kasir: "Kasir 1"
+  },
+  {
+    id: "TRX-20261031-0112",
+    waktu: "2026-10-31T11:45:00",
+    items: [
+      { id: "med-1", barcode: "8992753210103", nama: "Panadol Biru 500 mg", hargaJual: 14500, hargaBeli: 11500, qty: 3, subtotal: 43500 },
+      { id: "med-4", barcode: "8998866100112", nama: "Bodrex Sakit Kepala", hargaJual: 6500, hargaBeli: 4500, qty: 4, subtotal: 26000 }
+    ],
+    totalItem: 7,
+    subtotal: 69500,
+    diskon: 0,
+    totalAkhir: 69500,
+    metodeBayar: "Transfer",
+    nominalBayar: 69500,
+    kembalian: 0,
+    keuntungan: ((14500 - 11500) * 3) + ((6500 - 4500) * 4), // 9000 + 8000 = 17000
+    kasir: "Kasir 1"
+  },
+  {
+    id: "TRX-20261030-0077",
+    waktu: "2026-10-30T19:30:00",
+    items: [
+      { id: "med-7", barcode: "8991002100877", nama: "Amoxicillin 500 mg Kaplet", hargaJual: 11000, hargaBeli: 6000, qty: 3, subtotal: 33000 },
+      { id: "med-3", barcode: "8991389221019", nama: "Tolak Angin Cair Herbal", hargaJual: 4500, hargaBeli: 3400, qty: 5, subtotal: 22500 }
+    ],
+    totalItem: 8,
+    subtotal: 55500,
+    diskon: 0,
+    totalAkhir: 55500,
+    metodeBayar: "Tunai",
+    nominalBayar: 60000,
+    kembalian: 4500,
+    keuntungan: ((11000 - 6000) * 3) + ((4500 - 3400) * 5), // 15000 + 5500 = 20500
+    kasir: "Kasir 1"
+  },
+  {
+    id: "TRX-20261029-0051",
+    waktu: "2026-10-29T15:20:00",
+    items: [
+      { id: "med-2", barcode: "8999908001201", nama: "Promag Tablet Kunyah", hargaJual: 11000, hargaBeli: 8500, qty: 4, subtotal: 44000 }
+    ],
+    totalItem: 4,
+    subtotal: 44000,
+    diskon: 0,
+    totalAkhir: 44000,
+    metodeBayar: "Tunai",
+    nominalBayar: 50000,
+    kembalian: 6000,
+    keuntungan: (11000 - 8500) * 4, // 10000
+    kasir: "Kasir 1"
+  },
+  {
+    id: "TRX-20261028-0033",
+    waktu: "2026-10-28T09:15:00",
+    items: [
+      { id: "med-1", barcode: "8992753210103", nama: "Panadol Biru 500 mg", hargaJual: 14500, hargaBeli: 11500, qty: 4, subtotal: 58000 }
+    ],
+    totalItem: 4,
+    subtotal: 58000,
+    diskon: 0,
+    totalAkhir: 58000,
+    metodeBayar: "QRIS",
+    nominalBayar: 58000,
+    kembalian: 0,
+    keuntungan: (14500 - 11500) * 4, // 12000
     kasir: "Kasir 1"
   }
 ];

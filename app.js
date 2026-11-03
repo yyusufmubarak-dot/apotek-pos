@@ -1456,8 +1456,206 @@ function resetToInitialData() {
 }
 
 // =========================================================================
-// TAB 3: RIWAYAT PENJUALAN & LAPORAN
+// TAB 3: RIWAYAT PENJUALAN, LAPORAN & GRAFIK VISUAL (CHART.JS)
 // =========================================================================
+let salesChartInstance = null;
+let topProductsChartInstance = null;
+let currentChartPeriod = 'daily';
+
+function setChartPeriod(period) {
+  currentChartPeriod = period;
+  const btnDaily = document.getElementById('btn-chart-daily');
+  const btnMonthly = document.getElementById('btn-chart-monthly');
+
+  if (period === 'daily') {
+    btnDaily.className = 'px-3 py-1 rounded-lg font-bold bg-white text-emerald-700 shadow-xs transition-all';
+    btnMonthly.className = 'px-3 py-1 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition-all';
+  } else {
+    btnMonthly.className = 'px-3 py-1 rounded-lg font-bold bg-white text-emerald-700 shadow-xs transition-all';
+    btnDaily.className = 'px-3 py-1 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition-all';
+  }
+
+  renderAnalyticsCharts();
+}
+
+function renderAnalyticsCharts() {
+  if (typeof Chart === 'undefined') return;
+
+  const salesCanvas = document.getElementById('salesTrendsChart');
+  const topCanvas = document.getElementById('topProductsChart');
+  if (!salesCanvas || !topCanvas) return;
+
+  // 1. Data Processing untuk Grafik Tren
+  let labels = [];
+  let omzetData = [];
+  let profitData = [];
+
+  if (currentChartPeriod === 'daily') {
+    // 7 Hari Terakhir
+    const daysMap = {};
+    const now = new Date();
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(now);
+      d.setDate(d.getDate() - i);
+      const key = d.toISOString().split('T')[0];
+      const label = d.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' });
+      daysMap[key] = { label, omzet: 0, profit: 0 };
+    }
+
+    transactions.forEach(t => {
+      const dateKey = t.waktu.split('T')[0];
+      if (daysMap[dateKey]) {
+        daysMap[dateKey].omzet += t.totalAkhir;
+        daysMap[dateKey].profit += (t.keuntungan || 0);
+      }
+    });
+
+    Object.values(daysMap).forEach(v => {
+      labels.push(v.label);
+      omzetData.push(v.omzet);
+      profitData.push(v.profit);
+    });
+
+  } else {
+    // Bulanan Tahun 2026
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+    const monthOmzet = new Array(12).fill(0);
+    const monthProfit = new Array(12).fill(0);
+
+    transactions.forEach(t => {
+      const d = new Date(t.waktu);
+      const mIdx = d.getMonth();
+      monthOmzet[mIdx] += t.totalAkhir;
+      monthProfit[mIdx] += (t.keuntungan || 0);
+    });
+
+    labels = months;
+    omzetData = monthOmzet;
+    profitData = monthProfit;
+  }
+
+  // Render / Update Sales Trends Chart
+  if (salesChartInstance) {
+    salesChartInstance.destroy();
+  }
+
+  salesChartInstance = new Chart(salesCanvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Omzet Penjualan (Rp)',
+          data: omzetData,
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          fill: true,
+          tension: 0.35,
+          borderWidth: 2.5,
+          pointBackgroundColor: '#059669',
+          pointRadius: 4,
+          pointHoverRadius: 6
+        },
+        {
+          label: 'Laba Bersih (Rp)',
+          data: profitData,
+          borderColor: '#0284c7',
+          backgroundColor: 'transparent',
+          borderDash: [5, 5],
+          tension: 0.35,
+          borderWidth: 2,
+          pointBackgroundColor: '#0284c7',
+          pointRadius: 3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: {
+            boxWidth: 12,
+            font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' }
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.dataset.label}: ${formatRupiah(context.raw)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return 'Rp ' + (value >= 1000 ? (value / 1000) + 'k' : value);
+            },
+            font: { family: 'JetBrains Mono', size: 10 }
+          },
+          grid: { color: 'rgba(226, 232, 240, 0.6)' }
+        },
+        x: {
+          ticks: { font: { family: 'Plus Jakarta Sans', size: 10 } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+
+  // 2. Data Processing untuk Top 5 Obat Terlaris
+  const productQtyMap = {};
+  transactions.forEach(t => {
+    t.items.forEach(it => {
+      productQtyMap[it.nama] = (productQtyMap[it.nama] || 0) + it.qty;
+    });
+  });
+
+  const sortedProducts = Object.entries(productQtyMap)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+
+  const topLabels = sortedProducts.map(p => p[0]);
+  const topQuantities = sortedProducts.map(p => p[1]);
+
+  if (topProductsChartInstance) {
+    topProductsChartInstance.destroy();
+  }
+
+  topProductsChartInstance = new Chart(topCanvas, {
+    type: 'doughnut',
+    data: {
+      labels: topLabels.length > 0 ? topLabels : ['Belum Ada Data'],
+      datasets: [{
+        data: topQuantities.length > 0 ? topQuantities : [1],
+        backgroundColor: [
+          '#10b981', '#06b6d4', '#6366f1', '#f59e0b', '#ec4899'
+        ],
+        borderWidth: 2,
+        borderColor: '#ffffff'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            boxWidth: 10,
+            font: { family: 'Plus Jakarta Sans', size: 10 }
+          }
+        }
+      },
+      cutout: '65%'
+    }
+  });
+}
+
 function renderTransactionHistory() {
   const tbody = document.getElementById('transaction-table-body');
   const omzetEl = document.getElementById('report-total-omzet');
@@ -1472,6 +1670,9 @@ function renderTransactionHistory() {
   if (omzetEl) omzetEl.textContent = formatRupiah(totalOmzet);
   if (profitEl) profitEl.textContent = formatRupiah(totalProfit);
   if (totalTrxEl) totalTrxEl.textContent = transactions.length;
+
+  // Render Charts
+  setTimeout(renderAnalyticsCharts, 50);
 
   if (transactions.length === 0) {
     tbody.innerHTML = `
