@@ -1369,12 +1369,35 @@ function quickAddStock(id, amount) {
 function deleteProduct(id) {
   const med = medicines.find(m => m.id === id);
   if (!med) return;
-  if (confirm(`Yakin ingin menghapus obat "${med.nama}" (Barcode: ${med.barcode}) dari data apotek?`)) {
-    medicines = medicines.filter(m => m.id !== id);
-    saveMedicinesToStorage();
-    if (typeof syncDeleteMedicineFromCloud === 'function') syncDeleteMedicineFromCloud(id);
-    renderInventoryTable();
-    showToast(`Obat ${med.nama} telah dihapus.`, 'info');
+  if (typeof requireOwnerPIN === 'function') {
+    requireOwnerPIN(`Hapus Obat "${med.nama}"`, () => {
+      medicines = medicines.filter(m => m.id !== id);
+      saveMedicinesToStorage();
+      if (typeof syncDeleteMedicineFromCloud === 'function') syncDeleteMedicineFromCloud(id);
+      renderInventoryTable();
+      showToast(`Obat ${med.nama} telah dihapus.`, 'info');
+    });
+  } else {
+    if (confirm(`Yakin ingin menghapus obat "${med.nama}" (Barcode: ${med.barcode})?`)) {
+      medicines = medicines.filter(m => m.id !== id);
+      saveMedicinesToStorage();
+      if (typeof syncDeleteMedicineFromCloud === 'function') syncDeleteMedicineFromCloud(id);
+      renderInventoryTable();
+      showToast(`Obat ${med.nama} telah dihapus.`, 'info');
+    }
+  }
+}
+
+// Handler Submit Ubah PIN Owner
+function handleUpdatePinSubmit(e) {
+  e.preventDefault();
+  const input = document.getElementById('setting-new-pin');
+  if (!input) return;
+  const newPin = input.value.trim();
+  if (typeof setOwnerPIN === 'function') {
+    if (setOwnerPIN(newPin)) {
+      input.value = '';
+    }
   }
 }
 
