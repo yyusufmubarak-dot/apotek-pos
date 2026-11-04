@@ -1361,24 +1361,31 @@ function handleSearchKasir(query) {
   const resultsBox = document.getElementById('search-kasir-results');
   if (!resultsBox) return;
 
-  if (!q || q.length < 2) {
+  if (!q || q.length < 1) {
     resultsBox.classList.add('hidden');
     resultsBox.innerHTML = '';
     return;
   }
 
-  const matched = medicines.filter(m => 
-    (m.nama && m.nama.toLowerCase().includes(q)) || 
-    (m.barcode && String(m.barcode).toLowerCase().includes(q)) ||
-    (m.produsen && m.produsen.toLowerCase().includes(q)) ||
-    (m.indikasi && m.indikasi.toLowerCase().includes(q))
-  ).slice(0, 8);
+  // Multi-token search (contoh: "amlo 10", "amox 500", "panadol biru")
+  const terms = q.split(/\s+/).filter(Boolean);
+
+  const matched = (medicines || []).filter(m => {
+    if (!m) return false;
+    const nama = String(m.nama || '').toLowerCase();
+    const barcode = String(m.barcode || '').toLowerCase();
+    const produsen = String(m.produsen || '').toLowerCase();
+    const indikasi = String(m.indikasi || '').toLowerCase();
+    const kategori = String(m.kategori || '').toLowerCase();
+    const combined = `${nama} ${barcode} ${produsen} ${indikasi} ${kategori}`;
+    return terms.every(t => combined.includes(t));
+  }).slice(0, 10);
 
   if (matched.length === 0) {
     resultsBox.innerHTML = `
       <div class="p-4 text-center text-slate-400 dark:text-zinc-500 text-xs space-y-1">
         <p>Obat <span class="font-bold text-slate-700 dark:text-zinc-300">"${escapeHtml(query)}"</span> tidak ditemukan di katalog.</p>
-        <p class="text-[10px] text-slate-400">Tekan Enter untuk mendaftarkan barcode / obat baru.</p>
+        <p class="text-[10px] text-slate-400">Tekan Enter atau klik Cari untuk mendaftarkan barcode / obat baru.</p>
       </div>
     `;
     resultsBox.classList.remove('hidden');
@@ -1390,10 +1397,10 @@ function handleSearchKasir(query) {
       <div class="flex-1 min-w-0 pr-3">
         <div class="font-bold text-slate-900 dark:text-zinc-100 text-xs group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">${escapeHtml(m.nama)}</div>
         <div class="text-[10px] text-slate-500 dark:text-zinc-400 font-mono mt-0.5 flex items-center gap-2">
-          <span class="tabular-nums">${m.barcode}</span>
+          <span class="tabular-nums font-bold text-slate-600 dark:text-zinc-300">${m.barcode}</span>
           <span>&bull;</span>
           <span class="px-1.5 py-0.2 rounded font-sans font-semibold ${m.stok <= 5 ? 'bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-400' : 'bg-slate-100 text-slate-700 dark:bg-zinc-800 dark:text-zinc-300'}">
-            Sisa: ${m.stok} ${m.satuan}
+            Sisa: ${m.stok} ${m.satuan || 'Pcs'}
           </span>
           ${m.produsen ? `<span class="text-slate-400 font-sans">&bull; ${escapeHtml(m.produsen)}</span>` : ''}
         </div>
@@ -1418,7 +1425,7 @@ function handleKasirSearch(query) {
 window.handleKasirSearch = handleSearchKasir;
 window.handleSearchKasir = handleSearchKasir;
 
-// Handle Submit Enter pada Kolom Pencarian / Barcode Kasir
+// Handle Submit Enter / Klik Cari pada Kolom Pencarian Kasir
 function handleKasirSearchSubmit(e) {
   if (e) e.preventDefault();
   const input = document.getElementById('input-search-kasir');
@@ -1426,23 +1433,23 @@ function handleKasirSearchSubmit(e) {
   const val = input.value.trim();
   if (!val) return;
 
-  // Cek apakah barcode cocok persis
+  // 1. Cek apakah barcode cocok persis
   const exactBarcode = medicines.find(m => String(m.barcode) === val);
   if (exactBarcode) {
     selectKasirSearchResult(exactBarcode.id);
     return;
   }
 
-  // Cek apakah ada obat yang cocok di hasil pencarian
-  const q = val.toLowerCase();
-  const matched = medicines.filter(m => 
-    (m.nama && m.nama.toLowerCase().includes(q)) || 
-    (m.barcode && String(m.barcode).includes(q)) ||
-    (m.indikasi && m.indikasi.toLowerCase().includes(q))
-  );
+  // 2. Cek apakah ada obat yang cocok dengan kata kunci
+  const terms = val.toLowerCase().split(/\s+/).filter(Boolean);
+  const matched = (medicines || []).filter(m => {
+    if (!m) return false;
+    const combined = `${m.nama || ''} ${m.barcode || ''} ${m.produsen || ''} ${m.indikasi || ''} ${m.kategori || ''}`.toLowerCase();
+    return terms.every(t => combined.includes(t));
+  });
 
   if (matched.length > 0) {
-    // Pilih obat pertama yang cocok
+    // Pilih obat pertama yang paling cocok langsung ke keranjang
     selectKasirSearchResult(matched[0].id);
   } else {
     // Jika tidak ditemukan dan berupa angka barcode atau kode baru, buka modal registrasi obat baru
@@ -1456,7 +1463,7 @@ function selectKasirSearchResult(id) {
   if (med) {
     sfx.playBeep();
     addProductToCart(med);
-    showToast(`✅ ${med.nama} ditambahkan ke keranjang`, 'success');
+    showToast(`🛒 ${med.nama} ditambahkan ke keranjang`, 'success');
   }
   const resultsBox = document.getElementById('search-kasir-results');
   if (resultsBox) {
@@ -1469,6 +1476,28 @@ function selectKasirSearchResult(id) {
     renderPosQuickGrid(currentPosGridCategory, '');
   }
 }
+window.selectKasirSearchResult = selectKasirSearchResult;
+
+// Fungsi Force Refresh / Muat Ulang Pembaruan Sistem (Hapus Cache Browser Otomatis)
+async function forceRefreshSystem() {
+  showToast('Memperbarui sistem & membersihkan cache browser...', 'info');
+  if ('caches' in window) {
+    try {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    } catch (e) {
+      console.warn("Cache delete error:", e);
+    }
+  }
+  try {
+    sessionStorage.clear();
+  } catch (e) {}
+
+  // Hard reload dengan query string unik agar bypass disk cache browser
+  const reloadUrl = window.location.origin + window.location.pathname + '?_update=' + Date.now();
+  window.location.replace(reloadUrl);
+}
+window.forceRefreshSystem = forceRefreshSystem;
 
 // =========================================================================
 // TAB 2: KATALOG OBAT & MANAJEMEN STOK (INVENTORY)
