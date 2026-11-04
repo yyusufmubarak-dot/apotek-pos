@@ -1348,32 +1348,37 @@ function startNewTransaction() {
   document.getElementById('input-search-kasir').value = '';
 }
 
-// Pencarian Cepat Obat di Kasir (Jika barcode rusak)
+// Pencarian Cepat Obat di Kasir (Bisa cari Nama Obat, Barcode, Indikasi KIE, Produsen)
 function handleSearchKasir(query) {
+  const q = (query || '').toLowerCase().trim();
+
+  // 1. Filter Grid Obat Cepat di bawah
   if (typeof renderPosQuickGrid === 'function') {
-    renderPosQuickGrid(currentPosGridCategory, query);
+    renderPosQuickGrid(currentPosGridCategory, q);
   }
+
+  // 2. Dropdown Hasil Pencarian Melayang
   const resultsBox = document.getElementById('search-kasir-results');
   if (!resultsBox) return;
 
-  if (!query || query.trim().length < 2) {
+  if (!q || q.length < 2) {
     resultsBox.classList.add('hidden');
     resultsBox.innerHTML = '';
     return;
   }
 
-  const q = query.toLowerCase().trim();
   const matched = medicines.filter(m => 
-    m.nama.toLowerCase().includes(q) || 
-    m.barcode.includes(q) ||
+    (m.nama && m.nama.toLowerCase().includes(q)) || 
+    (m.barcode && String(m.barcode).toLowerCase().includes(q)) ||
     (m.produsen && m.produsen.toLowerCase().includes(q)) ||
     (m.indikasi && m.indikasi.toLowerCase().includes(q))
-  ).slice(0, 6);
+  ).slice(0, 8);
 
   if (matched.length === 0) {
     resultsBox.innerHTML = `
-      <div class="p-3 text-center text-slate-400 text-xs">
-        Obat tidak ditemukan.
+      <div class="p-4 text-center text-slate-400 dark:text-zinc-500 text-xs space-y-1">
+        <p>Obat <span class="font-bold text-slate-700 dark:text-zinc-300">"${escapeHtml(query)}"</span> tidak ditemukan di katalog.</p>
+        <p class="text-[10px] text-slate-400">Tekan Enter untuk mendaftarkan barcode / obat baru.</p>
       </div>
     `;
     resultsBox.classList.remove('hidden');
@@ -1381,22 +1386,22 @@ function handleSearchKasir(query) {
   }
 
   resultsBox.innerHTML = matched.map(m => `
-    <div class="p-3 hover:bg-emerald-50/70 cursor-pointer flex items-center justify-between transition-all border-b border-slate-100 last:border-b-0 group" onclick="selectKasirSearchResult('${m.id}')">
+    <div class="p-3 hover:bg-emerald-50/70 dark:hover:bg-zinc-800/80 cursor-pointer flex items-center justify-between transition-all border-b border-slate-100 dark:border-zinc-800 last:border-b-0 group" onclick="selectKasirSearchResult('${m.id}')">
       <div class="flex-1 min-w-0 pr-3">
-        <div class="font-bold text-slate-900 text-xs group-hover:text-emerald-700 transition-colors">${escapeHtml(m.nama)}</div>
-        <div class="text-[10px] text-slate-500 font-mono mt-0.5 flex items-center gap-2">
+        <div class="font-bold text-slate-900 dark:text-zinc-100 text-xs group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">${escapeHtml(m.nama)}</div>
+        <div class="text-[10px] text-slate-500 dark:text-zinc-400 font-mono mt-0.5 flex items-center gap-2">
           <span class="tabular-nums">${m.barcode}</span>
-          <span>•</span>
-          <span class="px-1.5 py-0.2 rounded font-sans font-semibold ${m.stok <= 5 ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-700'}">
+          <span>&bull;</span>
+          <span class="px-1.5 py-0.2 rounded font-sans font-semibold ${m.stok <= 5 ? 'bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-400' : 'bg-slate-100 text-slate-700 dark:bg-zinc-800 dark:text-zinc-300'}">
             Sisa: ${m.stok} ${m.satuan}
           </span>
-          ${m.produsen ? `<span class="text-slate-400 font-sans">• ${escapeHtml(m.produsen)}</span>` : ''}
+          ${m.produsen ? `<span class="text-slate-400 font-sans">&bull; ${escapeHtml(m.produsen)}</span>` : ''}
         </div>
-        ${m.indikasi ? `<div class="pill-indikasi mt-1.5"><i data-lucide="stethoscope" class="w-3 h-3 text-cyan-400 flex-shrink-0"></i> <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
+        ${m.indikasi ? `<div class="pill-indikasi mt-1.5"><i data-lucide="stethoscope" class="w-3 h-3 text-cyan-600 dark:text-cyan-400 shrink-0"></i> <b>Indikasi:</b> ${escapeHtml(m.indikasi)}</div>` : ''}
       </div>
-      <div class="text-right flex-shrink-0">
-        <div class="font-black text-emerald-700 text-xs font-mono tabular-nums tracking-tight">${formatRupiah(m.hargaJual)}</div>
-        <span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 mt-1 bg-emerald-600 text-white rounded-md font-bold shadow-xs group-hover:bg-emerald-700 transition-all">
+      <div class="text-right shrink-0">
+        <div class="font-black text-emerald-600 dark:text-emerald-400 text-xs font-mono tabular-nums tracking-tight">${formatRupiah(m.hargaJual)}</div>
+        <span class="inline-flex items-center gap-1 text-[10px] px-2.5 py-1 mt-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold shadow-xs transition-all cursor-pointer">
           + Tambah
         </span>
       </div>
@@ -1404,7 +1409,47 @@ function handleSearchKasir(query) {
   `).join('');
 
   resultsBox.classList.remove('hidden');
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 }
+
+function handleKasirSearch(query) {
+  handleSearchKasir(query);
+}
+window.handleKasirSearch = handleSearchKasir;
+window.handleSearchKasir = handleSearchKasir;
+
+// Handle Submit Enter pada Kolom Pencarian / Barcode Kasir
+function handleKasirSearchSubmit(e) {
+  if (e) e.preventDefault();
+  const input = document.getElementById('input-search-kasir');
+  if (!input) return;
+  const val = input.value.trim();
+  if (!val) return;
+
+  // Cek apakah barcode cocok persis
+  const exactBarcode = medicines.find(m => String(m.barcode) === val);
+  if (exactBarcode) {
+    selectKasirSearchResult(exactBarcode.id);
+    return;
+  }
+
+  // Cek apakah ada obat yang cocok di hasil pencarian
+  const q = val.toLowerCase();
+  const matched = medicines.filter(m => 
+    (m.nama && m.nama.toLowerCase().includes(q)) || 
+    (m.barcode && String(m.barcode).includes(q)) ||
+    (m.indikasi && m.indikasi.toLowerCase().includes(q))
+  );
+
+  if (matched.length > 0) {
+    // Pilih obat pertama yang cocok
+    selectKasirSearchResult(matched[0].id);
+  } else {
+    // Jika tidak ditemukan dan berupa angka barcode atau kode baru, buka modal registrasi obat baru
+    handleBarcodeScanned(val);
+  }
+}
+window.handleKasirSearchSubmit = handleKasirSearchSubmit;
 
 function selectKasirSearchResult(id) {
   const med = medicines.find(m => m.id === id);
