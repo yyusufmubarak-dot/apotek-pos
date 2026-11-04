@@ -1459,8 +1459,15 @@ function selectKasirSearchResult(id) {
     showToast(`✅ ${med.nama} ditambahkan ke keranjang`, 'success');
   }
   const resultsBox = document.getElementById('search-kasir-results');
-  if (resultsBox) resultsBox.classList.add('hidden');
-  document.getElementById('input-search-kasir').value = '';
+  if (resultsBox) {
+    resultsBox.classList.add('hidden');
+    resultsBox.innerHTML = '';
+  }
+  const input = document.getElementById('input-search-kasir');
+  if (input) input.value = '';
+  if (typeof renderPosQuickGrid === 'function') {
+    renderPosQuickGrid(currentPosGridCategory, '');
+  }
 }
 
 // =========================================================================
@@ -2266,16 +2273,19 @@ function renderPosQuickGrid(category = 'ALL', searchQuery = '') {
 
   if (searchQuery && searchQuery.trim().length > 0) {
     const q = searchQuery.toLowerCase().trim();
-    filtered = filtered.filter(m => 
-      m.nama.toLowerCase().includes(q) || 
-      m.barcode.includes(q) || 
-      (m.indikasi && m.indikasi.toLowerCase().includes(q))
-    );
+    filtered = (filtered || []).filter(m => {
+      if (!m) return false;
+      const nama = String(m.nama || '').toLowerCase();
+      const barcode = String(m.barcode || '').toLowerCase();
+      const indikasi = String(m.indikasi || '').toLowerCase();
+      const produsen = String(m.produsen || '').toLowerCase();
+      return nama.includes(q) || barcode.includes(q) || indikasi.includes(q) || produsen.includes(q);
+    });
   } else {
     // If no search query, prioritize popular top medicines
     const popularNames = ['panadol', 'promag', 'amoxicillin', 'tolak angin', 'acetylcysteine', 'bodrex', 'sanmol', 'betadine', 'diapet', 'insto', 'mylanta', 'dumin', 'antimo', 'komix'];
-    const popularMatches = filtered.filter(m => popularNames.some(p => m.nama.toLowerCase().includes(p)));
-    const others = filtered.filter(m => !popularNames.some(p => m.nama.toLowerCase().includes(p)));
+    const popularMatches = (filtered || []).filter(m => m && m.nama && popularNames.some(p => String(m.nama).toLowerCase().includes(p)));
+    const others = (filtered || []).filter(m => m && (!m.nama || !popularNames.some(p => String(m.nama).toLowerCase().includes(p))));
     filtered = [...popularMatches, ...others];
   }
 
@@ -2423,3 +2433,14 @@ function populatePaymentSettingsToUI() {
 
   renderQrisSettingsPreview();
 }
+
+// Tutup dropdown hasil pencarian jika klik di luar
+document.addEventListener('click', (e) => {
+  const searchBox = document.getElementById('search-kasir-results');
+  const searchInput = document.getElementById('input-search-kasir');
+  if (searchBox && !searchBox.classList.contains('hidden')) {
+    if (searchInput && !searchInput.contains(e.target) && !searchBox.contains(e.target)) {
+      searchBox.classList.add('hidden');
+    }
+  }
+});

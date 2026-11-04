@@ -89,25 +89,237 @@ function generateNewPurchaseInvoiceNumber() {
   }
 }
 
+// Master Rekomendasi PBF / Distributor Default
+const DEFAULT_PBF_LIST = [
+  "PBF Enseval Putera Megatrading",
+  "PBF Kimia Farma Trading & Distribution",
+  "PBF Parit Padang Global",
+  "PBF Mensa Binasukses",
+  "PBF Dos Ni Roha",
+  "PBF Bina San Prima",
+  "PBF Anugrah Argon Medica",
+  "PBF Rajawali Nusindo",
+  "PBF Antar Mitra Sembada",
+  "PBF Penta Valent",
+  "PBF Millenium Pharmacon International",
+  "PBF Tri Sapta Jaya",
+  "PBF Surya Farma",
+  "PBF Kebayoran Pharma",
+  "PBF Tempo Scan Pasific"
+];
+
+// Ambil daftar PBF Kustom dari LocalStorage
+function getCustomDistributors() {
+  try {
+    const raw = localStorage.getItem('apotek_custom_pbfs');
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// Ambil semua PBF (Default + Kustom + Riwayat Faktur Lama)
+function getAllDistributors() {
+  const customItems = getCustomDistributors();
+  const customNames = customItems.map(p => (typeof p === 'string' ? p : p.nama)).filter(Boolean);
+  const historyNames = (purchases || []).map(p => p.supplier).filter(Boolean);
+
+  const combined = Array.from(new Set([...DEFAULT_PBF_LIST, ...customNames, ...historyNames]))
+    .map(s => String(s || '').trim())
+    .filter(s => s.length > 0)
+    .sort((a, b) => a.localeCompare(b, 'id'));
+
+  return combined;
+}
+
+// Tambah Distributor / PBF Baru ke LocalStorage
+function addCustomDistributor(name, sales = '', phone = '', address = '') {
+  const trimmed = String(name || '').trim();
+  if (!trimmed) return false;
+
+  const customList = getCustomDistributors();
+  const existsIdx = customList.findIndex(p => {
+    const currentName = typeof p === 'string' ? p : p.nama;
+    return String(currentName).toLowerCase() === trimmed.toLowerCase();
+  });
+
+  const entry = {
+    id: `PBF-${Date.now()}`,
+    nama: trimmed,
+    sales: String(sales || '').trim(),
+    phone: String(phone || '').trim(),
+    address: String(address || '').trim(),
+    createdAt: new Date().toISOString()
+  };
+
+  if (existsIdx >= 0) {
+    customList[existsIdx] = entry;
+  } else {
+    customList.push(entry);
+  }
+
+  localStorage.setItem('apotek_custom_pbfs', JSON.stringify(customList));
+  populateSupplierDatalist();
+  return true;
+}
+
+// Hapus Distributor Kustom
+function deleteCustomDistributor(name) {
+  let customList = getCustomDistributors();
+  customList = customList.filter(p => {
+    const currentName = typeof p === 'string' ? p : p.nama;
+    return String(currentName).toLowerCase() !== String(name).toLowerCase();
+  });
+
+  localStorage.setItem('apotek_custom_pbfs', JSON.stringify(customList));
+  populateSupplierDatalist();
+  renderModalPbfList();
+  showToast(`Distributor "${name}" berhasil dihapus dari daftar kustom.`, 'info');
+}
+
 // Datalist Rekomendasi PBF / Distributor
 function populateSupplierDatalist() {
   const datalist = document.getElementById('supplier-list-options');
   if (!datalist) return;
-  const pbfList = [
-    "PBF Enseval Putera Megatrading",
-    "PBF Kimia Farma Trading & Distribution",
-    "PBF Parit Padang Global",
-    "PBF Mensa Binasukses",
-    "PBF Dos Ni Roha",
-    "PBF Bina San Prima",
-    "PBF Anugrah Argon Medica",
-    "PBF Rajawali Nusindo",
-    "PBF Antar Mitra Sembada",
-    "PBF Penta Valent",
-    "PBF Millenium",
-    "PBF Tri Sapta Jaya"
-  ];
-  datalist.innerHTML = pbfList.map(pbf => `<option value="${pbf}">`).join('');
+  const list = getAllDistributors();
+  datalist.innerHTML = list.map(pbf => `<option value="${escapeHtml(pbf)}">`).join('');
+
+  // Update badge jumlah PBF jika ada
+  const badge = document.getElementById('pbf-registered-count-badge');
+  if (badge) {
+    badge.textContent = `${list.length} PBF Rekanan`;
+  }
+}
+
+// Modal Kelola & Tambah PBF
+function openAddPbfModal() {
+  const modal = document.getElementById('modal-pbf-manager');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  renderModalPbfList();
+  setTimeout(() => {
+    const inputName = document.getElementById('modal-pbf-name');
+    if (inputName) {
+      inputName.value = '';
+      inputName.focus();
+    }
+  }, 100);
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function openManagePbfModal() {
+  openAddPbfModal();
+}
+
+function closePbfModal() {
+  const modal = document.getElementById('modal-pbf-manager');
+  if (modal) modal.classList.add('hidden');
+}
+
+function handleSaveNewPbf(e) {
+  if (e) e.preventDefault();
+  const nameInput = document.getElementById('modal-pbf-name');
+  const salesInput = document.getElementById('modal-pbf-sales');
+  const phoneInput = document.getElementById('modal-pbf-phone');
+  const addressInput = document.getElementById('modal-pbf-address');
+
+  if (!nameInput || !nameInput.value.trim()) {
+    showToast("Nama distributor / PBF wajib diisi!", "warning");
+    return;
+  }
+
+  const pbfName = nameInput.value.trim();
+  const salesName = salesInput ? salesInput.value.trim() : '';
+  const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+  const addressVal = addressInput ? addressInput.value.trim() : '';
+
+  addCustomDistributor(pbfName, salesName, phoneVal, addressVal);
+
+  // Otomatis isikan ke input faktur
+  const supplierInput = document.getElementById('input-faktur-supplier');
+  if (supplierInput) {
+    supplierInput.value = pbfName;
+  }
+
+  showToast(`✅ Distributor "${pbfName}" berhasil didaftarkan dan dipilih!`, "success");
+  closePbfModal();
+}
+
+function filterModalPbfList(query) {
+  renderModalPbfList(query);
+}
+
+function renderModalPbfList(searchQuery = '') {
+  const container = document.getElementById('modal-pbf-list-container');
+  const countEl = document.getElementById('modal-pbf-count');
+  if (!container) return;
+
+  const q = String(searchQuery || '').toLowerCase().trim();
+  const customItems = getCustomDistributors();
+  const customMap = new Map();
+  customItems.forEach(item => {
+    const key = (typeof item === 'string' ? item : item.nama).toLowerCase();
+    customMap.set(key, item);
+  });
+
+  const allNames = getAllDistributors();
+  const filtered = q ? allNames.filter(n => n.toLowerCase().includes(q)) : allNames;
+
+  if (countEl) countEl.textContent = allNames.length;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-4 text-center text-slate-400 text-xs">
+        Tidak ada distributor PBF yang cocok dengan "${escapeHtml(searchQuery)}".
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(name => {
+    const isCustom = customMap.has(name.toLowerCase());
+    const customData = customMap.get(name.toLowerCase());
+    const metaParts = [];
+    if (customData && typeof customData === 'object') {
+      if (customData.sales) metaParts.push(`Sales: ${escapeHtml(customData.sales)}`);
+      if (customData.phone) metaParts.push(`Telp: ${escapeHtml(customData.phone)}`);
+    }
+
+    return `
+      <div class="p-2.5 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-zinc-800/50 transition-colors">
+        <div class="min-w-0 pr-2">
+          <div class="font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-1.5">
+            <span class="truncate">${escapeHtml(name)}</span>
+            ${isCustom ? `<span class="text-[9px] px-1.5 py-0.2 rounded-md bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-500/20">Kustom</span>` : `<span class="text-[9px] px-1.5 py-0.2 rounded-md bg-slate-100 dark:bg-zinc-800 text-slate-500 font-medium">Bawaan</span>`}
+          </div>
+          ${metaParts.length > 0 ? `<div class="text-[10px] text-slate-400 dark:text-zinc-500 font-mono mt-0.5">${metaParts.join(' &bull; ')}</div>` : ''}
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button type="button" onclick="selectPbfForInvoice('${escapeHtml(name)}')" class="px-2 py-1 text-[10px] font-bold bg-slate-100 hover:bg-emerald-600 hover:text-white dark:bg-zinc-800 dark:hover:bg-emerald-600 text-slate-700 dark:text-zinc-300 rounded-lg transition-all cursor-pointer">
+            Pilih
+          </button>
+          ${isCustom ? `
+            <button type="button" onclick="deleteCustomDistributor('${escapeHtml(name)}')" title="Hapus PBF kustom ini" class="p-1 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 rounded-lg transition-colors cursor-pointer">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function selectPbfForInvoice(name) {
+  const supplierInput = document.getElementById('input-faktur-supplier');
+  if (supplierInput) {
+    supplierInput.value = name;
+  }
+  closePbfModal();
+  showToast(`Distributor "${name}" dipilih untuk faktur.`, 'info');
 }
 
 // -------------------------------------------------------------------------
@@ -301,19 +513,38 @@ function renderCurrentPurchaseTable(fullRerender = true) {
 // SIMPAN FAKTUR PEMBELIAN (UPDATE STOK & CATAT PENGELUARAN)
 // -------------------------------------------------------------------------
 function handleSavePurchaseInvoice(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
 
   if (currentPurchaseItems.length === 0) {
     showToast("Tambahkan minimal 1 item obat ke dalam faktur!", "warning");
     return;
   }
 
-  const noFakturDistributor = document.getElementById('input-faktur-distributor').value.trim();
-  const supplierName = document.getElementById('input-faktur-supplier').value.trim() || 'PBF Umum';
-  const tglFaktur = document.getElementById('input-faktur-tanggal').value || new Date().toISOString().split('T')[0];
-  const statusBayar = document.getElementById('select-faktur-status-bayar').value;
-  const jatuhTempo = document.getElementById('input-faktur-jatuh-tempo').value || '-';
-  const catatan = document.getElementById('input-faktur-catatan').value.trim();
+  const noFakturEl = document.getElementById('input-faktur-no') || document.getElementById('input-faktur-distributor');
+  const noFakturDistributor = noFakturEl ? noFakturEl.value.trim() : '';
+
+  const supplierEl = document.getElementById('input-faktur-supplier');
+  const supplierName = (supplierEl ? supplierEl.value.trim() : '') || 'PBF Umum';
+
+  const tglEl = document.getElementById('input-faktur-tanggal');
+  const tglFaktur = (tglEl ? tglEl.value : '') || new Date().toISOString().split('T')[0];
+
+  const statusEl = document.getElementById('select-faktur-status-bayar');
+  const statusBayar = statusEl ? statusEl.value : 'Lunas';
+
+  const jatuhTempoEl = document.getElementById('input-faktur-jatuh-tempo');
+  const jatuhTempo = (jatuhTempoEl ? jatuhTempoEl.value : '') || '-';
+
+  const catatanEl = document.getElementById('input-faktur-catatan');
+  const catatan = catatanEl ? catatanEl.value.trim() : '';
+
+  // Otomatis simpan supplier ke daftar custom PBF jika belum ada
+  if (supplierName && supplierName !== 'PBF Umum') {
+    const allPbfs = getAllDistributors();
+    if (!allPbfs.some(p => p.toLowerCase() === supplierName.toLowerCase())) {
+      addCustomDistributor(supplierName);
+    }
+  }
 
   let totalPengeluaran = 0;
   let totalQty = 0;
@@ -367,7 +598,8 @@ function handleSavePurchaseInvoice(e) {
 
   // Reset Form
   currentPurchaseItems = [];
-  document.getElementById('form-pembelian-barang').reset();
+  const formEl = document.getElementById('form-purchase-invoice') || document.getElementById('form-pembelian-barang');
+  if (formEl) formEl.reset();
   renderPurchaseModule();
 
   // Sinkronkan data faktur ke Firebase jika terhubung
@@ -569,3 +801,14 @@ function updateExpenseStats() {
     }
   }
 }
+
+// Global Window Bindings for PBF & Purchases
+window.savePurchaseInvoice = handleSavePurchaseInvoice;
+window.handleSavePurchaseInvoice = handleSavePurchaseInvoice;
+window.openAddPbfModal = openAddPbfModal;
+window.openManagePbfModal = openManagePbfModal;
+window.closePbfModal = closePbfModal;
+window.handleSaveNewPbf = handleSaveNewPbf;
+window.filterModalPbfList = filterModalPbfList;
+window.deleteCustomDistributor = deleteCustomDistributor;
+window.selectPbfForInvoice = selectPbfForInvoice;
