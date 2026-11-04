@@ -73,6 +73,7 @@ function renderPurchaseModule() {
   renderCurrentPurchaseTable();
   renderPurchaseHistoryTable();
   populateSupplierDatalist();
+  setupSupplierInputListeners();
 }
 
 // Generate nomor otomatis faktur internal apotek
@@ -184,13 +185,61 @@ function populateSupplierDatalist() {
   const datalist = document.getElementById('supplier-list-options');
   if (!datalist) return;
   const list = getAllDistributors();
-  datalist.innerHTML = list.map(pbf => `<option value="${escapeHtml(pbf)}">`).join('');
+  const options = [
+    `<option value="+ Tambah PBF Baru...">➕ Klik untuk Daftarkan Nama PBF Baru</option>`,
+    ...list.map(pbf => `<option value="${escapeHtml(pbf)}">`)
+  ];
+  datalist.innerHTML = options.join('');
 
   // Update badge jumlah PBF jika ada
   const badge = document.getElementById('pbf-registered-count-badge');
   if (badge) {
     badge.textContent = `${list.length} PBF Rekanan`;
   }
+}
+
+let supplierListenerInitialized = false;
+function setupSupplierInputListeners() {
+  const supplierInput = document.getElementById('input-faktur-supplier');
+  if (!supplierInput || supplierListenerInitialized) return;
+  supplierListenerInitialized = true;
+
+  // Intercept Enter key so it doesn't trigger the invoice form submit warning
+  supplierInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const val = String(e.target.value || '').trim();
+      if (val && val !== '+ Tambah PBF Baru...') {
+        const allPbfs = getAllDistributors();
+        const alreadyExists = allPbfs.some(p => p.toLowerCase() === val.toLowerCase());
+        if (!alreadyExists) {
+          addCustomDistributor(val);
+          showToast(`✅ PBF "${val}" berhasil didaftarkan ke daftar pilihan!`, 'success');
+        } else {
+          showToast(`Distributor "${val}" dipilih.`, 'info');
+        }
+      }
+      const nextEl = document.getElementById('input-faktur-tanggal');
+      if (nextEl) nextEl.focus();
+    }
+  });
+
+  // When value changes or user finishes typing (blur)
+  supplierInput.addEventListener('change', (e) => {
+    const val = String(e.target.value || '').trim();
+    if (!val) return;
+    if (val === '+ Tambah PBF Baru...') {
+      e.target.value = '';
+      openAddPbfModal();
+      return;
+    }
+    const allPbfs = getAllDistributors();
+    const alreadyExists = allPbfs.some(p => p.toLowerCase() === val.toLowerCase());
+    if (!alreadyExists) {
+      addCustomDistributor(val);
+      showToast(`✅ PBF "${val}" otomatis tersimpan ke daftar pilihan!`, 'success');
+    }
+  });
 }
 
 // Modal Kelola & Tambah PBF

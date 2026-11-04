@@ -47,7 +47,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=2.3.0">
+  <link rel="stylesheet" href="style.css?v=2.4.1">
 </head>
 <body class="bg-slate-50 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 antialiased h-screen w-screen overflow-hidden flex flex-col md:flex-row">
 
@@ -509,26 +509,27 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
           <!-- Metadata Faktur -->
           <div class="lg:col-span-8 space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 text-xs">
+              <div class="sm:col-span-4">
                 <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">No. Faktur Distributor: *</label>
                 <input type="text" id="input-faktur-no" required placeholder="Contoh: ENS/2026/1109" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 font-medium">
               </div>
-              <div>
+              <div class="sm:col-span-5">
                 <div class="flex items-center justify-between mb-1">
                   <label class="block font-semibold text-slate-700 dark:text-zinc-300">Distributor / PBF: *</label>
-                  <div class="flex items-center gap-1.5">
-                    <span id="pbf-registered-count-badge" class="text-[10px] font-mono text-slate-400">15 PBF Rekanan</span>
-                    <button type="button" onclick="openAddPbfModal()" class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 flex items-center gap-1 cursor-pointer bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-lg border border-emerald-200 dark:border-emerald-500/20">
-                      <i data-lucide="plus" class="w-3 h-3"></i> + Tambah PBF
-                    </button>
-                  </div>
+                  <span id="pbf-registered-count-badge" class="text-[10px] font-mono text-slate-400">15 PBF Rekanan</span>
                 </div>
-                <input type="text" id="input-faktur-supplier" list="supplier-list-options" required placeholder="Ketik nama PBF baru atau pilih dari daftar..." class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 font-medium">
+                <div class="flex gap-1.5 relative">
+                  <input type="text" id="input-faktur-supplier" list="supplier-list-options" required placeholder="Pilih / ketik nama PBF..." class="min-w-0 flex-1 px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 font-medium">
+                  <button type="button" onclick="openAddPbfModal()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl flex items-center gap-1 transition-all cursor-pointer shadow-xs shrink-0 whitespace-nowrap z-10" title="Daftarkan distributor / PBF baru">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>+ PBF Baru</span>
+                  </button>
+                </div>
                 <datalist id="supplier-list-options"></datalist>
-                <p class="text-[10px] text-slate-400 dark:text-zinc-500 mt-1">Bisa langsung ketik nama PBF baru (otomatis tersimpan) atau klik <b>+ Tambah PBF</b>.</p>
+                <p class="text-[10px] text-slate-400 dark:text-zinc-500 mt-1">Ketik nama PBF lalu tekan Enter, atau klik <b>+ PBF Baru</b>.</p>
               </div>
-              <div>
+              <div class="sm:col-span-3">
                 <label class="block font-semibold text-slate-700 dark:text-zinc-300 mb-1">Tanggal Faktur:</label>
                 <input type="date" id="input-faktur-tanggal" class="w-full px-3 py-2 border border-slate-200 dark:border-zinc-700 rounded-xl bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100">
               </div>
@@ -851,6 +852,32 @@
             </button>
           </div>
         </form>
+      </div>
+
+      <!-- Rekanan Distributor / PBF Settings Card -->
+      <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-xs space-y-4">
+        <div class="pb-3 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between">
+          <div>
+            <h2 class="text-sm font-bold text-slate-900 dark:text-zinc-100 flex items-center gap-2">
+              <i data-lucide="truck" class="w-4 h-4 text-emerald-600"></i>
+              <span>DAFTAR REKANAN DISTRIBUTOR (PBF)</span>
+            </h2>
+            <p class="text-xs text-slate-400">Kelola daftar supplier distributor resmi untuk pembelian dan kulakan obat apotek</p>
+          </div>
+          <button type="button" onclick="openAddPbfModal()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>+ Tambah PBF Baru</span>
+          </button>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Klik tombol untuk mendaftarkan nama distributor PBF baru lengkap dengan kontak sales & alamat.</span>
+            <button type="button" onclick="openManagePbfModal()" class="text-xs font-bold text-emerald-600 hover:underline cursor-pointer flex items-center gap-1">
+              <i data-lucide="list" class="w-3.5 h-3.5"></i> Lihat Semua Rekanan PBF
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Settings Form Card -->
@@ -1788,13 +1815,13 @@
   <div id="toast-container"></div>
 
   <!-- JAVASCRIPT APPLICATION LOGIC (Cache-Busted v2.2.0) -->
-  <script src="security-guard.js?v=2.3.0"></script>
-  <script src="excel-util.js?v=2.3.0"></script>
-  <script src="drug-database.js?v=2.3.0"></script>
-  <script src="initial-data.js?v=2.3.0"></script>
-  <script src="purchases.js?v=2.3.0"></script>
-  <script src="firebase-sync.js?v=2.3.0"></script>
-  <script src="app.js?v=2.3.0"></script>
+  <script src="security-guard.js?v=2.4.1"></script>
+  <script src="excel-util.js?v=2.4.1"></script>
+  <script src="drug-database.js?v=2.4.1"></script>
+  <script src="initial-data.js?v=2.4.1"></script>
+  <script src="purchases.js?v=2.4.1"></script>
+  <script src="firebase-sync.js?v=2.4.1"></script>
+  <script src="app.js?v=2.4.1"></script>
   <script>
     if (typeof lucide !== "undefined") {
       lucide.createIcons();

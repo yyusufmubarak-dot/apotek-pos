@@ -279,11 +279,15 @@ function disconnectFirebase() {
 function populateFirebaseSettingsForm() {
   const config = getSavedFirebaseConfig();
   if (config) {
-    document.getElementById('fb-api-key').value = config.apiKey || '';
-    document.getElementById('fb-auth-domain').value = config.authDomain || '';
-    document.getElementById('fb-project-id').value = config.projectId || '';
-    document.getElementById('fb-storage-bucket').value = config.storageBucket || '';
-    document.getElementById('fb-messaging-sender-id').value = config.messagingSenderId || '';
-    document.getElementById('fb-app-id').value = config.appId || '';
+    const setVal = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val || '';
+    };
+    setVal('fb-api-key', config.apiKey);
+    setVal('fb-auth-domain', config.authDomain);
+    setVal('fb-project-id', config.projectId);
+    setVal('fb-storage-bucket', config.storageBucket);
+    setVal('fb-messaging-sender-id', config.messagingSenderId);
+    setVal('fb-app-id', config.appId);
   }
 }
