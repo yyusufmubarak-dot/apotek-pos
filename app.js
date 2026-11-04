@@ -1537,7 +1537,17 @@ function renderInventoryTable() {
         <td class="p-3">
           <div class="font-semibold text-slate-100">${item.nama}</div>
           <div class="text-[10px] text-slate-500 font-medium">${item.produsen || 'Generic'}</div>
-          ${item.indikasi ? `<div class="pill-indikasi mt-1 font-sans"><i data-lucide="stethoscope" class="w-2.5 h-2.5 text-cyan-400 flex-shrink-0"></i> ${escapeHtml(item.indikasi)}</div>` : ''}
+          ${item.indikasi ? `
+            <div onclick="openQuickEditIndikasi('${item.id}', event)" title="Klik untuk edit indikasi obat ini" class="pill-indikasi mt-1 font-sans cursor-pointer hover:ring-2 hover:ring-teal-400 dark:hover:ring-teal-400 transition-all inline-flex items-center gap-1 group">
+              <i data-lucide="stethoscope" class="w-2.5 h-2.5 text-cyan-500 dark:text-cyan-400 flex-shrink-0"></i>
+              <span>${escapeHtml(item.indikasi)}</span>
+              <span class="text-[9px] text-teal-600 dark:text-teal-300 font-bold ml-1 opacity-70 group-hover:opacity-100">✏️ Edit</span>
+            </div>
+          ` : `
+            <div onclick="openQuickEditIndikasi('${item.id}', event)" title="Klik untuk tambah indikasi obat ini" class="mt-1 inline-flex items-center gap-1 text-[10px] text-teal-600 dark:text-teal-400 hover:underline cursor-pointer">
+              <i data-lucide="plus-circle" class="w-2.5 h-2.5"></i> + Tambah Indikasi
+            </div>
+          `}
         </td>
         <td class="p-3">
           <div class="flex flex-col gap-1 items-start">
@@ -2444,3 +2454,84 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+// =========================================================================
+// QUICK EDIT INDIKASI & KIE OBAT
+// =========================================================================
+function openQuickEditIndikasi(id, event) {
+  if (event) event.stopPropagation();
+
+  // Jika kasir belum login Admin, minta PIN admin
+  if (typeof currentRole !== 'undefined' && currentRole !== 'superadmin') {
+    requestSuperAdminLogin(() => openQuickEditIndikasi(id));
+    return;
+  }
+
+  const med = (medicines || []).find(m => m.id === id);
+  if (!med) return;
+
+  const modal = document.getElementById('modal-quick-edit-indikasi');
+  if (!modal) return;
+
+  document.getElementById('quick-indikasi-id').value = med.id;
+  document.getElementById('quick-indikasi-nama').textContent = med.nama;
+  document.getElementById('quick-indikasi-subtitle').textContent = `Barcode: ${med.barcode} • ${med.kategori}`;
+  
+  const textEl = document.getElementById('quick-indikasi-text');
+  if (textEl) {
+    textEl.value = med.indikasi || '';
+    setTimeout(() => textEl.focus(), 100);
+  }
+
+  const aturanEl = document.getElementById('quick-indikasi-aturan');
+  if (aturanEl) {
+    aturanEl.value = med.aturanPakai || '';
+  }
+
+  modal.classList.remove('hidden');
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function closeQuickEditIndikasiModal() {
+  const modal = document.getElementById('modal-quick-edit-indikasi');
+  if (modal) modal.classList.add('hidden');
+}
+
+function setQuickIndikasiTemplate(template) {
+  const textEl = document.getElementById('quick-indikasi-text');
+  if (textEl) {
+    textEl.value = template;
+    textEl.focus();
+  }
+}
+
+function handleSaveQuickIndikasi(e) {
+  if (e) e.preventDefault();
+  const id = document.getElementById('quick-indikasi-id').value;
+  const newIndikasi = document.getElementById('quick-indikasi-text').value.trim();
+  const newAturan = document.getElementById('quick-indikasi-aturan').value.trim();
+
+  const med = (medicines || []).find(m => m.id === id);
+  if (!med) return;
+
+  med.indikasi = newIndikasi;
+  med.aturanPakai = newAturan;
+
+  saveMedicinesToStorage();
+  renderInventoryTable();
+  if (typeof renderPosQuickGrid === 'function') {
+    renderPosQuickGrid(currentPosGridCategory, '');
+  }
+
+  if (typeof syncMedicineToCloud === 'function') {
+    syncMedicineToCloud(med);
+  }
+
+  closeQuickEditIndikasiModal();
+  showToast(`✅ Indikasi obat "${med.nama}" berhasil diperbarui!`, "success");
+}
+
+window.openQuickEditIndikasi = openQuickEditIndikasi;
+window.closeQuickEditIndikasiModal = closeQuickEditIndikasiModal;
+window.setQuickIndikasiTemplate = setQuickIndikasiTemplate;
+window.handleSaveQuickIndikasi = handleSaveQuickIndikasi;
